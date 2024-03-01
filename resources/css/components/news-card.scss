@@ -1,0 +1,40 @@
+.news-card {
+    padding: 48rem 68rem 44rem;
+    border-radius: 4px;
+    border: 1px solid $bgGrayLight;
+    height: 430rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    width: 732rem;
+
+    &:hover {
+        background: $bgBlack;
+        color: $textWhite;
+        border: 1px solid $bgBlack;
+
+        .news-card__text {
+            color: $textWhite;
+        }
+    }
+}
+
+.news-card__title {
+    font-weight: 400;
+    line-height: 110%;
+    font-size: 40rem;
+}
+
+.news-card__text {
+    margin-top: 34rem;
+    color: $textGray;
+    max-width: 560rem;
+}
+
+.news-card__bottom {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

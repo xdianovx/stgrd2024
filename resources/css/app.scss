@@ -53,6 +53,8 @@ section {
 @import './components/director_slide.scss';
 @import './components/enterprise-item.scss';
 @import './components/project-item.scss';
+@import './components/news-card.scss';
+@import './components/subscribe.scss';
 
 
 // UI Elements
@@ -64,6 +66,8 @@ section {
 @import './ui/link.scss';
 @import './ui/plus.scss';
 @import './ui/breadcrumbs.scss';
+@import './ui/showmore-btn.scss';
+@import './ui/input.scss';
 
 // Sections
 @import './section/hero.scss';
@@ -82,3 +86,4 @@ section {
 // Pages
 @import './pages/about.scss';
 @import './pages/projects.scss';
+@import './pages/news.scss';

@@ -23,3 +23,11 @@ Route::get('/about', function () {
 Route::get('/projects', function () {
     return view('projects');
 });
+
+Route::get('/news', function () {
+    return view('news');
+});
+
+Route::get('/stock', function () {
+    return view('stock');
+});

@@ -1,0 +1,51 @@
+.subscribe-section {
+    padding-top: 250rem;
+}
+
+
+.subscribe-section__wrap {
+    display: grid;
+    grid-template-columns: 280rem 980rem;
+    gap: 280rem;
+}
+
+.subscribe-section__title {
+    font-size: 40rem;
+    font-weight: 300;
+}
+
+.subscribe-form {
+    width: 100%;
+    margin-top: 100rem;
+    display: flex;
+    flex-direction: column;
+
+    .form-input {
+        width: 100%;
+        margin-bottom: 40rem;
+    }
+}
+
+
+.subscribe-form__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        font-size: 12rem;
+        color: $textGray;
+        max-width: 280rem;
+    }
+
+}
+
+
+.subscribe-form__btn {
+    background: none;
+    border: 1px solid $bgBlack;
+    width: 50rem;
+    height: 50rem;
+    border-radius: 100%;
+    cursor: pointer;
+}

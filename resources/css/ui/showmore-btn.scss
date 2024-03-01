@@ -1,18 +1,13 @@
-.plus {
-    position: relative;
-    width: 21rem;
-    height: 21rem;
+.showmore-btn {
+    color: $textGray;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 16rem;
     cursor: pointer;
 
-    span {
-        position: absolute;
-        background: $bgBlack;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 2rem;
-        width: 100%;
-        transition: transform .3s cubic-bezier(.47, 2, .1, .8);
+    p {
+        display: block;
     }
 
     &:hover {
@@ -20,6 +15,28 @@
             transform: translate(-50%, -50%) rotate(0deg);
         }
     }
+
+
+
+}
+
+.showmore-plus {
+    position: relative;
+    width: 21rem;
+    height: 21rem;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        background: $bgGray;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 1rem;
+        width: 100%;
+        transition: transform .3s cubic-bezier(.47, 2, .1, .8);
+    }
+
 
     .vertical {
         transform: translate(-50%, -50%) rotate(90deg);
