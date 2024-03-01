@@ -1,0 +1,69 @@
+.vacancy-item {
+    cursor: pointer;
+
+    &:hover {
+        .vertical {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+    }
+}
+
+.vacancy-item__tab {
+    display: grid;
+    padding: 40rem 0;
+    grid-template-columns: 560rem 280rem 280rem 260rem 140rem 140rem;
+}
+
+.vacancy-item__title {
+    font-weight: 400;
+    font-size: 24rem;
+    line-height: 1;
+}
+
+
+.team-reviews {
+    margin-top: 400rem;
+
+    .hr {
+        margin-top: 140rem;
+    }
+}
+
+.team-reviews__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .link {
+        font-size: 20rem;
+    }
+}
+
+
+.team-reviews__title {
+    font-size: 128rem;
+    font-weight: 300;
+    line-height: 80%;
+}
+
+.team-reviews__wrap {
+    margin-top: 90rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60rem;
+}
+
+.team-reviews__item {
+    h3 {
+        font-size: 40rem;
+        line-height: 100%;
+        font-weight: 300;
+        margin-top: 40rem;
+    }
+}
+
+.team-reviews__item_position {
+    margin-top: 20rem;
+    font-size: 20rem;
+    line-height: 100%;
+}

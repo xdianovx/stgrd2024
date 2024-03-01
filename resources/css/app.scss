@@ -38,7 +38,8 @@ section {
 }
 
 .container {
-    max-width: 1760rem;
+    max-width: 1680rem;
+    // padding: 0 40rem;
     margin: 0 auto;
     width: 100%;
 }
@@ -55,6 +56,7 @@ section {
 @import './components/project-item.scss';
 @import './components/news-card.scss';
 @import './components/subscribe.scss';
+@import './components/vacancy-item.scss';
 
 
 // UI Elements
@@ -82,8 +84,11 @@ section {
 @import './section/directors.scss';
 @import './section/map.scss';
 @import './section/enterprises.scss';
+@import './section/work-for-you.scss';
 
 // Pages
 @import './pages/about.scss';
 @import './pages/projects.scss';
 @import './pages/news.scss';
+@import './pages/team.scss';
+@import './pages/vacancy.scss';

@@ -31,3 +31,12 @@ Route::get('/news', function () {
 Route::get('/stock', function () {
     return view('stock');
 });
+
+
+Route::get('/team', function () {
+    return view('team');
+});
+
+Route::get('/vacancy', function () {
+    return view('vacancy');
+});

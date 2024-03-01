@@ -1,0 +1,46 @@
+.vacancy-page {}
+
+.vacancy-page-title {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 218rem;
+    line-height: 100%;
+    margin-top: 366rem;
+}
+
+.vacancy-page-hero__text {
+    margin-top: 235rem;
+    max-width: 560rem;
+    font-size: 20rem;
+    margin-left: 1100rem;
+    font-weight: 400;
+}
+
+
+.actual-vacancy {
+    margin-top: 410rem;
+}
+
+.actual-vacancy__wrap {
+    margin-top: 160rem;
+}
+
+.actual-vacancy__top {
+    display: grid;
+    align-items: flex-end;
+    grid-template-columns: 560rem 560rem 560rem;
+}
+
+.actual-vacancy__title {
+    font-weight: 400;
+    font-size: 56rem;
+    line-height: 100%;
+}
+
+.actual-vacancy__count {
+    color: $textGray;
+    line-height: 100%;
+    margin-bottom: 6rem;
+}
+
+.actual-vacancy__city {}

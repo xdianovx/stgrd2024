@@ -1,0 +1,21 @@
+.workforyou {
+    margin-top: 250rem;
+}
+
+.workforyou__wrap {
+    display: grid;
+    grid-template-columns: 250rem 980rem;
+    gap: 280rem;
+}
+
+.workforyou__count {
+    margin-top: 30rem;
+    line-height: 1;
+    color: $textGray;
+}
+
+.workforyou__info {
+    .link {
+        margin-top: 80rem;
+    }
+}
