@@ -245,7 +245,6 @@
             </div>
         </section>
 
-        <x-subscribe />
 
         <section class="spacer"></section>
     </main>

@@ -40,3 +40,7 @@ Route::get('/team', function () {
 Route::get('/vacancy', function () {
     return view('vacancy');
 });
+
+Route::get('/contacts', function () {
+    return view('contacts');
+});
