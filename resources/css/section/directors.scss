@@ -1,0 +1,58 @@
+.directors {
+    padding-top: 240rem;
+
+    .swiper-slide {
+        max-width: 560rem;
+        margin-right: 25rem;
+    }
+}
+
+.director-slide__info {
+    cursor: pointer;
+}
+
+.directors__wrap {
+    display: grid;
+    grid-template-columns: 560rem 980rem;
+}
+
+.directors__left {
+    background: $bgWhite;
+    position: relative;
+    z-index: 2;
+    position: relative;
+
+    .square_btn {
+        margin-top: 72rem;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100vw;
+        left: -100vw;
+        height: 100%;
+        background: $bgWhite;
+    }
+}
+
+.directors__left_text {
+    max-width: 280rem;
+    margin-top: 40rem;
+    font-weight: 400;
+}
+
+.directors-slider {
+    overflow: visible;
+}
+
+.director-slide__title {
+    font-size: 24rem;
+    line-height: 100%;
+    font-weight: 400;
+}
+
+.director-slide__position {
+    margin-top: 9rem;
+    color: $textGray;
+}

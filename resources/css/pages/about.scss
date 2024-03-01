@@ -1,0 +1,48 @@
+.about {
+    .line {
+        padding: 100rem 0;
+        background: $bgWhite;
+    }
+}
+
+.about-hero {
+    .breadcrumbs {
+        padding-top: 46rem;
+    }
+}
+
+.about-title {
+    text-transform: uppercase;
+    font-size: 218rem;
+    line-height: 100%;
+    font-weight: 400;
+    padding-top: 190rem;
+}
+
+
+.about-info {
+    margin-top: 150rem;
+    display: grid;
+    grid-template-columns: 280rem 980rem;
+    gap: 280rem;
+}
+
+.map__left {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-map {
+    height: 920rem;
+    margin-top: 113rem;
+    background: $bgGray;
+}
+
+.map-selector {
+    margin-top: auto;
+    font-size: 32rem;
+    line-height: 100%;
+    color: $textGray;
+    margin-bottom: 4rem;
+    cursor: pointer;
+}

@@ -4,4 +4,9 @@ export const sliders = () => {
         slidesPerView: "auto",
         speed: 400,
     });
+
+    const directorsSlider = new Swiper(".directors-slider", {
+        slidesPerView: "auto",
+        speed: 400,
+    });
 };

@@ -1,0 +1,59 @@
+.footer {
+    background: $bgBlack;
+    color: $textWhite;
+    height: 970rem;
+    // position: sticky;
+    bottom: 0;
+    z-index: -1;
+}
+
+
+.footer__wrap {
+    padding-left: 200rem;
+    padding-top: 390rem;
+}
+
+.footer__cta {
+    display: flex;
+    align-items: center;
+    gap: 140rem;
+}
+
+.footer__title {
+    font-size: 96rem;
+    line-height: 100%;
+}
+
+.footer__btn {
+    width: 280rem;
+    height: 160rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $bgGrayLight;
+    border-radius: 4px;
+    font-size: 48rem;
+    line-height: 100%;
+}
+
+
+.footer__bottom {
+    margin-top: 230rem;
+    display: flex;
+    gap: 180rem;
+}
+
+.footer__bottom_item {
+    display: flex;
+    flex-direction: column;
+    gap: 26rem;
+
+    span {
+        line-height: 100%;
+    }
+
+    a {
+        font-size: 28rem;
+        line-height: 100%;
+    }
+}

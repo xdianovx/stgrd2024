@@ -1,3 +1,3 @@
-<button class="square_btn">
+<a {{ $attributes }} class="square_btn">
     {{ $slot }}
-</button>
+</a>

@@ -5,7 +5,8 @@
         <p {{ $attributes->class(['text md']) }}>{!! $slot !!}</p>
     @break
 
-    @case(2)
+    @case('sm')
+        <p {{ $attributes->class(['text sm']) }}>{!! $slot !!}</p>
     @break
 
     @default

@@ -17,6 +17,18 @@ html {
     overflow-x: hidden;
 }
 
+// @media screen and (max-width: 1920px) {
+//     html {
+//         font-family: "Gilroy", sans-serif;
+//         font-weight: 300;
+//         font-size: calc(100vw / 1920);
+//         line-height: 1.4;
+//         overflow-x: hidden;
+//     }
+// }
+
+
+
 body {
     font-size: 16rem;
 }
@@ -37,6 +49,9 @@ section {
 @import './components/mission_card.scss';
 @import './components/offer_slide.scss';
 @import './components/feature_row.scss';
+@import './components/footer.scss';
+@import './components/director_slide.scss';
+@import './components/enterprise-item.scss';
 
 
 // UI Elements
@@ -47,8 +62,9 @@ section {
 @import './ui/dropdown.scss';
 @import './ui/link.scss';
 @import './ui/plus.scss';
+@import './ui/breadcrumbs.scss';
 
-// Sevtions
+// Sections
 @import './section/hero.scss';
 @import './section/video.scss';
 @import './section/mission.scss';
@@ -58,3 +74,9 @@ section {
 @import './section/features.scss';
 @import './section/life.scss';
 @import './section/connect.scss';
+@import './section/directors.scss';
+@import './section/map.scss';
+@import './section/enterprises.scss';
+
+// Pages
+@import './pages/about.scss'

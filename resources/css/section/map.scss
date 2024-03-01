@@ -1,0 +1,10 @@
+.map {
+    padding-top: 250rem;
+}
+
+
+.map__wrap {
+    display: grid;
+    grid-template-columns: 280rem 980rem;
+    gap: 280rem;
+}

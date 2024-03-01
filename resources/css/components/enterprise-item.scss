@@ -1,0 +1,26 @@
+.enterprise-item {}
+
+
+.enterprise-item__wrap {
+    padding: 50rem 0;
+    cursor: pointer;
+}
+
+.enterprise-item__tab {
+    display: grid;
+    grid-template-columns: 560rem 420rem 280rem 420rem;
+}
+
+.enterprise-item__title {
+    font-size: 40rem;
+    font-weight: 300;
+    line-height: 100%;
+}
+
+.enterprise-item__year {
+    text-align: right;
+}
+
+.enterprise-item__site-title {
+    font-weight: 400;
+}

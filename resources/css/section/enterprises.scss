@@ -1,0 +1,44 @@
+.enterprises {
+    padding-top: 250rem;
+}
+
+.enterprises__top {
+    display: grid;
+    grid-template-columns: 280rem 980rem;
+    gap: 280rem;
+}
+
+.enterprises__description {
+    margin-top: 70rem;
+    max-width: 560rem;
+
+
+}
+
+.enterprises__info {
+    .text {
+        font-size: 40rem;
+    }
+}
+
+
+.enterprises__wrap {
+    margin-top: 100rem;
+}
+
+.enterprises__head .hr {
+    margin-top: 24rem;
+}
+
+.enterprises__head_title {
+    display: grid;
+    grid-template-columns: 560rem 420rem 280rem 420rem;
+
+    p {
+        color: $textGray;
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+}

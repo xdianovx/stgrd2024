@@ -1,0 +1,23 @@
+.director-slide {}
+
+.director-slide__image {
+    height: 810rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+
+.director-slide__info {
+    margin-top: 26rem;
+    display: flex;
+    align-items: flex-start;
+
+    .plus {
+        margin-left: auto;
+    }
+}
