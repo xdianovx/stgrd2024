@@ -52,6 +52,7 @@ section {
 @import './components/footer.scss';
 @import './components/director_slide.scss';
 @import './components/enterprise-item.scss';
+@import './components/project-item.scss';
 
 
 // UI Elements
@@ -79,4 +80,5 @@ section {
 @import './section/enterprises.scss';
 
 // Pages
-@import './pages/about.scss'
+@import './pages/about.scss';
+@import './pages/projects.scss';
