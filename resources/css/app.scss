@@ -1,0 +1,60 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+@import '../../node_modules/swiper/swiper-bundle.css';
+@import '../../node_modules/normalize.css/normalize.css';
+@import './fonts.scss';
+@import './vars.scss';
+@import './reset.scss';
+@import './helpers.scss';
+
+html {
+    font-family: "Gilroy", sans-serif;
+    font-weight: 300;
+    font-size: calc(100vw / 1920);
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 16rem;
+}
+
+section {
+    @apply bg-white;
+}
+
+.container {
+    max-width: 1760rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+// Components
+@import './components/header.scss';
+@import './components/navigation.scss';
+@import './components/mission_card.scss';
+@import './components/offer_slide.scss';
+@import './components/feature_row.scss';
+
+
+// UI Elements
+@import './ui/burger.scss';
+@import './ui/titles.scss';
+@import './ui/texts.scss';
+@import './ui/square_btn.scss';
+@import './ui/dropdown.scss';
+@import './ui/link.scss';
+@import './ui/plus.scss';
+
+// Sevtions
+@import './section/hero.scss';
+@import './section/video.scss';
+@import './section/mission.scss';
+@import './section/projects.scss';
+@import './section/offers_slider.scss';
+@import './section/marquee.scss';
+@import './section/features.scss';
+@import './section/life.scss';
+@import './section/connect.scss';

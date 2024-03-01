@@ -1,0 +1,21 @@
+.hr {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    background: $bgGrayLight;
+    transition: width, opacity .3s ease-in-out;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.block {
+    display: block;
+}
+
+
+
+.uppercase {
+    text-transform: uppercase;
+}

@@ -1,0 +1,24 @@
+.burger {
+    position: relative;
+    width: 50rem;
+    cursor: pointer;
+    height: 50rem;
+
+    .top,
+    .bottom {
+        position: absolute;
+        background: $bgBlack;
+        height: 2rem;
+    }
+
+    .top {
+        top: 21rem;
+        width: 100%;
+    }
+
+    .bottom {
+        bottom: 21rem;
+        width: 30rem;
+        right: 0;
+    }
+}

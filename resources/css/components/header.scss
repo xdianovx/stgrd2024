@@ -1,0 +1,10 @@
+@import '../vars.scss';
+
+.header {}
+
+.header__wrap {
+    border-bottom: 1px solid $bgGrayLight;
+    padding: 58rem 0;
+    display: flex;
+    align-items: center;
+}

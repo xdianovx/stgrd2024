@@ -1,0 +1,27 @@
+.link {
+    position: relative;
+    font-weight: 400;
+    display: inline-block;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: -2rem;
+        width: 100%;
+        height: 1rem;
+        right: auto;
+        left: 0;
+        background: $bgBlack;
+        transition: all .2s ease-in-out;
+    }
+
+    &:hover {
+        &::before {
+            width: 0;
+            left: auto;
+            right: 0;
+        }
+
+    }
+}

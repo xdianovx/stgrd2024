@@ -1,0 +1,28 @@
+.connect {
+    height: 100vh;
+
+    .container {
+        height: 100%;
+    }
+}
+
+
+.connect__wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .link {
+        margin-top: 32rem;
+    }
+}
+
+.connect__title {
+    text-align: center;
+    font-size: 40rem;
+    font-weight: 300;
+    line-height: 110%;
+    margin-top: 50rem;
+}

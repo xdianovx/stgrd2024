@@ -1,0 +1,29 @@
+.mission-card {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+        padding-top: 30rem;
+        font-weight: 400;
+
+    }
+}
+
+.mission-card__wrap {
+    margin-top: 60rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.mission-card__num {
+    font-size: 128rem;
+    line-height: 100%;
+    font-weight: 400;
+}
+
+
+.mission-card__text {
+    font-size: 40rem;
+    line-height: 80%;
+    margin-bottom: 16rem;
+}

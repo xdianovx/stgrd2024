@@ -1,0 +1,20 @@
+.features {
+    margin-top: 250rem;
+}
+
+
+.features__top {
+    display: grid;
+    grid-template-columns: 280rem 980rem;
+    gap: 280rem;
+}
+
+.features__discription {
+    margin-top: 70rem;
+    max-width: 560rem;
+    width: 100%;
+}
+
+.features__cards {
+    margin-top: 100rem;
+}

@@ -1,0 +1,66 @@
+.offer-slide {
+    min-height: 476rem;
+    border: 1px solid $bgGrayLight;
+    cursor: pointer;
+    display: block;
+    transition: all .3s ease-in-out;
+    color: $textBlack;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        background: $bgBlack;
+        color: $textWhite;
+        border: 1px solid $bgBlack;
+
+        .hr {
+            opacity: 0;
+        }
+
+        .offer-slide__image {
+            opacity: 1;
+        }
+    }
+
+    .hr {
+        margin-top: 190rem;
+        position: relative;
+        left: auto;
+        right: auto;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.offer-slide__inner {
+    padding: 42rem 45rem;
+    position: relative;
+    z-index: 2;
+
+}
+
+.offer-slide__image {
+    position: absolute;
+    transition: opacity .6s ease-in-out;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    opacity: 0;
+}
+
+.offer-slide__title {
+    font-size: 32rem;
+    line-height: 120%;
+    font-weight: 400;
+}
+
+.offer-slide__description {
+    margin-top: 20rem;
+}

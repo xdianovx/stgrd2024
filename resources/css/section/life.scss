@@ -1,0 +1,22 @@
+.life {
+    height: 100vh;
+
+    .container {
+        height: 100%;
+    }
+}
+
+.life__wrap {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.life__wrap_title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 256rem;
+    line-height: 100%;
+    font-weight: 300;
+}

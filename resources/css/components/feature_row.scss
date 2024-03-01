@@ -1,0 +1,26 @@
+.feature-row {
+    padding: 40rem 0 0 0;
+    cursor: pointer;
+}
+
+.feature-row__wrap {
+    margin-bottom: 40rem;
+}
+
+.feature-row__top {
+    display: grid;
+    grid-template-columns: 460rem 980rem 1fr;
+    align-items: center;
+}
+
+
+.feature-row__title {
+    font-size: 40rem;
+    line-height: 110%;
+    font-weight: 300;
+}
+
+.feature-row__num {
+    font-size: 14rem;
+    line-height: 110%;
+}

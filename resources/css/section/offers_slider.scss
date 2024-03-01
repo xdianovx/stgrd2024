@@ -1,0 +1,30 @@
+.offers-slider {
+    padding-top: 276rem;
+
+    .link__wrap {
+        margin-top: 60rem;
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+            display: inline;
+            margin-left: auto;
+        }
+    }
+
+}
+
+.swiper-offers-slider {
+    overflow: visible;
+
+    .swiper-slide {
+        max-width: 576rem;
+        margin-right: 25rem;
+        transition: all .3s ease-in-out;
+
+
+        &:hover {
+            margin-top: -64rem;
+        }
+    }
+}

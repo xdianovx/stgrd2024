@@ -1,0 +1,27 @@
+.mission {
+    margin-top: 156rem;
+
+    .wrap {
+        display: grid;
+        grid-template-columns: 280rem 980rem;
+        gap: 280rem;
+    }
+
+
+    .text-wrap {
+        margin-top: 70rem;
+        display: flex;
+        gap: 140px;
+    }
+
+    .cards {
+        margin-top: 90rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 140rem 90rem;
+    }
+
+    .square_btn {
+        margin-top: 45rem;
+    }
+}

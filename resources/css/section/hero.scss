@@ -1,0 +1,20 @@
+.hero {
+    .h1 {
+        margin-top: 474rem;
+    }
+}
+
+.hero__top {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin-top: 66rem;
+
+    p {
+        &:last-child {
+            text-align: right;
+            max-width: 414rem;
+            width: 100%;
+        }
+    }
+}
