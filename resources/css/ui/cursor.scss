@@ -1,9 +1,15 @@
 .mf-cursor {
+
+    opacity: 1;
+    mix-blend-mode: difference;
+
     &:before {
+
         transform: scale(1);
         border-radius: 4rem;
-        background: $bgBlack;
-        background-blend-mode: darken;
+        background-color: $bgWhite;
+        // background-color: $bgBlack;
+
     }
 
     &.-pointer::before {

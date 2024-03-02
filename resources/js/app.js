@@ -63,4 +63,4 @@ navigation(lenis, barba);
 sliders();
 burger();
 hero_title(gsap);
-footer(ScrollTrigger);
+// footer(ScrollTrigger);
