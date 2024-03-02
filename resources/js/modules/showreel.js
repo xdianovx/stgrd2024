@@ -3,6 +3,8 @@ export const showreel = (gsap, lenis) => {
 
     if (!short) return;
     const modal = document.querySelector(".showreelmodal");
+    const modalVideo = document.querySelector(".showreelmodal video");
+    const settings__btn = modal.querySelector(".settings__btn");
     let tl = gsap.timeline({
         paused: true,
         defaults: {
@@ -27,8 +29,17 @@ export const showreel = (gsap, lenis) => {
         tl.play();
     });
 
-    modal.addEventListener("click", function () {
+    modalVideo.addEventListener("click", function () {
+        modalVideo.muted = true;
         lenis.start();
         tl.reverse();
+    });
+
+    settings__btn.addEventListener("click", function () {
+        if (modalVideo.muted === true) {
+            modalVideo.muted = false;
+        } else {
+            modalVideo.muted = true;
+        }
     });
 };

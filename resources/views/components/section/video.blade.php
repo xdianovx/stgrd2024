@@ -12,6 +12,10 @@
     </video>
 
     <div class="settings">
-
+        <div class="container">
+            <div class="settings__wrap">
+                <div class="settings__btn">Sound</div>
+            </div>
+        </div>
     </div>
 </div>
