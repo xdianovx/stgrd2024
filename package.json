@@ -14,6 +14,7 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@barba/core": "^2.9.7",
         "@studio-freight/lenis": "^1.0.39",
         "gsap": "^3.12.5",
         "mouse-follower": "^1.1.2",

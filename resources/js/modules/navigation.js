@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-export const navigation = (lenis) => {
+export const navigation = (lenis, barba) => {
     const burger = document.querySelector(".burger");
     const navigation = document.querySelector(".navigation");
     const closeNavigationBtn = document.querySelector(".navigation__close");
@@ -10,6 +10,11 @@ export const navigation = (lenis) => {
         defaults: {
             ease: "power2.inOut",
         },
+    });
+
+    barba.hooks.beforeLeave(() => {
+        tl.reverse();
+        lenis.start();
     });
 
     tl.to(navigation, {

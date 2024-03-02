@@ -1,6 +1,7 @@
 import "./bootstrap";
 import MouseFollower from "mouse-follower";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import barba from "@barba/core";
 import Lenis from "@studio-freight/lenis";
 import { navigation } from "./modules/navigation";
 import gsap from "gsap";
@@ -28,7 +29,31 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-navigation(lenis);
+barba.init({
+    schema: {
+        wrapper: "wrapper",
+    },
+    transitions: [
+        {
+            name: "opacity-transition",
+            leave(data) {
+                gsap.to(data.current.container, {
+                    opacity: 0,
+                });
+            },
+            enter(data) {
+                gsap.from(data.next.container, {
+                    opacity: 0,
+                    onComplete: () => {
+                        ScrollTrigger.refresh();
+                    },
+                });
+            },
+        },
+    ],
+});
+
+navigation(lenis, barba);
 sliders();
 burger();
 hero_title(gsap);

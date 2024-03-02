@@ -12,7 +12,7 @@
     @vite('resources/css/app.scss')
 </head>
 
-<body>
+<body data-barba="wrapper">
     <x-navigation />
     <x-header />
     @yield('content')

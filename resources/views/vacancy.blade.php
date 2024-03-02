@@ -183,7 +183,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main class="vacancy-page">
+    <main class="vacancy-page" data-barba="container" data-barba-namespace="vacancy">
         <section class="vacancy-page-hero">
             <div class="container">
                 <div class="breadcrumbs">breadcrumbs</div>
