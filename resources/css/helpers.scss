@@ -23,3 +23,17 @@
 .spacer {
     padding-top: 250rem;
 }
+
+.dimm {
+    div {
+        transition: 0.5s;
+    }
+
+    &:hover>div {
+        opacity: 0.3;
+    }
+
+    div:hover {
+        opacity: 1;
+    }
+}

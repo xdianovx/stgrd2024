@@ -64,7 +64,7 @@
     </div>
 
 
-    <div class="features__cards">
+    <div class="features__cards dimm">
         @foreach ($data as $item)
             <x-feature_row :num="$item['num']" :title="$item['title']" :image="$item['image']" :description="$item['description']" />
         @endforeach

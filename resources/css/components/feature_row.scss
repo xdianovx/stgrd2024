@@ -1,6 +1,14 @@
 .feature-row {
     padding: 40rem 0 0 0;
     cursor: pointer;
+
+    &:hover {
+        .plus {
+            .vertical {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+        }
+    }
 }
 
 .feature-row__wrap {
