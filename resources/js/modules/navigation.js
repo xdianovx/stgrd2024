@@ -3,6 +3,7 @@ import gsap from "gsap";
 export const navigation = (lenis) => {
     const burger = document.querySelector(".burger");
     const navigation = document.querySelector(".navigation");
+    const closeNavigationBtn = document.querySelector(".navigation__close");
 
     const tl = gsap.timeline({
         paused: true,
@@ -20,7 +21,7 @@ export const navigation = (lenis) => {
         tl.play();
     });
 
-    navigation.addEventListener("click", function () {
+    closeNavigationBtn.addEventListener("click", function () {
         lenis.start();
         tl.reverse();
     });

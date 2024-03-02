@@ -28,6 +28,10 @@ Route::get('/news', function () {
     return view('news');
 });
 
+Route::get('/news/{id}', function () {
+    return view('singlenews');
+});
+
 Route::get('/stock', function () {
     return view('stock');
 });

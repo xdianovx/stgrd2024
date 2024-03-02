@@ -7,4 +7,90 @@
     top: -100vh;
     left: 0;
     z-index: 10;
+
+    .container {
+        height: 100%;
+    }
+}
+
+.navigation__header {
+    padding: 58rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation__close {
+    width: 50rem;
+    height: 50rem;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation__inner {
+    height: calc(100% - 166rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation__wrap {
+    padding-left: 280rem;
+    margin-top: 100rem;
+    display: flex;
+    align-items: center;
+    gap: 250rem;
+}
+
+.navigation__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 50rem;
+}
+
+.navigation__link {
+    font-size: 128rem;
+    letter-spacing: -4%;
+    line-height: 90%;
+    font-weight: 500;
+}
+
+.navigation__right {
+    max-width: 280rem;
+}
+
+.navigation__right_links {
+    display: flex;
+    flex-direction: column;
+    gap: 32rem;
+
+    a {
+        font-size: 24rem;
+        line-height: 100%;
+    }
+}
+
+.navigation__cities {
+    color: #565656;
+    margin-top: 80rem;
+    letter-spacing: -3%;
+    font-size: 24rem;
+}
+
+.navigation__bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-left: 280rem;
+    margin-bottom: 70rem;
+}
+
+.navigation__bottom_contacts {
+    display: flex;
+    align-items: center;
+    gap: 55rem;
+    font-size: 27rem;
 }
