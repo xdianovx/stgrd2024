@@ -10,4 +10,8 @@
     <video autoplay loop playsinline muted class="showreel-short" data-cursor-text="Close!">
         <source src="{{ asset('video/2.webm') }}" type="video/webm" />
     </video>
+
+    <div class="settings">
+
+    </div>
 </div>
