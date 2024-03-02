@@ -2,7 +2,8 @@
     background: $bgBlack;
     color: $textWhite;
     height: 970rem;
-    // position: sticky;
+    position: relative;
+    margin-top: -970rem;
     bottom: 0;
     z-index: -1;
 }

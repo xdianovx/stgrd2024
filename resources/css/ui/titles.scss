@@ -13,4 +13,16 @@
 
 .title-animation {
     display: flex;
+
+    span {
+        cursor: default;
+
+        // transform: translate(-50%, -50%) rotate(0deg);
+        transition: all .2s ease-in;
+
+        &:hover {
+            margin-top: -60rem;
+        }
+
+    }
 }
