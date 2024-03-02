@@ -5,14 +5,14 @@
     display: block;
     transition: all .3s ease-in-out;
     color: $textBlack;
-    border-radius: 4px;
+    border-radius: 4rem;
     position: relative;
     overflow: hidden;
 
     &:hover {
         background: $bgBlack;
         color: $textWhite;
-        border: 1px solid $bgBlack;
+        border: 1rem solid $bgBlack;
 
         .hr {
             opacity: 0;
