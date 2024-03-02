@@ -17,7 +17,8 @@
 
 .feature-row__top {
     display: grid;
-    grid-template-columns: 460rem 980rem 1fr;
+    grid-template-columns: 280rem 980rem;
+    gap: 280rem;
     align-items: center;
 }
 
