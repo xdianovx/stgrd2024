@@ -120,7 +120,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main class="projects-page">
+    <main class="projects-page" data-barba="container" data-barba-namespace="peojects">
 
         <section class="projects-page-hero">
             <div class="container">

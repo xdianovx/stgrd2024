@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main class="team-page">
+    <main class="team-page" data-barba="container" data-barba-namespace="team">
         <section class="team-page-hero">
             <div class="container">
                 <div class="breadcrumbs">breadcrumbs</div>

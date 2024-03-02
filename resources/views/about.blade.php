@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main class="about">
+    <main class="about" data-barba="container" data-barba-namespace="about">
 
         <section class="about-hero">
             <div class="container">

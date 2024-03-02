@@ -30,7 +30,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main class="contacts">
+    <main class="contacts" data-barba="container" data-barba-namespace="contacts">
         <section class="breadcrumbs">
             <div class="container">
                 <div class="">breadcrumbs</div>
