@@ -1,5 +1,7 @@
 export const marquee = (gsap) => {
     const wrapper = document.querySelector(".marquee__wrapper");
+
+    if (!wrapper) return;
     const boxes = gsap.utils.toArray(".marquee__item");
 
     const loop = horizontalLoop(boxes, {
