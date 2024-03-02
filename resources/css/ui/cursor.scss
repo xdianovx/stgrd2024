@@ -3,6 +3,24 @@
     opacity: 1;
     mix-blend-mode: difference;
 
+    &.-text {
+        // transform: rotate(0) !important;
+        background-color: $bgBlack;
+        mix-blend-mode: normal;
+
+        &:before {
+            background: $bgBlack;
+            transform: scale(2.4);
+        }
+
+
+        & .mf-cursor-text {
+
+            color: $textWhite;
+        }
+
+    }
+
     &:before {
 
         transform: scale(1);

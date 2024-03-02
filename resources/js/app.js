@@ -15,6 +15,8 @@ MouseFollower.registerGSAP(gsap);
 
 new MouseFollower({
     speed: 0.3,
+    skewing: 0,
+    skewingText: 0,
 });
 const lenis = new Lenis({
     duration: 1.5,
