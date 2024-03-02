@@ -10,6 +10,7 @@ import { burger } from "./modules/burger";
 import { marquee } from "./modules/marquee";
 import { hero_title } from "./modules/animations/hero_title";
 import { footer } from "./modules/footer";
+import { showreel } from "./modules/showreel";
 
 MouseFollower.registerGSAP(gsap);
 
@@ -57,6 +58,7 @@ function init() {
     burger();
     hero_title(gsap);
     marquee(gsap);
+    showreel(gsap, lenis);
 }
 
 init();

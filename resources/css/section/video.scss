@@ -1,6 +1,7 @@
 .showreel {
     padding-top: 70rem;
     height: 900rem;
+    position: relative;
 
     img {
         display: block;
@@ -8,6 +9,23 @@
         width: 100%;
         height: 100%;
     }
+
+    video {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.showreelmodal {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background: $bgBlack;
 
     video {
         display: block;
