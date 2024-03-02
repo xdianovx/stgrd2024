@@ -44,9 +44,7 @@
                             <x-offer_slide :title="$item['title']" :image="$item['image']" :description="$item['description']" />
                         </div>
                     @endforeach
-
                 </div>
-
             </div>
         </div>
 

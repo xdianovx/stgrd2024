@@ -10,6 +10,10 @@
 @import './reset.scss';
 @import './helpers.scss';
 
+* {
+    box-sizing: border-box;
+}
+
 html {
     font-family: "Gilroy", sans-serif;
     font-weight: 300;
@@ -17,6 +21,8 @@ html {
     line-height: 1.4;
     overflow-x: hidden;
 }
+
+
 
 // @media screen and (max-width: 1920px) {
 //     html {
@@ -47,6 +53,29 @@ section {
     margin: 0 auto;
     width: 100%;
 }
+
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        font-size: 16px;
+
+    }
+
+
+    .container {
+        max-width: none;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hr {
+        height: 1px;
+    }
+}
+
 
 // Components
 @import './components/header.scss';

@@ -6,3 +6,10 @@
     padding-bottom: 16rem;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1200px) {
+    .dropdown {
+        border-bottom: 1px solid $bgGrayLight;
+        padding-bottom: 16px;
+    }
+}

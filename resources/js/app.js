@@ -11,6 +11,7 @@ import { marquee } from "./modules/marquee";
 import { hero_title } from "./modules/animations/hero_title";
 import { footer } from "./modules/footer";
 import { showreel } from "./modules/showreel";
+import { sticky_btn } from "./modules/sticky_btn";
 
 MouseFollower.registerGSAP(gsap);
 
@@ -59,6 +60,7 @@ function init() {
     hero_title(gsap);
     marquee(gsap);
     showreel(gsap, lenis);
+    sticky_btn(gsap);
 }
 
 init();

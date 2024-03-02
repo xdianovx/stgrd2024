@@ -27,3 +27,24 @@
     line-height: 80%;
     margin-bottom: 16rem;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .mission-card h4 {
+        padding-top: 14px;
+    }
+
+    .mission-card__wrap {
+        margin-top: 16px;
+    }
+
+    .mission-card__num {
+        font-size: 40px;
+    }
+
+    .mission-card__text {
+        font-size: 16px;
+        line-height: 80%;
+        margin-bottom: 4px;
+    }
+}

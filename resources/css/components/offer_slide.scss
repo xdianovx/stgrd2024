@@ -64,3 +64,40 @@
 .offer-slide__description {
     margin-top: 20rem;
 }
+
+
+
+@media screen and (max-width: 1200px) {
+    .offer-slide {
+        min-height: 0;
+        border: 1px solid $bgGrayLight;
+        border-radius: 0;
+
+        &:hover {
+            border: 1px solid $bgBlack;
+        }
+
+        .hr {
+            margin-top: 64px;
+        }
+    }
+
+    .offer-slide__inner {
+        height: 100%;
+        padding: 20px 20px;
+
+    }
+
+    .offer-slide__image {}
+
+    .offer-slide__title {
+        font-size: 20px;
+        line-height: 120%;
+        font-weight: 400;
+    }
+
+    .offer-slide__description {
+        margin-top: 20px;
+    }
+
+}

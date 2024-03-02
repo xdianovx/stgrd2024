@@ -25,3 +25,12 @@
 
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .link {
+        &:before {
+            bottom: 0px;
+            height: 1px;
+        }
+    }
+}

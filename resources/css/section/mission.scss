@@ -25,3 +25,31 @@
         margin-top: 45rem;
     }
 }
+
+
+@media screen and (max-width: 1200px) {
+    .mission {
+        padding-top: 64px;
+    }
+
+    .mission .wrap {
+        gap: 16px;
+        grid-template-columns: 1fr;
+
+        .square_btn {
+            display: none;
+        }
+    }
+
+    .mission .text-wrap {
+        margin-top: 64px;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .mission .cards {
+        margin-top: 64px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

@@ -18,3 +18,29 @@
         }
     }
 }
+
+
+@media screen and (max-width: 1200px) {
+    .hero {
+        .h1 {
+            margin-top: 150px;
+        }
+    }
+
+    .hero__top {
+
+        margin-top: 40px;
+        flex-direction: column;
+
+        p {
+            font-size: 14px;
+
+            &:last-child {
+                margin-top: 28px;
+                text-align: left;
+                max-width: none;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -28,3 +28,30 @@
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .offers-slider {
+        padding-top: 180px;
+
+        .link__wrap {
+            margin-top: 20px;
+
+        }
+
+    }
+
+    .swiper-offers-slider {
+
+
+        .swiper-slide {
+            max-width: none;
+            margin-right: 16px;
+
+
+
+            &:hover {
+                margin-top: 0;
+            }
+        }
+    }
+}

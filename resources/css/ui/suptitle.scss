@@ -3,3 +3,10 @@
     line-height: 100%;
     color: $textGray;
 }
+
+@media screen and (max-width: 1200px) {
+    .suptitle {
+        margin-top: 0;
+        font-size: 14px;
+    }
+}

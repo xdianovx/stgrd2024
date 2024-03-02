@@ -37,3 +37,32 @@
     font-size: 14rem;
     line-height: 110%;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .feature-row {
+        padding: 16px 0 0 0;
+
+
+    }
+
+    .feature-row__wrap {
+        margin-bottom: 16px;
+    }
+
+    .feature-row__top {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .feature-row__right {}
+
+    .feature-row__title {
+        font-size: 20px;
+    }
+
+    .feature-row__num {
+        font-size: 12px;
+    }
+
+}

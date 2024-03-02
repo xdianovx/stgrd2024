@@ -26,3 +26,33 @@
     line-height: 110%;
     margin-top: 50rem;
 }
+
+.connect__logo-mob {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .connect__logo {
+        display: none;
+    }
+
+    .connect__logo-mob {
+        display: block;
+    }
+
+    .connect__wrap {
+
+        .link {
+            margin-top: 20px;
+        }
+
+
+    }
+
+    .connect__title {
+        font-size: 28px;
+        font-weight: 400;
+        margin-top: 30px;
+    }
+
+}

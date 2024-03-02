@@ -5,6 +5,7 @@ export const burger = () => {
     const top = document.querySelector(".burger .top");
     const bot = document.querySelector(".burger .bottom");
 
+    // if (window.innerWindth >= 1440) {
     let tl = gsap.timeline({
         paused: true,
         defaults: {
@@ -47,4 +48,5 @@ export const burger = () => {
     burger.addEventListener("mouseleave", function () {
         tl.reverse();
     });
+    // }
 };

@@ -22,3 +22,26 @@
         right: 0;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .burger {
+        width: 28px;
+        height: 28px;
+
+        .top,
+        .bottom {
+            height: 2px;
+        }
+
+        .top {
+            top: 11px;
+            width: 100%;
+        }
+
+        .bottom {
+            bottom: 11px;
+            width: 16px;
+            right: 0;
+        }
+    }
+}

@@ -18,3 +18,25 @@
 .features__cards {
     margin-top: 100rem;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .features {
+        padding-top: 120px;
+    }
+
+
+    .features__top {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .features__discription {
+        margin-top: 32px;
+        max-width: none;
+    }
+
+    .features__cards {
+        margin-top: 32px;
+    }
+}

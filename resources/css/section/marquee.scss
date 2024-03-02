@@ -42,3 +42,41 @@
         }
     }
 }
+
+.marquee__logo-mob {
+    display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .marquee__logo-mob {
+        display: block;
+    }
+
+    .marquee__logo {
+        display: none;
+    }
+
+    .marquee {
+        padding-top: 120px;
+    }
+
+    .marquee__wrapper {
+        gap: 64px;
+    }
+
+    .marquee__item {
+        gap: 64px;
+
+        p {
+            font-size: 100px;
+            text-shadow: -1px 1px 0 $textBlack,
+                1px 1px 0 $textBlack,
+                1px -1px 0 $textBlack,
+                -1px -1px 0 $textBlack;
+        }
+
+
+    }
+
+}
