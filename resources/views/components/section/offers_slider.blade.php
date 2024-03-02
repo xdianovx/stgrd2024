@@ -51,7 +51,7 @@
         </div>
 
         <div class="link__wrap">
-            <x-ui.link href="/" class="ml-auto">Все акции и скидки</x-ui.link>
+            <x-ui.link href="/stock" class="ml-auto">Все акции и скидки</x-ui.link>
         </div>
     </div>
 </section>

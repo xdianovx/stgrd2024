@@ -3,8 +3,7 @@
         transform: scale(1);
         border-radius: 4rem;
         background: $bgBlack;
-
-
+        background-blend-mode: darken;
     }
 
     &.-pointer::before {

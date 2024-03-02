@@ -28,7 +28,8 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
-
+let scrollX = 0;
+let scrollY = 0;
 barba.init({
     schema: {
         wrapper: "wrapper",
@@ -39,7 +40,12 @@ barba.init({
             leave(data) {
                 gsap.to(data.current.container, {
                     opacity: 0,
+                    onComplete: () => {
+                        ScrollTrigger.refresh();
+                    },
                 });
+
+                window.scrollTo(scrollX, scrollY);
             },
             enter(data) {
                 gsap.from(data.next.container, {
