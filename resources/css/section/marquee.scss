@@ -1,3 +1,44 @@
 .marquee {
     padding-top: 250rem;
 }
+
+.marquee__wrapper {
+    height: 30%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 120rem;
+}
+
+.marquee__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    gap: 120rem;
+
+    p {
+        text-transform: uppercase;
+        font-size: 295rem;
+        font-weight: 500;
+        line-height: 100%;
+        color: $textWhite;
+        transition: color .3s ease-in-out;
+        text-shadow: -1rem 1rem 0 $textBlack,
+            1rem 1rem 0 $textBlack,
+            1rem -1rem 0 $textBlack,
+            -1rem -1rem 0 $textBlack;
+    }
+
+
+    &:hover {
+        p {
+            color: $textBlack;
+        }
+    }
+}

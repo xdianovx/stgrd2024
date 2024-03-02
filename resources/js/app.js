@@ -7,6 +7,7 @@ import { navigation } from "./modules/navigation";
 import gsap from "gsap";
 import { sliders } from "./modules/sliders";
 import { burger } from "./modules/burger";
+import { marquee } from "./modules/marquee";
 import { hero_title } from "./modules/animations/hero_title";
 import { footer } from "./modules/footer";
 
@@ -30,6 +31,34 @@ function raf(time) {
 requestAnimationFrame(raf);
 let scrollX = 0;
 let scrollY = 0;
+
+// footer(ScrollTrigger);
+
+function init() {
+    const squareBtns = document.querySelectorAll(".square_btn");
+
+    if (squareBtns) {
+        squareBtns.forEach((element) => {
+            ScrollTrigger.create({
+                trigger: element,
+                // markers: true,
+                start: "top 50%",
+                pin: true,
+                scrub: 2,
+                ease: "power3",
+            });
+        });
+    }
+
+    navigation(lenis, barba);
+    sliders();
+    burger();
+    hero_title(gsap);
+    marquee(gsap);
+}
+
+init();
+
 barba.init({
     schema: {
         wrapper: "wrapper",
@@ -51,16 +80,11 @@ barba.init({
                 gsap.from(data.next.container, {
                     opacity: 0,
                     onComplete: () => {
-                        ScrollTrigger.refresh();
+                        ScrollTrigger.refresh(true);
+                        init();
                     },
                 });
             },
         },
     ],
 });
-
-navigation(lenis, barba);
-sliders();
-burger();
-hero_title(gsap);
-// footer(ScrollTrigger);
