@@ -29,7 +29,7 @@ export const features = (gsap, lenis, ScrollTrigger) => {
         }
 
         item.addEventListener("click", function (e) {
-            lenis.scrollTo(e.pageY - head.offsetHeight)
+            // lenis.scrollTo(e.pageY - head.offsetHeight)
             if (item.classList.contains("active")) {
                 item.classList.remove("active");
                 plus.classList.remove("active");
