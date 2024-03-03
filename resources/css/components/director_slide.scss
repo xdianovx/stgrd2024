@@ -21,3 +21,25 @@
         margin-left: auto;
     }
 }
+
+
+@media screen and (max-width: 1200px) {
+    .director-slide {}
+
+    .director-slide__image {
+        height: 320px;
+
+        img {}
+    }
+
+
+    .director-slide__info {
+        margin-top: 26px;
+        display: flex;
+        align-items: flex-start;
+
+        .plus {
+            margin-left: auto;
+        }
+    }
+}

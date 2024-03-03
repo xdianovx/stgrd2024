@@ -1,6 +1,6 @@
 @props(['title', 'description', 'image' => '', 'slug'])
 
-<a :href="$slug" class="offer-slide">
+<a href="/stock/{{ $slug }}" class="offer-slide">
     @if ($image)
         <img class="offer-slide__image" src="{{ $image }}" alt="{{ $title }}">
     @endif

@@ -8,3 +8,16 @@
     grid-template-columns: 280rem 980rem;
     gap: 280rem;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .map {
+        padding-top: 120px;
+    }
+
+
+    .map__wrap {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

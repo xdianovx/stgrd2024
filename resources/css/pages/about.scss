@@ -46,3 +46,53 @@
     margin-bottom: 4rem;
     cursor: pointer;
 }
+
+
+@media screen and (max-width: 1200px) {
+    .about {
+        .line {
+            padding: 80px 0;
+        }
+
+        .mission {
+            padding-top: 0;
+        }
+
+        ;
+    }
+
+    .about-hero {
+        .breadcrumbs {
+            padding-top: 20px;
+        }
+    }
+
+    .about-title {
+        font-size: 40px;
+        padding-top: 80px;
+    }
+
+
+    .about-info {
+        margin-top: 120px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .map__left {}
+
+    .map-map {
+        height: 320px;
+        margin-top: 120px;
+        background: $bgGray;
+    }
+
+    .map-selector {
+        margin-top: auto;
+        font-size: 32px;
+        color: $textGray;
+        margin-bottom: 4px;
+        cursor: pointer;
+    }
+
+}

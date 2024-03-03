@@ -42,3 +42,50 @@
         }
     }
 }
+
+
+@media screen and (max-width: 1200px) {
+    .enterprises {
+        padding-top: 120px;
+    }
+
+    .enterprises__top {
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+    }
+
+    .enterprises__description {
+        margin-top: 32px;
+        max-width: none;
+        width: 100%;
+    }
+
+    .enterprises__info {
+        .text {
+            font-size: 32px;
+        }
+    }
+
+
+    .enterprises__wrap {
+        margin-top: 64px;
+    }
+
+    .enterprises__head .hr {
+        margin-top: 24px;
+    }
+
+    .enterprises__head_title {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        p {
+            color: $textGray;
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+}

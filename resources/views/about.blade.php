@@ -29,6 +29,7 @@
         <x-section.mission />
         <x-section.directors />
 
+
         <div class="line">
             <div class="hr"></div>
         </div>

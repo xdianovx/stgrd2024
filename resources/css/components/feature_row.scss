@@ -38,6 +38,11 @@
     line-height: 110%;
 }
 
+.feature-row__content {
+    overflow: hidden;
+    height: 0;
+}
+
 
 @media screen and (max-width: 1200px) {
     .feature-row {

@@ -13,14 +13,14 @@
             'title' => 'Ипотека 3,99% до 30 лет на сданные квартиры',
             'description' =>
                 'В проекте Семейный Квартал  Стройград предлагает покупателем субсидированную семейную ипотеку 3,99%.',
-            'image' => 'http://127.0.0.1:8000/img/offer-1.jpg',
+            'image' => asset('img/offer-1.jpg'),
             'slug' => 'offer',
         ],
         [
             'id' => 3,
             'title' => 'Скидка 50% на полную чистовую отделку',
             'description' => 'Позвольте себе не только квартиру. Включайте полную чистовую отделку в ипотеку!',
-            'image' => 'http://127.0.0.1:8000/img/video/big_card.jpg',
+            'image' => asset('img/offer-1.jpg'),
             'slug' => 'offer',
         ],
         [
@@ -41,7 +41,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($data as $item)
                         <div class="swiper-slide">
-                            <x-offer_slide :title="$item['title']" :image="$item['image']" :description="$item['description']" />
+                            <x-offer_slide :title="$item['title']" :image="$item['image']" slug="asd" :description="$item['description']" />
                         </div>
                     @endforeach
                 </div>

@@ -12,6 +12,8 @@ import { hero_title } from "./modules/animations/hero_title";
 import { footer } from "./modules/footer";
 import { showreel } from "./modules/showreel";
 import { sticky_btn } from "./modules/sticky_btn";
+import {features} from "./modules/features.js";
+import {mission} from "./modules/mission.js";
 
 MouseFollower.registerGSAP(gsap);
 
@@ -24,6 +26,8 @@ const lenis = new Lenis({
     duration: 1.5,
 });
 
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 function raf(time) {
@@ -33,8 +37,7 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
-let scrollX = 0;
-let scrollY = 0;
+
 
 // footer(ScrollTrigger);
 
@@ -61,6 +64,8 @@ function init() {
     marquee(gsap);
     showreel(gsap, lenis);
     sticky_btn(gsap);
+    mission();
+    features(gsap, lenis)
 }
 
 init();
@@ -73,13 +78,14 @@ barba.init({
         {
             name: "opacity-transition",
             leave(data) {
+                lenis.scrollTo(0)
+
                 gsap.to(data.current.container, {
                     opacity: 0,
                     onComplete: () => {
                         ScrollTrigger.refresh();
                     },
                 });
-
                 window.scrollTo(scrollX, scrollY);
             },
             enter(data) {
@@ -88,6 +94,7 @@ barba.init({
                     onComplete: () => {
                         ScrollTrigger.refresh(true);
                         init();
+
                     },
                 });
             },
