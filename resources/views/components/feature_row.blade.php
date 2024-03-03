@@ -13,7 +13,7 @@
             </div>
 
             <div class="feature-row__content">
-                <p>asfsdf</p>
+                <p>{{$description}}</p>
             </div>
         </div>
     </div>

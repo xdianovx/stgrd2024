@@ -36,6 +36,10 @@ Route::get('/stock', function () {
     return view('stock');
 });
 
+Route::get('/stock/{slug}', function () {
+    return view('singlestock');
+});
+
 
 Route::get('/team', function () {
     return view('team');

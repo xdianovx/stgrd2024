@@ -8,10 +8,6 @@ export const features = (gsap, lenis) => {
         const head = item.querySelector('.feature-row__top')
         const content = item.querySelector(".feature-row__content");
 
-        gsap.set(content, {
-            height: 0,
-            overflow: "hidden",
-        });
         let tl = gsap.timeline({
             paused: true,
             defaults: {
@@ -21,7 +17,7 @@ export const features = (gsap, lenis) => {
         });
 
         tl.to(content, {
-            height: "500rem",
+            height: "296rem",
         });
 
 
