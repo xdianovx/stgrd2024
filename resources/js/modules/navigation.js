@@ -33,7 +33,7 @@ export const navigation = (lenis, barba) => {
         opacity: 0
     }, '-=.6').from('.navigation__bottom', {
         opacity: 0,
-        yPercent: 100
+        // yPercent: 100
     }, "-=.9").from('.navigation__logo', {
         opacity: 0
     }, '-=.9');
