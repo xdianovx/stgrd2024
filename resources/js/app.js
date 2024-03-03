@@ -65,7 +65,7 @@ function init() {
     showreel(gsap, lenis);
     sticky_btn(gsap);
     mission();
-    features(gsap, lenis)
+    features(gsap, lenis, ScrollTrigger)
 }
 
 init();

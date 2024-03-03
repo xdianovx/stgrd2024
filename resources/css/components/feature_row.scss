@@ -41,13 +41,13 @@
 .feature-row__content {
     overflow: hidden;
     margin-left: 560rem;
-    padding-top: 30rem;
     height: 0;
     max-width: 700rem;
     width: 100%;
 
     p {
         width: 100%;
+        padding-top: 30rem;
     }
 }
 
@@ -77,5 +77,14 @@
     .feature-row__num {
         font-size: 12px;
     }
+    .feature-row__content {
 
+        margin-left: 0;
+        max-width: none;
+
+        p {
+            width: 100%;
+            padding-top: 40px;
+        }
+    }
 }
