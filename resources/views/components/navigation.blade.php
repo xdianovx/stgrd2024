@@ -50,7 +50,7 @@
             <div class="navigation__wrap">
                 <div class="navigation__left">
                     <nav class="navigation__nav">
-                        <a href="/about" class="navigation__link">О компании</a>
+                        <a href="/about" class="navigation__link rotate">О компании</a>
                         <a href="/team" class="navigation__link">Руководство</a>
                         <a href="/projects" class="navigation__link">Проекты</a>
                         <a href="/news" class="navigation__link">Новости</a>

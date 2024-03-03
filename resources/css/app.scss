@@ -23,6 +23,20 @@ html {
 }
 
 
+.rotate {
+    overflow: hidden;
+    position: relative;
+}
+
+.rotate-double {
+    position: absolute;
+    top: -100%;
+    left: 0;
+}
+.rotate span {
+    position: relative;
+}
+
 
 // @media screen and (max-width: 1920px) {
 //     html {

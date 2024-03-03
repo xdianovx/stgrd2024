@@ -14,6 +14,7 @@ import { showreel } from "./modules/showreel";
 import { sticky_btn } from "./modules/sticky_btn";
 import {features} from "./modules/features.js";
 import {mission} from "./modules/mission.js";
+import {rotate_text} from "./modules/animations/rotate_text.js";
 
 MouseFollower.registerGSAP(gsap);
 
@@ -65,6 +66,7 @@ function init() {
     showreel(gsap, lenis);
     sticky_btn(gsap);
     mission();
+    rotate_text(gsap)
     features(gsap, lenis, ScrollTrigger)
 }
 

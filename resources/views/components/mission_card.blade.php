@@ -7,7 +7,7 @@
     <h4>{{ $title }}</h4>
 
     <div class="mission-card__wrap">
-        <p class="mission-card__num">{{ $num }}</p>
+        <p class="mission-card__num rotate">{{ $num }}</p>
         <span class="mission-card__text">
             {{ $num_text }}
         </span>
