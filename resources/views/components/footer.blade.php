@@ -18,7 +18,7 @@
 
                 <div class="footer__bottom_item">
                     <span>почта:</span>
-                    <a href="mailto:info@stroygrad.ru">info@stroygrad.ru</a>
+                    <a  href="mailto:info@stroygrad.ru">info@stroygrad.ru</a>
                 </div>
             </div>
         </div>
