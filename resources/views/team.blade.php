@@ -2,9 +2,9 @@
 
 @section('content')
     <main class="team-page" data-barba="container" data-barba-namespace="team">
+        {{ Breadcrumbs::render('team') }}
         <section class="team-page-hero">
             <div class="container">
-                <div class="breadcrumbs">breadcrumbs</div>
                 <h1 class="team-page-title">Руководство</h1>
 
                 <p class="team-page-hero__text">

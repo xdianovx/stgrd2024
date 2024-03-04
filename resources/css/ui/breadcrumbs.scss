@@ -1,9 +1,40 @@
 .breadcrumbs {
     padding-top: 46rem;
+    display: flex;
+    align-items: center;
+    gap: 16rem;
+    font-weight: 400;
+}
+
+.breadcrumb-box {
+    width: 6rem;
+    height: 6rem;
+    background: $bgGray;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+}
+
+.breadcrumb-item {
+    color: $textGray;
+
+    &.active {
+        color: $textBlack;
+    }
 }
 
 @media screen and (max-width: 1200px) {
     .breadcrumbs {
         padding-top: 20px;
+        gap: 16px;
+    }
+
+    .breadcrumb-box {
+        width: 4px;
+        height: 4px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+
     }
 }

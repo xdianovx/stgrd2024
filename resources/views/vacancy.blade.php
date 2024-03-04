@@ -201,7 +201,7 @@
     <main class="vacancy-page" data-barba="container" data-barba-namespace="vacancy">
         <section class="vacancy-page-hero">
             <div class="container">
-                <div class="breadcrumbs">breadcrumbs</div>
+                {{ Breadcrumbs::render('vacancy') }}
                 <h1 class="vacancy-page-title">Свободные <br> вакансии</h1>
 
                 <p class="vacancy-page-hero__text">

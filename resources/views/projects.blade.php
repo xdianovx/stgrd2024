@@ -124,7 +124,7 @@
 
         <section class="projects-page-hero">
             <div class="container">
-                <div class="breadcrumbs">breadcrumbs</div>
+                {{ Breadcrumbs::render('projects') }}
                 <h1 class="projects-page-title">Наши <br> проекты</h1>
             </div>
         </section>

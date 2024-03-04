@@ -50,11 +50,7 @@
 
 @section('content')
     <main class="singlenews" data-barba="container" data-barba-namespace="singlestock">
-        <section class="breadcrumbs">
-            <div class="container">
-                breadcrumbs
-            </div>
-        </section>
+        {{ Breadcrumbs::render('stocksingle') }}
 
         <section class="singlenews-hero">
             <div class="container">

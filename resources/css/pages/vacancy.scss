@@ -47,3 +47,189 @@
     max-width: 420rem;
     width: 100%;
 }
+
+.team-reviews {
+    margin-top: 400rem;
+
+    .hr {
+        margin-top: 140rem;
+    }
+}
+
+
+.team-reviews__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .link {
+        font-size: 20rem;
+    }
+}
+
+
+.team-reviews__title {
+    font-size: 128rem;
+    font-weight: 300;
+    line-height: 80%;
+}
+
+.team-reviews__wrap {
+    margin-top: 90rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60rem;
+}
+
+.team-reviews__item {
+    h3 {
+        font-size: 40rem;
+        line-height: 100%;
+        font-weight: 300;
+        margin-top: 40rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .vacancy-page {
+    }
+
+    .vacancy-page-title {
+        font-size: 64px;
+        line-height: 100%;
+        margin-top: 96px;
+    }
+
+    .vacancy-page-hero__text {
+        margin-top: 20px;
+        max-width: none;
+        font-size: 16px;
+        margin-left: 0;
+    }
+
+    .actual-vacancy__count {
+        margin-left: auto;
+        margin-top: 12px;
+        font-size: 14px;
+    }
+
+
+    .actual-vacancy {
+        margin-top: 120px;
+    }
+
+    .actual-vacancy__wrap {
+        margin-top: 32px;
+    }
+
+
+
+    .actual-vacancy__top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .actual-vacancy__title {
+        font-size: 32px;
+    }
+
+    .actual-vacancy__count {
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+
+    .actual-vacancy__city {
+        margin-top: 32px;
+        max-width: none;
+        width: 100%;
+    }
+
+    .actual-vacancy__title {
+        font-size: 24px;
+    }
+    .actual-vacancy__top {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .actual-vacancy__title {
+        width: 100%;
+    }
+
+
+    .team-reviews {
+        margin-top: 200px;
+        .hr {
+            margin-top: 32px;
+        }
+    }
+
+
+    .team-reviews__top {
+        .link {
+            font-size: 16px;
+        }
+    }
+
+
+    .team-reviews__title {
+        font-size: 64px;
+    }
+
+    .team-reviews__wrap {
+        margin-top: 64px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .team-reviews__item {
+        h3 {
+            font-size: 32px;
+            line-height: 100%;
+            font-weight: 400;
+            margin-top: 40px;
+        }
+    }
+
+    .team-reviews__item_position {
+        margin-top: 12px;
+        font-size: 16px;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .vacancy-page-title {
+        font-size: 40px;
+        line-height: 100%;
+        margin-top: 96px;
+    }
+
+    .vacancy-page-hero__text {
+        margin-top: 12px;
+        line-height: 120%;        font-size: 14px;
+    }
+
+    .team-reviews__title {
+        font-size: 32px;
+        font-weight: 400;
+    }
+
+    .team-reviews__top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .team-reviews__item h3 {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    .team-reviews__wrap {
+        margin-top: 40px;
+        grid-template-columns: 1fr;
+        gap: 64px;
+    }
+}

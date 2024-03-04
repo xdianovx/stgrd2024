@@ -5,7 +5,7 @@
 
         <section class="about-hero">
             <div class="container">
-                <div class="breadcrumbs">breadcrumbs</div>
+                {{ Breadcrumbs::render('about') }}
 
                 <h1 class="about-title">Строительная компания Стройград</h1>
 
