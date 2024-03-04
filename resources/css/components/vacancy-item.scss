@@ -1,6 +1,11 @@
 .vacancy-item {
     cursor: pointer;
 
+    &.active {
+        .vertical {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+    }
     &:hover {
         .vertical {
             transform: translate(-50%, -50%) rotate(0deg);
@@ -66,4 +71,51 @@
     margin-top: 20rem;
     font-size: 20rem;
     line-height: 100%;
+}
+
+.vacancy-item__content {
+    overflow: hidden;
+
+}
+
+.vacancy-item__content_inner {
+    padding-top: 100rem;
+    padding-bottom: 120rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 140rem;
+
+    h4 {
+        color: $textGray;
+        font-weight: 400;
+    }
+
+    ul {
+        margin-top: 30rem;
+        display: flex;
+        flex-direction: column;
+        gap: 12rem;
+        font-weight: 400;
+        padding-left: 0;
+        color: $textBlack;
+
+        li {
+            list-style: none;
+            padding-left: 14rem;
+            position: relative;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 8rem;
+                left: 0;
+                width: 4px;
+                height: 4rem;
+                -webkit-border-radius: 100%;
+                -moz-border-radius: 100%;
+                border-radius: 100%;
+                background: $bgBlack;
+            }
+        }
+    }
 }

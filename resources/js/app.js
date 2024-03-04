@@ -1,20 +1,21 @@
 import "./bootstrap";
 import MouseFollower from "mouse-follower";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 import barba from "@barba/core";
 import Lenis from "@studio-freight/lenis";
-import { navigation } from "./modules/navigation";
+import {navigation} from "./modules/navigation";
 import gsap from "gsap";
-import { sliders } from "./modules/sliders";
-import { burger } from "./modules/burger";
-import { marquee } from "./modules/marquee";
-import { hero_title } from "./modules/animations/hero_title";
-import { footer } from "./modules/footer";
-import { showreel } from "./modules/showreel";
-import { sticky_btn } from "./modules/sticky_btn";
+import {sliders} from "./modules/sliders";
+import {burger} from "./modules/burger";
+import {marquee} from "./modules/marquee";
+import {hero_title} from "./modules/animations/hero_title";
+import {footer} from "./modules/footer";
+import {showreel} from "./modules/showreel";
+import {sticky_btn} from "./modules/sticky_btn";
 import {features} from "./modules/features.js";
 import {mission} from "./modules/mission.js";
 import {rotate_text} from "./modules/animations/rotate_text.js";
+import {vacancy} from "./modules/vacancy.js";
 
 MouseFollower.registerGSAP(gsap);
 
@@ -26,7 +27,6 @@ new MouseFollower({
 const lenis = new Lenis({
     duration: 1.5,
 });
-
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -44,6 +44,24 @@ requestAnimationFrame(raf);
 
 function init() {
     const squareBtns = document.querySelectorAll(".square_btn");
+    const lines = document.querySelectorAll('.hr')
+
+    if (lines) {
+        lines.forEach(item => {
+            gsap.from(
+                item, {
+                    width: 0,
+                    duration: .2,
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 60%",
+                        ease: "power3",
+                    }
+                }
+            )
+
+        })
+    }
 
     if (squareBtns) {
         squareBtns.forEach((element) => {
@@ -58,6 +76,7 @@ function init() {
         });
     }
 
+
     navigation(lenis, barba);
     sliders();
     burger();
@@ -68,6 +87,7 @@ function init() {
     mission();
     rotate_text(gsap)
     features(gsap, lenis, ScrollTrigger)
+    vacancy(gsap)
 }
 
 init();
@@ -96,7 +116,6 @@ barba.init({
                     onComplete: () => {
                         ScrollTrigger.refresh(true);
                         init();
-
                     },
                 });
             },

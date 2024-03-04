@@ -178,6 +178,21 @@
             'photo' => asset('img/rev-4.jpg'),
         ],
     ];
+
+    $droplist = [
+        [
+            'id' => '1',
+            'title' => 'Москва',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Саратов',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Калинград',
+        ],
+    ]
 @endphp
 
 @extends('layouts.main')
@@ -202,7 +217,7 @@
                     <h2 class="actual-vacancy__title">Актуальные <br> вакансии на сегодня </h2>
                     <p class="actual-vacancy__count">(16+ свободных вакансий)</p>
                     <div class="actual-vacancy__city">
-                        Выберите город
+                        <x-ui.dropdown :list="$droplist"/>
                     </div>
                 </div>
             </div>
@@ -210,7 +225,7 @@
             <div class="actual-vacancy__wrap">
                 <div class="actual-vacancy__head"></div>
                 <div class="hr"></div>
-                <div class="actual-vacancy__list">
+                <div class="actual-vacancy__list dimm">
                     @foreach ($data as $item)
                         <x-vacancy-item :title="$item['title']" :city="$item['city']" :expirience="$item['expirience']" :salary="$item['salary']"
                             :slug="$item['slug']" :duties="$item['duties']" :terms="$item['terms']" :reqs="$item['reqs']" />
@@ -230,7 +245,7 @@
             <div class="hr"></div>
 
             <div class="container">
-                <div class="team-reviews__wrap">
+                <div class="team-reviews__wrap ">
                     @foreach ($reviews as $item)
                         <div class="team-reviews__item">
                             <div class="team-reviews__item_img">

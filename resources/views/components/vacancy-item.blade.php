@@ -1,4 +1,4 @@
-@props(['title', 'city', 'expirience', 'salary', 'slug', 'duties', 'terms', 'reqs'])
+@props(['title', 'city', 'expirience', 'salary', 'slug', 'duties' => '', 'terms', 'reqs'])
 <div class="vacancy-item">
     <div class="container">
         <div class="vacancy-item__wrap">
@@ -14,7 +14,45 @@
                     <x-ui.plus class="ml-auto" />
                 </div>
             </div>
-            <div class="vacancy-item__content"></div>
+            <div class="vacancy-item__content">
+                <div class="vacancy-item__content_inner">
+                    @if($duties)
+                        <div class="vacancy-item__content_item">
+                            <h4>Обязанности</h4>
+
+                            <ul>
+                                @foreach($duties as $item)
+                                    <li>{{$item}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                        @if($terms)
+                            <div class="vacancy-item__content_item">
+                                <h4>Условия</h4>
+
+                                <ul>
+                                    @foreach($terms as $item)
+                                        <li>{{$item}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if($reqs)
+                            <div class="vacancy-item__content_item">
+                                <h4>Требования</h4>
+
+                                <ul>
+                                    @foreach($reqs as $item)
+                                        <li>{{$item}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                </div>
+            </div>
         </div>
     </div>
     <div class="hr"></div>
