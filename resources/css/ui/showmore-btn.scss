@@ -43,3 +43,20 @@
     }
 
 }
+
+@media screen and (max-width: 1200px){
+    .showmore-btn {
+        gap: 16px;
+    }
+
+    .showmore-plus {
+        width: 17px;
+        height: 17px;
+
+        span {
+            height: 1px;
+            width: 100%;
+        }
+
+    }
+}

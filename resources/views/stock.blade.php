@@ -48,7 +48,7 @@
 @section('content')
     <main class="news-page" data-barba="container" data-barba-namespace="stock">
 
-        {{ Breadcrumbs::render('stocksingle') }}
+        {{ Breadcrumbs::render('stock') }}
         <section class="news-page-hero">
             <div class="container">
 

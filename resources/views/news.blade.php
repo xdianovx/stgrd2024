@@ -80,10 +80,10 @@
 
 @section('content')
     <main class="news-page" data-barba="container" data-barba-namespace="news">
+        {{ Breadcrumbs::render('news') }}
 
         <section class="news-page-hero">
             <div class="container">
-                {{ Breadcrumbs::render('news') }}
                 <div class="news-page-title__wrap">
                     <h1 class="news-page-title">Новости</h1>
                     <x-ui.link href="/stock">Акции</x-ui.link>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="container">
-                <div class="news-cards">
+                <div class="news-cards --second">
                     @foreach ($data as $item)
                         @if ($loop->index > 6)
                             <x-news_card :slug="$item['slug']" :title="$item['title']" :description="$item['description']" :created_at="$item['created_at']" />
@@ -129,7 +129,6 @@
                 </div>
 
                 <div class="news-cards__loadmore">
-
                     <x-ui.showmore-btn class="showmore">Ещё новости</x-ui.showmore-btn>
                 </div>
             </div>

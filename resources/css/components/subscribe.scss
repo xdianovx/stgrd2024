@@ -49,3 +49,72 @@
     border-radius: 100%;
     cursor: pointer;
 }
+
+@media screen and (max-width: 1200px){
+    .subscribe-section {
+        padding-top: 120px;
+    }
+
+
+    .subscribe-section__wrap {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .subscribe-section__title {
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 120%;
+        max-width: 70%;
+    }
+
+    .subscribe-form {
+        width: 100%;
+        margin-top: 64px;
+
+        .form-input {
+            margin-bottom: 40px;
+        }
+    }
+
+
+    .subscribe-form__bottom {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        p {
+            font-size: 14px;
+            max-width: none;
+        }
+
+    }
+
+    .subscribe-form__btn {
+        border: 1px solid $bgBlack;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .subscribe-section__wrap {
+        gap: 16px;
+    }
+    .subscribe-section__title {
+        width: 100%;
+        max-width: none;
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .subscribe-form__bottom {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .subscribe-form__btn {
+        margin-left: auto;
+    }
+}

@@ -35,3 +35,27 @@
 .form-input input:focus+label {
     color: $textBlack
 }
+
+
+@media screen and (max-width: 1200px){
+
+    .form-input input {
+        border-bottom: solid 1px $bgGrayLight;
+        padding: 18px 0;
+    }
+
+
+    .form-input label {
+        top: 18px;
+    }
+
+    .form-input input:focus+label,
+    .form-input input:valid+label {
+        font-size: 12px;
+        top: -6px;
+    }
+
+    .form-input input:focus+label {
+        color: $textBlack
+    }
+}
