@@ -37,3 +37,30 @@
     align-items: center;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 1200px) {
+    .news-card {
+        padding: 32px 32px;
+        border-radius: 4px;
+        border: 1px solid $bgGrayLight;
+        height: auto;
+
+        &:hover {
+            border: 1px solid $bgBlack;
+
+        }
+    }
+
+    .news-card__title {
+        font-size: 24px;
+    }
+
+    .news-card__text {
+        margin-top: 34px;
+        max-width: none;
+    }
+
+    .news-card__bottom {
+        margin-top: 32px;
+    }
+}

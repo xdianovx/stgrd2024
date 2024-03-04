@@ -1,0 +1,43 @@
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 47rem;
+
+    p {
+        line-height: 100%;
+    }
+}
+
+.socials__wrap  {
+    display: flex;
+    gap: 10rem;
+}
+
+.socials__item {
+    width: 30rem;
+    height: 30rem;
+    background: $bgGrayLight;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .socials {
+        gap: 20px;
+    }
+
+    .socials__wrap  {
+        gap: 10px;
+    }
+
+    .socials__item {
+        width: 30px;
+        height: 30px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+}

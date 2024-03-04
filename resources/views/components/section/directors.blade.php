@@ -3,42 +3,42 @@
         [
             'title' => 'Гукалов Андрей Александрович',
             'position' => 'Генеральный директор АН "Стройград"',
-            'image' => 'http://127.0.0.1:8000/img/team-1.jpg',
+            'image' => asset('/img/team-1.jpg'),
             'phone' => '+7 (861) 999-99-99',
             'email' => '@gk-stroygrad.ru',
         ],
         [
             'title' => 'Колосова Ольга Ивановна',
             'position' => 'Генеральный директор ООО "Стройград"',
-            'image' => 'http://127.0.0.1:8000/img/team-2.jpg',
+            'image' => asset('/img/team-2.jpg'),
             'phone' => '+7 (861) 999-99-99',
             'email' => '@gk-stroygrad.ru',
         ],
         [
             'title' => 'Гукалов Андрей Александрович',
             'position' => 'Генеральный директор АН "Стройград"',
-            'image' => 'http://127.0.0.1:8000/img/team-1.jpg',
+            'image' => asset('/img/team-1.jpg'),
             'phone' => '+7 (861) 999-99-99',
             'email' => '@gk-stroygrad.ru',
         ],
         [
             'title' => 'Колосова Ольга Ивановна',
             'position' => 'Генеральный директор ООО "Стройград"',
-            'image' => 'http://127.0.0.1:8000/img/team-2.jpg',
+            'image' => asset('/img/team-2.jpg'),
             'phone' => '+7 (861) 999-99-99',
             'email' => '@gk-stroygrad.ru',
         ],
         [
             'title' => 'Гукалов Андрей Александрович',
             'position' => 'Генеральный директор АН "Стройград"',
-            'image' => 'http://127.0.0.1:8000/img/team-1.jpg',
+            'image' => asset('/img/team-1.jpg'),
             'phone' => '+7 (861) 999-99-99',
             'email' => '@gk-stroygrad.ru',
         ],
         [
             'title' => 'Колосова Ольга Ивановна',
             'position' => 'Генеральный директор ООО "Стройград"',
-            'image' => 'http://127.0.0.1:8000/img/team-2.jpg',
+            'image' => asset('/img/team-2.jpg'),
             'phone' => '+7 (861) 999-99-99',
             'email' => '@gk-stroygrad.ru',
         ],
@@ -65,8 +65,9 @@
                     <div class="swiper-wrapper">
                         @foreach ($data as $item)
                             <div class="swiper-slide">
-                                <x-director_slide :title="$item['title']" :position="$item['position']" :image="$item['image']"
-                                    :phone="$item['phone']" :email="$item['email']" />
+                                <x-director_slide :title="$item['title']" :position="$item['position']"
+                                                  :image="$item['image']"
+                                                  :phone="$item['phone']" :email="$item['email']"/>
                             </div>
                         @endforeach
 
