@@ -21,6 +21,7 @@ export const sliders = () => {
             },
             '768': {
                 slidesPerView: 2,
+                spaceBetween: 20
 
             },
             '1200': {
