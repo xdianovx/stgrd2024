@@ -27,13 +27,15 @@
         border-radius: 4rem;
         background-color: $bgWhite;
         // background-color: $bgBlack;
-
     }
 
     &.-pointer::before {
         transform: scale(.6);
-
     }
+
+  &.-pointer.-text .mf-cursor-text{
+    font-size: 0;
+  }
 }
 
 

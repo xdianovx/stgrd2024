@@ -16,6 +16,7 @@ import {features} from "./modules/features.js";
 import {mission} from "./modules/mission.js";
 import {rotate_text} from "./modules/animations/rotate_text.js";
 import {vacancy} from "./modules/vacancy.js";
+import {project_page} from "./modules/project_page.js";
 
 MouseFollower.registerGSAP(gsap);
 
@@ -88,6 +89,7 @@ function init() {
     rotate_text(gsap)
     features(gsap, lenis, ScrollTrigger)
     vacancy(gsap)
+    project_page(gsap)
 }
 
 init();

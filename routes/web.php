@@ -25,6 +25,11 @@ Route::get('/projects', function () {
     return view('projects');
 })->name('projects');
 
+Route::get('/projects/{slug}', function () {
+    return view('project');
+})->name('projects.view');
+
+
 Route::get('/news', function () {
     return view('news');
 })->name('news');

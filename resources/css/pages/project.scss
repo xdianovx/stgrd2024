@@ -1,0 +1,1412 @@
+.project-page {
+
+}
+
+.project-page__title {
+  margin-top: 200rem;
+  text-transform: uppercase;
+  line-height: 100%;
+  font-size: 218rem;
+  font-weight: 400;
+}
+
+.project-hero-poster {
+  margin-top: 70rem;
+
+  img {
+    width: 100%;
+    display: block;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+
+// О проекте
+.project-page-about {
+  margin-top: 70rem;
+
+  .hr {
+    margin: 74rem 0 0 0;
+  }
+}
+
+.project-page-about__wrap {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-about__description {
+  font-size: 26rem;
+  font-weight: 400;
+}
+
+.project-page-about__bottom {
+  font-size: 20rem;
+  font-weight: 400;
+  margin-top: 74rem;
+  display: grid;
+  grid-template-columns: 420rem 420rem;
+  gap: 140rem;
+
+}
+
+
+// Информация
+.project-page-info {
+  margin-top: 74rem;
+}
+
+.project-page-info__wrap {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-info__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 45rem 140rem;
+}
+
+.project-page-info__list_item {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+
+  span {
+    color: $textGray;
+  }
+
+  p {
+    font-size: 20rem;
+    font-weight: 400;
+  }
+}
+
+// Бегущая строка
+.project-page-marquee {
+  margin: 230rem 0;
+}
+
+// Планировки
+.project-page-layouts {
+  .showmore-btn {
+    margin-top: 60rem;
+    padding-left: 560rem;
+  }
+}
+
+.project-page-layouts__top {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-layouts__top_title {
+  font-weight: 300;
+  font-size: 44rem;
+  line-height: 120%;
+}
+
+.project-page-layouts__top_text {
+  margin-top: 70rem;
+  color: $textGray;
+  max-width: 560rem;
+  width: 100%;
+}
+
+
+.project-page-layouts__items {
+  margin-top: 100rem;
+}
+
+.project-page-layouts__items_head {
+  .wrap {
+    margin-bottom: 30rem;
+    line-height: 100%;
+    color: $textGray;
+    display: grid;
+    grid-template-columns: 280rem 280rem 280rem 280rem 1fr;
+  }
+}
+
+.flatrow {
+  &:hover {
+    .flatrow__img {
+      opacity: 1;
+    }
+  }
+}
+
+.flatrow__wrap {
+  padding: 40rem 0;
+  position: relative;
+  display: grid;
+  align-items: center;
+  font-weight: 400;
+  grid-template-columns: 280rem 280rem 280rem 280rem 1fr;
+}
+
+.flatrow__type {
+  font-size: 20rem;
+}
+
+.flatrow__img {
+  position: absolute;
+  right: 250rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+// Удобство
+.project-page-comfort {
+  padding-top: 260rem;
+}
+
+.project-page-comfort__top {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-comfort__top_text {
+  font-size: 36rem;
+}
+
+.project-page-comfort-slider {
+  margin-top: 150rem;
+  overflow: visible;
+
+  .swiper-slide {
+    max-width: 520rem;
+    width: 100%;
+    margin-right: 32rem;
+  }
+}
+
+.project-page-comfort__item {
+  span {
+    color: $textGray;
+    line-height: 100%;
+  }
+
+  h5 {
+    margin-top: 12rem;
+    font-size: 20rem;
+    line-height: 110%;
+    font-weight: 400;
+  }
+
+  &.active {
+    .vertical {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+}
+
+.project-page-comfort__item_top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26rem;
+  cursor: pointer;
+}
+
+.project-page-comfort__item_image {
+  margin-top: 26rem;
+}
+
+.project-page-comfort__item_content {
+  height: 0;
+  overflow: hidden;
+
+  p {
+    padding-top: 40rem;
+
+  }
+}
+
+// Инфраструктура
+.project-page-map {
+  margin-top: 260rem;
+}
+
+.project-page-map__top {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-map__top_info {
+  p {
+    font-size: 36rem;
+  }
+}
+
+.project-page-map__map {
+  margin-top: 150rem;
+  height: 920rem;
+  background: $bgGrayLight;
+}
+
+// Ипотека
+
+// Визуализации
+.project-page-vizual {
+  margin-top: 260rem;
+}
+
+.project-page-vizual__top {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-vizual__list {
+  margin-top: 150rem;
+}
+
+.project-page-vizual__item {
+  margin-bottom: 40rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.project-page-vizual__item_text {
+  margin-top: 40rem;
+  margin-bottom: 150rem;
+  margin-left: 980rem;
+  max-width: 560rem;
+  width: 100%;
+  font-weight: 400;
+}
+
+//Ход Строительства
+.project-page-process {
+  margin-top: 250rem;
+}
+
+.project-page-process__top {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-process__top_info {
+  font-size: 36rem;
+}
+
+.project-page-process-slider {
+  margin-top: 150rem;
+
+  .swiper-slide {
+    max-width: 520rem;
+    width: 100%;
+    margin-right: 32rem;
+  }
+}
+
+.project-page-process-swiper {
+  overflow: visible;
+}
+
+.process-slide {
+  span {
+    margin-top: 26rem;
+    display: block;
+    color: $textGray;
+  }
+
+  h5 {
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 20rem;
+  }
+}
+
+.process-slide__image {
+  margin-top: 26rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+
+// Документация
+.project-page-docs {
+  margin-top: 250rem;
+
+  .showmore-btn {
+    margin-top: 60rem;
+    padding-left: 980rem;
+  }
+}
+
+.project-page-docs__top {
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
+}
+
+.project-page-docs__top_info {
+  font-size: 36rem;
+}
+
+.project-page-docs__list {
+  margin-top: 150rem;
+}
+
+.project-page-docs__head_items {
+  display: grid;
+  grid-template-columns: 980rem 280rem 280rem 1fr;
+  margin-bottom: 24rem;
+  line-height: 100%;
+  color: $textGray;
+}
+
+.project-file__wrap {
+  padding: 32rem 0;
+  display: grid;
+  align-items: center;
+  font-weight: 400;
+  grid-template-columns: 980rem 280rem 280rem 1fr;
+}
+
+.profile-file__title {
+  font-size: 20rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .project-page__title {
+    margin-top: 200px;
+    font-size: 128px;
+  }
+
+  .project-hero-poster {
+    margin-top: 32px;
+  }
+
+  // О проекте
+  .project-page-about {
+    margin-top: 0px;
+
+    .hr {
+      margin: 74px 0 0 0;
+    }
+  }
+
+  .project-page-about__wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .project-page-about__description {
+    font-size: 20px;
+  }
+
+  .project-page-about__bottom {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+
+  }
+
+
+  // Информация
+  .project-page-info {
+    margin-top: 0;
+  }
+
+  .project-page-info__wrap {
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+    margin-top: 64px;
+
+    .suptitle {
+      //display: none;
+    }
+  }
+
+  .project-page-info__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 0;
+  }
+
+  .project-page-info__list_item {
+    gap: 4px;
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  // Бегущая строка
+  .project-page-marquee {
+    margin: 240px 0;
+  }
+
+  // Планировки
+  .project-page-layouts {
+    .showmore-btn {
+      margin-top: 32px;
+      padding: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  .project-page-layouts__top {
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+  }
+
+  .project-page-layouts__top_title {
+    font-size: 32px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+
+  .project-page-layouts__top_text {
+    margin-top: 20px;
+    max-width: 50%;
+    width: 100%;
+  }
+
+
+  .project-page-layouts__items {
+    margin-top: 64px;
+  }
+
+  .project-page-layouts__items_head {
+    .wrap {
+      margin-bottom: 20px;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+
+
+  .flatrow__wrap {
+    padding: 20px 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .flatrow__type {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .flatrow__img {
+    display: none;
+  }
+
+  // Удобство
+  .project-page-comfort {
+    padding-top: 120px;
+  }
+
+  .project-page-comfort__top {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+  }
+
+  .project-page-comfort__top_text {
+    font-size: 32px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+
+  .project-page-comfort-slider {
+    margin-top: 80px;
+    overflow: visible;
+
+    .swiper-slide {
+      max-width: none;
+      margin-right: 0;
+    }
+  }
+
+  .project-page-comfort__item {
+    .hr {
+      max-width: 100%;
+    }
+
+    span {
+      color: $textGray;
+      line-height: 100%;
+    }
+
+    h5 {
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+
+  .project-page-comfort__item_top {
+    margin-top: 26px;
+  }
+
+  .project-page-comfort__item_image {
+    margin-top: 26px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .project-page-comfort__item_content {
+    height: 0;
+    overflow: hidden;
+
+    p {
+      padding-top: 20px;
+
+    }
+  }
+
+  // Инфраструктура
+  .project-page-map {
+    margin-top: 260px;
+  }
+  .project-page-map__top {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+  }
+
+  .project-page-map__top_info {
+    p {
+      font-size: 32px;
+      line-height: 120%;
+    }
+  }
+
+  .project-page-map__map {
+    margin-top: 80px;
+    height: 600px;
+    background: $bgGrayLight;
+  }
+
+  // Ипотека
+
+  // Визуализации
+  .project-page-vizual {
+    margin-top: 260px;
+  }
+
+  .project-page-vizual__top {
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+  }
+
+  .project-page-vizual__list {
+    margin-top: 80px;
+  }
+
+  .project-page-vizual__item {
+    margin-bottom: 40px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .project-page-vizual__item_text {
+    margin-top: 16px;
+    margin-bottom: 80px;
+    margin-left: 50%;
+    max-width: 50%;
+    width: 100%;
+    font-weight: 400;
+  }
+
+  //Ход Строительства
+  .project-page-process {
+    margin-top: 250px;
+  }
+
+  .project-page-process__top {
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+  }
+
+  .project-page-process__top_info {
+    font-size: 32px;
+    line-height: 120%;
+  }
+
+  .project-page-process-slider {
+    margin-top: 80px;
+
+    .swiper-slide {
+      max-width: none;
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+
+  .process-slide {
+    .hr {
+      max-width: 100%;
+    }
+
+    span {
+      margin-top: 20px;
+    }
+
+    h5 {
+      margin-top: 8px;
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+
+  .process-slide__image {
+    margin-top: 20px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  // Новости
+  .project-page {
+    .news-card {
+      min-height: 300px;
+    }
+
+    .news-card__bottom {
+      margin-top: auto;
+    }
+  }
+
+
+  // Документация
+  .project-page-docs {
+    margin-top: 250px;
+
+    .showmore-btn {
+      margin-top: 40px;
+      padding-left: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  .project-page-docs__top {
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+  }
+
+  .project-page-docs__top_info {
+    font-size: 32px;
+  }
+
+  .project-page-docs__list {
+    margin-top: 80px;
+  }
+
+  .project-page-docs__head_items {
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    margin-bottom: 24px;
+  }
+
+  .project-file__wrap {
+    padding: 20px 0;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    align-items: center;
+  }
+
+  .profile-file__title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .project-page__title {
+    margin-top: 100px;
+    font-size: 80px;
+  }
+
+  .project-hero-poster {
+    margin-top: 20px;
+  }
+
+  // О проекте
+  .project-page-about {
+    .hr {
+      margin: 64px 0 0 0;
+    }
+  }
+
+
+  .project-page-about__description {
+    font-size: 24px;
+  }
+
+  .project-page-about__bottom {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+
+  }
+
+
+  // Информация
+  .project-page-info {
+    margin-top: 0;
+  }
+
+  .project-page-info__wrap {
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+    margin-top: 64px;
+
+    .suptitle {
+      //display: none;
+    }
+  }
+
+  .project-page-info__list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+
+
+  .project-page-info__list_item {
+    gap: 4px;
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  // Бегущая строка
+  .project-page-marquee {
+    margin: 120px 0;
+  }
+
+  // Планировки
+  .project-page-layouts {
+    .showmore-btn {
+      margin-top: 32px;
+      padding: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  .project-page-layouts__top {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .project-page-layouts__top_title {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+
+  .project-page-layouts__top_text {
+    margin-top: 16px;
+    max-width: none;
+    width: 100%;
+  }
+
+
+  .project-page-layouts__items {
+    margin-top: 64px;
+  }
+
+  .project-page-layouts__items_head {
+    //display: none;
+    .wrap {
+      display: none;
+      margin-bottom: 20px;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+
+
+  .flatrow__wrap {
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 52px;
+  }
+
+  .flatrow__type {
+    width: 100%;
+    font-weight: 500;
+  }
+
+  .flatrow__img {
+    display: none;
+  }
+
+  // Удобство
+  .project-page-comfort {
+    padding-top: 120px;
+  }
+
+  .project-page-comfort__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-comfort__top_text {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+
+  .project-page-comfort-slider {
+    margin-top: 64px;
+
+  }
+
+  .project-page-comfort__item {
+    .hr {
+      max-width: 100%;
+    }
+
+    span {
+      color: $textGray;
+      line-height: 100%;
+    }
+
+    h5 {
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+
+  .project-page-comfort__item_top {
+    margin-top: 20px;
+  }
+
+  .project-page-comfort__item_image {
+    margin-top: 26px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .project-page-comfort__item_content {
+    height: 0;
+    overflow: hidden;
+
+    p {
+      padding-top: 20px;
+
+    }
+  }
+
+  // Инфраструктура
+  .project-page-map {
+    margin-top: 120px;
+  }
+  .project-page-map__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-map__top_info {
+    p {
+      font-size: 24px;
+      line-height: 120%;
+      font-weight: 400;
+    }
+  }
+
+  .project-page-map__map {
+    margin-top: 64px;
+    height: 400px;
+  }
+
+  // Ипотека
+
+  // Визуализации
+  .project-page-vizual {
+    margin-top: 120px;
+  }
+
+  .project-page-vizual__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-vizual__list {
+    margin-top: 64px;
+  }
+
+  .project-page-vizual__item {
+    margin-bottom: 32px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .project-page-vizual__item_text {
+    margin-top: 16px;
+    margin-bottom: 80px;
+    margin-left: 50%;
+    max-width: 50%;
+    width: 100%;
+    font-weight: 400;
+  }
+
+  //Ход Строительства
+  .project-page-process {
+    margin-top: 120px;
+  }
+
+  .project-page-process__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-process__top_info {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+
+  .project-page-process-slider {
+    margin-top: 64px;
+  }
+
+
+  .process-slide {
+    .hr {
+      max-width: 100%;
+    }
+
+    span {
+      margin-top: 20px;
+    }
+
+    h5 {
+      margin-top: 8px;
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+
+  .process-slide__image {
+    margin-top: 20px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  // Новости
+  .project-page {
+    .news-card {
+      min-height: 300px;
+    }
+
+    .news-card__bottom {
+      margin-top: auto;
+    }
+  }
+
+
+  // Документация
+  .project-page-docs {
+    margin-top: 120px;
+
+    .showmore-btn {
+      margin-top: 32px;
+    }
+  }
+
+  .project-page-docs__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-docs__top_info {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .project-page-docs__list {
+    margin-top: 64px;
+  }
+
+  .project-page-docs__head_items {
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    margin-bottom: 24px;
+    display: none;
+  }
+
+  .project-file__wrap {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 52px;
+  }
+
+  .profile-file__title {
+    font-size: 18px;
+    width: 100%;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .project-page__title {
+    margin-top: 80px;
+    font-size: 40px;
+  }
+
+  .project-hero-poster {
+    margin-top: 12px;
+  }
+
+  // О проекте
+  .project-page-about {
+    .hr {
+      margin: 32px 0 0 0;
+    }
+  }
+
+
+  .project-page-about__description {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  .project-page-about__bottom {
+    margin-top: 32px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+  }
+
+
+  // Информация
+  .project-page-info {
+    margin-top: 0;
+  }
+
+  .project-page-info__wrap {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 0;
+
+    .suptitle {
+      display: none;
+    }
+  }
+
+  .project-page-info__list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+
+
+  // Бегущая строка
+  .project-page-marquee {
+    margin: 120px 0;
+  }
+
+  // Планировки
+  .project-page-layouts {
+    .showmore-btn {
+      margin-top: 32px;
+      padding: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  .project-page-layouts__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-layouts__top_title {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+
+  .project-page-layouts__top_text {
+    margin-top: 16px;
+    max-width: none;
+    width: 100%;
+  }
+
+
+  .project-page-layouts__items {
+    margin-top: 64px;
+  }
+
+
+  .flatrow__wrap {
+    padding: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 0px;
+
+    div {
+      width: 50%;
+
+      &:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  .flatrow__type {
+    width: 100%;
+    font-weight: 500;
+  }
+
+  .flatrow__img {
+    display: none;
+  }
+
+  // Удобство
+  .project-page-comfort {
+    padding-top: 120px;
+  }
+
+  .project-page-comfort__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-comfort__top_text {
+    font-size: 24px;
+  }
+
+  .project-page-comfort-slider {
+    margin-top: 64px;
+
+  }
+
+  .project-page-comfort__item {
+    .hr {
+      max-width: 100%;
+    }
+
+    span {
+      color: $textGray;
+      line-height: 100%;
+    }
+
+    h5 {
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+
+  .project-page-comfort__item_top {
+    margin-top: 20px;
+  }
+
+  .project-page-comfort__item_image {
+    margin-top: 26px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .project-page-comfort__item_content {
+    height: 0;
+    overflow: hidden;
+
+    p {
+      padding-top: 20px;
+
+    }
+  }
+
+  // Инфраструктура
+  .project-page-map__map {
+    height: 320px;
+  }
+
+  // Ипотека
+
+  // Визуализации
+  .project-page-vizual {
+    margin-top: 120px;
+  }
+
+  .project-page-vizual__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-vizual__list {
+    margin-top: 64px;
+  }
+
+  .project-page-vizual__item {
+    margin-bottom: 32px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .project-page-vizual__item_text {
+    margin-top: 12px;
+    margin-bottom: 80px;
+    margin-left: 0;
+    max-width: none;
+    width: 100%;
+    font-weight: 400;
+  }
+
+  //Ход Строительства
+  .project-page-process {
+    margin-top: 120px;
+  }
+
+  .project-page-process__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-process__top_info {
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 400;
+  }
+
+  .project-page-process-slider {
+    margin-top: 64px;
+  }
+
+
+  .process-slide {
+    .hr {
+      max-width: 100%;
+    }
+
+    span {
+      margin-top: 20px;
+    }
+
+    h5 {
+      margin-top: 8px;
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+
+  .process-slide__image {
+    margin-top: 20px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  // Новости
+  .project-page {
+    .news-card {
+      min-height: 300px;
+    }
+
+    .news-card__bottom {
+      margin-top: auto;
+    }
+  }
+
+
+  // Документация
+  .project-page-docs {
+    margin-top: 120px;
+
+    .showmore-btn {
+      margin-top: 32px;
+    }
+  }
+
+  .project-page-docs__top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-page-docs__top_info {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .project-page-docs__list {
+    margin-top: 64px;
+  }
+
+  .project-page-docs__head_items {
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    margin-bottom: 24px;
+    display: none;
+  }
+
+  .project-file__wrap {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 52px;
+  }
+
+  .profile-file__title {
+    font-size: 18px;
+    width: 100%;
+    font-weight: 500;
+  }
+}

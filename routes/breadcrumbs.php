@@ -49,6 +49,12 @@ Breadcrumbs::for('projects', function (BreadcrumbTrail $trail) {
     $trail->push('Проекты', route('projects'));
 });
 
+Breadcrumbs::for('project', function (BreadcrumbTrail $trail) {
+    $trail->parent('projects');
+    $trail->push('Название проекта', route('projects.view', 'asd'));
+});
+
+
 Breadcrumbs::for('team', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Руководство', route('team'));

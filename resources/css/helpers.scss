@@ -38,9 +38,35 @@
     }
 }
 
+.download-link {
+    position: relative;
+    padding-right: 22rem;
+    &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 12rem;
+        height: 13rem;
+        top: 5rem;
+        background-image: url('../../public/img/dl.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 0 0;
+    }
+}
+
 
 @media screen and (max-width: 1200px) {
     .spacer {
         padding-top: 120px;
+    }
+
+    .download-link {
+        padding-right: 22px;
+        &:before {
+            width: 12px;
+            height: 13px;
+            top: 5px;
+        }
     }
 }
