@@ -47,6 +47,9 @@
   width: 100%;
   padding: 28rem;
   border: 1rem solid $bgGrayLight;
+  &.--mob {
+    display: none;
+  }
 }
 
 .project-item__image {
@@ -100,6 +103,8 @@
     font-size: 16px;
     padding: 16px;
     border: 1px solid $bgGrayLight;
+
+
   }
 
   .project-item__image {
