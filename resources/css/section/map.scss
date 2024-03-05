@@ -17,7 +17,19 @@
 
 
     .map__wrap {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 4fr;
         gap: 20px;
     }
+}
+
+@media screen and (max-width: 768px) {
+  .map__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .suptitle {
+      margin-bottom: 20px;
+    }
+  }
 }

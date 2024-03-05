@@ -27,11 +27,17 @@
     .director-slide {}
 
     .director-slide__image {
-        height: 320px;
+        height: auto;
 
-        img {}
+        img {
+          object-fit: cover;
+        }
+
     }
 
+  .director-slide__title {
+    font-size: 18px !important;
+  }
 
     .director-slide__info {
         margin-top: 26px;
@@ -43,3 +49,4 @@
         }
     }
 }
+

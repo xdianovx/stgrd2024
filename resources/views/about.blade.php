@@ -2,10 +2,10 @@
 
 @section('content')
     <main class="about" data-barba="container" data-barba-namespace="about">
-
+      {{ Breadcrumbs::render('about') }}
         <section class="about-hero">
             <div class="container">
-                {{ Breadcrumbs::render('about') }}
+
 
                 <h1 class="about-title">Строительная компания Стройград</h1>
 
@@ -28,7 +28,6 @@
 
         <x-section.mission />
         <x-section.directors />
-
 
         <div class="line">
             <div class="hr"></div>

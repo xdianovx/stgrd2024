@@ -1,91 +1,104 @@
 .enterprises {
-    padding-top: 250rem;
+  padding-top: 250rem;
 }
 
 .enterprises__top {
-    display: grid;
-    grid-template-columns: 280rem 980rem;
-    gap: 280rem;
+  display: grid;
+  grid-template-columns: 280rem 980rem;
+  gap: 280rem;
 }
 
 .enterprises__description {
-    margin-top: 70rem;
-    max-width: 560rem;
+  margin-top: 70rem;
+  max-width: 560rem;
 
 
 }
 
 .enterprises__info {
-    .text {
-        font-size: 40rem;
-    }
+  .text {
+    font-size: 40rem;
+  }
 }
 
 
 .enterprises__wrap {
-    margin-top: 100rem;
+  margin-top: 100rem;
 }
 
 .enterprises__head .hr {
-    margin-top: 24rem;
+  margin-top: 24rem;
 }
 
 .enterprises__head_title {
-    display: grid;
-    grid-template-columns: 560rem 420rem 280rem 420rem;
+  display: grid;
+  grid-template-columns: 560rem 420rem 280rem 420rem;
 
-    p {
-        color: $textGray;
+  p {
+    color: $textGray;
 
-        &:last-child {
-            text-align: right;
-        }
+    &:last-child {
+      text-align: right;
     }
+  }
 }
 
 
 @media screen and (max-width: 1200px) {
-    .enterprises {
-        padding-top: 120px;
+  .enterprises {
+    padding-top: 120px;
+  }
+
+  .enterprises__top {
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+
+  }
+
+  .enterprises__description {
+    margin-top: 16px;
+    max-width: none;
+    width: 100%;
+  }
+
+  .enterprises__info {
+    .text {
+      font-size: 32px;
     }
+  }
 
-    .enterprises__top {
-        grid-template-columns: 1fr;
-        gap: 20px;
+  .enterprises__wrap {
+    margin-top: 64px;
+  }
+  .enterprises__head {
+    display: none;
+  }
 
+  .enterprises__head .hr {
+    margin-top: 24px;
+  }
+
+  .enterprises__head_title {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    p {
+      color: $textGray;
+
+      &:last-child {
+        text-align: right;
+      }
     }
+  }
+}
 
-    .enterprises__description {
-        margin-top: 32px;
-        max-width: none;
-        width: 100%;
-    }
+@media screen and (max-width: 768px) {
+  .enterprises__top {
+    flex-direction: column;
+    display: flex;
+  }
 
-    .enterprises__info {
-        .text {
-            font-size: 32px;
-        }
-    }
-
-
-    .enterprises__wrap {
-        margin-top: 64px;
-    }
-
-    .enterprises__head .hr {
-        margin-top: 24px;
-    }
-
-    .enterprises__head_title {
-        display: grid;
-        grid-template-columns: 1fr;
-
-        p {
-            color: $textGray;
-
-            &:last-child {
-                text-align: right;
-            }
-        }
-    }
+  .enterprises__info .text {
+    font-size: 24px;
+  }
 }

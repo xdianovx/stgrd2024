@@ -78,4 +78,143 @@
     }
 }
 
-@media screen and (max-width: 768px){ }
+@media screen and (max-width: 1200px){
+
+  .contacts__hero {
+    margin-top: 240px;
+
+  }
+
+  .contacts__title_wrap {
+    margin-bottom: 32px;
+  }
+
+  .contacts__title {
+    margin-top: 16px;
+    font-size: 128px;
+  }
+
+
+  .hero__info_wrap {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 32px 0 32px;
+  }
+
+  .hero__info_title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .hero__info_item_label {
+    line-height: 100%;
+    font-size: 14px;
+  }
+
+  .hero__info_item_wrap {
+    gap: 12px;
+    margin-top: 16px;
+    font-size: 16px;
+  }
+
+
+  .contacts__list {
+    margin-top: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+  }
+
+
+  .cooperate {
+    margin-top: 240px;
+  }
+
+  .cooperate__wrap {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 0;
+  }
+
+  .cooperate__subtitle {
+    font-size: 18px;
+    margin-top: 32px;
+  }
+
+  .cooperate-form {
+    margin-top: 64px;
+
+    .form-input {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .contacts__title {
+    font-size: 96px;
+  }
+
+  .hero__info_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+
+  .hero__info_title {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .hero__info_item {
+    width: 50%;
+  }
+
+  .cooperate {
+    margin-top: 120px;
+  }
+
+  .cooperate__wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .cooperate__right {
+    margin-top: 16px;
+  }
+
+  .cooperate__subtitle {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .cooperate-form {
+    margin-top: 32px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .contacts__hero {
+    margin-top: 120px;
+  }
+  .contacts__title {
+    font-size: 40px;
+  }
+
+  .contacts__title_wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .circle-btn {
+      margin-left: auto;
+    }
+  }
+
+  .hero__info_item {
+    width: 100%;
+    margin-bottom: 32px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
