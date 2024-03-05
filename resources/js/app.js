@@ -116,8 +116,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
           gsap.from(data.next.container, {
             opacity: 0,
             onComplete: () => {
-              ScrollTrigger.refresh(true);
               init();
+              ScrollTrigger.refresh();
             },
           });
         },
