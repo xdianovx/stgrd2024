@@ -18,109 +18,113 @@ import {rotate_text} from "./modules/animations/rotate_text.js";
 import {vacancy} from "./modules/vacancy.js";
 import {project_page} from "./modules/project_page.js";
 
-MouseFollower.registerGSAP(gsap);
+document.addEventListener("DOMContentLoaded", (event) => {
+  MouseFollower.registerGSAP(gsap);
+  gsap.registerPlugin(ScrollTrigger);
 
-new MouseFollower({
+
+  new MouseFollower({
     speed: 0.3,
     skewing: 0,
     skewingText: 0,
-});
-const lenis = new Lenis({
+  });
+  const lenis = new Lenis({
     duration: 1.5,
-});
+  });
 
 
-gsap.registerPlugin(ScrollTrigger);
-
-function raf(time) {
+  function raf(time) {
     lenis.raf(time);
     ScrollTrigger.update();
     requestAnimationFrame(raf);
-}
+  }
 
-requestAnimationFrame(raf);
+  requestAnimationFrame(raf);
 
 
+  navigation(lenis, barba);
+  sliders();
+  burger();
+  hero_title(gsap);
+  marquee(gsap);
+  showreel(gsap, lenis);
+  sticky_btn(gsap);
+  mission();
+  rotate_text(gsap)
+  features(gsap, lenis, ScrollTrigger)
+  vacancy(gsap)
+  project_page(gsap)
 // footer(ScrollTrigger);
 
-function init() {
+  function init() {
     const squareBtns = document.querySelectorAll(".square_btn");
     const lines = document.querySelectorAll('.hr')
 
     if (lines) {
-        lines.forEach(item => {
-            gsap.from(
-                item, {
-                    width: 0,
-                    duration: .2,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top 60%",
-                        ease: "power3",
-                    }
-                }
-            )
+      lines.forEach(item => {
+        gsap.from(
+          item, {
+            width: 0,
+            duration: .2,
+            scrollTrigger: {
+              trigger: item,
+              start: "top 60%",
+              ease: "power3",
+            }
+          }
+        )
 
-        })
+      })
     }
 
     if (squareBtns) {
-        squareBtns.forEach((element) => {
-            ScrollTrigger.create({
-                trigger: element,
-                // markers: true,
-                start: "top 50%",
-                pin: true,
-                scrub: 2,
-                ease: "power3",
-            });
+      squareBtns.forEach((element) => {
+        ScrollTrigger.create({
+          trigger: element,
+          // markers: true,
+          start: "top 50%",
+          pin: true,
+          scrub: 2,
+          ease: "power3",
         });
+      });
     }
 
 
-    navigation(lenis, barba);
-    sliders();
-    burger();
-    hero_title(gsap);
-    marquee(gsap);
-    showreel(gsap, lenis);
-    sticky_btn(gsap);
-    mission();
-    rotate_text(gsap)
-    features(gsap, lenis, ScrollTrigger)
-    vacancy(gsap)
-    project_page(gsap)
-}
+  }
 
-init();
 
-barba.init({
+  barba.init({
     schema: {
-        wrapper: "wrapper",
+      wrapper: "wrapper",
     },
     transitions: [
-        {
-            name: "opacity-transition",
-            leave(data) {
-                lenis.scrollTo(0)
+      {
+        name: "opacity-transition",
+        leave(data) {
+          lenis.scrollTo(0)
 
-                gsap.to(data.current.container, {
-                    opacity: 0,
-                    onComplete: () => {
-                        ScrollTrigger.refresh();
-                    },
-                });
-                window.scrollTo(scrollX, scrollY);
+          gsap.to(data.current.container, {
+            opacity: 0,
+            onComplete: () => {
+              ScrollTrigger.refresh();
             },
-            enter(data) {
-                gsap.from(data.next.container, {
-                    opacity: 0,
-                    onComplete: () => {
-                        ScrollTrigger.refresh(true);
-                        init();
-                    },
-                });
-            },
+          });
+          window.scrollTo(scrollX, scrollY);
         },
+        enter(data) {
+          gsap.from(data.next.container, {
+            opacity: 0,
+            onComplete: () => {
+              ScrollTrigger.refresh(true);
+              init();
+            },
+          });
+        },
+      },
     ],
+  });
+
+  init();
+
 });
