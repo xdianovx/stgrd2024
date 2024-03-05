@@ -1,4 +1,8 @@
-.projects-page {}
+.projects-page {
+  .hr.--last {
+    margin-top: 100rem;
+  }
+}
 
 .projects-page-hero {}
 
@@ -78,4 +82,227 @@
     display: flex;
     flex-direction: column;
     gap: 100rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .projects-page {
+    .hr.--last {
+      margin: 64px 0;
+    }
+  }
+  .projects-page-title {
+    margin-top: 120px;
+    font-size: 128px;
+  }
+
+  .projects-page-catalog__filter {
+    margin-top: 80px;
+  }
+
+  .projects-page-catalog__filter_wrap {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .projects-page-catalog__filter_count {
+    margin-top: 32px;
+  }
+
+  .projects-page-catalog__big_card {
+    margin-top: 32px;
+  }
+
+  .projects-page-catalog__big_card_image {
+    height: auto;
+  }
+
+
+  .projects-page-catalog__big_card_info {
+    align-items: start;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr;
+  }
+
+  .projects-page-catalog__big_card_title {
+    font-size: 20px;
+  }
+
+  .projects-page-catalog__big_card_col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .projects-page-catalog__big_card_col_city {
+  }
+
+  .projects-page-catalog__big_card_col_deadline {
+  }
+
+  .projects-page-catalog__big_card_link {
+  }
+
+  .projects-page-list {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+}
+
+
+@media screen and (max-width: 1024px) {
+  .projects-page {
+    .hr.--last {
+      margin: 64px 0;
+    }
+  }
+  .projects-page-title {
+    margin-top: 96px;
+    font-size: 96px;
+  }
+
+  .projects-page-catalog__filter {
+    margin-top: 64px;
+  }
+
+  .projects-page-catalog__filter_wrap {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .projects-page-catalog__filter_count {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .projects-page-catalog__big_card {
+    margin-top: 64px;
+  }
+
+
+  .projects-page-catalog__big_card_info {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 3fr 1fr;
+  }
+
+  .projects-page-catalog__big_card_title {
+    font-size: 20px;
+    width: 50%;
+    gap: 0;
+    font-weight: 500;
+    br {
+      display: none;
+    }
+  }
+
+  .projects-page-catalog__big_card_col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    gap: 32px;
+    justify-content: flex-end;
+  }
+
+  .projects-page-catalog__big_card_text {
+    margin-top: 16px;
+  }
+  .projects-page-catalog__big_card_col_city {
+  }
+
+  .projects-page-catalog__big_card_col_deadline {
+  }
+
+  .projects-page-catalog__big_card_link {
+    margin-top: 16px;
+  }
+
+  .projects-page-list {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .projects-page {
+    .hr.--last {
+      margin: 64px 0;
+    }
+  }
+  .projects-page-title {
+    margin-top: 96px;
+    font-size: 52px;
+  }
+
+  .projects-page-catalog__filter {
+    margin-top: 40px;
+  }
+
+  .projects-page-catalog__filter_wrap {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .projects-page-catalog__filter_count {
+    margin-top: 32px;
+  }
+
+  .projects-page-catalog__big_card {
+  }
+
+
+  .projects-page-catalog__big_card_info {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .projects-page-catalog__big_card_title {
+    font-size: 20px;
+    width: 100%;
+    gap: 0;
+    font-weight: 500;
+    br {
+      display: none;
+    }
+  }
+
+  .projects-page-catalog__big_card_col {
+    display: flex;
+    margin-top: 16px;
+    flex-direction: row;
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .projects-page-catalog__big_card_text {
+    margin-top: 16px;
+  }
+  .projects-page-catalog__big_card_col_city {
+  }
+
+  .projects-page-catalog__big_card_col_deadline {
+    font-size: 14px;
+  }
+
+  .projects-page-catalog__big_card_link {
+    margin-top: 16px;
+  }
+
+  .projects-page-list {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
 }

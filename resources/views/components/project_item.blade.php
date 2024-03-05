@@ -28,6 +28,8 @@
                     <img src="{{ $image }}" alt="{{ $title }}">
                 </div>
             </div>
+          <a href="/projects/{{ $slug }}" class="project-item__btn --mob">Подробнее</a>
+
         </div>
     </div>
 </div>

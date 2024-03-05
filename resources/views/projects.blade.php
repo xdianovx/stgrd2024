@@ -121,10 +121,9 @@
 
 @section('content')
     <main class="projects-page" data-barba="container" data-barba-namespace="peojects">
-
+      {{ Breadcrumbs::render('projects') }}
         <section class="projects-page-hero">
             <div class="container">
-                {{ Breadcrumbs::render('projects') }}
                 <h1 class="projects-page-title">Наши <br> проекты</h1>
             </div>
         </section>
@@ -173,7 +172,7 @@
                         :slug="$item['slug']" :image="$item['image']" :comfort="$item['comfort']" :flats="$item['flats']" />
                 @endforeach
             </div>
-            <div class="hr" style="margin-top: 100rem"></div>
+            <div class="hr --last" ></div>
         </section>
 
 
