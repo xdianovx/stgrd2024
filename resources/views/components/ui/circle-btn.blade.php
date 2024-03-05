@@ -1,4 +1,4 @@
-<div {{$attributes->class(['circle-btn'])}} {{$attributes}} >
+<button {{$attributes->class(['circle-btn'])}} {{$attributes}} >
   {{$slot}}
   <div class="circle-btn-overflow"></div>
-</div>
+</button>
