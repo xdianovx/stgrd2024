@@ -49,3 +49,14 @@
   height: 0;
   background: $bgBlack;
 }
+
+@media screen and (max-width: 1200px) {
+  .circle-btn {
+    width: 51px;
+    height: 51px;
+    border: 1px solid $bgGray;
+    &:hover {
+      border: 1px solid $bgBlack;
+    }
+  }
+}
