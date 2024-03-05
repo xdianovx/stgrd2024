@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   features(gsap, lenis, ScrollTrigger)
   vacancy(gsap)
   project_page(gsap)
+
 // footer(ScrollTrigger);
 
-  function init() {
     const squareBtns = document.querySelectorAll(".square_btn");
     const lines = document.querySelectorAll('.hr')
 
@@ -91,40 +91,52 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
 
-  }
 
 
-  barba.init({
-    schema: {
-      wrapper: "wrapper",
-    },
-    transitions: [
-      {
-        name: "opacity-transition",
-        leave(data) {
-          lenis.scrollTo(0)
-
-          gsap.to(data.current.container, {
-            opacity: 0,
-            onComplete: () => {
-              ScrollTrigger.refresh();
-            },
-          });
-          window.scrollTo(scrollX, scrollY);
-        },
-        enter(data) {
-          gsap.from(data.next.container, {
-            opacity: 0,
-            onComplete: () => {
-              init();
-              ScrollTrigger.refresh();
-            },
-          });
-        },
+  barba.init(
+    {
+      // sync: false,
+      schema: {
+        wrapper: "wrapper",
       },
-    ],
-  });
+      transitions: [
+        {
+          name: "opacity-transition",
+          leave(data) {
+            lenis.scrollTo(0)
 
-  init();
+            gsap.to(data.current.container, {
+              opacity: 0,
+              onComplete: () => {
+                ScrollTrigger.refresh();
+
+              },
+            });
+            window.scrollTo(scrollX, scrollY);
+          },
+          enter(data) {
+            gsap.from(data.next.container, {
+              opacity: 0,
+              onComplete: () => {
+                // init();
+                ScrollTrigger.refresh();
+                sliders();
+                burger();
+                // hero_title(gsap);
+                marquee(gsap);
+                showreel(gsap, lenis);
+                sticky_btn(gsap);
+                mission();
+                rotate_text(gsap)
+                features(gsap, lenis, ScrollTrigger)
+                vacancy(gsap)
+                project_page(gsap)
+              },
+            });
+          },
+        },
+      ],
+    });
+
 
 });
