@@ -1,6 +1,6 @@
-@props(['type', 'city', 'phones', 'address'])
+@props(['type', 'city', 'phones', 'address', 'latitude', 'longtitude'])
 
-<div class="contacts-item">
+<div class="contacts-item" data-latitude="42.018706" data-longtitude="45.078537">
     <div class="container">
         <div class="contacts-item__top">
             <p class="contacts-item__type">{{ $type }}</p>
@@ -20,6 +20,10 @@
             </div>
         </div>
     </div>
+
+  <div class="contacts-item-map">
+    <div class="contacts-item-map__inner"></div>
+  </div>
 
     <div class="hr"></div>
 

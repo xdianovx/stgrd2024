@@ -50,6 +50,18 @@
 }
 
 
+.contacts-item-map {
+  height: 0;
+  overflow: hidden;
+
+}
+
+.contacts-item-map__inner {
+  background: $bgGrayLight;
+  height: 420rem;
+  filter: grayscale(1);
+}
+
 @media screen and (max-width: 1200px){
   .contacts-item {}
 
@@ -95,6 +107,10 @@
     margin-top: 16px;
     font-size: 16px;
   }
+
+  .contacts-item-map__inner {
+    height: 420px;
+  }
 }
 
 
@@ -125,6 +141,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .contacts-item-map__inner {
+    height: 280px;
+  }
   .contacts-item__title_wrap {
     flex-direction: column;
     align-items: flex-start;

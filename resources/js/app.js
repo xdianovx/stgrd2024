@@ -24,6 +24,7 @@ import {selectors} from "./modules/selectors.js";
 import {squareBtns} from "./modules/animations/square-btns.js";
 import {filters} from "./modules/filters.js";
 import {maps} from "./modules/maps.js";
+import {contactsItem} from "./modules/contacts-item.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // footer(ScrollTrigger);
   filters(gsap)
   maps(gsap)
-
+  contactsItem(gsap)
 
   barba.init({
     schema: {
@@ -107,6 +108,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
               squareBtns(ScrollTrigger)
               filters(gsap)
               maps(gsap)
+              contactsItem(gsap)
+
             },
           });
         },
