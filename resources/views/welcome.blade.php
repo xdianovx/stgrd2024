@@ -1,5 +1,5 @@
 @php
-    $hero__data = [ 'text_left' => 'Строим больше 15 лет']
+    $hero__data = [ 'text_left' => 'Строим больше 20 лет']
 @endphp
 
 @extends('layouts.main')
