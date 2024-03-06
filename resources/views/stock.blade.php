@@ -41,6 +41,21 @@
             'created_at' => '23 мая 2023',
         ],
     ];
+
+        $status = [
+      [
+          'id' => '1',
+          'title' => 'Проект',
+      ],
+      [
+          'id' => '1',
+          'title' => 'Город',
+      ],
+      [
+          'id' => '1',
+          'title' => 'Год',
+      ],
+  ];
 @endphp
 
 @extends('layouts.main')
@@ -64,9 +79,9 @@
             <div class="container">
                 <div class="news-catalog__filter_wrap">
                     <div class="news-catalog__filter">
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
+                      <x-ui.dropdown :list="$status"/>
+                      <x-ui.dropdown :list="$status"/>
+                      <x-ui.dropdown :list="$status"/>
                     </div>
 
                     <div class="news-catalog__filter_count">Найдено: 15</div>
