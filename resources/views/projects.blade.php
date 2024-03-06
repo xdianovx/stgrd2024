@@ -115,6 +115,21 @@
             ],
         ],
     ];
+
+        $status = [
+        [
+            'id' => '1',
+            'title' => 'Статус 1',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Статус 2',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Статус 3',
+        ],
+    ];
 @endphp
 
 @extends('layouts.main')
@@ -133,9 +148,10 @@
             <div class="container">
                 <div class="projects-page-catalog__filter">
                     <div class="projects-page-catalog__filter_wrap">
-                        <p>1</p>
-                        <p>1</p>
-                        <p>1</p>
+                      <x-ui.dropdown :list="$status" />
+                      <x-ui.dropdown :list="$status" />
+                      <x-ui.dropdown :list="$status" />
+
                     </div>
                     <p class="projects-page-catalog__filter_count">Найдено проектов: 15</p>
                 </div>
