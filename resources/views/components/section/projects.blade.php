@@ -26,7 +26,7 @@
         </div>
 
         <div class="big-card">
-            <div class="big-card__image">
+            <div class="big-card__image parallax">
                 <img src="{{ asset('img/video/big_card.jpg') }}" alt="Фотография Дворянская усадьба">
             </div>
 

@@ -24,7 +24,7 @@
             </div>
 
             <div class="project-item__right">
-                <div class="project-item__image">
+                <div class="project-item__image parallax --project-card-parallax">
                     <img src="{{ $image }}" alt="{{ $title }}">
                 </div>
             </div>

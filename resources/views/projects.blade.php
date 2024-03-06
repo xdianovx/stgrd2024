@@ -142,7 +142,7 @@
 
                 {{-- Big Card Start --}}
                 <div class="projects-page-catalog__big_card">
-                    <div class="projects-page-catalog__big_card_image">
+                    <div class="projects-page-catalog__big_card_image parallax">
                         <img src="{{ asset('img/projects-page-1.jpg') }}" alt="Дворянская усадьба">
                     </div>
 

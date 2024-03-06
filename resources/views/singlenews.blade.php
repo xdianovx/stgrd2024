@@ -60,7 +60,11 @@
             </div>
 
 
-            <img class="singlenews-img" src="{{ $data['image'] }}" alt="{{ $data['title'] }}">
+          <div class="parallax singlenews-img">
+            <img class="" src="{{ $data['image'] }}" alt="{{ $data['title'] }}">
+          </div>
+
+
             <div class="container">
                 <p class="singlenews__description">{{ $data['description'] }}</p>
 

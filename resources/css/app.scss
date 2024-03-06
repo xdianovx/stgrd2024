@@ -161,4 +161,8 @@ section {
     position: absolute;
     top: -20%;
   }
-}
+
+  &.--project-card-parallax {
+    aspect-ratio: 5/4;
+  }
+ }
