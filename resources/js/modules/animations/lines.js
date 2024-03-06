@@ -8,7 +8,7 @@ export const lines = () => {
   lines.forEach((item) => {
     gsap.from(item, {
       width: 0,
-      duration: 0.2,
+      duration: 0.5,
       scrollTrigger: {
         trigger: item,
         start: "top 80%",
