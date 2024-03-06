@@ -22,6 +22,7 @@ import {lines} from "./modules/animations/lines.js";
 import {parallax} from "./modules/animations/parallax.js";
 import {selectors} from "./modules/selectors.js";
 import {squareBtns} from "./modules/animations/square-btns.js";
+import {filters} from "./modules/filters.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -61,8 +62,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   selectors()
   squareBtns(ScrollTrigger)
   // footer(ScrollTrigger);
-
-
+  filters(gsap)
 
 
   barba.init({
@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
               lines()
               parallax()
               squareBtns(ScrollTrigger)
-
-
+              selectors()
+              filters(gsap)
             },
           });
         },
