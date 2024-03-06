@@ -9,7 +9,8 @@ import {sliders} from "./modules/sliders";
 import {burger} from "./modules/burger";
 import {marquee} from "./modules/marquee";
 import {hero_title} from "./modules/animations/hero_title";
-import {footer} from "./modules/footer";
+// import {footer} from "./modules/footer";
+
 import {showreel} from "./modules/showreel";
 import {sticky_btn} from "./modules/sticky_btn";
 import {features} from "./modules/features.js";
@@ -17,6 +18,10 @@ import {mission} from "./modules/mission.js";
 import {rotate_text} from "./modules/animations/rotate_text.js";
 import {vacancy} from "./modules/vacancy.js";
 import {project_page} from "./modules/project_page.js";
+import {lines} from "./modules/animations/lines.js";
+import {parallax} from "./modules/animations/parallax.js";
+import {selectors} from "./modules/selectors.js";
+import {squareBtns} from "./modules/animations/square-btns.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -51,69 +56,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
   features(gsap, lenis, ScrollTrigger);
   vacancy(gsap);
   project_page(gsap);
-
+  lines()
+  parallax()
+  selectors()
+  squareBtns(ScrollTrigger)
   // footer(ScrollTrigger);
 
-  const squareBtns = document.querySelectorAll(".square_btn");
-  const lines = document.querySelectorAll(".hr");
-  const parr = document.querySelectorAll('.parallax')
-  const showreelParallax = document.querySelector('.parallax-showreel')
 
-  if (lines) {
-    lines.forEach((item) => {
-      gsap.from(item, {
-        width: 0,
-        duration: 0.2,
-        scrollTrigger: {
-          trigger: item,
-          start: "top 80%",
-          ease: "power3",
-        },
-      });
-    });
-  }
 
-  if (squareBtns) {
-    squareBtns.forEach((element) => {
-      ScrollTrigger.create({
-        trigger: element,
-        start: "top 50%",
-        pin: true,
-        scrub: 2,
-        ease: "power3",
-      });
-    });
-  }
-
-  if (parr) {
-    parr.forEach(function (item) {
-      gsap.to(item.querySelector("img"), {
-        yPercent: 10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: item,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        }
-      });
-    })
-  }
-
-  if (showreelParallax) {
-    gsap.to(showreelParallax.querySelector("video"), {
-      yPercent: 10,
-      ease: "none",
-      scrollTrigger: {
-        trigger: showreelParallax,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      }
-    });
-  }
-
-  //
 
   barba.init({
     schema: {
@@ -137,6 +87,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             opacity: 0,
             onComplete: () => {
               ScrollTrigger.refresh();
+
               sliders();
               burger();
               // hero_title(gsap);
@@ -148,6 +99,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
               features(gsap, lenis, ScrollTrigger);
               vacancy(gsap);
               project_page(gsap);
+              lines()
+              parallax()
+              squareBtns(ScrollTrigger)
+
+
             },
           });
         },

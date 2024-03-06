@@ -16,6 +16,7 @@
     "dependencies": {
         "@barba/core": "^2.9.7",
         "@studio-freight/lenis": "^1.0.39",
+        "choices.js": "^10.2.0",
         "gsap": "^3.12.5",
         "mouse-follower": "^1.1.2",
         "normalize.css": "^8.0.1",
