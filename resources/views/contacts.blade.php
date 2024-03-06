@@ -55,6 +55,8 @@
       <div class="hr"></div>
       {{-- Info row --}}
 
+      <div class="main-map" data-coords=""></div>
+
       <div class="hero__info">
         <div class="container">
           <div class="hero__info_wrap">

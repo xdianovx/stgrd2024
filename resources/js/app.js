@@ -23,6 +23,7 @@ import {parallax} from "./modules/animations/parallax.js";
 import {selectors} from "./modules/selectors.js";
 import {squareBtns} from "./modules/animations/square-btns.js";
 import {filters} from "./modules/filters.js";
+import {maps} from "./modules/maps.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -64,6 +65,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // footer(ScrollTrigger);
   filters(gsap)
 
+maps()
+
+
 
   barba.init({
     schema: {
@@ -104,10 +108,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
               parallax()
               squareBtns(ScrollTrigger)
               filters(gsap)
+              maps()
             },
           });
         },
       },
     ],
   });
+
+
 });

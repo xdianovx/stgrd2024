@@ -78,8 +78,18 @@
     }
 }
 
+
+.main-map {
+  height: 600rem;
+  filter: grayscale(1);
+}
+
 @media screen and (max-width: 1200px){
 
+  .main-map {
+    height: 420px;
+    filter: grayscale(1);
+  }
   .contacts__hero {
     margin-top: 240px;
 
