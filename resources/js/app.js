@@ -1,22 +1,22 @@
 import "./bootstrap";
 import MouseFollower from "mouse-follower";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 import barba from "@barba/core";
 import Lenis from "@studio-freight/lenis";
-import { navigation } from "./modules/navigation";
+import {navigation} from "./modules/navigation";
 import gsap from "gsap";
-import { sliders } from "./modules/sliders";
-import { burger } from "./modules/burger";
-import { marquee } from "./modules/marquee";
-import { hero_title } from "./modules/animations/hero_title";
-import { footer } from "./modules/footer";
-import { showreel } from "./modules/showreel";
-import { sticky_btn } from "./modules/sticky_btn";
-import { features } from "./modules/features.js";
-import { mission } from "./modules/mission.js";
-import { rotate_text } from "./modules/animations/rotate_text.js";
-import { vacancy } from "./modules/vacancy.js";
-import { project_page } from "./modules/project_page.js";
+import {sliders} from "./modules/sliders";
+import {burger} from "./modules/burger";
+import {marquee} from "./modules/marquee";
+import {hero_title} from "./modules/animations/hero_title";
+import {footer} from "./modules/footer";
+import {showreel} from "./modules/showreel";
+import {sticky_btn} from "./modules/sticky_btn";
+import {features} from "./modules/features.js";
+import {mission} from "./modules/mission.js";
+import {rotate_text} from "./modules/animations/rotate_text.js";
+import {vacancy} from "./modules/vacancy.js";
+import {project_page} from "./modules/project_page.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const squareBtns = document.querySelectorAll(".square_btn");
   const lines = document.querySelectorAll(".hr");
   const parr = document.querySelectorAll('.parallax')
+  const showreelParallax = document.querySelector('.parallax-showreel')
 
   if (lines) {
     lines.forEach((item) => {
@@ -84,7 +85,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  if(parr) {
+  if (parr) {
     parr.forEach(function (item) {
       gsap.to(item.querySelector("img"), {
         yPercent: 10,
@@ -97,6 +98,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
       });
     })
+  }
+
+  if (showreelParallax) {
+    gsap.to(showreelParallax.querySelector("video"), {
+      yPercent: 10,
+      ease: "none",
+      scrollTrigger: {
+        trigger: showreelParallax,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
   }
 
   //
