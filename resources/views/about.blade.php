@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="about" data-barba="container" data-barba-namespace="about">
-      {{ Breadcrumbs::render('about') }}
+        {{ Breadcrumbs::render('about') }}
         <section class="about-hero">
             <div class="container">
 

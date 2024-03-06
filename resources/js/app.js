@@ -1,27 +1,26 @@
 import "./bootstrap";
 import MouseFollower from "mouse-follower";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import barba from "@barba/core";
 import Lenis from "@studio-freight/lenis";
-import {navigation} from "./modules/navigation";
+import { navigation } from "./modules/navigation";
 import gsap from "gsap";
-import {sliders} from "./modules/sliders";
-import {burger} from "./modules/burger";
-import {marquee} from "./modules/marquee";
-import {hero_title} from "./modules/animations/hero_title";
-import {footer} from "./modules/footer";
-import {showreel} from "./modules/showreel";
-import {sticky_btn} from "./modules/sticky_btn";
-import {features} from "./modules/features.js";
-import {mission} from "./modules/mission.js";
-import {rotate_text} from "./modules/animations/rotate_text.js";
-import {vacancy} from "./modules/vacancy.js";
-import {project_page} from "./modules/project_page.js";
+import { sliders } from "./modules/sliders";
+import { burger } from "./modules/burger";
+import { marquee } from "./modules/marquee";
+import { hero_title } from "./modules/animations/hero_title";
+import { footer } from "./modules/footer";
+import { showreel } from "./modules/showreel";
+import { sticky_btn } from "./modules/sticky_btn";
+import { features } from "./modules/features.js";
+import { mission } from "./modules/mission.js";
+import { rotate_text } from "./modules/animations/rotate_text.js";
+import { vacancy } from "./modules/vacancy.js";
+import { project_page } from "./modules/project_page.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
   gsap.registerPlugin(ScrollTrigger);
-
 
   new MouseFollower({
     speed: 0.3,
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     duration: 1.5,
   });
 
-
   function raf(time) {
     lenis.raf(time);
     ScrollTrigger.update();
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   requestAnimationFrame(raf);
-
 
   navigation(lenis, barba);
   sliders();
@@ -50,93 +47,97 @@ document.addEventListener("DOMContentLoaded", (event) => {
   showreel(gsap, lenis);
   sticky_btn(gsap);
   mission();
-  rotate_text(gsap)
-  features(gsap, lenis, ScrollTrigger)
-  vacancy(gsap)
-  project_page(gsap)
+  rotate_text(gsap);
+  features(gsap, lenis, ScrollTrigger);
+  vacancy(gsap);
+  project_page(gsap);
 
-// footer(ScrollTrigger);
+  // footer(ScrollTrigger);
 
-    const squareBtns = document.querySelectorAll(".square_btn");
-    const lines = document.querySelectorAll('.hr')
+  const squareBtns = document.querySelectorAll(".square_btn");
+  const lines = document.querySelectorAll(".hr");
+  const parr = document.querySelectorAll('.parallax')
 
-    if (lines) {
-      lines.forEach(item => {
-        gsap.from(
-          item, {
-            width: 0,
-            duration: .2,
-            scrollTrigger: {
-              trigger: item,
-              start: "top 60%",
-              ease: "power3",
-            }
-          }
-        )
-
-      })
-    }
-
-    if (squareBtns) {
-      squareBtns.forEach((element) => {
-        ScrollTrigger.create({
-          trigger: element,
-          // markers: true,
-          start: "top 50%",
-          pin: true,
-          scrub: 2,
+  if (lines) {
+    lines.forEach((item) => {
+      gsap.from(item, {
+        width: 0,
+        duration: 0.2,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%",
           ease: "power3",
-        });
-      });
-    }
-
-
-
-
-  barba.init(
-    {
-      // sync: false,
-      schema: {
-        wrapper: "wrapper",
-      },
-      transitions: [
-        {
-          name: "opacity-transition",
-          leave(data) {
-            lenis.scrollTo(0)
-
-            gsap.to(data.current.container, {
-              opacity: 0,
-              onComplete: () => {
-                ScrollTrigger.refresh();
-
-              },
-            });
-            window.scrollTo(scrollX, scrollY);
-          },
-          enter(data) {
-            gsap.from(data.next.container, {
-              opacity: 0,
-              onComplete: () => {
-                // init();
-                ScrollTrigger.refresh();
-                sliders();
-                burger();
-                // hero_title(gsap);
-                marquee(gsap);
-                showreel(gsap, lenis);
-                sticky_btn(gsap);
-                mission();
-                rotate_text(gsap)
-                features(gsap, lenis, ScrollTrigger)
-                vacancy(gsap)
-                project_page(gsap)
-              },
-            });
-          },
         },
-      ],
+      });
     });
+  }
 
+  if (squareBtns) {
+    squareBtns.forEach((element) => {
+      ScrollTrigger.create({
+        trigger: element,
+        start: "top 50%",
+        pin: true,
+        scrub: 2,
+        ease: "power3",
+      });
+    });
+  }
 
+  if(parr) {
+    parr.forEach(function (item) {
+      gsap.to(item.querySelector("img"), {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: item,
+          start: "top 50%",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
+    })
+  }
+
+  //
+
+  barba.init({
+    schema: {
+      wrapper: "wrapper",
+    },
+    transitions: [
+      {
+        name: "opacity-transition",
+        leave(data) {
+          lenis.scrollTo(0);
+
+          gsap.to(data.current.container, {
+            opacity: 0,
+            onComplete: () => {
+              ScrollTrigger.refresh();
+            },
+          });
+        },
+        enter(data) {
+          gsap.from(data.next.container, {
+            opacity: 0,
+            onComplete: () => {
+              ScrollTrigger.refresh();
+              sliders();
+              burger();
+              // hero_title(gsap);
+              marquee(gsap);
+              showreel(gsap, lenis);
+              sticky_btn(gsap);
+              mission();
+              rotate_text(gsap);
+              features(gsap, lenis, ScrollTrigger);
+              vacancy(gsap);
+              project_page(gsap);
+            },
+          });
+        },
+      },
+    ],
+  });
 });

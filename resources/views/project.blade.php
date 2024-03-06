@@ -485,7 +485,9 @@
       <div class="project-page-vizual__list">
         @foreach($data['visual']['data'] as $item)
           <div class="project-page-vizual__item">
+            <div class="project-page-vizual__img parallax">
             <img src="{{$item['image']}}" alt="">
+            </div>
             @if($item['title'])
               <div class="project-page-vizual__item_text">
                 <div class="container">
