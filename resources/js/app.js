@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: "none",
         scrollTrigger: {
           trigger: item,
-          start: "top 50%",
+          start: "top bottom",
           end: "bottom top",
           scrub: true,
         }

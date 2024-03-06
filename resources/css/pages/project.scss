@@ -3,19 +3,6 @@
 }
 
 
-.parallax{
-  overflow: hidden;
-  position: relative;
-  height: auto;
-  aspect-ratio: 7/4;
-
-  img {
-    height: 150% !important;
-    object-fit: cover;
-    position: absolute;
-    top: -10%;
-  }
-}
 
 .project-page__title {
   margin-top: 200rem;
@@ -232,6 +219,11 @@
 
 .project-page-comfort__item_image {
   margin-top: 26rem;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .project-page-comfort__item_content {

@@ -147,3 +147,18 @@ section {
 @import './pages/contacts.scss';
 @import './pages/singlenews.scss';
 @import './pages/project.scss';
+
+
+.parallax{
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  aspect-ratio: 8/4;
+
+  img {
+    height: 140% !important;
+    object-fit: cover;
+    position: absolute;
+    top: -20%;
+  }
+}

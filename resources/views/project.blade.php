@@ -257,7 +257,7 @@
         <h1 class="project-page__title">{!!$data['title']!!}</h1>
       </div>
 
-      <div class="project-hero-poster">
+      <div class="project-hero-poster parallax">
         <img src="{{$data['poster']}}" alt="{{$data['title']}}"/>
       </div>
     </section>
