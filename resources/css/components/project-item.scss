@@ -318,6 +318,15 @@
     }
   }
 
+  .filter.--flats .filter__content_inner {
+    padding-top: 20px;
+    padding-bottom: 32px;
+  }
+
+  .filter__content_inner {
+    padding-top: 20px;
+    padding-bottom: 32px;
+  }
 }
 
 
@@ -325,5 +334,24 @@
   .project-item__left_top {
     flex-direction: column;
     gap: 16px;
+  }
+
+  .filter.--flats .filter__content_item {
+    flex-wrap: wrap;
+
+    div {
+      width: 50%;
+    }
+    .link {
+      margin-top: 12px;
+    }
+
+    .filter__content_item_square {
+      text-align: right;
+    }
+  }
+
+  .filter.--flats .filter__content_inner {
+    gap: 32px;
   }
 }
