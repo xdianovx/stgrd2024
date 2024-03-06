@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="big-card__info_link">
-                    <x-ui.link href='/'>от 3,3 млн. руб.</x-ui.link>
+                    <x-ui.link href='/projects/asd'>от 3,3 млн. руб.</x-ui.link>
                 </div>
             </div>
         </div>

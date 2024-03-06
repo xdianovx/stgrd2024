@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   requestAnimationFrame(raf);
 
+  selectors()
   navigation(lenis, barba);
   sliders();
   burger();
@@ -59,7 +60,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   project_page(gsap);
   lines()
   parallax()
-  selectors()
   squareBtns(ScrollTrigger)
   // footer(ScrollTrigger);
   filters(gsap)
@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             opacity: 0,
             onComplete: () => {
               ScrollTrigger.refresh();
+              selectors()
 
               sliders();
               burger();
@@ -102,7 +103,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
               lines()
               parallax()
               squareBtns(ScrollTrigger)
-              selectors()
               filters(gsap)
             },
           });
