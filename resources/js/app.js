@@ -64,9 +64,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   squareBtns(ScrollTrigger)
   // footer(ScrollTrigger);
   filters(gsap)
-
-maps()
-
+  maps(gsap)
 
 
   barba.init({
@@ -108,7 +106,7 @@ maps()
               parallax()
               squareBtns(ScrollTrigger)
               filters(gsap)
-              maps()
+              maps(gsap)
             },
           });
         },

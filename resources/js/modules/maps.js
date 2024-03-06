@@ -1,4 +1,4 @@
-export const maps = () => {
+export const maps = (gsap) => {
 
   const mainMap = document.querySelector('.main-map')
 
@@ -10,7 +10,7 @@ export const maps = () => {
     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
     await ymaps3.ready;
 
-    const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
+    const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapListener, YMapMarker} = ymaps3;
     const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
 
 
@@ -25,11 +25,6 @@ export const maps = () => {
       },
     );
 
-
-    // map.behavior.disable('scrollZoom')
-
-
-
     map.addChild(new YMapDefaultSchemeLayer());
     map.addChild(new YMapDefaultFeaturesLayer());
     map.addChild(new YMapDefaultMarker({
@@ -42,4 +37,31 @@ export const maps = () => {
   }
 
   initMap()
+
+
+  const pinBtn = document.querySelector('.contacts__hero_wrap .circle-btn')
+  const mapContainer = document.querySelector('.content__hero_map_container')
+
+  let tl = gsap.timeline({
+    paused: true,
+    defaults: {
+      ease: 'power2.inOut'
+    }
+  })
+
+  tl.to(mapContainer, {
+    height: 'auto'
+  })
+
+  pinBtn.addEventListener('click', () => {
+    if (pinBtn.classList.contains('active')) {
+      tl.reverse()
+      pinBtn.classList.remove('active')
+
+    } else {
+      tl.play()
+      pinBtn.classList.add('active')
+
+    }
+  })
 }
