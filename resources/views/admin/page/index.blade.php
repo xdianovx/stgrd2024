@@ -15,7 +15,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-auto ms-auto">
+                {{-- <div class="col-sm-auto ms-auto">
                     <div class="list-grid-nav hstack gap-1">
 
 
@@ -25,7 +25,7 @@
                             {{__('admin.btn_add')}}
                         </a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    @if (session('status') === 'item-created')
+                    {{-- @if (session('status') === 'item-created')
                         <div class="alert alert-success alert-dismissible" role="alert">
                             {{ __('admin.alert_created') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -50,7 +50,7 @@
                             {{ __('admin.alert_deleted') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif
+                    @endif --}}
                 </div>
                 <div class="card-body">
                     <div class="live-preview">
@@ -59,7 +59,6 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th scope="col" style="width: 80px;">ID</th>
-                                        <th scope="col" style="width: 80px;">{{__('admin.field_image')}}</th>
                                         <th scope="col">{{__('admin.field_title')}}</th>
                                         <th scope="col">{{__('admin.field_slug')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_updated')}}</th>
@@ -70,16 +69,8 @@
                                     @forelse ($pages as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>
-                                                @if (!empty($item->image))
-                                                    <div class="input-group">
-                                                        <img src="{{ Storage::url($item->image) }}"
-                                                            class="rounded avatar-sm">
-                                                    </div>
-                                                @else
-                                                @endif
-                                            </td>
-                                            <td><a href="{{ route('admin.pages.show', $item->slug) }}">{{ $item->dashboard_title }}</a></td>
+
+                                            <td><a href="{{ route('admin.pages.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
@@ -98,18 +89,18 @@
                                                                 class="dropdown-item edit-item-btn"><i
                                                                     class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                                     {{__('admin.btn_edit')}}</a></li>
-                                                        <li>
+                                                        {{-- <li>
                                                             <button type="submit" class="dropdown-item text-danger"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#modalScrollable{{ $item->slug }}"><i
                                                                     class="bx bx-trash me-1 text-danger" role="button"></i>
                                                                     {{__('admin.btn_delete')}}</button>
-                                                        </li>
+                                                        </li> --}}
                                                     </ul>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <div class="modal fade" id="modalScrollable{{ $item->slug }}" tabindex="-1"
+                                        {{-- <div class="modal fade" id="modalScrollable{{ $item->slug }}" tabindex="-1"
                                             style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
@@ -141,7 +132,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     @empty
                                         <tr>
                                             <td class="text-danger">{{__('admin.notification_no_entries')}}</td>

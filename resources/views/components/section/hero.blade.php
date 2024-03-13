@@ -1,11 +1,9 @@
-@props(['data'])
 
 <section class="section hero">
   <div class="container">
     <div class="hero__top">
-      <p>{{$data['text_left']}}</p>
-      <p>Группа компаний «Стройград» начала свою историю в 2006 году со строительства многоквартирного жилого дома
-        в г. Ставрополь. </p>
+      <p>{{$item->text_left}}</p>
+      <p>{{$item->text_right}}</p>
     </div>
 
     <div>

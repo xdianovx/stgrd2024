@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Page;
+namespace App\Http\Requests\Number;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:70'],
-            'slug' => ['required', 'max:70'],
-            'description'  => ['nullable'],
-            'text_right'  => ['nullable'],
-            'text_left'  => ['nullable'],
-            'video_preview' => 'mimes:mp4,mov,ogg,qt | max:200000',
-            'video_in_player' => 'mimes:mp4,mov,ogg,qt | max:200000',
+            'num' => ['required', 'max:7'],
+            'num_text'  => ['nullable', 'max:7'],
         ];
     }
 }

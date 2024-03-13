@@ -90,9 +90,9 @@ class NewsController extends Controller
 
     protected function loadFile(Request $request, $data)
     {
-        if(key($request->file()) == "image"): 
-            $image_oR_video = "image"; 
-        else: 
+        if(key($request->file()) == "image"):
+            $image_oR_video = "image";
+        else:
             $image_oR_video = "video";
         endif;
         $filenameWithExt = $request->file($image_oR_video)->getClientOriginalName();

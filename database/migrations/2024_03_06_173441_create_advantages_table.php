@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('advantages', function (Blueprint $table) {
             $table->id();
+            $table->string('num');
             $table->string('title');
-            $table->string('slug');
-            $table->text('description')->nullable();
-            $table->text('text_left')->nullable();
-            $table->text('text_right')->nullable();
-            $table->string('video_preview')->nullable();
-            $table->string('video_in_player')->nullable();
+            $table->text('description');
+            $table->string('image')->nullable();
+            $table->foreignId('block_id');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('advantages');
     }
 };

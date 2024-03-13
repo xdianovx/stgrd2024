@@ -25,23 +25,25 @@ class PageController extends Controller
         return view('admin.page.show', compact('item', 'user'));
     }
 
-    public function create()
-    {
-        $user = Auth::user();
-        return view('admin.page.create', compact('user'));
-    }
-    public function store(StoreRequest $request)
-    {
-        $data = $request->validated();
+    // public function create()
+    // {
+    //     $user = Auth::user();
+    //     return view('admin.page.create', compact('user'));
+    // }
+    // public function store(StoreRequest $request)
+    // {
+    //     $data = $request->validated();
 
-        if ($request->hasFile('image')) :
-            $data['image'] = $this->loadFile($request, $data);
-        endif;
+    //     if ($request->hasFile('video_preview')) :
+    //         $data['video_preview'] = $this->loadFile($request, $data);
+    //     endif;
+    //     if ($request->hasFile('video_in_player')) :
+    //         $data['video_in_player'] = $this->loadFile($request, $data);
+    //     endif;
+    //     Page::firstOrCreate($data);
 
-        Page::firstOrCreate($data);
-
-        return redirect()->route('admin.pages.index')->with('status', 'item-created');
-    }
+    //     return redirect()->route('admin.pages.index')->with('status', 'item-created');
+    // }
     public function edit($page_slug)
     {
         $user = Auth::user();
@@ -52,22 +54,25 @@ class PageController extends Controller
     {
         $page = Page::whereSlug($page_slug)->firstOrFail();
         $data = $request->validated();
-        if ($request->hasFile('image')) :
-            $data['image'] = $this->loadFile($request, $data);
+        if ($request->hasFile('video_preview')) :
+            $data['video_preview'] = $this->loadFile($request, $data);
         endif;
- 
+        if ($request->hasFile('video_in_player')) :
+            $data['video_in_player'] = $this->loadFile($request, $data);
+        endif;
+
 
         $page->update($data);
         return redirect()->route('admin.pages.index')->with('status', 'item-updated');
     }
 
-    public function destroy($page_slug)
-    {
+    // public function destroy($page_slug)
+    // {
 
-        $page = Page::whereSlug($page_slug)->firstOrFail();
-        $page->delete();
-        return redirect()->route('admin.pages.index')->with('status', 'item-deleted');
-    }
+    //     $page = Page::whereSlug($page_slug)->firstOrFail();
+    //     $page->delete();
+    //     return redirect()->route('admin.pages.index')->with('status', 'item-deleted');
+    // }
 
     public function search(Request $request)
     {
@@ -76,29 +81,29 @@ class PageController extends Controller
             $pages = Page::orderBy('id', 'DESC')->paginate(10);
         else :
             $pages = Page::where('id', 'ilike', '%' . request('search') . '%')
+                ->orWhere('title', 'ilike', '%' . request('search') . '%')
                 ->orWhere('slug', 'ilike', '%' . request('search') . '%')
-                ->orWhere('dashboard_title', 'ilike', '%' . request('search') . '%')
                 ->paginate(10);
         endif;
         return view('admin.page.index', compact('pages', 'user'));
     }
     protected function loadFile(Request $request, $data)
     {
-        if(key($request->file()) == "image"): 
-            $image_oR_video = "image"; 
-        else: 
-            $image_oR_video = "video";
+        if(key($request->file()) == "video_in_player"):
+            $video_preview_oR_video_in_player = "video_in_player";
+        else:
+            $video_preview_oR_video_in_player = "video_preview";
         endif;
-        $filenameWithExt = $request->file($image_oR_video)->getClientOriginalName();
+        $filenameWithExt = $request->file($video_preview_oR_video_in_player)->getClientOriginalName();
         // Только оригинальное имя файла
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
         $filename = str_replace(' ', '_', $filename);
         // Расширение
-        $extention = $request->file($image_oR_video)->getClientOriginalExtension();
+        $extention = $request->file($video_preview_oR_video_in_player)->getClientOriginalExtension();
         // Путь для сохранения
-        $fileNameToStore = $image_oR_video . "/" . $filename . "_" . time() . "." . $extention;
+        $fileNameToStore = $video_preview_oR_video_in_player . "/" . $filename . "_" . time() . "." . $extention;
         // Сохраняем файл
-        $data = $request->file($image_oR_video)->storeAs('public', $fileNameToStore);
+        $data = $request->file($video_preview_oR_video_in_player)->storeAs('public', $fileNameToStore);
         return $data;
     }
 }

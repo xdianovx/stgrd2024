@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','h1_title','slug','description','dashboard_title','image','description_footer'];
+    protected $fillable = ['title','slug','description','text_right','text_left','video_preview','video_in_player'];
     public static $pages_routes = [
         'admin.pages.index',
         'admin.pages.search',
         'admin.pages.show',
         'admin.pages.edit',
-        'admin.pages.create',
+        // 'admin.pages.create',
     ];
     public function getRouteKeyName()
     {

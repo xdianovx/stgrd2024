@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\CategoryBlog;
+namespace App\Http\Requests\Block;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,11 +22,10 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70'],
-            'slug' => ['required', 'max:70'],
-            'image' => 'nullable|image',
-            'description'  => ['nullable'],
-            'description_footer' => ['nullable'],
+            'title_left' => ['required', 'max:70'],
+            'text_large'  => ['nullable'],
+            'description' => ['nullable'],
+            'description_additional' => ['nullable'],
         ];
     }
 }

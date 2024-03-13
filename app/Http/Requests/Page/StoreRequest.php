@@ -23,12 +23,12 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:70'],
-            'h1_title'=> ['required', 'max:70'],
-            'dashboard_title'=> ['required', 'max:70'],
             'slug' => ['required', 'max:70'],
             'description'  => ['nullable'],
-            'description_footer'  => ['nullable'],
-            'image' => 'nullable|image'
+            'text_right'  => ['nullable'],
+            'text_left'  => ['nullable'],
+            'video_preview' => 'mimes:mp4,mov,ogg,qt | max:200000',
+            'video_in_player' => 'mimes:mp4,mov,ogg,qt | max:200000',
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Page;
+namespace App\Http\Requests\Block;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,13 +22,10 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70'],
-            'slug' => ['required', 'max:70'],
-            'description'  => ['nullable'],
-            'text_right'  => ['nullable'],
-            'text_left'  => ['nullable'],
-            'video_preview' => 'mimes:mp4,mov,ogg,qt | max:200000',
-            'video_in_player' => 'mimes:mp4,mov,ogg,qt | max:200000',
+          'title_left' => ['required', 'max:70'],
+          'text_large'  => ['nullable'],
+          'description' => ['nullable'],
+          'description_additional' => ['nullable'],
         ];
     }
 }

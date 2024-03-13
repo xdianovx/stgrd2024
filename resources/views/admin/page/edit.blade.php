@@ -31,31 +31,13 @@
                             @csrf
                             @method('patch')
                             <div class="row gy-4">
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="valueInput" class="form-label">{{__('admin.field_dashboard_title')}} *</label>
-                                        <input type="text" value="{{ $item->dashboard_title }}" class="form-control"
-                                            id="valueInput" name="dashboard_title" placeholder="{{__('admin.placeholder_text')}}">
-                                    </div>
-
-                                </div>
-                                
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="valueInput" class="form-label">{{__('admin.field_h1_title')}} *</label>
-                                        <input type="text" value="{{ $item->h1_title }}" class="form-control input__slug"
-                                            id="valueInput" name="h1_title" placeholder="{{__('admin.placeholder_text')}}">
-                                    </div>
-
-                                </div>
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{__('admin.field_title')}} *</label>
-                                        <input type="text" value="{{ $item->title }}" class="form-control"
+                                        <input type="text" value="{{ $item->title }}" class="form-control input__slug"
                                             id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
                                     </div>
-
                                 </div>
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
@@ -65,29 +47,48 @@
                                     </div>
                                 </div>
                                 <div class="col-xxl-6 col-md-6">
-
                                     <div>
-                                        @if (!empty($item->image))
-                                            <div class="input-group">
-                                                <img src="{{ Storage::url($item->image) }}" class="img-fluid">
-                                            </div>
+                                        @if (!empty($item->video_preview))
+                                   
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="http://127.0.0.1:8000{{ Storage::url($item->video_preview) }}" allowfullscreen></iframe>
+                                              </div>
                                         @else
                                         @endif
-                                        <label for="formFile" class="form-label">{{__('admin.field_image')}}</label>
-                                        <input class="form-control" type="file" id="formFile" name="image">
+                                        <label for="formFile" class="form-label">{{__('admin.field_video_preview')}}</label>
+                                        <input class="form-control" type="file" id="formFile" name="video_preview">
                                     </div>
                                 </div>
 
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        @if (!empty($item->video_in_player))
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="http://127.0.0.1:8000{{ Storage::url($item->video_in_player) }}" allowfullscreen></iframe>
+                                          </div>
+                                        @else
+                                        @endif
+                                        <label for="formFile" class="form-label">{{__('admin.field_video_in_player')}}</label>
+                                        <input class="form-control" type="file" id="formFile" name="video_in_player">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="basic-default-message">{{__('admin.field_text_right')}}</label>
+                                    <textarea id="basic-default-message" class="form-control" name="text_right" placeholder="{{__('admin.placeholder_text')}}"
+                                        style="height: 234px;">{!! $item->text_right !!}</textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="basic-default-message">{{__('admin.field_text_left')}}</label>
+                                    <textarea id="basic-default-message" class="form-control" name="text_left" placeholder="{{__('admin.placeholder_text')}}"
+                                        style="height: 234px;">{!! $item->text_left !!}</textarea>
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="basic-default-message">{{__('admin.field_description')}}</label>
                                     <textarea id="basic-default-message" class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}"
                                         style="height: 234px;">{!! $item->description !!}</textarea>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="basic-default-message">{{__('admin.field_description_footer')}}</label>
-                                    <textarea id="basic-default-message" class="form-control ckeditor-classic" name="description" placeholder="{{__('admin.placeholder_text')}}"
-                                        style="height: 234px;">{!! $item->description !!}</textarea>
-                                </div>
+
                             </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
                         </form>
