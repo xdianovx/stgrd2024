@@ -58,6 +58,7 @@
                                     <tr>
                                         <th scope="col" style="width: 80px;">ID</th>
                                         <th scope="col">{{ __('admin.field_title_left') }}</th>
+                                        <th scope="col">{{ __('admin.field_display') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
                                         <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                     </tr>
@@ -70,9 +71,9 @@
                                             <td><a
                                                     href="{{ route('admin.blocks.show', $item) }}">{{ $item->title_left }}</a>
                                             </td>
+                                            <td> @if ($item->active == TRUE) {{ __('admin.select_display_true') }}@else{{ __('admin.select_display_false') }}@endif </td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
-
                                                 <div class="dropdown d-inline-block">
                                                     <button class="btn btn-soft-secondary btn-sm dropdown" type="button"
                                                         data-bs-toggle="dropdown" aria-expanded="false">

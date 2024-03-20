@@ -54,13 +54,13 @@ class PageController extends Controller
     {
         $page = Page::whereSlug($page_slug)->firstOrFail();
         $data = $request->validated();
+
         if ($request->hasFile('video_preview')) :
-            $data['video_preview'] = $this->loadFile($request, $data);
+          $data['video_preview'] = $this->loadFile($request, $data, 'video_preview');
         endif;
         if ($request->hasFile('video_in_player')) :
-            $data['video_in_player'] = $this->loadFile($request, $data);
+          $data['video_in_player'] = $this->loadFile($request, $data, 'video_in_player');
         endif;
-
 
         $page->update($data);
         return redirect()->route('admin.pages.index')->with('status', 'item-updated');
@@ -87,23 +87,14 @@ class PageController extends Controller
         endif;
         return view('admin.page.index', compact('pages', 'user'));
     }
-    protected function loadFile(Request $request, $data)
+    protected function loadFile(Request $request, $data, $key)
     {
-        if(key($request->file()) == "video_in_player"):
-            $video_preview_oR_video_in_player = "video_in_player";
-        else:
-            $video_preview_oR_video_in_player = "video_preview";
-        endif;
-        $filenameWithExt = $request->file($video_preview_oR_video_in_player)->getClientOriginalName();
-        // Только оригинальное имя файла
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $filename = str_replace(' ', '_', $filename);
-        // Расширение
-        $extention = $request->file($video_preview_oR_video_in_player)->getClientOriginalExtension();
-        // Путь для сохранения
-        $fileNameToStore = $video_preview_oR_video_in_player . "/" . $filename . "_" . time() . "." . $extention;
-        // Сохраняем файл
-        $data = $request->file($video_preview_oR_video_in_player)->storeAs('public', $fileNameToStore);
-        return $data;
+      $filenameWithExt = $request->file($key)->getClientOriginalName();
+      $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+      $filename = str_replace(' ', '_', $filename);
+      $extention = $request->file($key)->getClientOriginalExtension();
+      $fileNameToStore = $key . "/" . $filename . "_" . time() . "." . $extention;
+      $data = $request->file($key)->storeAs('public', $fileNameToStore);
+      return $data;
     }
 }

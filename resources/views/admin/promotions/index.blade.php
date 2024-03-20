@@ -6,7 +6,7 @@
             <div class="row g-2">
                 <div class="col-sm-4">
                     <div class="search-box">
-                        <form class="d-flex" action="{{ route('admin.categories_blog.search') }}" method="get">
+                        <form class="d-flex" action="{{ route('admin.promotions.search') }}" method="get">
                             @csrf
                             <input class="form-control me-2" type="search" name="search" placeholder="{{__('admin.placeholder_search')}}"
                                 aria-label="Search">
@@ -20,7 +20,7 @@
 
 
 
-                        <a href="{{ route('admin.categories_blog.create') }}" class="btn btn-success addMembers-modal">
+                        <a href="{{ route('admin.promotions.create') }}" class="btn btn-success addMembers-modal">
                             <i class="ri-add-fill me-1 align-bottom"></i>
                             {{__('admin.btn_add')}}
                         </a>
@@ -67,7 +67,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($categories_blog as $item)
+                                    @forelse ($promotions as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>
@@ -79,7 +79,7 @@
                                                 @else
                                                 @endif
                                             </td>
-                                            <td><a href="{{ route('admin.categories_blog.show', $item->slug) }}">{{ $item->title }}</a></td>
+                                            <td><a href="{{ route('admin.promotions.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
@@ -90,11 +90,11 @@
                                                         <i class="ri-more-fill align-middle"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end" style="">
-                                                        <li><a href="{{ route('admin.categories_blog.show', $item->slug) }}"
+                                                        <li><a href="{{ route('admin.promotions.show', $item->slug) }}"
                                                                 class="dropdown-item"><i
                                                                     class="ri-eye-fill align-bottom me-2 text-muted"></i>
                                                                     {{__('admin.btn_show')}}</a></li>
-                                                        <li><a href="{{ route('admin.categories_blog.edit', $item->slug) }}"
+                                                        <li><a href="{{ route('admin.promotions.edit', $item->slug) }}"
                                                                 class="dropdown-item edit-item-btn"><i
                                                                     class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                                     {{__('admin.btn_edit')}}</a></li>
@@ -130,7 +130,7 @@
                                                             {{__('admin.btn_close')}}
                                                         </button>
                                                         <form
-                                                            action="{{ route('admin.categories_blog.destroy', $item->slug) }}"
+                                                            action="{{ route('admin.promotions.destroy', $item->slug) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -150,8 +150,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($categories_blog->links()->paginator->hasPages())
-                            {{ $categories_blog->links() }}
+                        @if ($promotions->links()->paginator->hasPages())
+                            {{ $promotions->links() }}
                         @endif
                     </div>
                 </div>

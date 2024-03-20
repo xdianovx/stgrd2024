@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-grow-1">
-                            <h3 class="card-header align-items-center d-flex">{{__('admin.category_blog_card_title')}}: {{ $item->title }}</h3>
+                            <h3 class="card-header align-items-center d-flex">{{__('admin.city_card_title')}}: {{ $item->title }}</h3>
                         </div>
                         <div class="flex-shrink-0">
                             <div class="dropdown">
@@ -26,7 +26,7 @@
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i> {{__('admin.btn_back')}}</a>
                                     </li>
 
-                                    <li><a href="{{ route('admin.categories_blog.edit', $item->slug) }}"
+                                    <li><a href="{{ route('admin.cities.edit', $item->slug) }}"
                                             class="dropdown-item edit-item-btn"><i
                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i> {{__('admin.btn_edit')}}</a></li>
                                     <li>
@@ -39,41 +39,6 @@
                             </div>
                         </div>
                     </div>
-                    @if (!empty($item->image))
-                    <h5 class="text-muted">{{__('admin.field_image')}}:</h5>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0">
-                                <img src="{{ Storage::url($item->image) }}" alt="" height="200" class="rounded">
-                            </div>
-                        </div>
-                    @else
-                    @endif
-                    @if ($item->description)
-                        <h5 class="text-muted">{{__('admin.field_description')}}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->description !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
-                    @if ($item->description_footer)
-                        <h5 class="text-muted">{{__('admin.field_description_footer')}}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->description_footer !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
                 </div>
                 <!--end card-body-->
             </div>
@@ -124,7 +89,7 @@
                                                     data-bs-dismiss="modal">
                                                     {{__('admin.btn_close')}}
                                                 </button>
-                                                <form action="{{ route('admin.categories_blog.destroy', $item->slug) }}"
+                                                <form action="{{ route('admin.cities.destroy', $item->slug) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -144,5 +109,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

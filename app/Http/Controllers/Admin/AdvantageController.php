@@ -32,7 +32,7 @@ class AdvantageController extends Controller
   {
     $data = $request->validated();
     if ($request->hasFile('image')) :
-      $data['image'] = $this->loadFile($request, $data);
+      $data['image'] = $this->loadFile($request, $data, 'image');
     endif;
     $block = Block::whereId($block)->firstOrFail();
     $bonus = $block->advantages()->create($data);
@@ -55,7 +55,7 @@ class AdvantageController extends Controller
   {
     $data = $request->validated();
     if ($request->hasFile('image')) :
-      $data['image'] = $this->loadFile($request, $data);
+      $data['image'] = $this->loadFile($request, $data, 'image');
     endif;
     $item = Advantage::whereId($item)->firstOrFail();
     $item->update($data);
@@ -71,20 +71,20 @@ class AdvantageController extends Controller
     $item->delete();
     return redirect()->route('admin.blocks.show', $block)->with('status', 'item-deleted');
   }
-  protected function loadFile(Request $request, $data)
+  protected function loadFile(Request $request, $data, $key)
   {
 
     // Имя и расширение файла
-    $filenameWithExt = $request->file('image')->getClientOriginalName();
+    $filenameWithExt = $request->file($key)->getClientOriginalName();
     // Только оригинальное имя файла
     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
     $filename = str_replace(' ', '_', $filename);
     // Расширение
-    $extention = $request->file('image')->getClientOriginalExtension();
+    $extention = $request->file($key)->getClientOriginalExtension();
     // Путь для сохранения
-    $fileNameToStore = "image/" . $filename . "_" . time() . "." . $extention;
+    $fileNameToStore = "$key/" . $filename . "_" . time() . "." . $extention;
     // Сохраняем файл
-    $data = $request->file('image')->storeAs('public', $fileNameToStore);
+    $data = $request->file($key)->storeAs('public', $fileNameToStore);
     return $data;
   }
 }

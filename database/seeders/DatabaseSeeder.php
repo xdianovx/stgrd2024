@@ -29,11 +29,13 @@ class DatabaseSeeder extends Seeder
     $blocks = [
       [
         'title_left' => 'Миссия',
-        'text_large' => 'Большой текст',
+        'slug' => 'mission',
+        'active' => true,
       ],
       [
         'title_left' => 'Преимущества компании',
-        'text_large' => 'Большой текст',
+        'slug' => 'company_advantages',
+        'active' => true,
       ]
     ];
 

@@ -1,6 +1,5 @@
-@props(['title', 'num', 'num_text'])
 
-
+@props(['title', 'num', 'num_text','active'])
 <div class="mission-card">
     <div class="hr"></div>
 

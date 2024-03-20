@@ -2,11 +2,17 @@
 
 use App\Http\Controllers\Admin\AdvantageController;
 use App\Http\Controllers\Admin\BlockController;
+use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\NumberController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PlanningSolutionController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Front\WelcomePageController;
-use App\Models\Block;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [WelcomePageController::class, 'index'],function () {
+Route::get('/', [WelcomePageController::class, 'index'], function () {
   return view('welcome');
 })->name('home');
 
@@ -97,21 +103,82 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::patch('/{block}', [BlockController::class, 'update'])->name('update');
     // Route::delete('/{block}', [BlockController::class, 'destroy'])->name('destroy');
     //numbers
-    Route::get('/blocks/{block}/numbers/create', [NumberController::class, 'create'])->name('number_create');
-    Route::post('/blocks/{block}/numbers/store', [NumberController::class, 'store'])->name('number_store');
-    Route::get('/blocks/{block}/numbers/{number}', [NumberController::class, 'show'])->name('number_show');
-    Route::get('/blocks/{block}/numbers/{number}/edit', [NumberController::class, 'edit'])->name('number_edit');
-    Route::patch('/blocks/{block}/numbers/{number}', [NumberController::class, 'update'])->name('number_update');
-    Route::delete('/blocks/{block}/numbers/{number}', [NumberController::class, 'destroy'])->name('number_destroy');
+    Route::get('/{block}/numbers/create', [NumberController::class, 'create'])->name('number_create');
+    Route::post('/{block}/numbers/store', [NumberController::class, 'store'])->name('number_store');
+    Route::get('/{block}/numbers/{number}', [NumberController::class, 'show'])->name('number_show');
+    Route::get('/{block}/numbers/{number}/edit', [NumberController::class, 'edit'])->name('number_edit');
+    Route::patch('/{block}/numbers/{number}', [NumberController::class, 'update'])->name('number_update');
+    Route::delete('/{block}/numbers/{number}', [NumberController::class, 'destroy'])->name('number_destroy');
     //advantages
-    Route::get('/blocks/{block}/advantages/create', [AdvantageController::class, 'create'])->name('advantage_create');
-    Route::post('/blocks/{block}/advantages/store', [AdvantageController::class, 'store'])->name('advantage_store');
-    Route::get('/blocks/{block}/advantages/{advantage}', [AdvantageController::class, 'show'])->name('advantage_show');
-    Route::get('/blocks/{block}/advantages/{advantage}/edit', [AdvantageController::class, 'edit'])->name('advantage_edit');
-    Route::patch('/blocks/{block}/advantages/{advantage}', [AdvantageController::class, 'update'])->name('advantage_update');
-    Route::delete('/blocks/{block}/advantages/{advantage}', [AdvantageController::class, 'destroy'])->name('advantage_destroy');
+    Route::get('/{block}/advantages/create', [AdvantageController::class, 'create'])->name('advantage_create');
+    Route::post('/{block}/advantages/store', [AdvantageController::class, 'store'])->name('advantage_store');
+    Route::get('/{block}/advantages/{advantage}', [AdvantageController::class, 'show'])->name('advantage_show');
+    Route::get('/{block}/advantages/{advantage}/edit', [AdvantageController::class, 'edit'])->name('advantage_edit');
+    Route::patch('/{block}/advantages/{advantage}', [AdvantageController::class, 'update'])->name('advantage_update');
+    Route::delete('/{block}/advantages/{advantage}', [AdvantageController::class, 'destroy'])->name('advantage_destroy');
+    //planning_solutions
+    Route::get('/{block}/planning_solutions/create', [PlanningSolutionController::class, 'create'])->name('planning_solution_create');
+    Route::post('/{block}/planning_solutions/store', [PlanningSolutionController::class, 'store'])->name('planning_solution_store');
+    Route::get('/{block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'show'])->name('planning_solution_show');
+    Route::get('/{block}/planning_solutions/{planning_solution}/edit', [PlanningSolutionController::class, 'edit'])->name('planning_solution_edit');
+    Route::patch('/{block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'update'])->name('planning_solution_update');
+    Route::delete('/{block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'destroy'])->name('planning_solution_destroy');
   });
 
+  Route::name('cities.')->prefix('cities')->group(function () {
+    Route::get('/', [CityController::class, 'index'])->name('index');
+    Route::get('/search',  [CityController::class, 'search'])->name('search');
+    Route::get('/create', [CityController::class, 'create'])->name('create');
+    Route::post('/store', [CityController::class, 'store'])->name('store');
+    Route::get('/{city_slug}', [CityController::class, 'show'])->name('show');
+    Route::get('/{city_slug}/edit', [CityController::class, 'edit'])->name('edit');
+    Route::patch('/{city_slug}', [CityController::class, 'update'])->name('update');
+    Route::delete('/{city_slug}', [CityController::class, 'destroy'])->name('destroy');
+  });
+
+  Route::name('statuses.')->prefix('statuses')->group(function () {
+    Route::get('/', [StatusController::class, 'index'])->name('index');
+    Route::get('/search',  [StatusController::class, 'search'])->name('search');
+    Route::get('/create', [StatusController::class, 'create'])->name('create');
+    Route::post('/store', [StatusController::class, 'store'])->name('store');
+    Route::get('/{status_slug}', [StatusController::class, 'show'])->name('show');
+    Route::get('/{status_slug}/edit', [StatusController::class, 'edit'])->name('edit');
+    Route::patch('/{status_slug}', [StatusController::class, 'update'])->name('update');
+    Route::delete('/{status_slug}', [StatusController::class, 'destroy'])->name('destroy');
+  });
+
+  Route::name('projects.')->prefix('projects')->group(function () {
+    Route::get('/', [ProjectController::class, 'index'])->name('index');
+    Route::get('/search',  [ProjectController::class, 'search'])->name('search');
+    Route::get('/create', [ProjectController::class, 'create'])->name('create');
+    Route::post('/store', [ProjectController::class, 'store'])->name('store');
+    Route::get('/{project_slug}', [ProjectController::class, 'show'])->name('show');
+    Route::get('/{project_slug}/edit', [ProjectController::class, 'edit'])->name('edit');
+    Route::patch('/{project_slug}', [ProjectController::class, 'update'])->name('update');
+    Route::delete('/{project_slug}', [ProjectController::class, 'destroy'])->name('destroy');
+  });
+
+  Route::name('promotions.')->prefix('promotions')->group(function () {
+    Route::get('/', [PromotionController::class, 'index'])->name('index');
+    Route::get('/search',  [PromotionController::class, 'search'])->name('search');
+    Route::get('/create', [PromotionController::class, 'create'])->name('create');
+    Route::post('/store', [PromotionController::class, 'store'])->name('store');
+    Route::get('/{promotion_slug}', [PromotionController::class, 'show'])->name('show');
+    Route::get('/{promotion_slug}/edit', [PromotionController::class, 'edit'])->name('edit');
+    Route::patch('/{promotion_slug}', [PromotionController::class, 'update'])->name('update');
+    Route::delete('/{promotion_slug}', [PromotionController::class, 'destroy'])->name('destroy');
+  });
+
+  Route::name('news.')->prefix('news')->group(function () {
+    Route::get('/', [NewsController::class, 'index'])->name('index');
+    Route::get('/search',  [NewsController::class, 'search'])->name('search');
+    Route::get('/create', [NewsController::class, 'create'])->name('create');
+    Route::post('/store', [NewsController::class, 'store'])->name('store');
+    Route::get('/{news_slug}', [NewsController::class, 'show'])->name('show');
+    Route::get('/{news_slug}/edit', [NewsController::class, 'edit'])->name('edit');
+    Route::patch('/{news_slug}', [NewsController::class, 'update'])->name('update');
+    Route::delete('/{news_slug}', [NewsController::class, 'destroy'])->name('destroy');
+  });
   // Route::name('casinos.')->prefix('casinos')->group(function () {
   //     Route::get('/', [CasinoController::class, 'index'])->name('index');
   //     Route::get('/search',  [CasinoController::class, 'search'])->name('search');

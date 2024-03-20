@@ -1,5 +1,6 @@
 
 
+@if ($item->active == TRUE)
 <section class="features">
     <div class="container">
         <div class="features__top">
@@ -22,3 +23,4 @@
         @endforeach
     </div>
 </section>
+@endif

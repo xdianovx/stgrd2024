@@ -23,6 +23,21 @@
                 </div>
             @endif
 
+            @if (!empty($item->image))
+            <div class="col-xxl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
+                        <div class="live-preview">
+                            <div>
+                                <img src="{{ Storage::url($item->image) }}" class="img-fluid" alt="Responsive image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else
+        @endif
 
             <div class="card">
                 <div class="card-body">
@@ -45,17 +60,11 @@
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_num') }}
                                             *</label>
-                                        <input type="text" value="{{ $item->num }}" class="form-control output"
+                                        <input type="text" value="{{ $item->num }}" class="form-control"
                                             id="valueInput" name="num" placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
                                 <div class="col-xxl-6 col-md-6">
-                                    @if (!empty($item->image))
-                                        <div class="input-group">
-                                            <img src="{{ Storage::url($item->image) }}" class="img-fluid">
-                                        </div>
-                                    @else
-                                    @endif
                                     <div>
                                         <label for="formFile" class="form-label">{{ __('admin.field_image') }}</label>
                                         <input class="form-control" type="file" id="formFile" name="image">

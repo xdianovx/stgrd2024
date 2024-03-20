@@ -23,6 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
           'title_left' => ['required', 'max:70'],
+          'active' => ['required'],
           'text_large'  => ['nullable'],
           'description' => ['nullable'],
           'description_additional' => ['nullable'],

@@ -43,15 +43,6 @@
                             </div>
                         </div>
                     </div>
-                    @if (!empty($item->image))
-                        <h5 class="text-muted">{{ __('admin.field_image') }}:</h5>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0">
-                                <img src="{{ Storage::url($item->image) }}" alt="" height="200" class="rounded">
-                            </div>
-                        </div>
-                    @else
-                    @endif
                     @if ($item->description)
                         <h5 class="text-muted">{{ __('admin.field_description') }}:</h5>
                         <div class="table-responsive">
@@ -68,6 +59,7 @@
                 </div>
                 <!--end card-body-->
             </div>
+
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-header align-items-center d-flex">{{ __('admin.advantage_card_info') }}</h5>
@@ -137,4 +129,20 @@
             </div>
         </div>
     </div>
+
+    @if (!empty($item->image))
+    <div class="col-xxl-6">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
+                <div class="live-preview">
+                    <div>
+                        <img src="{{ Storage::url($item->image) }}" class="img-fluid" alt="Responsive image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@else
+@endif
 @endsection

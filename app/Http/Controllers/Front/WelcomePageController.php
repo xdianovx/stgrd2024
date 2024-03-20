@@ -14,9 +14,9 @@ class WelcomePageController extends Controller
 {
   public function index()
   {
-    $page = Page::whereId(1)->firstOrFail();
-    $block_missions = Block::whereId(1)->firstOrFail();
-    $block_advantages = Block::whereId(2)->firstOrFail();
+    $page = Page::whereSlug('home')->firstOrFail();
+    $block_missions = Block::whereSlug('mission')->firstOrFail();
+    $block_advantages = Block::whereSlug('company_advantages')->firstOrFail();
 
     return view('welcome', compact(
       'block_missions',

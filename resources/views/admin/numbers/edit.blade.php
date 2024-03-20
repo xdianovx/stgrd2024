@@ -44,7 +44,7 @@
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_num') }}
                                             *</label>
-                                        <input type="text" value="{{ $item->num }}" class="form-control output"
+                                        <input type="text" value="{{ $item->num }}" class="form-control"
                                             id="valueInput" name="num" placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_num_text') }}
                                         </label>
-                                        <input type="text" value="{{ $item->num_text }}" class="form-control output"
+                                        <input type="text" value="{{ $item->num_text }}" class="form-control"
                                             id="valueInput" name="num_text"
                                             placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>

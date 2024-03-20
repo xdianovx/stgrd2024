@@ -11,10 +11,10 @@ class Number extends Model
 
     protected $fillable = ['title','num','num_text'];
     public static $nums_routes = [
-        'admin.nums.search',
-        'admin.nums.show',
-        'admin.nums.edit',
-        'admin.nums.create',
+        'admin.blocks.number_search',
+        'admin.blocks.number_show',
+        'admin.blocks.number_edit',
+        'admin.blocks.number_create',
     ];
     public function block()
     {

@@ -25,7 +25,7 @@ class StoreRequest extends FormRequest
             'title' => ['required', 'max:70'],
             'num' => ['required', 'max:3'],
             'description'  => ['nullable', 'max:923'],
-            'image' => 'nullable|image',
+            'image' => 'nullable|image|max:10000',
         ];
     }
 }

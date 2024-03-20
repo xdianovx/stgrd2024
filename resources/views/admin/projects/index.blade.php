@@ -6,7 +6,7 @@
             <div class="row g-2">
                 <div class="col-sm-4">
                     <div class="search-box">
-                        <form class="d-flex" action="{{ route('admin.categories.search') }}" method="get">
+                        <form class="d-flex" action="{{ route('admin.projects.search') }}" method="get">
                             @csrf
                             <input class="form-control me-2" type="search" name="search" placeholder="{{__('admin.placeholder_search')}}"
                                 aria-label="Search">
@@ -20,7 +20,7 @@
 
 
 
-                        <a href="{{ route('admin.categories.create') }}" class="btn btn-success addMembers-modal">
+                        <a href="{{ route('admin.projects.create') }}" class="btn btn-success addMembers-modal">
                             <i class="ri-add-fill me-1 align-bottom"></i>
                             {{__('admin.btn_add')}}
                         </a>
@@ -59,30 +59,18 @@
                                 <thead class="table-light">
                                     <tr>
                                         <th scope="col" style="width: 80px;">ID</th>
-                                        <th scope="col" style="width: 80px;">{{__('admin.field_image')}}</th>
-                                        <th scope="col">{{__('admin.field_title')}}</th> 
+                                        <th scope="col">{{__('admin.field_title')}}</th>
                                         <th scope="col">{{__('admin.field_slug')}}</th>
-                                        <th scope="col">{{__('admin.count_subcategories')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_updated')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_action')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($categories as $item)
+                                    @forelse ($projects as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>
-                                                @if (!empty($item->image))
-                                                    <div class="input-group">
-                                                        <img src="{{ Storage::url($item->image) }}"
-                                                            class="rounded avatar-sm">
-                                                    </div>
-                                                @else
-                                                @endif
-                                            </td>
-                                            <td><a href="{{ route('admin.categories.show', $item->slug) }}">{{ $item->title }}</a></td>
+                                            <td><a href="{{ route('admin.projects.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
-                                            <td>{{ $item->children->count() }}</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
 
@@ -92,11 +80,11 @@
                                                         <i class="ri-more-fill align-middle"></i>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end" style="">
-                                                        <li><a href="{{ route('admin.categories.show', $item->slug) }}"
+                                                        <li><a href="{{ route('admin.projects.show', $item->slug) }}"
                                                                 class="dropdown-item"><i
                                                                     class="ri-eye-fill align-bottom me-2 text-muted"></i>
                                                                     {{__('admin.btn_show')}}</a></li>
-                                                        <li><a href="{{ route('admin.categories.edit', $item->slug) }}"
+                                                        <li><a href="{{ route('admin.projects.edit', $item->slug) }}"
                                                                 class="dropdown-item edit-item-btn"><i
                                                                     class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                                     {{__('admin.btn_edit')}}</a></li>
@@ -132,7 +120,7 @@
                                                             {{__('admin.btn_close')}}
                                                         </button>
                                                         <form
-                                                            action="{{ route('admin.categories.destroy', $item->slug) }}"
+                                                            action="{{ route('admin.projects.destroy', $item->slug) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -152,8 +140,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if ($categories->links()->paginator->hasPages())
-                            {{ $categories->links() }}
+                        @if ($projects->links()->paginator->hasPages())
+                            {{ $projects->links() }}
                         @endif
                     </div>
                 </div>

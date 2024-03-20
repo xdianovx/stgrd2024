@@ -45,14 +45,14 @@
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_num') }}
                                             *</label>
-                                        <input type="text" value="{{ old('num') }}" class="form-control output"
+                                        <input type="text" value="{{ old('num') }}" class="form-control"
                                             id="valueInput" name="num" placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_num_text') }} </label>
-                                        <input type="text" value="{{ old('num_text') }}" class="form-control output"
+                                        <input type="text" value="{{ old('num_text') }}" class="form-control"
                                             id="valueInput" name="num_text"
                                             placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>

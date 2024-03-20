@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\News\StoreRequest;
 use App\Http\Requests\News\UpdateRequest;
 use App\Models\News;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
@@ -28,42 +30,46 @@ class NewsController extends Controller
     public function create()
     {
         $user = Auth::user();
-
-        return view('admin.news.create', compact('user'));
+        $projects = Project::all();
+        return view('admin.news.create', compact('user','projects'));
     }
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
+        $split_data = $this->cutArraysFromRequest($data);
+        $data = $split_data['data'];
         if ($request->hasFile('image')) :
-            $data['image'] = $this->loadFile($request, $data);
+            $data['image'] = $this->loadFile($request, $data,'image');
         endif;
-        if ($request->hasFile('video')) :
-            $data['video'] = $this->loadFile($request, $data);
-        endif;
-        News::firstOrCreate($data);
+
+        $news = News::firstOrCreate($data);
+        $this->writeDataToTable($news, $split_data['projectsIds']);
 
         return redirect()->route('admin.news.index')->with('status', 'item-created');
     }
     public function edit($news_slug)
     {
         $user = Auth::user();
+        $projects = Project::all();
         $item = News::whereSlug($news_slug)->firstOrFail();
 
-        return view('admin.news.edit', compact('user', 'item'));
+        return view('admin.news.edit', compact('user', 'item','projects'));
     }
     public function update(UpdateRequest $request, $news_slug)
     {
-        $news = News::whereSlug($news_slug)->firstOrFail();
-        $data = $request->validated();
-        if ($request->hasFile('image')) :
-            $data['image'] = $this->loadFile($request, $data);
-        endif;
-        if ($request->hasFile('video')) :
-            $data['video'] = $this->loadFile($request, $data);
-        endif;
+      $news = News::whereSlug($news_slug)->firstOrFail();
+      $data = $request->validated();
 
-        $news->update($data);
-        return redirect()->route('admin.news.index')->with('status', 'item-updated');
+      $split_data = $this->cutArraysFromRequest($data);
+      $data = $split_data['data'];
+      if ($request->hasFile('image')) :
+          $data['image'] = $this->loadFile($request, $data,'image');
+      endif;
+      $news->update($data);
+
+      $this->writeDataToTable($news, $split_data['projectsIds']);
+
+      return redirect()->route('admin.news.index')->with('status', 'item-updated');
     }
 
     public function destroy($news_slug)
@@ -88,23 +94,41 @@ class NewsController extends Controller
         return view('admin.news.index', compact('news', 'user'));
     }
 
-    protected function loadFile(Request $request, $data)
+    protected function cutArraysFromRequest($data)
     {
-        if(key($request->file()) == "image"):
-            $image_oR_video = "image";
-        else:
-            $image_oR_video = "video";
+
+        if (isset($data['projects'])) :
+            $projectsIds = $data['projects'];
+            unset($data['projects']);
         endif;
-        $filenameWithExt = $request->file($image_oR_video)->getClientOriginalName();
-        // Только оригинальное имя файла
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        $filename = str_replace(' ', '_', $filename);
-        // Расширение
-        $extention = $request->file($image_oR_video)->getClientOriginalExtension();
-        // Путь для сохранения
-        $fileNameToStore = $image_oR_video . "/" . $filename . "_" . time() . "." . $extention;
-        // Сохраняем файл
-        $data = $request->file($image_oR_video)->storeAs('public', $fileNameToStore);
-        return $data;
+        return [
+            'data' => $data,
+            'projectsIds' => $projectsIds ?? null,
+        ];
+    }
+
+    protected function loadFile(Request $request, $data, $key)
+    {
+      $filenameWithExt = $request->file($key)->getClientOriginalName();
+      $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+      $filename = str_replace(' ', '_', $filename);
+      $extention = $request->file($key)->getClientOriginalExtension();
+      $fileNameToStore = $key . "/" . $filename . "_" . time() . "." . $extention;
+      $data = $request->file($key)->storeAs('public', $fileNameToStore);
+      return $data;
+    }
+    protected function writeDataToTable($item, $projectsIds)
+    {
+        if (isset($projectsIds)) :
+            foreach ($projectsIds as $key => $value) :
+                $projects_id = DB::table('projects')
+                    ->where('title', $value)
+                    ->first()->id;
+                $projectsIds[$key] = $projects_id;
+            endforeach;
+            $item->projects()->sync($projectsIds);
+        else:
+            $item->projects()->sync($projectsIds);
+        endif;
     }
 }

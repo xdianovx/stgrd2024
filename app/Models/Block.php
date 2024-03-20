@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Block extends Model
 {
     use HasFactory;
-    protected $fillable = ['title_left','text_large','description','description_additional'];
+    protected $fillable = ['title_left','slug','active','text_large','description','description_additional'];
     public static $blocks_routes = [
         'admin.blocks.index',
         'admin.blocks.search',
@@ -25,5 +25,14 @@ class Block extends Model
     public function advantages()
     {
       return $this->hasMany(Advantage::class);
+    }
+    public function planning_solutions()
+    {
+      return $this->hasMany(PlanningSolution::class);
+    }
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+
     }
 }

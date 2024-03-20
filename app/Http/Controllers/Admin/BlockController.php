@@ -8,6 +8,7 @@ use App\Http\Requests\Block\UpdateRequest;
 use App\Models\Block;
 use App\Models\CategoryBlock;
 use App\Models\Number;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ class BlockController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $blocks = Block::orderBy('id', 'DESC')->paginate(10);
+        $blocks = Block::orderBy('id', 'DESC')->where('project_id', NULL)->paginate(10);
         return view('admin.blocks.index', compact('blocks', 'user'));
     }
 
@@ -26,7 +27,8 @@ class BlockController extends Controller
         $item = Block::whereId($block)->firstOrFail();
         $numbers = $item->numbers()->paginate(10);
         $advantages = $item->advantages()->paginate(10);
-        return view('admin.blocks.show', compact('item', 'user','numbers','advantages'));
+        $planning_solutions  = $item->planning_solutions()->paginate(10);
+        return view('admin.blocks.show', compact('item', 'user','numbers','advantages','planning_solutions'));
     }
 
     // public function create()
@@ -52,11 +54,18 @@ class BlockController extends Controller
     }
     public function update(UpdateRequest $request, $block)
     {
-        $blog = Block::whereId($block)->firstOrFail();
+        $block = Block::whereId($block)->firstOrFail();
         $data = $request->validated();
 
-        $blog->update($data);
-        return redirect()->route('admin.blocks.index')->with('status', 'item-updated');
+        $block->update($data);
+
+        if($block->slug == 'company_advantages' || $block->slug == 'mission'):
+          return redirect()->route('admin.blocks.index')->with('status', 'item-updated');
+        else:
+        $project = Project::whereId($block->project_id)->firstOrFail();
+          return redirect()->route('admin.projects.show',$project->slug)->with('status', 'item-updated');
+        endif;
+
     }
 
     // public function destroy($block)

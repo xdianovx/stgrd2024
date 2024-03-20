@@ -1,5 +1,6 @@
 
 
+@if ($item->active == TRUE)
 <section class="mission">
     <div class="container">
         <div class="wrap">
@@ -28,3 +29,4 @@
         </div>
     </div>
 </section>
+@endif

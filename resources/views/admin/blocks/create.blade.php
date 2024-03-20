@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{__('admin.new_block_card_title')}}</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.new_block_card_title') }}</h4>
                 </div>
 
 
@@ -34,39 +34,56 @@
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
-                                        <label for="valueInput" class="form-label">{{__('admin.field_title')}} *</label>
-                                        <input type="text" value="{{ old('title') }}" class="form-control"
-                                            id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
-                                    </div>
-                                </div>
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="valueInput" class="form-label">{{__('admin.field_title_left')}} *</label>
-                                        <input type="text" value="{{ old('title_left') }}" class="form-control input__slug"
-                                            id="valueInput" name="title_left" placeholder="{{__('admin.placeholder_text')}}">
+                                        <label for="valueInput" class="form-label">{{ __('admin.field_title_left') }}
+                                            *</label>
+                                        <input type="text" value="{{ old('title_left') }}"
+                                            class="form-control input__slug" id="valueInput" name="title_left"
+                                            placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
 
                                 </div>
-                                <div class="mb-3">
-                                  <label class="form-label" for="basic-default-message">{{__('admin.field_text_large')}}</label>
-                                  <textarea id="basic-default-message" class="form-control" name="text_large" placeholder="{{__('admin.placeholder_text')}}"
-                                      style="height: 234px;">{{ old('text_large') }}</textarea>
-                              </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="firstName" class="form-label">{{ __('admin.field_display') }} *</label>
 
+                                    <div class="form-check mt-2">
+                                        <input name="active" class="form-check-input" type="radio" value="FALSE"
+                                            id="defaultRadio1"
+                                            @if (old('active') == false) checked="checked" @else @endif>
+                                        <label class="form-check-label" for="defaultRadio1">
+                                            {{ __('admin.select_display_false') }} </label>
+                                    </div>
+                                    <div class="form-check mt-1">
+                                        <input name="active" class="form-check-input" type="radio" value="TRUE"
+                                            id="defaultRadio2"
+                                            @if (old('active')== true) checked="checked" @else @endif>
+                                        <label class="form-check-label" for="defaultRadio2">
+                                            {{ __('admin.select_display_true') }} </label>
+                                    </div>
+                                </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="basic-default-message">{{__('admin.field_description')}}</label>
-                                    <textarea id="basic-default-message" class="form-control" name="description" placeholder="{{__('admin.placeholder_text')}}"
-                                        style="height: 234px;">{{ old('description') }}</textarea>
+                                    <label class="form-label"
+                                        for="basic-default-message">{{ __('admin.field_text_large') }}</label>
+                                    <textarea id="basic-default-message" class="form-control" name="text_large"
+                                        placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{{ old('text_large') }}</textarea>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="basic-default-message">{{__('admin.field_description_additional')}}</label>
-                                    <textarea id="basic-default-message" class="form-control" name="description_additional" placeholder="{{__('admin.placeholder_text')}}"
-                                        style="height: 234px;">{{ old('description_additional') }}</textarea>
+                                    <label class="form-label"
+                                        for="basic-default-message">{{ __('admin.field_description') }}</label>
+                                    <textarea id="basic-default-message" class="form-control" name="description"
+                                        placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{{ old('description') }}</textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label"
+                                        for="basic-default-message">{{ __('admin.field_description_additional') }}</label>
+                                    <textarea id="basic-default-message" class="form-control" name="description_additional"
+                                        placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{{ old('description_additional') }}</textarea>
                                 </div>
 
                             </div>
-                            <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
+                            <button type="submit"
+                                class="btn btn-success waves-effect waves-light mt-5">{{ __('admin.btn_save') }}</button>
 
                         </form>
                     </div>

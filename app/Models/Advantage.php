@@ -11,10 +11,10 @@ class Advantage extends Model
 
     protected $fillable = ['title','num','description','image'];
     public static $advantages_routes = [
-        'admin.advantages.search',
-        'admin.advantages.show',
-        'admin.advantages.edit',
-        'admin.advantages.create',
+        'admin.blocks.advantage_search',
+        'admin.blocks.advantage_show',
+        'admin.blocks.advantage_edit',
+        'admin.blocks.advantage_create',
     ];
 
     public function block()
