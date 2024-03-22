@@ -9,7 +9,7 @@
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-grow-1">
                             <h3 class="card-header align-items-center d-flex">{{ __('admin.block_card_title') }}:
-                                {{ $item->title }}</h3>
+                                {{ $item->title_left }}</h3>
                         </div>
                         <div class="flex-shrink-0">
                             <div class="dropdown">
@@ -21,7 +21,7 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ url()->previous() }}">
+                                        <a type="button" class="dropdown-item" href="{{ route('admin.blocks.index') }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
@@ -154,21 +154,21 @@
                                 <div class="demo-inline-spacing">
                                     @if (session('status') === 'item-updated')
                                         <div class="alert alert-primary alert-dismissible" role="alert">
-                                            {{ __('Updated successfully.') }}
+                                            {{ __('admin.alert_updated') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
                                     @if (session('status') === 'item-created')
                                         <div class="alert alert-success alert-dismissible" role="alert">
-                                            {{ __('Created successfully.') }}
+                                            {{ __('admin.alert_created') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
                                     @if (session('status') === 'item-deleted')
                                         <div class="alert alert-danger alert-dismissible" role="alert">
-                                            {{ __('Deleted successfully.') }}
+                                            {{ __('admin.alert_deleted') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
@@ -301,21 +301,21 @@
                                 <div class="demo-inline-spacing">
                                     @if (session('status') === 'item-updated')
                                         <div class="alert alert-primary alert-dismissible" role="alert">
-                                            {{ __('Updated successfully.') }}
+                                            {{ __('admin.alert_updated') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
                                     @if (session('status') === 'item-created')
                                         <div class="alert alert-success alert-dismissible" role="alert">
-                                            {{ __('Created successfully.') }}
+                                            {{ __('admin.alert_created') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
                                     @if (session('status') === 'item-deleted')
                                         <div class="alert alert-danger alert-dismissible" role="alert">
-                                            {{ __('Deleted successfully.') }}
+                                            {{ __('admin.alert_deleted') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
@@ -456,21 +456,21 @@
                                 <div class="demo-inline-spacing">
                                     @if (session('status') === 'item-updated')
                                         <div class="alert alert-primary alert-dismissible" role="alert">
-                                            {{ __('Updated successfully.') }}
+                                            {{ __('admin.alert_updated') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
                                     @if (session('status') === 'item-created')
                                         <div class="alert alert-success alert-dismissible" role="alert">
-                                            {{ __('Created successfully.') }}
+                                            {{ __('admin.alert_created') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
                                     @endif
                                     @if (session('status') === 'item-deleted')
                                         <div class="alert alert-danger alert-dismissible" role="alert">
-                                            {{ __('Deleted successfully.') }}
+                                            {{ __('admin.alert_deleted') }}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>

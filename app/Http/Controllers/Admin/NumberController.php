@@ -12,43 +12,41 @@ use Illuminate\Support\Facades\Auth;
 
 class NumberController extends Controller
 {
-  public function show($block, $item)
+  public function show($block_slug, $item)
   {
       $item = Number::whereId($item)->firstOrFail();
       $user = Auth::user();
-      return view('admin.numbers.show', compact('user','block','item'));
+      return view('admin.numbers.show', compact('user','block_slug','item'));
   }
 
-  public function create($block)
+  public function create($block_slug)
   {
-      $block = Block::whereId($block)->firstOrFail();
       $user = Auth::user();
       return view('admin.numbers.create', compact(
           'user',
-          'block',
+          'block_slug',
       ));
   }
-  public function store(StoreRequest $request, $block)
+  public function store(StoreRequest $request, $block_slug)
   {
       $data = $request->validated();
-      $block = Block::whereId($block)->firstOrFail();
+      $block = Block::whereSlug($block_slug)->firstOrFail();
       $bonus = $block->numbers()->create($data);
 
-      return redirect()->route('admin.blocks.show',$block)->with('status', 'item-created');
+      return redirect()->route('admin.blocks.show',$block_slug)->with('status', 'item-created');
   }
-  public function edit($block, $item)
+  public function edit($block_slug, $item)
   {
-      $block = Block::whereId($block)->firstOrFail();
       $item = Number::whereId($item)->firstOrFail();
       $user = Auth::user();
 
       return view('admin.numbers.edit', compact(
           'user',
-          'block',
+          'block_slug',
           'item'
       ));
   }
-  public function update(UpdateRequest $request, $block, $item)
+  public function update(UpdateRequest $request, $block_slug, $item)
   {
       $data = $request->validated();
 
@@ -56,14 +54,14 @@ class NumberController extends Controller
       $item->update($data);
 
 
-      return redirect()->route('admin.blocks.show',$block)->with('status', 'item-updated');
+      return redirect()->route('admin.blocks.show',$block_slug)->with('status', 'item-updated');
   }
 
-  public function destroy($block, $item)
+  public function destroy($block_slug, $item)
   {
 
       $item = Number::whereId($item)->firstOrFail();
       $item->delete();
-      return redirect()->route('admin.blocks.show',$block)->with('status', 'item-deleted');
+      return redirect()->route('admin.blocks.show',$block_slug)->with('status', 'item-deleted');
   }
 }

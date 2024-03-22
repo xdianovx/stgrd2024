@@ -48,9 +48,9 @@ class Project extends Model
   {
     return $this->belongsTo(Status::class);
   }
-  public function blocks()
+  public function project_blocks()
   {
-    return $this->hasMany(Block::class);
+    return $this->hasMany(ProjectBlock::class);
   }
   public function news()
   {
@@ -64,7 +64,7 @@ class Project extends Model
   public function createBlocks(array $attributes)
   {
     foreach ($attributes as $key => $value):
-      $this->blocks()->create($value);
+      $this->project_blocks()->create($value);
     endforeach;
   }
 }

@@ -23,12 +23,12 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ url()->previous() }}">
+                                        <a type="button" class="dropdown-item" href="{{ route('admin.blocks.show', $block_slug) }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
 
-                                    <li><a href="{{ route('admin.blocks.advantage_edit', [$block, $item]) }}"
+                                    <li><a href="{{ route('admin.blocks.advantage_edit', [$block_slug, $item]) }}"
                                             class="dropdown-item edit-item-btn"><i
                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_edit') }}</a>
@@ -109,7 +109,7 @@
                                                     {{ __('admin.btn_close') }}
                                                 </button>
                                                 <form
-                                                    action="{{ route('admin.blocks.advantage_destroy', [$block, $item]) }}"
+                                                    action="{{ route('admin.blocks.advantage_destroy', [$block_slug, $item]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')

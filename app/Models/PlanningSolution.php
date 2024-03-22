@@ -7,24 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanningSolution extends Model
 {
-    use HasFactory;
-    protected $fillable = [
+  use HasFactory;
+  protected $fillable = [
     'type',
     'square',
     'ipoteka',
     'price',
     'slug',
     'plan',
-    'block_id'
-    ];
-    public static $planning_solution_routes = [
-        'admin.planning_solutions.planning_solution_show',
-        'admin.planning_solutions.planning_solution_edit',
-        'admin.planning_solutions.planning_solution_create',
-    ];
-    public function block()
-    {
-        return $this->belongsTo(Block::class);
-
-    }
+    'project_block_id'
+  ];
+  public static $planning_solution_routes = [
+    'admin.projects.planning_solution_show',
+    'admin.projects.planning_solution_edit',
+    'admin.projects.planning_solution_create',
+  ];
+  public function project_blocks()
+  {
+    return $this->belongsTo(Block::class);
+  }
 }

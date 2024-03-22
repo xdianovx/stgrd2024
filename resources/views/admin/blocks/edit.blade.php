@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_block_card_title') }} {{ $item->title }}</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_block_card_title') }} {{ $item->title_left }}</h4>
                     <div class="flex-shrink-0">
                         <div class="dropdown">
                             <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"

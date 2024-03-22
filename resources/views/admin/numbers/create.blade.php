@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
-                        <form action="{{ route('admin.blocks.number_store', $block) }}" method="POST"
+                        <form action="{{ route('admin.blocks.number_store', $block_slug) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row gy-4">

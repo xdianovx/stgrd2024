@@ -71,7 +71,7 @@
                                             <td><a
                                                     href="{{ route('admin.blocks.show', $item) }}">{{ $item->title_left }}</a>
                                             </td>
-                                            <td> @if ($item->active == TRUE) {{ __('admin.select_display_true') }}@else{{ __('admin.select_display_false') }}@endif </td>
+                                            <td> @if ($item->active == TRUE) {{ __('admin.select_display_block_true') }}@else{{ __('admin.select_display_block_false') }}@endif </td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
                                                 <div class="dropdown d-inline-block">

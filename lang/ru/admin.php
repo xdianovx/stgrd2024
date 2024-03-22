@@ -74,13 +74,53 @@ return [
   'aside_title_number' => 'Цифра',
   'aside_title_numbers' => 'Цифры',
 
-  //Titles advantage
+  //Titles planning_solution
   'new_planning_solution_card_title' => 'Новая запись планировочное решение',
   'edit_planning_solution_card_title' => 'Изменить запись планировочное решение',
   'planning_solution_card_title' => 'Запись планировочное решение',
   'planning_solution_card_info' => 'Информация о записи планировочное решение',
   'aside_title_planning_solution' => 'Планировочное решение',
   'aside_title_planning_solutions' => 'Планировочные решения',
+
+  //Titles facilitie
+  'new_facilitie_card_title' => 'Новая запись удобства',
+  'edit_facilitie_card_title' => 'Изменить запись удобства',
+  'facilitie_card_title' => 'Запись удобства',
+  'facilitie_card_info' => 'Информация о записи удобства',
+  'aside_title_facilitie' => 'Запись удобство',
+  'aside_title_facilities' => 'Удобства',
+
+  //Titles document
+  'new_document_card_title' => 'Новая запись документ',
+  'edit_document_card_title' => 'Изменить запись документ',
+  'document_card_title' => 'Запись документ',
+  'document_card_info' => 'Информация о записи документа',
+  'aside_title_document' => 'Запись документ',
+  'aside_title_documents' => 'Документы',
+
+  //Titles project_images
+  'new_project_image_card_title' => 'Новая запись удобства',
+  'edit_project_image_card_title' => 'Изменить запись удобства',
+  'project_image_card_title' => 'Запись удобства',
+  'project_image_card_info' => 'Информация о записи удобства',
+  'aside_title_project_image' => 'Запись удобство',
+  'aside_title_project_images' => 'Удобства',
+
+  //Titles construction_stages
+  'new_construction_stage_card_title' => 'Новая запись этап строительства',
+  'edit_construction_stage_card_title' => 'Изменить запись этап строительства',
+  'construction_stage_card_title' => 'Запись этап строительства',
+  'construction_stage_card_info' => 'Информация о записи этап строительства',
+  'aside_title_construction_stage' => 'Запись этап строительства',
+  'aside_title_construction_stages' => 'Этапы строительства',
+
+  //Titles map_point
+  'new_map_point_card_title' => 'Новая запись точка на карте',
+  'edit_map_point_card_title' => 'Изменить запись точка на карте',
+  'map_point_card_title' => 'Запись точка на карте',
+  'map_point_card_info' => 'Информация о записи точка на карте',
+  'aside_title_map_point' => 'Запись точка на карте',
+  'aside_title_map_points' => 'Точки на карте',
 
   //Titles advantage
   'new_advantage_card_title' => 'Новая запись преимущества',
@@ -91,14 +131,18 @@ return [
   'aside_title_advantages' => 'Преимущества',
 
   //Fields
+  'field_file' => 'Файл',
+  'field_coordinates_longitude' => 'Координаты поля долгота',
+  'field_coordinates_latitude' => 'Координаты поля широта',
   'field_plan' => 'Планировка',
   'field_price' => 'Стоимость',
   'field_ipoteka' => 'В ипотеку',
   'field_square' => 'Площадь',
-  'field_type' => 'Квартира(Тип)',
+  'field_type' => 'Тип',
   'field_display' => 'Отображение',
   'field_status' => 'Статус',
   'field_city' => 'Город',
+  'field_text' => 'Текст',
   'field_text_card' => 'Текст(Карточка)',
   'field_text_about' => 'Текст(О проекте)',
   'field_corpuses' => 'Корпуса',
@@ -117,9 +161,11 @@ return [
   'field_h1_title' => 'Заголовок H1',
   'field_slug' => 'Слаг',
   'field_image' => 'Изображение',
-  'field_current_plan' => 'Текущий план',
+  'field_current_plan' => 'Текущая планировка',
   'field_current_image' => 'Текущее изображение',
   'field_current_presentation' => 'Текущая презентация',
+  'field_current_document' => 'Текущий документ',
+
   'field_description' => 'Описание',
   'field_description_footer' => 'Описание(Подвал)',
   'field_description_additional' => 'Описание(дополнительное)',
@@ -134,10 +180,15 @@ return [
   'field_text_left' => 'Текст слева',
   'field_title_left' => 'Заголовок слева',
   'field_text_large' => 'Текст большой',
+  'field_number_of_records' => 'Количество записей',
+  'field_date'  => 'Дата',
+
   //Btns
   'btn_actions' => 'Действия',
-  'select_display_false' => 'Выключенный',
-  'select_display_true' => 'Включенный',
+  'select_display_block_false' => 'Блок отключен!',
+  'select_display_block_true' => 'Блок включен!',
+  'select_display_false' => 'Отключить',
+  'select_display_true' => 'Включить',
   'btn_save' => 'Сохранить',
   'btn_search' => 'Поиск',
   'btn_add' => 'Добавить',

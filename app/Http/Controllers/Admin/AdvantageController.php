@@ -12,36 +12,36 @@ use Illuminate\Support\Facades\Auth;
 
 class AdvantageController extends Controller
 {
-  public function show($block, $item)
+  public function show($block_slug, $item)
   {
     $item = Advantage::whereId($item)->firstOrFail();
     $user = Auth::user();
-    return view('admin.advantages.show', compact('user', 'block', 'item'));
+    return view('admin.advantages.show', compact('user', 'block_slug', 'item'));
   }
 
-  public function create($block)
+  public function create($block_slug)
   {
-    $block = Block::whereId($block)->firstOrFail();
+    $block = Block::whereSlug($block_slug)->firstOrFail();
     $user = Auth::user();
     return view('admin.advantages.create', compact(
       'user',
       'block',
     ));
   }
-  public function store(StoreRequest $request, $block)
+  public function store(StoreRequest $request, $block_slug)
   {
     $data = $request->validated();
     if ($request->hasFile('image')) :
       $data['image'] = $this->loadFile($request, $data, 'image');
     endif;
-    $block = Block::whereId($block)->firstOrFail();
+    $block = Block::whereSlug($block_slug)->firstOrFail();
     $bonus = $block->advantages()->create($data);
 
     return redirect()->route('admin.blocks.show', $block)->with('status', 'item-created');
   }
-  public function edit($block, $item)
+  public function edit($block_slug, $item)
   {
-    $block = Block::whereId($block)->firstOrFail();
+    $block = Block::whereSlug($block_slug)->firstOrFail();
     $item = Advantage::whereId($item)->firstOrFail();
     $user = Auth::user();
 
@@ -51,7 +51,7 @@ class AdvantageController extends Controller
       'item'
     ));
   }
-  public function update(UpdateRequest $request, $block, $item)
+  public function update(UpdateRequest $request, $block_slug, $item)
   {
     $data = $request->validated();
     if ($request->hasFile('image')) :
@@ -61,15 +61,15 @@ class AdvantageController extends Controller
     $item->update($data);
 
 
-    return redirect()->route('admin.blocks.show', $block)->with('status', 'item-updated');
+    return redirect()->route('admin.blocks.show', $block_slug)->with('status', 'item-updated');
   }
 
-  public function destroy($block, $item)
+  public function destroy($block_slug, $item)
   {
 
     $item = Advantage::whereId($item)->firstOrFail();
     $item->delete();
-    return redirect()->route('admin.blocks.show', $block)->with('status', 'item-deleted');
+    return redirect()->route('admin.blocks.show', $block_slug)->with('status', 'item-deleted');
   }
   protected function loadFile(Request $request, $data, $key)
   {

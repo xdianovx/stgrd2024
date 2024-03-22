@@ -3,16 +3,21 @@
 use App\Http\Controllers\Admin\AdvantageController;
 use App\Http\Controllers\Admin\BlockController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\ConstructionStageController;
+use App\Http\Controllers\Admin\DocumentController;
+use App\Http\Controllers\Admin\FacilitieController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\MapPointController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\NumberController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PlanningSolutionController;
+use App\Http\Controllers\Admin\ProjectBlockController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Front\WelcomePageController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -98,10 +103,10 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/search',  [BlockController::class, 'search'])->name('search');
     // Route::get('/create', [BlockController::class, 'create'])->name('create');
     // Route::post('/store', [BlockController::class, 'store'])->name('store');
-    Route::get('/{block}', [BlockController::class, 'show'])->name('show');
-    Route::get('/{block}/edit', [BlockController::class, 'edit'])->name('edit');
-    Route::patch('/{block}', [BlockController::class, 'update'])->name('update');
-    // Route::delete('/{block}', [BlockController::class, 'destroy'])->name('destroy');
+    Route::get('/{block_slug}', [BlockController::class, 'show'])->name('show');
+    Route::get('/{block_slug}/edit', [BlockController::class, 'edit'])->name('edit');
+    Route::patch('/{block_slug}', [BlockController::class, 'update'])->name('update');
+    // Route::delete('/{block_slug}', [BlockController::class, 'destroy'])->name('destroy');
     //numbers
     Route::get('/{block}/numbers/create', [NumberController::class, 'create'])->name('number_create');
     Route::post('/{block}/numbers/store', [NumberController::class, 'store'])->name('number_store');
@@ -116,13 +121,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/{block}/advantages/{advantage}/edit', [AdvantageController::class, 'edit'])->name('advantage_edit');
     Route::patch('/{block}/advantages/{advantage}', [AdvantageController::class, 'update'])->name('advantage_update');
     Route::delete('/{block}/advantages/{advantage}', [AdvantageController::class, 'destroy'])->name('advantage_destroy');
-    //planning_solutions
-    Route::get('/{block}/planning_solutions/create', [PlanningSolutionController::class, 'create'])->name('planning_solution_create');
-    Route::post('/{block}/planning_solutions/store', [PlanningSolutionController::class, 'store'])->name('planning_solution_store');
-    Route::get('/{block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'show'])->name('planning_solution_show');
-    Route::get('/{block}/planning_solutions/{planning_solution}/edit', [PlanningSolutionController::class, 'edit'])->name('planning_solution_edit');
-    Route::patch('/{block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'update'])->name('planning_solution_update');
-    Route::delete('/{block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'destroy'])->name('planning_solution_destroy');
   });
 
   Route::name('cities.')->prefix('cities')->group(function () {
@@ -156,6 +154,52 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/{project_slug}/edit', [ProjectController::class, 'edit'])->name('edit');
     Route::patch('/{project_slug}', [ProjectController::class, 'update'])->name('update');
     Route::delete('/{project_slug}', [ProjectController::class, 'destroy'])->name('destroy');
+    //project_blocks
+    Route::get('/{project_slug}/project_blocks/{project_block_slug}', [ProjectBlockController::class, 'show'])->name('project_block_show');
+    Route::get('/{project_slug}/project_blocks/{project_block_slug}/edit', [ProjectBlockController::class, 'edit'])->name('project_block_edit');
+    Route::patch('/{project_slug}/project_blocks/{project_block_slug}', [ProjectBlockController::class, 'update'])->name('project_block_update');
+    //planning_solutions
+    Route::get('/{project_slug}/project_blocks/{project_block}/planning_solutions/create', [PlanningSolutionController::class, 'create'])->name('planning_solution_create');
+    Route::post('/{project_slug}/project_blocks/{project_block}/planning_solutions/store', [PlanningSolutionController::class, 'store'])->name('planning_solution_store');
+    Route::get('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'show'])->name('planning_solution_show');
+    Route::get('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}/edit', [PlanningSolutionController::class, 'edit'])->name('planning_solution_edit');
+    Route::patch('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'update'])->name('planning_solution_update');
+    Route::delete('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'destroy'])->name('planning_solution_destroy');
+    //facilities
+    Route::get('/{project_slug}/project_blocks/{project_block}/facilities/create', [FacilitieController::class, 'create'])->name('facilitie_create');
+    Route::post('/{project_slug}/project_blocks/{project_block}/facilities/store', [FacilitieController::class, 'store'])->name('facilitie_store');
+    Route::get('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}', [FacilitieController::class, 'show'])->name('facilitie_show');
+    Route::get('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}/edit', [FacilitieController::class, 'edit'])->name('facilitie_edit');
+    Route::patch('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}', [FacilitieController::class, 'update'])->name('facilitie_update');
+    Route::delete('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}', [FacilitieController::class, 'destroy'])->name('facilitie_destroy');
+    //map_points
+    Route::get('/{project_slug}/project_blocks/{project_block}/map_points/create', [MapPointController::class, 'create'])->name('map_point_create');
+    Route::post('/{project_slug}/project_blocks/{project_block}/map_points/store', [MapPointController::class, 'store'])->name('map_point_store');
+    Route::get('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}', [MapPointController::class, 'show'])->name('map_point_show');
+    Route::get('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}/edit', [MapPointController::class, 'edit'])->name('map_point_edit');
+    Route::patch('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}', [MapPointController::class, 'update'])->name('map_point_update');
+    Route::delete('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}', [MapPointController::class, 'destroy'])->name('map_point_destroy');
+    //project_images
+    Route::get('/{project_slug}/project_blocks/{project_block}/project_images/create', [ProjectImageController::class, 'create'])->name('project_image_create');
+    Route::post('/{project_slug}/project_blocks/{project_block}/project_images/store', [ProjectImageController::class, 'store'])->name('project_image_store');
+    Route::get('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}', [ProjectImageController::class, 'show'])->name('project_image_show');
+    Route::get('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}/edit', [ProjectImageController::class, 'edit'])->name('project_image_edit');
+    Route::patch('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}', [ProjectImageController::class, 'update'])->name('project_image_update');
+    Route::delete('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}', [ProjectImageController::class, 'destroy'])->name('project_image_destroy');
+    //construction_stages
+    Route::get('/{project_slug}/project_blocks/{project_block}/construction_stages/create', [ConstructionStageController::class, 'create'])->name('construction_stage_create');
+    Route::post('/{project_slug}/project_blocks/{project_block}/construction_stages/store', [ConstructionStageController::class, 'store'])->name('construction_stage_store');
+    Route::get('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}', [ConstructionStageController::class, 'show'])->name('construction_stage_show');
+    Route::get('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}/edit', [ConstructionStageController::class, 'edit'])->name('construction_stage_edit');
+    Route::patch('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}', [ConstructionStageController::class, 'update'])->name('construction_stage_update');
+    Route::delete('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}', [ConstructionStageController::class, 'destroy'])->name('construction_stage_destroy');
+    //documents
+    Route::get('/{project_slug}/project_blocks/{project_block}/documents/create', [DocumentController::class, 'create'])->name('document_create');
+    Route::post('/{project_slug}/project_blocks/{project_block}/documents/store', [DocumentController::class, 'store'])->name('document_store');
+    Route::get('/{project_slug}/project_blocks/{project_block}/documents/{document}', [DocumentController::class, 'show'])->name('document_show');
+    Route::get('/{project_slug}/project_blocks/{project_block}/documents/{document}/edit', [DocumentController::class, 'edit'])->name('document_edit');
+    Route::patch('/{project_slug}/project_blocks/{project_block}/documents/{document}', [DocumentController::class, 'update'])->name('document_update');
+    Route::delete('/{project_slug}/project_blocks/{project_block}/documents/{document}', [DocumentController::class, 'destroy'])->name('document_destroy');
   });
 
   Route::name('promotions.')->prefix('promotions')->group(function () {

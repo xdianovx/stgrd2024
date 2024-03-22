@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('text_large')->nullable();
             $table->text('description')->nullable();
             $table->text('description_additional')->nullable();
-            $table->foreignId('project_id')->nullable();
             $table->timestamps();
         });
     }

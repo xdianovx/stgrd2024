@@ -23,7 +23,7 @@
 
 
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ url()->previous() }}">
+                                        <a type="button" class="dropdown-item" href="{{ route('admin.projects.index') }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
@@ -231,29 +231,29 @@
                 <h5 class="card-header align-items-center d-flex">{{ __('admin.aside_title_blocks') }}
                 </h5>
                 <div class="demo-inline-spacing">
-                  @if (session('status') === 'item-updated')
-                      <div class="alert alert-primary alert-dismissible" role="alert">
-                          {{ __('Updated successfully.') }}
-                          <button type="button" class="btn-close" data-bs-dismiss="alert"
-                              aria-label="Close"></button>
-                      </div>
-                  @endif
-                  @if (session('status') === 'item-created')
-                      <div class="alert alert-success alert-dismissible" role="alert">
-                          {{ __('Created successfully.') }}
-                          <button type="button" class="btn-close" data-bs-dismiss="alert"
-                              aria-label="Close"></button>
-                      </div>
-                  @endif
-                  @if (session('status') === 'item-deleted')
-                      <div class="alert alert-danger alert-dismissible" role="alert">
-                          {{ __('Deleted successfully.') }}
-                          <button type="button" class="btn-close" data-bs-dismiss="alert"
-                              aria-label="Close"></button>
-                      </div>
-                  @endif
-              </div>
-                @forelse ($item->blocks as $block)
+                    @if (session('status') === 'item-updated')
+                        <div class="alert alert-primary alert-dismissible" role="alert">
+                            {{ __('admin.alert_updated') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (session('status') === 'item-created')
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            {{ __('admin.alert_created') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (session('status') === 'item-deleted')
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            {{ __('admin.alert_deleted') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+                </div>
+                @forelse ($item->project_blocks as $block)
                     <div class="col-xxl-3 col-sm-6">
 
                         <div
@@ -261,12 +261,29 @@
                             <div class="card-body p-4">
                                 <div class="d-flex">
                                     <div class="flex-grow-1 text-muted overflow-hidden">
-                                        <h5 class="fs-15 text-truncate"><a href="#"
+                                        <h5 class="fs-15 text-truncate"><a
+                                                href="{{ route('admin.projects.project_block_show', [$item->slug, $block->slug]) }}"
                                                 class="text-body">{{ $block->title_left }}</a>
                                         </h5>
                                         <p class="text-muted text-truncate mb-0">{{ __('admin.field_updated') }}
                                             : <span
                                                 class="fw-semibold text-body">{{ $block->updated_at->diffForHumans() }}</span>
+                                        </p>
+                                        <p class="text-muted text-truncate mb-0">{{ __('admin.field_number_of_records') }}:
+                                          @if($block->slug == 'information')
+                                          <span class="fw-semibold text-body">{{ $block->planning_solutions->count() }}</span>
+                                          @elseif($block->slug == 'facilities')
+                                          <span class="fw-semibold text-body">{{ $block->facilities->count() }}</span>
+                                          @elseif($block->slug == 'infrastructure')
+                                          <span class="fw-semibold text-body">{{ $block->map_points->count() }}</span>
+                                          @elseif($block->slug == 'visualizations')
+                                          <span class="fw-semibold text-body">{{ $block->project_images->count() }}</span>
+                                          @elseif($block->slug == 'construction_progress')
+                                          <span class="fw-semibold text-body">{{ $block->construction_stages->count() }}</span>
+                                          @elseif($block->slug == 'documentation')
+                                          <span class="fw-semibold text-body">{{ $block->documents->count() }}</span>
+                                          @endif
+
                                         </p>
                                     </div>
                                     <div class="flex-shrink-0 ms-2">
@@ -274,15 +291,12 @@
 
                                         @if ($block->active == true)
                                             <div class="badge bg-success-subtle text-success fs-11" role="alert">
-                                                <i class="ri-check-double-line label-icon"></i>
-                                                <strong>{{ __('admin.select_display_true') }}</strong>
+                                                <i class="ri-check-double-line label-icon" data-bs-toggle="tooltip" title="{{ __('admin.select_display_block_true') }}"></i>
                                             </div>
                                         @else
                                             <div
-                                                class="badge bg-warning-subtle text-warning fs-11
-                                    role="alert">
-                                                <i class="ri-alert-line label-icon"></i>
-                                                <strong>{{ __('admin.select_display_false') }}</strong>
+                                                class="badge bg-warning-subtle text-warning fs-11 role="alert">
+                                                <i class="ri-alert-line label-icon" data-bs-toggle="tooltip" title="{{ __('admin.select_display_block_false') }}"></i>
                                             </div>
                                         @endif
                                     </div>
@@ -299,14 +313,14 @@
                                             <ul class="dropdown-menu dropdown-menu-end"
                                                 aria-labelledby="dropdownMenuLink1" style="">
 
-                                                <li><a href="{{ route('admin.blocks.edit', $block->id) }}"
+                                                <li><a href="{{ route('admin.projects.project_block_edit', [$item->slug, $block->slug]) }}"
                                                         class="dropdown-item edit-item-btn"><i
                                                             class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                         {{ __('admin.btn_edit') }}</a>
                                                 </li>
-                                                <li><a href="{{ route('admin.blocks.show', $block->id) }}"
+                                                <li><a href="{{ route('admin.projects.project_block_show', [$item->slug, $block->slug]) }}"
                                                         class="dropdown-item edit-item-btn"><i
-                                                        class="ri-eye-fill align-bottom me-2 text-muted"></i>
+                                                            class="ri-eye-fill align-bottom me-2 text-muted"></i>
                                                         {{ __('admin.btn_show') }}</a>
                                                 </li>
                                             </ul>

@@ -27,8 +27,8 @@ class UpdateRequest extends FormRequest
             'description'  => ['nullable'],
             'text_right'  => ['nullable'],
             'text_left'  => ['nullable'],
-            'video_preview' => 'mimes:mp4,mov,ogg,qt | max:200000',
-            'video_in_player' => 'mimes:mp4,mov,ogg,qt | max:200000',
+            'video_preview' => 'mimetypes:video/avi,video/mpeg,video/quicktime | max:200000',
+            'video_in_player' => 'mimetypes:video/avi,video/mpeg,video/quicktime | max:200000',
         ];
     }
 }

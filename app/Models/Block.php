@@ -17,7 +17,10 @@ class Block extends Model
         'admin.blocks.edit',
         'admin.blocks.create',
     ];
-
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     public function numbers()
     {
       return $this->hasMany(Number::class);
@@ -26,13 +29,5 @@ class Block extends Model
     {
       return $this->hasMany(Advantage::class);
     }
-    public function planning_solutions()
-    {
-      return $this->hasMany(PlanningSolution::class);
-    }
-    public function project()
-    {
-        return $this->belongsTo(Project::class);
 
-    }
 }

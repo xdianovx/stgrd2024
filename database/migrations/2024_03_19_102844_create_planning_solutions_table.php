@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('square');
             $table->string('ipoteka');
             $table->string('price');
-            $table->string('slug')->nullable();
             $table->string('plan')->nullable();
-            $table->foreignId('block_id');
+            $table->foreignId('project_block_id');
             $table->timestamps();
         });
     }

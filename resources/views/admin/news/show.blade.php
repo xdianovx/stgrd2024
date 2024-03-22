@@ -21,7 +21,7 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ url()->previous() }}">
+                                        <a type="button" class="dropdown-item" href="{{ route('admin.news.index' }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>

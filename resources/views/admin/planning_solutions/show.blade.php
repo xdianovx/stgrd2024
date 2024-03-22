@@ -23,12 +23,12 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ url()->previous() }}">
+                                        <a type="button" class="dropdown-item" href="{{ route('admin.projects.project_block_show', [$project_slug, $project_block_slug]) }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
 
-                                    <li><a href="{{ route('admin.blocks.planning_solution_edit', [$block, $item]) }}"
+                                    <li><a href="{{ route('admin.projects.planning_solution_edit', [$project_slug, $project_block_slug, $item]) }}"
                                             class="dropdown-item edit-item-btn"><i
                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_edit') }}</a>
@@ -103,7 +103,7 @@
                                                     {{ __('admin.btn_close') }}
                                                 </button>
                                                 <form
-                                                    action="{{ route('admin.blocks.planning_solution_destroy', [$block, $item]) }}"
+                                                    action="{{ route('admin.projects.planning_solution_destroy', [$project_slug, $project_block_slug, $item]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')

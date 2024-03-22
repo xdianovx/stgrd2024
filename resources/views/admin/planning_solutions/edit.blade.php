@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
-                        <form action="{{ route('admin.blocks.planning_solution_update', [$block, $item]) }}" method="POST"
+                        <form action="{{ route('admin.projects.planning_solution_update', [$project_slug, $project_block_slug, $item]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('patch')

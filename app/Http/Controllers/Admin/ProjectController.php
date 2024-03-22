@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Project\StoreRequest;
 use App\Http\Requests\Project\UpdateRequest;
+use App\Models\Block;
 use App\Models\City;
 use App\Models\Project;
 use App\Models\Status;
@@ -115,6 +116,21 @@ class ProjectController extends Controller
   {
 
     $project = Project::whereSlug($project_slug)->firstOrFail();
+    foreach($project->blocks as $block):
+      if($block->slug == 'information'):
+        $block->planning_solutions()->delete();
+      endif;
+      if($block->slug == 'facilities'):
+        $block->facilities()->delete();
+      endif;
+      if($block->slug == 'infrastructure'):
+        $block->map_points()->delete();
+      endif;
+      if($block->slug == 'visualizations'):
+        $block->project_images()->delete();
+      endif;
+    endforeach;
+    $project->blocks()->delete();
     $project->delete();
     return redirect()->route('admin.projects.index')->with('status', 'item-deleted');
   }

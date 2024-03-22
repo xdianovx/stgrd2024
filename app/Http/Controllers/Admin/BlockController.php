@@ -17,18 +17,17 @@ class BlockController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $blocks = Block::orderBy('id', 'DESC')->where('project_id', NULL)->paginate(10);
+        $blocks = Block::orderBy('id', 'DESC')->paginate(10);
         return view('admin.blocks.index', compact('blocks', 'user'));
     }
 
-    public function show($block)
+    public function show($block_slug)
     {
         $user = Auth::user();
-        $item = Block::whereId($block)->firstOrFail();
+        $item = Block::whereSlug($block_slug)->firstOrFail();
         $numbers = $item->numbers()->paginate(10);
         $advantages = $item->advantages()->paginate(10);
-        $planning_solutions  = $item->planning_solutions()->paginate(10);
-        return view('admin.blocks.show', compact('item', 'user','numbers','advantages','planning_solutions'));
+        return view('admin.blocks.show', compact('item', 'user','numbers','advantages'));
     }
 
     // public function create()
@@ -45,27 +44,20 @@ class BlockController extends Controller
 
     //     return redirect()->route('admin.blocks.index')->with('status', 'item-created');
     // }
-    public function edit($block)
+    public function edit($block_slug)
     {
         $user = Auth::user();
-        $item = Block::whereId($block)->firstOrFail();
+        $item = Block::whereSlug($block_slug)->firstOrFail();
 
         return view('admin.blocks.edit', compact('user', 'item'));
     }
-    public function update(UpdateRequest $request, $block)
+    public function update(UpdateRequest $request, $block_slug)
     {
-        $block = Block::whereId($block)->firstOrFail();
+        $block = Block::whereSlug($block_slug)->firstOrFail();
         $data = $request->validated();
 
         $block->update($data);
-
-        if($block->slug == 'company_advantages' || $block->slug == 'mission'):
-          return redirect()->route('admin.blocks.index')->with('status', 'item-updated');
-        else:
-        $project = Project::whereId($block->project_id)->firstOrFail();
-          return redirect()->route('admin.projects.show',$project->slug)->with('status', 'item-updated');
-        endif;
-
+        return redirect()->route('admin.blocks.index')->with('status', 'item-updated');
     }
 
     // public function destroy($block)
