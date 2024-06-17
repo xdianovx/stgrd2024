@@ -1,39 +1,148 @@
 .life {
-    height: 100vh;
+  //   height: 100vh;
 
-    .container {
-        height: 100%;
-    }
+  .container {
+    height: 100%;
+  }
 }
 
 .life__wrap {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .life__wrap_title {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 256rem;
-    line-height: 100%;
-    font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 256rem;
+  line-height: 100%;
+  font-weight: 300;
 }
 
+.life__wrap-cards {
+  display: flex;
+  flex-direction: column;
+  //   gap: 120px;
+}
+
+.life-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20rem;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:nth-child(1) {
+    margin-left: auto;
+    .life-card__image {
+      width: 560rem;
+      height: 572rem;
+    }
+  }
+
+  &:nth-child(2) {
+    margin-top: -172rem;
+    .life-card__image {
+      width: 560rem;
+      height: 420rem;
+    }
+  }
+
+  &:nth-child(3) {
+    margin-left: 838rem;
+    margin-top: 142rem;
+    .life-card__image {
+      width: 417rem;
+      height: 487rem;
+    }
+  }
+  &:nth-child(4) {
+    margin-top: 241rem;
+    .life-card__image {
+      width: 840rem;
+      height: 535rem;
+    }
+  }
+}
+
+.life-card__text {
+  max-width: 420rem;
+}
 
 @media screen and (max-width: 1200px) {
+  .life__wrap {
+    height: 100vh;
+  }
 
+  .life__wrap_title {
+    font-size: 56px;
+    line-height: 100%;
+    font-weight: 300;
+  }
 
-    .life__wrap {
-        height: 100vh;
+  .life__wrap-cards {
+    gap: 64px;
+  }
 
+  .life-card {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .life__wrap_title {
-        font-size: 56px;
-        line-height: 100%;
-        font-weight: 300;
+    &:nth-child(1) {
+      margin-left: auto;
+      .life-card__image {
+        width: auto;
+        height: auto;
+      }
     }
 
+    &:nth-child(2) {
+      margin-top: 20px;
+      .life-card__image {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    &:nth-child(3) {
+      margin-left: 0;
+      margin-top: 20px;
+      .life-card__image {
+        width: auto;
+        height: auto;
+      }
+    }
+    &:nth-child(4) {
+      margin-top: 20px;
+      .life-card__image {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  .life-card__text {
+    max-width: none;
+  }
 }

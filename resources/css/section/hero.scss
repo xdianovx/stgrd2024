@@ -1,46 +1,44 @@
 .hero {
-    .h1 {
-        margin-top: 474rem;
-    }
+  .h1 {
+    margin-top: 474rem;
+  }
 }
 
 .hero__top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: 66rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 66rem;
 
-    p {
-        &:last-child {
-            text-align: right;
-            max-width: 414rem;
-            width: 100%;
-        }
+  p {
+    &:last-child {
+      text-align: right;
+      max-width: 414rem;
+      width: 100%;
     }
+  }
 }
 
-
 @media screen and (max-width: 1200px) {
-    .hero {
-        .h1 {
-            margin-top: 150px;
-        }
+  .hero {
+    .h1 {
+      margin-top: 150px;
     }
+  }
 
-    .hero__top {
+  .hero__top {
+    margin-top: 40px;
+    flex-direction: column;
 
-        margin-top: 40px;
-        flex-direction: column;
+    p {
+      font-size: 14px;
 
-        p {
-            font-size: 14px;
-
-            &:last-child {
-                margin-top: 28px;
-                text-align: left;
-                max-width: none;
-                width: 100%;
-            }
-        }
+      &:last-child {
+        margin-top: 28px;
+        text-align: left;
+        max-width: none;
+        width: 100%;
+      }
     }
+  }
 }

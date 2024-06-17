@@ -26,6 +26,7 @@ import { filters } from "./modules/filters.js";
 import { maps } from "./modules/maps.js";
 import { contactsItem } from "./modules/contacts-item.js";
 import { director_card } from "./modules/director_card.js";
+import { lifesection } from "./modules/lifesection.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -69,6 +70,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   maps(gsap);
   contactsItem(gsap);
   director_card(gsap);
+  lifesection(gsap);
   barba.init({
     schema: {
       wrapper: "wrapper",
