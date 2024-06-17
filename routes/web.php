@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Front\WelcomePageController;
+use App\Http\Controllers\Front\AboutPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,13 +32,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [WelcomePageController::class, 'index'], function () {
-  return view('welcome');
-})->name('home');
+Route::get('/', [WelcomePageController::class, 'index'])->name('home');
 
-Route::get('/about', function () {
-  return view('about');
-})->name('about');
+Route::get('/about', [AboutPageController::class, 'index'])->name('about');
 
 Route::get('/projects', function () {
   return view('projects');

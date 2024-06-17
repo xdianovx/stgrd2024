@@ -12,11 +12,13 @@
                         <p>Скоро</p>
                     @endif
                 </div>
-                <p class="enterprise-item__site-title">{!!$site_title !!}</p>
+                <p class="enterprise-item__site-title">{!! $site_title !!}</p>
                 <p class="enterprise-item__year">{{ $year }}</p>
             </div>
 
-            <div class="enterprise-item__content"></div>
+            <div class="enterprise-item__content">
+
+            </div>
         </div>
     </div>
     <div class="hr"></div>

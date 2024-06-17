@@ -1,30 +1,31 @@
 import "./bootstrap";
 import MouseFollower from "mouse-follower";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import barba from "@barba/core";
 import Lenis from "@studio-freight/lenis";
-import {navigation} from "./modules/navigation";
+import { navigation } from "./modules/navigation";
 import gsap from "gsap";
-import {sliders} from "./modules/sliders";
-import {burger} from "./modules/burger";
-import {marquee} from "./modules/marquee";
-import {hero_title} from "./modules/animations/hero_title";
+import { sliders } from "./modules/sliders";
+import { burger } from "./modules/burger";
+import { marquee } from "./modules/marquee";
+import { hero_title } from "./modules/animations/hero_title";
 // import {footer} from "./modules/footer";
 
-import {showreel} from "./modules/showreel";
-import {sticky_btn} from "./modules/sticky_btn";
-import {features} from "./modules/features.js";
-import {mission} from "./modules/mission.js";
-import {rotate_text} from "./modules/animations/rotate_text.js";
-import {vacancy} from "./modules/vacancy.js";
-import {project_page} from "./modules/project_page.js";
-import {lines} from "./modules/animations/lines.js";
-import {parallax} from "./modules/animations/parallax.js";
-import {selectors} from "./modules/selectors.js";
-import {squareBtns} from "./modules/animations/square-btns.js";
-import {filters} from "./modules/filters.js";
-import {maps} from "./modules/maps.js";
-import {contactsItem} from "./modules/contacts-item.js";
+import { showreel } from "./modules/showreel";
+import { sticky_btn } from "./modules/sticky_btn";
+import { features } from "./modules/features.js";
+import { mission } from "./modules/mission.js";
+import { rotate_text } from "./modules/animations/rotate_text.js";
+import { vacancy } from "./modules/vacancy.js";
+import { project_page } from "./modules/project_page.js";
+import { lines } from "./modules/animations/lines.js";
+import { parallax } from "./modules/animations/parallax.js";
+import { selectors } from "./modules/selectors.js";
+import { squareBtns } from "./modules/animations/square-btns.js";
+import { filters } from "./modules/filters.js";
+import { maps } from "./modules/maps.js";
+import { contactsItem } from "./modules/contacts-item.js";
+import { director_card } from "./modules/director_card.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   requestAnimationFrame(raf);
 
-  selectors()
+  selectors();
   navigation(lenis, barba);
   sliders();
   burger();
@@ -60,14 +61,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
   features(gsap, lenis, ScrollTrigger);
   vacancy(gsap);
   project_page(gsap);
-  lines()
-  parallax()
-  squareBtns(ScrollTrigger)
+  lines();
+  parallax();
+  squareBtns(ScrollTrigger);
   // footer(ScrollTrigger);
-  filters(gsap)
-  maps(gsap)
-  contactsItem(gsap)
-
+  filters(gsap);
+  maps(gsap);
+  contactsItem(gsap);
+  director_card(gsap);
   barba.init({
     schema: {
       wrapper: "wrapper",
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             opacity: 0,
             onComplete: () => {
               ScrollTrigger.refresh();
-              selectors()
+              selectors();
 
               sliders();
               burger();
@@ -103,19 +104,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
               features(gsap, lenis, ScrollTrigger);
               vacancy(gsap);
               project_page(gsap);
-              lines()
-              parallax()
-              squareBtns(ScrollTrigger)
-              filters(gsap)
-              maps(gsap)
-              contactsItem(gsap)
-
+              lines();
+              parallax();
+              squareBtns(ScrollTrigger);
+              filters(gsap);
+              maps(gsap);
+              contactsItem(gsap);
             },
           });
         },
       },
     ],
   });
-
-
 });

@@ -2,42 +2,40 @@
 // @tailwind components;
 // @tailwind utilities;
 
-@import '../../node_modules/swiper/swiper-bundle.css';
-@import '../../node_modules/normalize.css/normalize.css';
-@import '../../node_modules/mouse-follower/src/scss/index.scss';
-@import '../../node_modules/choices.js/public/assets/styles/choices.min.css';
-@import './fonts.scss';
-@import './vars.scss';
-@import './reset.scss';
-@import './helpers.scss';
+@import "../../node_modules/swiper/swiper-bundle.css";
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/mouse-follower/src/scss/index.scss";
+@import "../../node_modules/choices.js/public/assets/styles/choices.min.css";
+@import "./fonts.scss";
+@import "./vars.scss";
+@import "./reset.scss";
+@import "./helpers.scss";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: "Gilroy", sans-serif;
-    font-weight: 300;
-    font-size: calc(100vw / 1920);
-    line-height: 1.4;
-    overflow-x: hidden;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 300;
+  font-size: calc(100vw / 1920);
+  line-height: 1.4;
+  overflow-x: hidden;
 }
 
-
 .rotate {
-    overflow: hidden;
-    position: relative;
+  overflow: hidden;
+  position: relative;
 }
 
 .rotate-double {
-    position: absolute;
-    top: -100%;
-    left: 0;
+  position: absolute;
+  top: -100%;
+  left: 0;
 }
 .rotate span {
-    position: relative;
+  position: relative;
 }
-
 
 // @media screen and (max-width: 1920px) {
 //     html {
@@ -49,108 +47,101 @@ html {
 //     }
 // }
 
-
-
 body {
-    font-size: 16rem;
-    overflow-x: hidden;
-    color: $textBlack;
-    background: $bgWhite;
+  font-size: 16rem;
+  overflow-x: hidden;
+  color: $textBlack;
+  background: $bgWhite;
 }
 
 section {
-    // @apply bg-white;
+  // @apply bg-white;
 }
 
 .container {
-    max-width: 1680rem;
-    // padding: 0 40rem;
-    margin: 0 auto;
-    width: 100%;
+  max-width: 1680rem;
+  // padding: 0 40rem;
+  margin: 0 auto;
+  width: 100%;
 }
 
 @media screen and (max-width: 1200px) {
-    html {
-        font-size: 16px;
-    }
+  html {
+    font-size: 16px;
+  }
 
-    body {
-        font-size: 16px;
+  body {
+    font-size: 16px;
+  }
 
-    }
+  .container {
+    max-width: none;
+    width: 100%;
+    padding: 0 15px;
+  }
 
-
-    .container {
-        max-width: none;
-        width: 100%;
-        padding: 0 15px;
-    }
-
-    .hr {
-        height: 1px;
-    }
+  .hr {
+    height: 1px;
+  }
 }
 
-
 // Components
-@import './components/header.scss';
-@import './components/navigation.scss';
-@import './components/mission_card.scss';
-@import './components/offer_slide.scss';
-@import './components/feature_row.scss';
-@import './components/footer.scss';
-@import './components/director_slide.scss';
-@import './components/enterprise-item.scss';
-@import './components/project-item.scss';
-@import './components/news-card.scss';
-@import './components/subscribe.scss';
-@import './components/vacancy-item.scss';
-@import './components/contacts_item.scss';
-
+@import "./components/header.scss";
+@import "./components/navigation.scss";
+@import "./components/mission_card.scss";
+@import "./components/offer_slide.scss";
+@import "./components/feature_row.scss";
+@import "./components/footer.scss";
+@import "./components/director_slide.scss";
+@import "./components/enterprise-item.scss";
+@import "./components/project-item.scss";
+@import "./components/news-card.scss";
+@import "./components/subscribe.scss";
+@import "./components/vacancy-item.scss";
+@import "./components/contacts_item.scss";
 
 // UI Elements
-@import './ui/burger.scss';
-@import './ui/titles.scss';
-@import './ui/texts.scss';
-@import './ui/square_btn.scss';
-@import './ui/dropdown.scss';
-@import './ui/link.scss';
-@import './ui/plus.scss';
-@import './ui/breadcrumbs.scss';
-@import './ui/showmore-btn.scss';
-@import './ui/input.scss';
-@import './ui/cursor.scss';
-@import './ui/socials.scss';
+@import "./ui/burger.scss";
+@import "./ui/titles.scss";
+@import "./ui/texts.scss";
+@import "./ui/square_btn.scss";
+@import "./ui/dropdown.scss";
+@import "./ui/link.scss";
+@import "./ui/plus.scss";
+@import "./ui/breadcrumbs.scss";
+@import "./ui/showmore-btn.scss";
+@import "./ui/input.scss";
+@import "./ui/cursor.scss";
+@import "./ui/socials.scss";
 @import "./ui/circle-btn.scss";
 
 // Sections
-@import './section/hero.scss';
-@import './section/video.scss';
-@import './section/mission.scss';
-@import './section/projects.scss';
-@import './section/offers_slider.scss';
-@import './section/marquee.scss';
-@import './section/features.scss';
-@import './section/life.scss';
-@import './section/connect.scss';
-@import './section/directors.scss';
-@import './section/map.scss';
-@import './section/enterprises.scss';
-@import './section/work-for-you.scss';
-@import './section/news-slider.scss';
+@import "./section/hero.scss";
+@import "./section/video.scss";
+@import "./section/mission.scss";
+@import "./section/projects.scss";
+@import "./section/offers_slider.scss";
+@import "./section/marquee.scss";
+@import "./section/features.scss";
+@import "./section/life.scss";
+@import "./section/connect.scss";
+@import "./section/directors.scss";
+@import "./section/map.scss";
+@import "./section/enterprises.scss";
+@import "./section/work-for-you.scss";
+@import "./section/news-slider.scss";
 
 // Pages
-@import './pages/about.scss';
-@import './pages/projects.scss';
-@import './pages/news.scss';
-@import './pages/team.scss';
-@import './pages/vacancy.scss';
-@import './pages/contacts.scss';
-@import './pages/singlenews.scss';
-@import './pages/project.scss';
+@import "./pages/about.scss";
+@import "./pages/projects.scss";
+@import "./pages/news.scss";
+@import "./pages/team.scss";
+@import "./pages/vacancy.scss";
+@import "./pages/contacts.scss";
+@import "./pages/singlenews.scss";
+@import "./pages/project.scss";
 
-
-.parallax{
+.parallax {
   overflow: hidden;
   position: relative;
   height: auto;
@@ -166,4 +157,13 @@ section {
   &.--project-card-parallax {
     aspect-ratio: 5/4;
   }
- }
+}
+
+.choices__list--dropdown > .choices__list {
+  max-height: 0;
+  transition: all 0.3s ease-in-out;
+
+  &.is-active {
+    max-height: 300px;
+  }
+}

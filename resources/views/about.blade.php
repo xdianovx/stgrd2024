@@ -26,14 +26,14 @@
             <div class="hr"></div>
         </div>
 
-        <x-section.mission />
+        <x-section.mission :nobtn="true" :item="$block_missions" />
         <x-section.directors />
 
         <div class="line">
             <div class="hr"></div>
         </div>
 
-        <x-section.features />
+        <x-section.features :item="$block_advantages" />
         <x-section.map />
         <x-section.enterprises />
         <section class="spacer"></section>

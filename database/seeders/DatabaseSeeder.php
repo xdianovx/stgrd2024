@@ -8,8 +8,7 @@ use App\Models\Block;
 use App\Models\Page;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,8 +19,8 @@ class DatabaseSeeder extends Seeder
   {
     User::create([
       'name' => 'Admin',
-      'email' => 'Admin@gmail.com',
-      'password' => 'aspire5745g',
+      'email' => 'admin@admin.com',
+      'password' => 'password',
     ]);
 
     Block::truncate();

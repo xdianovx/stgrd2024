@@ -50,16 +50,17 @@ class PageController extends Controller
         $item = Page::whereSlug($page_slug)->firstOrFail();
         return view('admin.page.edit', compact('user', 'item'));
     }
+
     public function update(UpdateRequest $request, $page_slug)
     {
         $page = Page::whereSlug($page_slug)->firstOrFail();
         $data = $request->validated();
 
         if ($request->hasFile('video_preview')) :
-          $data['video_preview'] = $this->loadFile($request, $data, 'video_preview');
+            $data['video_preview'] = $this->loadFile($request, $data, 'video_preview');
         endif;
         if ($request->hasFile('video_in_player')) :
-          $data['video_in_player'] = $this->loadFile($request, $data, 'video_in_player');
+            $data['video_in_player'] = $this->loadFile($request, $data, 'video_in_player');
         endif;
 
         $page->update($data);
@@ -89,12 +90,12 @@ class PageController extends Controller
     }
     protected function loadFile(Request $request, $data, $key)
     {
-      $filenameWithExt = $request->file($key)->getClientOriginalName();
-      $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-      $filename = str_replace(' ', '_', $filename);
-      $extention = $request->file($key)->getClientOriginalExtension();
-      $fileNameToStore = $key . "/" . $filename . "_" . time() . "." . $extention;
-      $data = $request->file($key)->storeAs('public', $fileNameToStore);
-      return $data;
+        $filenameWithExt = $request->file($key)->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $filename = str_replace(' ', '_', $filename);
+        $extention = $request->file($key)->getClientOriginalExtension();
+        $fileNameToStore = $key . "/" . $filename . "_" . time() . "." . $extention;
+        $data = $request->file($key)->storeAs('public', $fileNameToStore);
+        return $data;
     }
 }
