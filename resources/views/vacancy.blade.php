@@ -192,7 +192,7 @@
             'id' => '1',
             'title' => 'Калинград',
         ],
-    ]
+    ];
 @endphp
 
 @extends('layouts.main')
@@ -217,7 +217,7 @@
                     <h2 class="actual-vacancy__title">Актуальные <br> вакансии на сегодня </h2>
                     <p class="actual-vacancy__count">(16+ свободных вакансий)</p>
                     <div class="actual-vacancy__city">
-                        <x-ui.dropdown :list="$droplist"/>
+                        <x-ui.dropdown :list="$droplist" />
                     </div>
                 </div>
             </div>
@@ -261,6 +261,7 @@
         </section>
 
 
+        <x-cooperate-form />
         <section class="spacer"></section>
     </main>
 @endsection

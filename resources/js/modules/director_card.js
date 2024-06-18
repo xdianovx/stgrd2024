@@ -2,7 +2,6 @@ export const director_card = (gsap) => {
   const items = document.querySelectorAll(".director-slide");
   if (!items) return;
 
-  console.log(items);
   items.forEach(function (item) {
     const head = item.querySelector(".director-slide__info");
     const content = item.querySelector(".director-slide__drop");

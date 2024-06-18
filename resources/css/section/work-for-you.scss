@@ -1,21 +1,63 @@
 .workforyou {
-    margin-top: 250rem;
+  margin-top: 250rem;
 }
 
 .workforyou__wrap {
-    display: grid;
-    grid-template-columns: 250rem 980rem;
-    gap: 280rem;
+  display: grid;
+  grid-template-columns: 250rem 980rem;
+  gap: 280rem;
 }
 
 .workforyou__count {
-    margin-top: 30rem;
-    line-height: 1;
-    color: $textGray;
+  margin-top: 30rem;
+  line-height: 1;
+  color: $textGray;
 }
 
 .workforyou__info {
+  .link {
+    margin-top: 80rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .workforyou {
+    margin-top: 120px;
+  }
+
+  .workforyou__wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .workforyou__count {
+    margin-top: 30px;
+    line-height: 1;
+    color: $textGray;
+  }
+
+  .workforyou__info {
     .link {
-        margin-top: 80rem;
+      margin-top: 80px;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .workforyou {
+    margin-top: 80px;
+  }
+  .workforyou__wrap {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  .workforyou__info .link {
+    margin-top: 40px;
+  }
+
+  .workforyou__count {
+    margin-top: 16px;
+  }
 }

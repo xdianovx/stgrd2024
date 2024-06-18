@@ -1,10 +1,9 @@
-import gsap from "gsap";
+export const parallax = (gsap) => {
+  const parr = document.querySelectorAll(".parallax");
 
-export const parallax = () => {
-
-  const parr = document.querySelectorAll('.parallax')
-  const showreelParallax = document.querySelector('.parallax-showreel')
   if (parr) {
+    console.log(123);
+
     parr.forEach(function (item) {
       gsap.to(item.querySelector("img"), {
         yPercent: 10,
@@ -14,10 +13,12 @@ export const parallax = () => {
           start: "top bottom",
           end: "bottom top",
           scrub: true,
-        }
+        },
       });
-    })
+    });
   }
+
+  const showreelParallax = document.querySelector(".parallax-showreel");
 
   if (showreelParallax) {
     gsap.to(showreelParallax.querySelector("video"), {
@@ -28,7 +29,7 @@ export const parallax = () => {
         start: "top bottom",
         end: "bottom top",
         scrub: true,
-      }
+      },
     });
   }
-}
+};

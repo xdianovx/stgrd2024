@@ -1,30 +1,127 @@
-.team-page {}
-
-
-.team-page-title {
-    margin-top: 165rem;
-    font-size: 218rem;
-    line-height: 110%;
-    font-weight: 400;
-    text-transform: uppercase;
+.team-page {
 }
 
+.team-page-title {
+  margin-top: 165rem;
+  font-size: 218rem;
+  line-height: 110%;
+  font-weight: 400;
+  text-transform: uppercase;
+}
 
 .team-page-hero__text {
-    font-size: 20rem;
-    max-width: 560rem;
-    font-weight: 400;
-    color: $textGray;
-    margin-top: 250rem;
-    margin-left: 980rem;
+  font-size: 20rem;
+  max-width: 560rem;
+  font-weight: 400;
+  color: $textGray;
+  margin-top: 250rem;
+  margin-left: 980rem;
 }
 
 .team-page__wrap {
-    margin-top: 238rem;
+  margin-top: 238rem;
 }
 
 .team-reviews__item_img img {
+  width: 100%;
+  display: block;
+}
+
+.team-page__inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100rem 40rem;
+}
+
+.people-card {
+  &:nth-child(odd) {
+    margin-top: 462rem;
+  }
+}
+
+.people-card__image.parallax {
+  aspect-ratio: 3/4;
+}
+
+@media screen and (max-width: 1200px) {
+  .team-page-title {
+    margin-top: 64px;
+    font-size: 96px;
+  }
+
+  .team-page-hero__text {
+    font-size: 16px;
+    margin-top: 24px;
+    max-width: 50%;
+    margin-left: auto;
+  }
+
+  .team-page__wrap {
+    margin-top: 120px;
+  }
+
+  .team-reviews__item_img img {
     width: 100%;
     display: block;
+  }
 
+  .team-page__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 64px 20px;
+  }
+
+  .people-card {
+    &:nth-child(odd) {
+      margin-top: 120px;
+    }
+  }
+
+  .people-card__image.parallax {
+    aspect-ratio: 3/4;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .team-page-title {
+    margin-top: 20px;
+    font-size: 64px;
+  }
+
+  .team-page-hero__text {
+    margin-top: 16px;
+    font-size: 14px;
+    max-width: 50%;
+    margin-left: auto;
+  }
+
+  .team-page__wrap {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .team-page__inner {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 64px 20px;
+  }
+
+  .people-card {
+    &:nth-child(odd) {
+      margin-top: 0;
+    }
+  }
+
+  .team-page-hero__text {
+    margin-top: 16px;
+    font-size: 14px;
+    max-width: none;
+    margin-left: auto;
+  }
+
+  .team-page-title {
+    margin-top: 20px;
+    font-size: 32px;
+  }
 }

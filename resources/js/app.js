@@ -27,6 +27,7 @@ import { maps } from "./modules/maps.js";
 import { contactsItem } from "./modules/contacts-item.js";
 import { director_card } from "./modules/director_card.js";
 import { lifesection } from "./modules/lifesection.js";
+import { enterprises } from "./modules/enterprises.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -49,6 +50,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   requestAnimationFrame(raf);
 
+  enterprises(gsap, lenis);
+
   selectors();
   navigation(lenis, barba);
   sliders();
@@ -63,7 +66,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   vacancy(gsap);
   project_page(gsap);
   lines();
-  parallax();
+  parallax(gsap);
   squareBtns(ScrollTrigger);
   // footer(ScrollTrigger);
   filters(gsap);
@@ -71,6 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   contactsItem(gsap);
   director_card(gsap);
   lifesection(gsap);
+
   barba.init({
     schema: {
       wrapper: "wrapper",

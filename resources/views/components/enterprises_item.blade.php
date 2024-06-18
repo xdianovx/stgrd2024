@@ -17,7 +17,22 @@
             </div>
 
             <div class="enterprise-item__content">
+                <div class="enterprise-item__inner">
+                    <div class="enterprise-item__info">
+                        <div class="enterprise-item__contact">
+                            <h5>Адрес</h5>
+                            <p>{!! $address !!}</p>
+                        </div>
 
+                        <div class="enterprise-item__contact">
+                            <h5>Контакты</h5>
+
+                            <a href="tel:{{ $phone }}">{{ $phone }}</a>
+                            <a href="mailto:{{ $email }}">{{ $email }}</a>
+                        </div>
+                    </div>
+                    <div>{!! $text !!}</div>
+                </div>
             </div>
         </div>
     </div>
