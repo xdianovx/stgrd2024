@@ -1,123 +1,291 @@
 .footer {
-    background: $bgBlack;
-    color: $textWhite;
-    height: 970rem;
-    position: relative;
-    // margin-top: -970rem;
-    bottom: 0;
-    //z-index: -1;
+  background: $bgBlack;
+  color: $textWhite;
+  height: 970rem;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
 }
 
+.footer-overflow {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -100rem;
+  box-shadow: 0px 20px 130px 26px #000;
+  height: 100rem;
+  z-index: 2;
+}
 
 .footer__wrap {
-    padding-left: 200rem;
-    padding-top: 390rem;
+  padding-left: 200rem;
+  padding-top: 390rem;
 }
 
 .footer__cta {
-    display: flex;
-    align-items: center;
-    gap: 140rem;
+  display: flex;
+  align-items: center;
+  gap: 140rem;
 }
 
 .footer__title {
-    font-size: 96rem;
-    line-height: 100%;
+  font-size: 96rem;
+  line-height: 100%;
 }
 
 .footer__btn {
-    width: 280rem;
-    height: 160rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1rem solid $bgGrayLight;
-    border-radius: 4rem;
-    font-size: 48rem;
-    line-height: 100%;
-    transition: background-color, border, color .3s ease-in-out;
+  width: 280rem;
+  height: 160rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rem solid $bgGrayLight;
+  border-radius: 4rem;
+  font-size: 48rem;
+  line-height: 100%;
+  transition: background-color, border, color 0.3s ease-in-out;
 
-    &:hover {
-        background: $bgWhite;
-        color: $textBlack;
-        border: 1rem solid $bgWhite;
-    }
+  &:hover {
+    background: $bgWhite;
+    color: $textBlack;
+    border: 1rem solid $bgWhite;
+  }
 }
 
-
 .footer__bottom {
-    margin-top: 230rem;
-    display: flex;
-    gap: 180rem;
+  margin-top: 230rem;
+  display: flex;
+  gap: 180rem;
 }
 
 .footer__bottom_item {
+  display: flex;
+  flex-direction: column;
+  gap: 26rem;
+
+  span {
+    line-height: 100%;
+  }
+
+  a {
+    font-size: 28rem;
+    line-height: 100%;
+  }
+}
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  list-style: none;
+}
+
+.footer-ticker {
+  position: absolute;
+  top: -80rem;
+  width: 100%;
+
+  li {
+    -webkit-text-stroke-width: 1rem;
+    -webkit-text-stroke-color: #525252;
+    font-family: Gilroy;
+    font-size: 295rem;
+    color: $bgBlack;
+    font-style: normal;
+    gap: 120rem;
+    margin-right: 100rem;
+    letter-spacing: normal;
+    font-weight: 500;
+    line-height: 100%; /* 250.75px */
+    text-transform: uppercase;
     display: flex;
+    align-items: center;
+  }
+}
+
+.footer-xl {
+  display: flex;
+  gap: 140rem;
+  align-items: center;
+}
+
+.footer-text-xl {
+  font-size: 96rem;
+  line-height: 1;
+}
+
+.footer-btn-xl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280rem;
+  padding: 48rem 0;
+  border: none;
+  border: 1px solid rgba(#c8c8c8, 0.3);
+  border-radius: 4rem;
+  background: transparent;
+  font-size: 48rem;
+  font-style: normal;
+  font-weight: 300;
+  color: #fff;
+  line-height: 100%;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: #fff;
+    color: #000;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .footer-xl {
+    display: flex;
+    gap: 140px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 64px;
+  }
+
+  .footer-text-xl {
+    font-size: 64px;
+    line-height: 1;
+  }
+
+  .footer-btn-xl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    padding: 32px 0;
+    border: none;
+    border: 1px solid rgba(#c8c8c8, 0.3);
+    border-radius: 4px;
+    background: transparent;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    color: #fff;
+    line-height: 100%;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+  .footer-ticker {
+    top: -40px;
+
+    li {
+      -webkit-text-stroke-width: 1px;
+      font-size: 64px;
+      gap: 60px;
+      margin-right: 40px;
+
+      svg {
+        width: 80px;
+      }
+    }
+  }
+  .footer-overflow {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -130px;
+    box-shadow: 0px 20px 130px 26px #000;
+    height: 100px;
+    z-index: 2;
+  }
+  .footer {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .footer__wrap {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  .footer__cta {
+    gap: 20px;
+  }
+
+  .footer__title {
+    font-size: 32px;
+  }
+
+  .footer__btn {
+    width: 96px;
+    height: 96px;
+    border: 1px solid $bgGrayLight;
+    border-radius: 2px;
+    font-size: 20px;
+    &:hover {
+      background: $bgWhite;
+      color: $textBlack;
+      border: 1px solid $bgWhite;
+    }
+  }
+
+  .footer__bottom {
+    margin-top: 32px;
+    gap: 32px;
     flex-direction: column;
-    gap: 26rem;
+  }
+
+  .footer__bottom_item {
+    gap: 8px;
 
     span {
-        line-height: 100%;
+      line-height: 100%;
     }
 
     a {
-        font-size: 28rem;
-        line-height: 100%;
+      font-size: 16px;
+      line-height: 100%;
     }
+  }
 }
 
+@media screen and (max-width: 768px) {
+  .footer-xl {
+    flex-direction: column;
+    gap: 32px;
+  }
 
-@media screen and (max-width: 1200px) {
-    .footer {
-        height: auto;
-        padding: 40px 0;
-    }
+  .footer-text-xl {
+    text-align: center;
+    font-size: 48px;
+  }
 
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-evenly;
+    // gap: 40px;
+  }
+}
 
-    .footer__wrap {
-        padding-left: 0;
-        padding-top: 0;
-    }
+@media screen and (max-width: 550px) {
+  .footer-xl {
+    flex-direction: column;
+    gap: 32px;
+  }
 
-    .footer__cta {
-        gap: 20px;
-    }
+  .footer-text-xl {
+    text-align: center;
+    font-size: 32px;
+  }
 
-    .footer__title {
-        font-size: 32px;
-    }
+  .footer__bottom {
+    flex-direction: column;
+    justify-content: center;
+    // gap: 40px;
+  }
 
-    .footer__btn {
-        width: 96px;
-        height: 96px;
-        border: 1px solid $bgGrayLight;
-        border-radius: 2px;
-        font-size: 20px;
-        &:hover {
-            background: $bgWhite;
-            color: $textBlack;
-            border: 1px solid $bgWhite;
-        }
-    }
-
-
-    .footer__bottom {
-        margin-top: 32px;
-        gap: 32px;
-        flex-direction: column;
-    }
-
-    .footer__bottom_item {
-        gap: 8px;
-
-        span {
-            line-height: 100%;
-        }
-
-        a {
-            font-size: 16px;
-            line-height: 100%;
-        }
-    }
-
+  .footer-btn-xl {
+    width: auto;
+    padding: 20px 40px;
+    font-size: 20px;
+  }
 }

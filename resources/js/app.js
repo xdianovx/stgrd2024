@@ -28,6 +28,8 @@ import { contactsItem } from "./modules/contacts-item.js";
 import { director_card } from "./modules/director_card.js";
 import { lifesection } from "./modules/lifesection.js";
 import { enterprises } from "./modules/enterprises.js";
+import { footer } from "./modules/footer.js";
+import { ticker } from "./modules/animations/ticker.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   requestAnimationFrame(raf);
 
   enterprises(gsap, lenis);
-
+  ticker();
   selectors();
   navigation(lenis, barba);
   sliders();
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   lines();
   parallax(gsap);
   squareBtns(ScrollTrigger);
-  // footer(ScrollTrigger);
+  footer();
   filters(gsap);
   maps(gsap);
   contactsItem(gsap);

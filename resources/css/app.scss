@@ -23,6 +23,12 @@ html {
   overflow-x: hidden;
 }
 
+main {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+}
+
 .rotate {
   overflow: hidden;
   position: relative;
@@ -49,13 +55,14 @@ html {
 
 body {
   font-size: 16rem;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   color: $textBlack;
   background: $bgWhite;
 }
 
 section {
   // @apply bg-white;
+  background: #fff;
 }
 
 .container {

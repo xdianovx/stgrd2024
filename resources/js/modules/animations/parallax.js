@@ -2,8 +2,6 @@ export const parallax = (gsap) => {
   const parr = document.querySelectorAll(".parallax");
 
   if (parr) {
-    console.log(123);
-
     parr.forEach(function (item) {
       gsap.to(item.querySelector("img"), {
         yPercent: 10,

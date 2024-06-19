@@ -1,8 +1,3 @@
-export const footer = (ScrollTrigger) => {
-    ScrollTrigger.create({
-        trigger: ".footer",
-        pin: true,
-        start: "bottom bottom",
-        end: "+=100%",
-    });
-};
+import gsap from "gsap";
+
+export const footer = () => {};
