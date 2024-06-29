@@ -1,8 +1,5 @@
 .project-page {
-
 }
-
-
 
 .project-page__title {
   margin-top: 200rem;
@@ -22,7 +19,6 @@
     object-fit: contain;
   }
 }
-
 
 // О проекте
 .project-page-about {
@@ -51,9 +47,7 @@
   display: grid;
   grid-template-columns: 420rem 420rem;
   gap: 140rem;
-
 }
-
 
 // Информация
 .project-page-info {
@@ -119,7 +113,6 @@
   width: 100%;
 }
 
-
 .project-page-layouts__items {
   margin-top: 100rem;
 }
@@ -161,7 +154,7 @@
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
-  transition: opacity .5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 // Удобство
@@ -232,7 +225,6 @@
 
   p {
     padding-top: 40rem;
-
   }
 }
 
@@ -349,7 +341,6 @@
   }
 }
 
-
 // Документация
 .project-page-docs {
   margin-top: 250rem;
@@ -394,6 +385,41 @@
   font-size: 20rem;
 }
 
+.services-ticker-block {
+  background: $bgBlack;
+  color: $textWhite;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 40rem 0;
+}
+
+.stb_line_single {
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  will-change: transform;
+}
+.stb-item {
+  line-height: 100%;
+  padding: 0;
+  font-size: 55px;
+  display: inline-flex;
+  gap: 55px;
+  align-items: center;
+  text-transform: uppercase;
+  margin-right: 56px;
+
+  a {
+    display: block;
+  }
+
+  svg {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .project-page__title {
     margin-top: 200px;
@@ -430,9 +456,7 @@
     margin-top: 40px;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-
   }
-
 
   // Информация
   .project-page-info {
@@ -494,7 +518,6 @@
     width: 100%;
   }
 
-
   .project-page-layouts__items {
     margin-top: 64px;
   }
@@ -505,7 +528,6 @@
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
   }
-
 
   .flatrow__wrap {
     padding: 20px 0;
@@ -540,7 +562,7 @@
 
   .project-page-comfort-slider {
     margin-top: 80px;
-    overflow: visible;
+    overflow: hidden;
 
     .swiper-slide {
       max-width: none;
@@ -585,7 +607,6 @@
 
     p {
       padding-top: 20px;
-
     }
   }
 
@@ -672,7 +693,6 @@
     }
   }
 
-
   .process-slide {
     .hr {
       max-width: 100%;
@@ -710,7 +730,6 @@
       margin-top: auto;
     }
   }
-
 
   // Документация
   .project-page-docs {
@@ -752,6 +771,40 @@
     font-weight: 500;
   }
 
+  .services-ticker-block {
+    background: $bgBlack;
+    color: $textWhite;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 40px 0;
+  }
+
+  .stb_line_single {
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    will-change: transform;
+  }
+  .stb-item {
+    line-height: 100%;
+    padding: 0;
+    font-size: 55px;
+    display: inline-flex;
+    gap: 55px;
+    align-items: center;
+    text-transform: uppercase;
+    margin-right: 56rem;
+
+    a {
+      display: block;
+    }
+
+    svg {
+      display: block;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -771,7 +824,6 @@
     }
   }
 
-
   .project-page-about__description {
     font-size: 24px;
   }
@@ -782,9 +834,7 @@
     margin-top: 40px;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-
   }
-
 
   // Информация
   .project-page-info {
@@ -805,8 +855,6 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
-
-
 
   .project-page-info__list_item {
     gap: 4px;
@@ -848,7 +896,6 @@
     width: 100%;
   }
 
-
   .project-page-layouts__items {
     margin-top: 64px;
   }
@@ -861,7 +908,6 @@
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
   }
-
 
   .flatrow__wrap {
     padding: 16px 0;
@@ -897,7 +943,6 @@
 
   .project-page-comfort-slider {
     margin-top: 64px;
-
   }
 
   .project-page-comfort__item {
@@ -937,7 +982,6 @@
 
     p {
       padding-top: 20px;
-
     }
   }
 
@@ -1018,7 +1062,6 @@
     margin-top: 64px;
   }
 
-
   .process-slide {
     .hr {
       max-width: 100%;
@@ -1056,7 +1099,6 @@
       margin-top: auto;
     }
   }
-
 
   // Документация
   .project-page-docs {
@@ -1118,7 +1160,6 @@
     }
   }
 
-
   .project-page-about__description {
     font-size: 20px;
     line-height: 120%;
@@ -1128,9 +1169,7 @@
     margin-top: 32px;
     grid-template-columns: 1fr;
     gap: 16px;
-
   }
-
 
   // Информация
   .project-page-info {
@@ -1152,7 +1191,6 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 16px;
   }
-
 
   // Бегущая строка
   .project-page-marquee {
@@ -1185,11 +1223,9 @@
     width: 100%;
   }
 
-
   .project-page-layouts__items {
     margin-top: 64px;
   }
-
 
   .flatrow__wrap {
     padding: 16px 0;
@@ -1231,7 +1267,6 @@
 
   .project-page-comfort-slider {
     margin-top: 64px;
-
   }
 
   .project-page-comfort__item {
@@ -1271,7 +1306,6 @@
 
     p {
       padding-top: 20px;
-
     }
   }
 
@@ -1335,7 +1369,6 @@
     margin-top: 64px;
   }
 
-
   .process-slide {
     .hr {
       max-width: 100%;
@@ -1373,7 +1406,6 @@
       margin-top: auto;
     }
   }
-
 
   // Документация
   .project-page-docs {

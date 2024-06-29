@@ -1,33 +1,35 @@
-@import '../vars.scss';
+@import "../vars.scss";
 
-.header {}
+.header {
+  background: $bgWhite;
+}
 
 .header__wrap {
-    border-bottom: 1rem solid $bgGrayLight;
-    padding: 58rem 0;
-    display: flex;
-    align-items: center;
+  border-bottom: 1rem solid $bgGrayLight;
+  padding: 58rem 0;
+  display: flex;
+  align-items: center;
 }
 
 .header__logo-mob {
-    display: none;
+  display: none;
 }
 
 @media screen and (max-width: 1200px) {
-    .header__wrap {
-        padding: 20px 0;
-        border-bottom: 1px solid $bgGrayLight;
-    }
+  .header__wrap {
+    padding: 20px 0;
+    border-bottom: 1px solid $bgGrayLight;
+  }
 
-    .header__logo {
-        display: none;
-    }
+  .header__logo {
+    display: none;
+  }
 
-    .header__logo-mob {
-        display: block;
+  .header__logo-mob {
+    display: block;
 
-        svg {
-            display: block;
-        }
+    svg {
+      display: block;
     }
+  }
 }

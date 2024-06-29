@@ -30,6 +30,7 @@ import { lifesection } from "./modules/lifesection.js";
 import { enterprises } from "./modules/enterprises.js";
 import { footer } from "./modules/footer.js";
 import { ticker } from "./modules/animations/ticker.js";
+import { projectpage_marquee } from "./modules/projectpage_marquee.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
   MouseFollower.registerGSAP(gsap);
@@ -76,6 +77,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   contactsItem(gsap);
   director_card(gsap);
   lifesection(gsap);
+  projectpage_marquee(gsap);
 
   barba.init({
     schema: {
