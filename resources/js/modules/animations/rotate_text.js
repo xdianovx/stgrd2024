@@ -1,53 +1,55 @@
 export const rotate_text = (gsap) => {
+  const items = document.querySelectorAll(".rotate");
 
-    const items = document.querySelectorAll('.rotate')
+  if (!items) return;
 
-    if (!items) return
+  items.forEach(function (item) {
+    const wordLenght = item.innerHTML.length;
+    const charArray = [...item.innerHTML];
+    item.innerHTML = "";
 
+    // item.style.height = item.offsetHeight + "px"
 
-    items.forEach(function (item) {
-        const wordLenght = item.innerHTML.length
-        const charArray = [...item.innerHTML]
-        item.innerHTML = ''
+    item.insertAdjacentHTML("afterbegin", `<div class="rotate-main"></div>`);
+    item.insertAdjacentHTML("afterbegin", `<div class="rotate-double"></div>`);
 
-        // item.style.height = item.offsetHeight + "px"
+    for (let i = 0; i < wordLenght; i++) {
+      item
+        .querySelector(".rotate-double")
+        .insertAdjacentHTML("beforeend", `<span>${charArray[i]}</span>`);
+    }
+    for (let i = 0; i < wordLenght; i++) {
+      item
+        .querySelector(".rotate-main")
+        .insertAdjacentHTML("beforeend", `<span>${charArray[i]}</span>`);
+    }
 
-        item.insertAdjacentHTML('afterbegin', `<div class="rotate-main"></div>`)
-        item.insertAdjacentHTML('afterbegin', `<div class="rotate-double"></div>`)
+    const tl = gsap.timeline({
+      paused: true,
+      defaults: {
+        ease: "power2.inOut",
+        duration: 0.5,
+      },
+    });
 
+    tl.to(item.querySelectorAll(".rotate-double span"), {
+      top: item.offsetHeight,
+      stagger: 0.02,
+    }).to(
+      item.querySelectorAll(".rotate-main span"),
+      {
+        top: item.offsetHeight,
+        stagger: 0.02,
+      },
+      "<"
+    );
 
-        for (let i = 0; i < wordLenght; i++) {
-            item.querySelector('.rotate-double').insertAdjacentHTML('beforeend', `<span>${charArray[i]}</span>`)
-        }
-        for (let i = 0; i < wordLenght; i++) {
-            item.querySelector('.rotate-main').insertAdjacentHTML('beforeend', `<span>${charArray[i]}</span>`)
-        }
+    item.addEventListener("mouseenter", function () {
+      tl.play();
+    });
 
-        const tl = gsap.timeline({
-            paused: true,
-            defaults: {
-                ease: "power2.inOut",
-                duration: .5
-            }
-        })
-
-
-        tl.to(item.querySelectorAll('.rotate-double span'), {
-            top: item.offsetHeight,
-            stagger: .02
-        }).to(item.querySelectorAll('.rotate-main span'), {
-            top: item.offsetHeight,
-            stagger: .02
-        }, "<")
-
-
-        item.addEventListener('mouseenter', function () {
-            tl.play()
-
-        })
-
-        item.addEventListener('mouseleave', function () {
-            tl.reverse()
-        })
-    })
-}
+    item.addEventListener("mouseleave", function () {
+      tl.reverse();
+    });
+  });
+};

@@ -50,16 +50,16 @@
             <div class="navigation__wrap">
                 <div class="navigation__left">
                     <nav class="navigation__nav dimm">
-                        <a href="/about" class="navigation__link ">О компании</a>
-                        <a href="/team" class="navigation__link ">Руководство</a>
-                        <a href="/projects" class="navigation__link ">Проекты</a>
-                        <a href="/news" class="navigation__link ">Новости</a>
+                        <a href="/about" class="navigation__link rotate">О компании</a>
+                        <a href="/team" class="navigation__link rotate">Руководство</a>
+                        <a href="/projects" class="navigation__link rotate">Проекты</a>
+                        <a href="/news" class="navigation__link rotate">Новости</a>
                     </nav>
                 </div>
                 <div class="navigation__right">
                     <div class="navigation__right_links">
-                        <a  href="/vacancy">Вакансии</a>
-                        <a  href="/contacts">Контакты</a>
+                        <a href="/vacancy" class="rotate">Вакансии</a>
+                        <a href="/contacts" class="rotate">Контакты</a>
                     </div>
 
                     <div class="navigation__cities">Саратов / Краснодар Волгодонск / Сочи Москва / Зеленоград
@@ -72,8 +72,8 @@
 
             <div class="navigation__bottom">
                 <div class="navigation__bottom_contacts">
-                    <a href="mailto:info@stroygrad.ru">info@stroygrad.ru</a>
-                    <a href="tel:+7 (8652)-23-90-33">+7 (8652)-23-90-33</a>
+                    <a href="mailto:info@stroygrad.ru" сlass="rotate">info@stroygrad.ru</a>
+                    <a href="tel:+7 (8652)-23-90-33" сlass="rotate">+7 (8652)-23-90-33</a>
                 </div>
 
                 <div class="navigation__work">

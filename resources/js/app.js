@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   rotate_text(gsap);
   features(gsap, lenis, ScrollTrigger);
   vacancy(gsap);
-  project_page(gsap);
   lines();
   parallax(gsap);
   squareBtns(ScrollTrigger);
@@ -78,52 +77,73 @@ document.addEventListener("DOMContentLoaded", (event) => {
   director_card(gsap);
   lifesection(gsap);
   projectpage_marquee(gsap);
+  project_page(gsap);
 
-  barba.init({
-    schema: {
-      wrapper: "wrapper",
-    },
-    transitions: [
-      {
-        name: "opacity-transition",
-        leave(data) {
-          lenis.scrollTo(0);
+  // barba.init({
+  //   schema: {
+  //     wrapper: "wrapper",
+  //   },
+  //   transitions: [
+  //     {
+  //       name: "opacity-transition",
+  //       leave(data) {
+  //         lenis.scrollTo(0);
 
-          gsap.to(data.current.container, {
-            opacity: 0,
-            onComplete: () => {
-              ScrollTrigger.refresh();
-            },
-          });
-        },
-        enter(data) {
-          gsap.from(data.next.container, {
-            opacity: 0,
-            onComplete: () => {
-              ScrollTrigger.refresh();
-              selectors();
+  //         gsap.to(data.current.container, {
+  //           opacity: 0,
+  //           onComplete: () => {
+  //             ScrollTrigger.refresh();
+  //               ScrollTrigger.refresh();
+  //               selectors();
 
-              sliders();
-              burger();
-              // hero_title(gsap);
-              marquee(gsap);
-              showreel(gsap, lenis);
-              sticky_btn(gsap);
-              mission();
-              rotate_text(gsap);
-              features(gsap, lenis, ScrollTrigger);
-              vacancy(gsap);
-              project_page(gsap);
-              lines();
-              parallax();
-              squareBtns(ScrollTrigger);
-              filters(gsap);
-              maps(gsap);
-              contactsItem(gsap);
-            },
-          });
-        },
-      },
-    ],
-  });
+  //               sliders();
+  //               burger();
+  //               // hero_title(gsap);
+  //               marquee(gsap);
+  //               showreel(gsap, lenis);
+  //               sticky_btn(gsap);
+  //               mission();
+  //               rotate_text(gsap);
+  //               features(gsap, lenis, ScrollTrigger);
+  //               vacancy(gsap);
+  //               project_page(gsap);
+  //               lines();
+  //               parallax();
+  //               squareBtns(ScrollTrigger);
+  //               filters(gsap);
+  //               maps(gsap);
+  //               contactsItem(gsap);
+  //           },
+  //         });
+  //       },
+  //       enter(data) {
+  //         gsap.from(data.next.container, {
+  //           opacity: 0,
+  //           onComplete: () => {
+  //             ScrollTrigger.refresh();
+  //             selectors();
+
+  //             sliders();
+  //             burger();
+  //             // hero_title(gsap);
+  //             marquee(gsap);
+  //             showreel(gsap, lenis);
+  //             sticky_btn(gsap);
+  //             mission();
+  //             rotate_text(gsap);
+  //             features(gsap, lenis, ScrollTrigger);
+  //             vacancy(gsap);
+  //             project_page(gsap);
+  //             lines();
+  //             parallax();
+  //             squareBtns(ScrollTrigger);
+  //             filters(gsap);
+  //             maps(gsap);
+  //             contactsItem(gsap);
+  //           },
+  //         });
+  //       },
+  //     },
+  //   ],
+  // });
 });
