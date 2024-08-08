@@ -1,6 +1,6 @@
 @props(['title', 'description', 'image' => '', 'slug'])
 
-<a href="/stock/{{ $slug }}" class="offer-slide" data-cursor-text="Play!">
+<a href="/stock/{{ $slug }}" class="offer-slide" data-cursor-text="Swipe">
     @if ($image)
         <img class="offer-slide__image" src="{{ $image }}" alt="{{ $title }}">
     @endif

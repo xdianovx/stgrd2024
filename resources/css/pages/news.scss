@@ -25,6 +25,7 @@
 
 .news-catalog__filter {
   display: grid;
+  align-items: flex-start;
   grid-template-columns: repeat(3, 280rem);
   gap: 280rem;
 }

@@ -42,20 +42,20 @@
         ],
     ];
 
-        $status = [
-      [
-          'id' => '1',
-          'title' => 'Проект',
-      ],
-      [
-          'id' => '1',
-          'title' => 'Город',
-      ],
-      [
-          'id' => '1',
-          'title' => 'Год',
-      ],
-  ];
+    $status = [
+        [
+            'id' => '1',
+            'title' => 'Проект',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Город',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Год',
+        ],
+    ];
 @endphp
 
 @extends('layouts.main')
@@ -79,9 +79,9 @@
             <div class="container">
                 <div class="news-catalog__filter_wrap">
                     <div class="news-catalog__filter">
-                      <x-ui.dropdown :list="$status"/>
-                      <x-ui.dropdown :list="$status"/>
-                      <x-ui.dropdown :list="$status"/>
+                        <x-ui.dropdown placeholder="Проект" :list="$status" />
+                        <x-ui.dropdown placeholder="Город" :list="$status" />
+                        <x-ui.dropdown placeholder="Год" :list="$status" />
                     </div>
 
                     <div class="news-catalog__filter_count">Найдено: 15</div>
