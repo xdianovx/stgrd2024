@@ -33,7 +33,7 @@
             <div class="hr"></div>
         </div>
 
-        <x-section.features :item="$block_advantages" />
+        {{-- <x-section.features :item="$block_advantages" /> --}}
         <x-section.map />
         <x-section.enterprises />
         <section class="spacer"></section>

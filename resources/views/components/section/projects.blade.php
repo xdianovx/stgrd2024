@@ -2,15 +2,30 @@
     $status = [
         [
             'id' => '1',
-            'title' => 'Статус 1',
+            'title' => 'Строится',
         ],
         [
             'id' => '1',
-            'title' => 'Статус 2',
+            'title' => 'Сдан',
         ],
         [
             'id' => '1',
-            'title' => 'Статус 3',
+            'title' => 'В эксплуатации',
+        ],
+    ];
+
+    $city = [
+        [
+            'id' => '1',
+            'title' => 'Москва',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Краснодар',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Сочи',
         ],
     ];
 @endphp
@@ -20,8 +35,8 @@
         <div class="projects-top">
             <x-ui.title tag='h2' class="uppercase">Наши <br> проекты</x-ui.title>
             <div class="projects-top__sort">
-                <x-ui.dropdown :list="$status" />
-                <x-ui.dropdown :list="$status" />
+                <x-ui.dropdown :list="$status" placeholder="Выберите статус постройки" />
+                <x-ui.dropdown :list="$city" placeholder="Выберите город" />
             </div>
         </div>
 

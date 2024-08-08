@@ -116,18 +116,48 @@
         ],
     ];
 
-        $status = [
+    $status = [
         [
             'id' => '1',
-            'title' => 'Статус 1',
+            'title' => 'Строится',
         ],
         [
             'id' => '1',
-            'title' => 'Статус 2',
+            'title' => 'Сдан',
         ],
         [
             'id' => '1',
-            'title' => 'Статус 3',
+            'title' => 'В эксплуатации',
+        ],
+    ];
+
+    $city = [
+        [
+            'id' => '1',
+            'title' => 'Москва',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Краснодар',
+        ],
+        [
+            'id' => '1',
+            'title' => 'Сочи',
+        ],
+    ];
+
+    $price = [
+        [
+            'id' => '1',
+            'title' => '< 10 млн ₽',
+        ],
+        [
+            'id' => '1',
+            'title' => '> 10 млн ₽',
+        ],
+        [
+            'id' => '1',
+            'title' => '> 20 млн ₽',
         ],
     ];
 @endphp
@@ -136,7 +166,7 @@
 
 @section('content')
     <main class="projects-page" data-barba="container" data-barba-namespace="peojects">
-      {{ Breadcrumbs::render('projects') }}
+        {{ Breadcrumbs::render('projects') }}
         <section class="projects-page-hero">
             <div class="container">
                 <h1 class="projects-page-title">Наши <br> проекты</h1>
@@ -148,9 +178,9 @@
             <div class="container">
                 <div class="projects-page-catalog__filter">
                     <div class="projects-page-catalog__filter_wrap">
-                      <x-ui.dropdown :list="$status" />
-                      <x-ui.dropdown :list="$status" />
-                      <x-ui.dropdown :list="$status" />
+                        <x-ui.dropdown :list="$status" placeholder='Статус' />
+                        <x-ui.dropdown :list="$city" placeholder='Город' />
+                        <x-ui.dropdown :list="$price" placeholder='Стоимость' />
 
                     </div>
                     <p class="projects-page-catalog__filter_count">Найдено проектов: 15</p>
@@ -188,7 +218,7 @@
                         :slug="$item['slug']" :image="$item['image']" :comfort="$item['comfort']" :flats="$item['flats']" />
                 @endforeach
             </div>
-            <div class="hr --last" ></div>
+            <div class="hr --last"></div>
         </section>
 
 

@@ -1,152 +1,141 @@
 .projects {
-    padding-top: 266rem;
+  padding-top: 266rem;
 }
 
 .projects-top {
-    display: flex;
-    align-items: flex-end;
-
-    h2 {}
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: end;
 }
 
 .projects-top__sort {
-    display: flex;
-    gap: 140rem;
-    margin-left: 280rem;
+  display: flex;
+  gap: 90rem;
+  // margin-left: 280rem;
+  margin-right: 140rem;
+  align-items: flex-end;
 
-    .dropdown {
-        display: block;
-        width: 420rem;
-    }
+  .dropdown {
+    display: block;
+    width: 420rem;
+  }
 }
 
-
 .big-card {
-    margin-top: 82rem;
+  margin-top: 82rem;
 }
 
 .big-card__image {
-    height: 800rem;
+  height: 800rem;
 
-    img {
-        display: block;
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-        border-radius: 4rem;
-    }
+  img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 4rem;
+  }
 }
-
 
 .big-card__info {
-    margin-top: 40rem;
-    display: flex;
-    align-items: flex-start;
+  margin-top: 40rem;
+  display: flex;
+  align-items: flex-start;
 }
-
 
 .big-card__title {
-    font-size: 32rem;
-    line-height: 120%;
-    max-width: 560rem;
-    width: 100%;
-    font-weight: 400;
+  font-size: 32rem;
+  line-height: 120%;
+  max-width: 560rem;
+  width: 100%;
+  font-weight: 400;
 }
-
 
 .big-card__description {
-    max-width: 560rem;
-    width: 100%;
-    color: $textGray;
+  max-width: 560rem;
+  width: 100%;
+  color: $textGray;
 }
 
-
 .big-card__info_col {
-    display: flex;
-    flex-direction: column;
-    gap: 18rem;
-    padding-left: 140rem;
-    font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 18rem;
+  padding-left: 140rem;
+  font-weight: 400;
 }
 
 .big-card__info_link {
-    margin-left: auto;
-    text-align: right;
+  margin-left: auto;
+  text-align: right;
 }
 
-
 @media screen and (max-width: 1200px) {
-    .projects {
-        padding-top: 120px;
+  .projects {
+    padding-top: 120px;
+  }
+
+  .projects-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects-top__sort {
+    gap: 20px;
+    margin-left: 0;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 32px;
+
+    .dropdown {
+      width: 100%;
     }
+  }
 
-    .projects-top {
-        flex-direction: column;
-        align-items: flex-start;
+  .big-card {
+    margin-top: 40px;
+  }
+
+  .big-card__image {
+    height: auto;
+
+    img {
+      display: block;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
     }
+  }
 
+  .big-card__info {
+    margin-top: 16px;
+    flex-direction: column;
+  }
 
-    .projects-top__sort {
-        gap: 20px;
-        margin-left: 0;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 32px;
+  .big-card__title {
+    font-size: 20px;
+    max-width: none;
+    font-weight: 500;
+  }
 
-        .dropdown {
-            width: 100%;
-        }
-    }
+  .big-card__description {
+    max-width: none;
+    margin-top: 12px;
+    font-size: 14px;
+  }
 
+  .big-card__info_col {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 0;
+  }
 
-    .big-card {
-        margin-top: 40px;
-    }
-
-    .big-card__image {
-        height: auto;
-
-        img {
-            display: block;
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-            border-radius: 0;
-        }
-    }
-
-
-    .big-card__info {
-        margin-top: 16px;
-        flex-direction: column;
-    }
-
-
-    .big-card__title {
-        font-size: 20px;
-        max-width: none;
-        font-weight: 500;
-    }
-
-
-    .big-card__description {
-        max-width: none;
-        margin-top: 12px;
-        font-size: 14px;
-    }
-
-
-    .big-card__info_col {
-        margin-top: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding-left: 0;
-    }
-
-    .big-card__info_link {
-        margin-top: 32px;
-        margin-left: 0;
-        text-align: left;
-    }
+  .big-card__info_link {
+    margin-top: 32px;
+    margin-left: 0;
+    text-align: left;
+  }
 }

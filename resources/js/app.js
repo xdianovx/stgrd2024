@@ -79,6 +79,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
   projectpage_marquee(gsap);
   project_page(gsap);
 
+  const selects = document.querySelectorAll(".select");
+
+  if (selects) {
+    selects.forEach((select) => {
+      const head = select.querySelector(".select-title");
+      const listItems = select.querySelectorAll(".select-item");
+      const list = select.querySelector(".select-list");
+
+      listItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const title = select.querySelector(".select-title p");
+          title.innerText = item.innerText;
+          select.classList.remove("active");
+          tl.reverse();
+        });
+      });
+
+      let tl = gsap.timeline({
+        paused: true,
+      });
+
+      tl.to(list, {
+        height: "auto",
+        ease: "power2",
+      });
+      head.addEventListener("click", () => {
+        if (select.classList.contains("active")) {
+          select.classList.remove("active");
+          tl.reverse();
+        } else {
+          select.classList.add("active");
+          tl.play();
+        }
+      });
+    });
+  }
   // barba.init({
   //   schema: {
   //     wrapper: "wrapper",

@@ -4,84 +4,85 @@
   }
 }
 
-.projects-page-hero {}
+.projects-page-hero {
+}
 
 .projects-page-title {
-    margin-top: 154rem;
-    text-transform: uppercase;
-    font-size: 295rem;
-    font-weight: 300;
-    line-height: 100%;
+  margin-top: 154rem;
+  text-transform: uppercase;
+  font-size: 295rem;
+  font-weight: 300;
+  line-height: 100%;
 }
 
 .projects-page-catalog__filter {
-    margin-top: 160rem;
+  margin-top: 160rem;
 }
 
 .projects-page-catalog__filter_wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 420rem);
-    gap: 140rem;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: repeat(3, 420rem);
+  gap: 140rem;
 }
 
 .projects-page-catalog__filter_count {
-    margin-top: 30rem;
-    color: $textGray;
+  margin-top: 30rem;
+  color: $textGray;
 }
 
 .projects-page-catalog__big_card {
-    margin-top: 32rem;
+  margin-top: 32rem;
 }
 
 .projects-page-catalog__big_card_image {
-    height: 800rem;
+  height: 800rem;
 
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
-
 .projects-page-catalog__big_card_info {
-    align-items: start;
-    margin-top: 48rem;
-    display: grid;
-    grid-template-columns: 280rem 280rem 560rem 560rem;
+  align-items: start;
+  margin-top: 48rem;
+  display: grid;
+  grid-template-columns: 280rem 280rem 560rem 560rem;
 }
 
 .projects-page-catalog__big_card_title {
-    font-size: 24rem;
-    line-height: 120%;
-    font-weight: 400;
+  font-size: 24rem;
+  line-height: 120%;
+  font-weight: 400;
 }
 
 .projects-page-catalog__big_card_col {
-    display: flex;
-    flex-direction: column;
-    gap: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
 }
 
 .projects-page-catalog__big_card_col_city {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .projects-page-catalog__big_card_col_deadline {
-    color: $textGray;
+  color: $textGray;
 }
 
 .projects-page-catalog__big_card_link {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .projects-page-list {
-    margin-top: 190rem;
-    display: flex;
-    flex-direction: column;
-    gap: 100rem;
+  margin-top: 190rem;
+  display: flex;
+  flex-direction: column;
+  gap: 100rem;
 }
 
 @media screen and (max-width: 1200px) {
@@ -116,7 +117,6 @@
     height: auto;
   }
 
-
   .projects-page-catalog__big_card_info {
     align-items: start;
     margin-top: 32px;
@@ -149,9 +149,7 @@
     flex-direction: column;
     gap: 100px;
   }
-
 }
-
 
 @media screen and (max-width: 1024px) {
   .projects-page {
@@ -181,7 +179,6 @@
   .projects-page-catalog__big_card {
     margin-top: 64px;
   }
-
 
   .projects-page-catalog__big_card_info {
     margin-top: 20px;
@@ -228,9 +225,7 @@
     flex-direction: column;
     gap: 64px;
   }
-
 }
-
 
 @media screen and (max-width: 768px) {
   .projects-page {
@@ -258,7 +253,6 @@
 
   .projects-page-catalog__big_card {
   }
-
 
   .projects-page-catalog__big_card_info {
     margin-top: 20px;

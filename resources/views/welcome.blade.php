@@ -8,7 +8,7 @@
         <x-section.projects />
         <x-section.offers_slider />
         <x-section.marquee />
-        <x-section.features :item="$block_advantages" />
+        {{-- <x-section.features :item="$block_advantages" /> --}}
         <x-section.life />
         <x-section.connect />
     </main>
