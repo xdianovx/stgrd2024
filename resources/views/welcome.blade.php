@@ -3,12 +3,18 @@
 @section('content')
     <main data-barba="container" data-barba-namespace="home">
         <x-section.hero :item="$page" />
-        <x-section.video :item="$page" />
+        @if (!empty($page->video_preview) || !empty($page->video_in_player))
+            <x-section.video :item="$page" />
+        @endif
+        @if ($block_missions->active == TRUE)
         <x-section.mission :item="$block_missions" />
+        @endif
         <x-section.projects />
         <x-section.offers_slider />
         <x-section.marquee />
-        {{-- <x-section.features :item="$block_advantages" /> --}}
+        @if ($block_advantages->active == TRUE)
+        <x-section.features :item="$block_advantages" />
+        @endif
         <x-section.life />
         <x-section.connect />
     </main>

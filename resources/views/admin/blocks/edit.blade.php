@@ -15,7 +15,7 @@
 
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1" style="">
                                 <li>
-                                    <a type="button" class="dropdown-item" href="{{ url()->previous() }}">
+                                    <a type="button" class="dropdown-item" href="{{ route('admin.blocks.index') }}">
                                         <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                         {{ __('admin.btn_back') }}</a>
                                 </li>
@@ -24,7 +24,6 @@
                     </div>
                 </div>
 
-            </div>
             @if ($errors->any())
                 <div class="alert alert-danger alert-border-left alert-dismissible fade show " role="alert">
 
@@ -39,7 +38,6 @@
             @endif
 
 
-            <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
                         <form action="{{ route('admin.blocks.update', $item) }}" method="POST"
@@ -47,7 +45,14 @@
                             @csrf
                             @method('patch')
                             <div class="row gy-4">
-
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <label for="valueInput" class="form-label">{{ __('admin.field_title') }} *</label>
+                                        <input type="text" value="{{ $item->title }}" class="form-control input__slug"
+                                            id="valueInput" name="title"
+                                            placeholder="{{ __('admin.placeholder_text') }}">
+                                    </div>
+                                </div>
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_title_left') }}
@@ -74,21 +79,20 @@
                                   </div>
                               </div>
                                 <div class="mb-3">
-                                    <label class="form-label"
-                                        for="basic-default-message">{{ __('admin.field_text_large') }}</label>
-                                    <textarea id="basic-default-message" class="form-control" name="text_large"
+                                    <label class="form-label">{{ __('admin.field_text_large') }}</label>
+                                    <textarea class="form-control" name="text_large"
                                         placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->text_large !!}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label"
                                         for="basic-default-message">{{ __('admin.field_description') }}</label>
-                                    <textarea id="basic-default-message" class="form-control" name="description"
+                                    <textarea id="editor" class="form-control" name="description"
                                         placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->description !!}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label"
                                         for="basic-default-message">{{ __('admin.field_description_additional') }}</label>
-                                    <textarea id="basic-default-message" class="form-control" name="description_additional"
+                                    <textarea id="editor" class="form-control" name="description_additional"
                                         placeholder="{{ __('admin.placeholder_text') }}" style="height: 234px;">{!! $item->description_additional !!}</textarea>
                                 </div>
                             </div>
@@ -102,4 +106,5 @@
         </div>
     </div>
 
+@include('admin.upload_script')
 @endsection

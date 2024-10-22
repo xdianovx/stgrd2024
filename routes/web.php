@@ -3,8 +3,10 @@
 use App\Http\Controllers\Admin\AdvantageController;
 use App\Http\Controllers\Admin\BlockController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\ConstructionStageController;
 use App\Http\Controllers\Admin\DocumentController;
+use App\Http\Controllers\Admin\EditorImageUploadController;
 use App\Http\Controllers\Admin\FacilitieController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MapPointController;
@@ -83,6 +85,7 @@ Route::get('/contacts', function () {
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
   Route::get('/', [MainController::class, 'index'])->name('index');
+  Route::post('/editor-uploads', EditorImageUploadController::class)->name('image_upload');
 
 
   Route::name('pages.')->prefix('pages')->group(function () {
@@ -118,6 +121,14 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/{block}/advantages/{advantage}/edit', [AdvantageController::class, 'edit'])->name('advantage_edit');
     Route::patch('/{block}/advantages/{advantage}', [AdvantageController::class, 'update'])->name('advantage_update');
     Route::delete('/{block}/advantages/{advantage}', [AdvantageController::class, 'destroy'])->name('advantage_destroy');
+
+    //companies
+    Route::get('/{block}/companies/create', [CompanyController::class, 'create'])->name('company_create');
+    Route::post('/{block}/companies/store', [CompanyController::class, 'store'])->name('company_store');
+    Route::get('/{block}/companies/{company}', [CompanyController::class, 'show'])->name('company_show');
+    Route::get('/{block}/companies/{company}/edit', [CompanyController::class, 'edit'])->name('company_edit');
+    Route::patch('/{block}/companies/{company}', [CompanyController::class, 'update'])->name('company_update');
+    Route::delete('/{block}/companies/{company}', [CompanyController::class, 'destroy'])->name('company_destroy');
   });
 
   Route::name('cities.')->prefix('cities')->group(function () {

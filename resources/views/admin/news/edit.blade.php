@@ -8,7 +8,6 @@
                     <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.edit_news_card_title') }} {{ $item->title }}
                     </h4>
                 </div>
-            </div>
 
             @if ($errors->any())
                 <div class="alert alert-danger alert-border-left alert-dismissible fade show " role="alert">
@@ -38,8 +37,6 @@
                 </div>
             @else
             @endif
-
-            <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
                         <form action="{{ route('admin.news.update', $item->slug) }}" method="POST"

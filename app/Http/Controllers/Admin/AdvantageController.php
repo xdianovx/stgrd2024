@@ -26,6 +26,7 @@ class AdvantageController extends Controller
     return view('admin.advantages.create', compact(
       'user',
       'block',
+      'block_slug'
     ));
   }
   public function store(StoreRequest $request, $block_slug)
@@ -48,6 +49,7 @@ class AdvantageController extends Controller
     return view('admin.advantages.edit', compact(
       'user',
       'block',
+      'block_slug',
       'item'
     ));
   }

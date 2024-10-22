@@ -20,13 +20,13 @@
                     </x-ui.text>
 
                     <div class="text-wrap">
-                        <p>{{ $item->description }}</p>
+                        <p>{!! $item->description !!}</p>
 
-                        <p>{{ $item->description_additional }}</p>
+                        <p>{!! $item->description_additional !!}</p>
                     </div>
 
                     <div class="cards">
-                        @foreach ($item->numbers()->get() as $nums)
+                        @foreach ($item->numbers->sortBy('id') as $nums)
                             <x-mission_card :title="$nums['title']" :num="$nums['num']" :num_text="$nums['num_text']" />
                         @endforeach
                     </div>

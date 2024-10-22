@@ -7,17 +7,11 @@
             <div class="container">
 
 
-                <h1 class="about-title">Строительная компания Стройград</h1>
+                <h1 class="about-title">{{ $page->title }}</h1>
 
                 <div class="about-info">
-                    <x-ui.suptitle>О нас</x-ui.suptitle>
-                    <x-ui.text size="sm">Группа компаний «Стройград» начала свою историю в 2006 году со строительства
-                        многоквартирного
-                        жилого дома в г. Ставрополь. Все это время «Стройград» стремительно развивался, выходил на новые
-                        рынки,
-                        наращивал собственную производственную базу, осваивал новые направления бизнеса. На сегодняшний день
-                        география деятельности группы компаний «Стройград» охватывает две чрезвычайно важные для экономики
-                        страны области — Краснодарский и Ставропольский края.</x-ui.text>
+                    <x-ui.suptitle>{!! $page->text_left !!}</x-ui.suptitle>
+                    <x-ui.text size="sm">{!! $page->text_right !!}</x-ui.text>
                 </div>
             </div>
         </section>
@@ -25,17 +19,23 @@
         <div class="line">
             <div class="hr"></div>
         </div>
-
+        @if ($block_missions->active == TRUE)
         <x-section.mission :nobtn="true" :item="$block_missions" />
+        @endif
         <x-section.directors />
 
         <div class="line">
             <div class="hr"></div>
         </div>
-
-        {{-- <x-section.features :item="$block_advantages" /> --}}
-        <x-section.map />
-        <x-section.enterprises />
+        @if ($block_advantages->active == TRUE)
+        <x-section.features :item="$block_advantages" />
+        @endif
+        @if ($block_maps->active == TRUE)
+        <x-section.map :item="$block_maps"/>
+        @endif
+        @if ($block_companies->active == TRUE)
+        <x-section.enterprises :item="$block_companies"/>
+        @endif
         <section class="spacer"></section>
     </main>
 @endsection

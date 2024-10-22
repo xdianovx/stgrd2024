@@ -5,8 +5,10 @@ namespace App\Providers;
 use App\Models\Advantage;
 use App\Models\Block;
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Document;
 use App\Models\Facilitie;
+use App\Models\LifeStroygrad;
 use App\Models\MapPoint;
 use App\Models\News;
 use App\Models\Number;
@@ -48,6 +50,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('facilitie_routes', Facilitie::$facilitie_routes);
         View::share('map_point_routes', MapPoint::$map_point_routes);
         View::share('document_routes', Document::$document_routes);
+        View::share('company_routes', Company::$company_routes);
+        View::share('life_stroygrad_cards_routes', LifeStroygrad::$life_stroygrad_cards_routes);
 
         // View::share('blogs_routes', Blog::$blogs_routes);
         // View::share('categories_blog_routes', CategoryBlog::$categories_blog_routes);

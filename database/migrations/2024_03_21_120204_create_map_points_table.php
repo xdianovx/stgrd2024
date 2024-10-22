@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('map_points', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('description');
             $table->string('coordinates_latitude');
             $table->string('coordinates_longitude');
-            $table->string('project_block_id');
+            $table->string('project_id');
             $table->timestamps();
         });
     }

@@ -33,12 +33,6 @@
                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_edit') }}</a>
                                     </li>
-                                    {{-- <li>
-                                        <button type="submit" class="dropdown-item text-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalScrollable{{ $item->slug }}"><i
-                                                class="bx bx-trash me-1 text-danger" role="button"></i>
-                                            {{ __('admin.btn_delete') }}</button>
-                                    </li> --}}
                                 </ul>
                             </div>
                         </div>
@@ -112,40 +106,6 @@
                                     <th class="ps-0" scope="row">{{ __('admin.field_updated') }}:</th>
                                     <td class="text-muted">{{ $item->updated_at }}</td>
                                 </tr>
-
-                                {{-- <div class="modal fade" id="modalScrollable{{ $item->slug }}" tabindex="-1"
-                                    style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="modalScrollableTitle">
-                                                    {{ __('admin.question_delete') }}</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p
-                                                    class="mt-1 text-sm text-gray-600 dark:text-gray-400  alert alert-warning text-wrap">
-                                                    {{ __('admin.notification_delete') }}
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    {{ __('admin.btn_close') }}
-                                                </button>
-                                                <form action="{{ route('admin.pages.destroy', $item->slug) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger" data-bs-toggle="modal"
-                                                        data-bs-target="#modalScrollableConfirm">{{ __('admin.btn_confirm') }}</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-
                             </tbody>
                         </table>
 
@@ -153,45 +113,28 @@
                 </div><!-- end card body -->
             </div>
         </div>
-        @if (!empty($item->video_preview) || !empty($item->video_in_player))
+        @if ($item->video_preview || $item->video_in_player)
             <div class="col-lg-4">
                 <div class="card">
-
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="flex-grow-1">
-                                <h5 class="card-header align-items-center d-flex">{{ __('admin.field_video') }}</h5>
+                        <h5 class="card-header">{{ __('admin.field_video') }}</h5>
+                        @if ($item->video_preview)
+                            <h6 class="text-muted mt-3">{{ __('admin.field_video_preview') }}:</h6>
+                            <div class="ratio ratio-16x9 mb-3">
+                                <iframe src="{{ URL::to('/') . Storage::url($item->video_preview) }}"
+                                    allowfullscreen></iframe>
                             </div>
-                        </div>
-
-                        @if (!empty($item->video_preview))
-                            <h5 class="text-muted">{{ __('admin.field_video_preview') }}:</h5>
-                            <div class="d-flex mb-4">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                        src="{{URL::to('/') . Storage::url($item->video_preview) }}"
-                                        allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        @else
                         @endif
-
-                        @if (!empty($item->video_in_player))
-                            <h5 class="text-muted">{{ __('admin.field_video_in_player') }}:</h5>
-                            <div class="d-flex mb-4">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                        src="{{URL::to('/') . Storage::url($item->video_in_player) }}"
-                                        allowfullscreen></iframe>
-                                </div>
+                        @if ($item->video_in_player)
+                            <h6 class="text-muted mt-3">{{ __('admin.field_video_in_player') }}:</h6>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="{{ URL::to('/') . Storage::url($item->video_in_player) }}"
+                                    allowfullscreen></iframe>
                             </div>
-                        @else
                         @endif
                     </div>
-
                 </div>
             </div>
-        @else
         @endif
     </div>
 @endsection

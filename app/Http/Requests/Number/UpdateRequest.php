@@ -19,12 +19,22 @@ class UpdateRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Поле Название должно быть заполнено',
+            'title.max' => 'Поле Название должно содержать не более :max символов',
+            'num.required' => 'Поле Число должно быть заполнено',
+            'num.max' => 'Поле Число должно содержать не более :max символов',
+            'num_text.max' => 'Поле Текст должно содержать не более :max символов',
+        ];
+    }
     public function rules(): array
     {
         return [
-          'title' => ['required', 'max:70'],
-          'num' => ['required', 'max:7'],
-          'num_text'  => ['nullable', 'max:7'],
+            'title' => ['required', 'max:70'],
+            'num' => ['required', 'max:7'],
+            'num_text'  => ['nullable', 'max:7'],
         ];
     }
 }

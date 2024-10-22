@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('blocks', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('title_left');
             $table->string('slug');
             $table->boolean('active');

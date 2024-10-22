@@ -1,6 +1,14 @@
 <?php
 
 return [
+  'aside_title_about_companies' => 'Предприятия группы',
+  'new_company_card_title' => 'Новая компания',
+  'company_card_title' => 'Компания',
+  'edit_company_card_title' => 'Изменить компанию',
+
+  'edit_life_stroygrad_card_card_title' => 'Изменить запись ЖК',
+  'life_stroygrad_card_title' => 'Запись ЖК',
+  'life_stroygrad_card_info' => 'Информация о записи ЖК',
   //Titles categories
   'new_category_card_title' => 'Новая категория',
   'edit_category_card_title' => 'Изменить категорию',
@@ -165,7 +173,12 @@ return [
   'field_current_image' => 'Текущее изображение',
   'field_current_presentation' => 'Текущая презентация',
   'field_current_document' => 'Текущий документ',
-
+  'field_sphere_activity' => 'Сфера деятельности',
+  'field_site_name' => 'Название сайта',
+  'field_site_link' => 'Ссылка на сайт',
+  'field_year_foundation' => 'Год основания',
+  'field_phone' => 'Телефон',
+  'field_email' => 'Email',
   'field_description' => 'Описание',
   'field_description_footer' => 'Описание(Подвал)',
   'field_description_additional' => 'Описание(дополнительное)',

@@ -8,9 +8,6 @@
                     <h4 class="card-title mb-0 flex-grow-1">{{__('admin.new_news_card_title')}}</h4>
                 </div>
 
-
-            </div>
-
             @if ($errors->any())
                 <div class="alert alert-danger alert-border-left alert-dismissible fade show " role="alert">
 
@@ -24,8 +21,6 @@
                 </div>
             @endif
 
-
-            <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
                         <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">

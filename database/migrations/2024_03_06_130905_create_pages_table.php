@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->text('description')->nullable();
             $table->text('text_left')->nullable();
             $table->text('text_right')->nullable();
             $table->string('video_preview')->nullable();

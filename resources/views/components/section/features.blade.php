@@ -1,35 +1,3 @@
-@php
-    $data = [
-        [
-            'num' => '01',
-            'title' => 'Клиентоориентированность',
-            'image' => 'img/com-1.jpg',
-            'description' =>
-                'Все это время «Стройград» стремительно развивался, выходил на новые рынки, наращивал собственную производственную базу, осваивал новые направления бизнеса.',
-        ],
-        [
-            'num' => '02',
-            'title' => 'Честность и ответсвенность',
-            'image' => 'img/com-1.jpg',
-            'description' =>
-                'Все это время «Стройград» стремительно развивался, выходил на новые рынки, наращивал собственную производственную базу, осваивал новые направления бизнеса.',
-        ],
-        [
-            'num' => '03',
-            'title' => 'Лидерство и инновации',
-            'image' => 'img/com-2.jpg',
-            'description' =>
-                'Все это время «Стройград» стремительно развивался, выходил на новые рынки, наращивал собственную производственную базу, осваивал новые направления бизнеса.',
-        ],
-        [
-            'num' => '04',
-            'title' => 'Вовлеченность и инициатива',
-            'image' => 'img/com-1.jpg',
-            'description' =>
-                'Все это время «Стройград» стремительно развивался, выходил на новые рынки, наращивал собственную производственную базу, осваивал новые направления бизнеса.',
-        ],
-    ];
-@endphp
 
 @if ($item->active == true)
     <section class="features">
@@ -55,8 +23,8 @@
             <img src="" alt="" />
         </div>
 
-        @foreach ($data as $advantages)
-            <x-feature_row :num="$advantages['num']" :title="$advantages['title']" :image="$advantages['image']" :description="$advantages['description']" />
+        @foreach ($item->advantages->sortBy('id') as $advantage)
+            <x-feature_row :num="$advantage['num']" :title="$advantage['title']" :image="$advantage['image']" :description="$advantage['description']" />
         @endforeach
     </div>
     </section>

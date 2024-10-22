@@ -6,11 +6,23 @@
             <div class="card">
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.new_number_card_title') }}</h4>
+                    <div class="flex-shrink-0">
+                      <div class="dropdown">
+                          <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
+                              aria-expanded="false" class="">
+                              <i class="ri-more-2-fill fs-14"></i>
+                          </a>
+
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1" style="">
+                              <li>
+                                  <a type="button" class="dropdown-item" href="{{ route('admin.blocks.show', $block_slug) }}">
+                                      <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
+                                      {{ __('admin.btn_back') }}</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
                 </div>
-
-
-            </div>
-
             @if ($errors->any())
                 <div class="alert alert-danger alert-border-left alert-dismissible fade show " role="alert">
 
@@ -24,8 +36,6 @@
                 </div>
             @endif
 
-
-            <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
                         <form action="{{ route('admin.blocks.number_store', $block_slug) }}" method="POST"
