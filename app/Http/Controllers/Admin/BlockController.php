@@ -29,7 +29,8 @@ class BlockController extends Controller
         $numbers = $item->numbers()->paginate(10);
         $advantages = $item->advantages()->paginate(10);
         $companies = $item->companies()->paginate(10);
-        return view('admin.blocks.show', compact('item', 'user','numbers','advantages','companies'));
+        $life_stroygrad_cards = $item->life_stroygrad_cards()->paginate(10);
+        return view('admin.blocks.show', compact('item', 'user','numbers','advantages','companies','life_stroygrad_cards'));
     }
 
     public function edit($block_slug)

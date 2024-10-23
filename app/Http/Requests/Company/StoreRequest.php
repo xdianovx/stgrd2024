@@ -26,6 +26,11 @@ class StoreRequest extends FormRequest
             'title.required' => 'Поле Название должно быть заполнено',
             'title.max' => 'Поле Название должно содержать не более :max символов',
             'year.numeric' => 'Поле Год основания должно быть числом',
+            'sphere_activity.max' => 'Поле Сфера деятельности должно содержать не более :max символов',
+            'site_url.max' => 'Поле Сайт должно содержать не более :max символов',
+            'address.max' => 'Поле Адрес должно содержать не более :max символов',
+            'phone.max' => 'Поле Телефон должно содержать не более :max символов',
+            'email.max' => 'Поле Email должно содержать не более :max символов',
         ];
     }
 
@@ -34,12 +39,12 @@ class StoreRequest extends FormRequest
         return [
             'title' => ['required', 'max:70'],
             'description'  => ['nullable'],
-            'sphere_activity' => ['nullable'],
-            'site_url' => ['nullable'],
+            'sphere_activity' => ['nullable', 'max:70'],
+            'site_url' => ['nullable', 'max:70'],
             'year' => ['nullable', 'numeric'],
-            'address' => ['nullable'],
-            'phone' => ['nullable'],
-            'email' => ['nullable'],
+            'address' => ['nullable', 'max:70'],
+            'phone' => ['nullable', 'max:70'],
+            'email' => ['nullable', 'max:70'],
         ];
     }
 

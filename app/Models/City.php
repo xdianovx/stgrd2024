@@ -24,4 +24,9 @@ class City extends Model
     {
       return $this->hasMany(Project::class);
     }
+
+    public function vacancys()
+    {
+      return $this->hasMany(Vacancy::class);
+    }
 }

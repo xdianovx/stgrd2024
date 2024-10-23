@@ -7,11 +7,23 @@
             <div class="card">
                 <div class="card-header align-items-center d-flex">
                     <h4 class="card-title mb-0 flex-grow-1">{{__('admin.edit_city_card_title')}} {{ $item->title }}</h4>
+                    <div class="flex-shrink-0">
+                      <div class="dropdown">
+                          <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
+                              aria-expanded="false" class="">
+                              <i class="ri-more-2-fill fs-14"></i>
+                          </a>
+
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1" style="">
+                              <li>
+                                  <a type="button" class="dropdown-item" href="{{ route('admin.cities.index') }}">
+                                      <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
+                                      {{ __('admin.btn_back') }}</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
                 </div>
-
-
-            </div>
-
             @if ($errors->any())
                 <div class="alert alert-danger alert-border-left alert-dismissible fade show " role="alert">
 
@@ -25,8 +37,6 @@
                 </div>
             @endif
 
-
-            <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
                         <form action="{{ route('admin.cities.update', $item->slug) }}" method="POST"
@@ -37,20 +47,13 @@
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{__('admin.field_title')}}*</label>
-                                        <input type="text" value="{{ $item->title }}" class="form-control input__slug"
+                                        <input type="text" value="{{ $item->title }}" class="form-control"
                                             id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
+                                        <input type="hidden" name="old_title" value="{{ $item->title }}">
                                     </div>
-
-                                </div>
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="valueInput" class="form-label">{{__('admin.field_slug')}}*</label>
-                                        <input type="text" value="{{ $item->slug }}" class="form-control output"
-                                            id="valueInput" name="slug" placeholder="{{__('admin.placeholder_text')}}">
-                                    </div>
-
                                 </div>
                             </div>
+
                             <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
                         </form>
                     </div>
@@ -59,7 +62,5 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ asset('assets/admin/js/slug_generator.js') }}"></script>
 
 @endsection

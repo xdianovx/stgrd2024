@@ -36,7 +36,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:70'],
-            'num' => ['required', 'max:3'],
+            'num' => ['required', 'max:6'],
             'description'  => ['nullable', 'max:923'],
             'image' => ['nullable', 'image', 'max:200000', 'mimes:jpeg,png,jpg,gif,svg'],
         ];

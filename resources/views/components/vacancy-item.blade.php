@@ -1,10 +1,10 @@
-@props(['title', 'city', 'expirience', 'salary', 'slug', 'duties' => '', 'terms', 'reqs'])
+@props(['title', 'city', 'expirience', 'salary', 'slug', 'duties', 'terms', 'reqs'])
 <div class="vacancy-item">
     <div class="container">
         <div class="vacancy-item__wrap">
             <div class="vacancy-item__tab">
                 <h3 class="vacancy-item__title">{{ $title }}</h3>
-                <p class="vacancy-item__city">{{ $city }}</p>
+                <p class="vacancy-item__city">{{ $city->title }}</p>
                 <p class="vacancy-item__expirience">{{ $expirience }}</p>
                 <p class="vacancy-item__salary">{{ $salary }}</p>
                 <div class="vacancy-item__link">
@@ -23,39 +23,18 @@
                     </div>
                     @if($duties)
                         <div class="vacancy-item__content_item">
-                            <h4>Обязанности</h4>
-
-                            <ul>
-                                @foreach($duties as $item)
-                                    <li>{{$item}}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                            <h4>Обязанности</h4>{{$duties}}</div>
                     @endif
 
-                        @if($terms)
-                            <div class="vacancy-item__content_item">
-                                <h4>Условия</h4>
+                    @if($terms)
+                        <div class="vacancy-item__content_item">
+                            <h4>Условия</h4>{{$terms}}</div>
+                    @endif
 
-                                <ul>
-                                    @foreach($terms as $item)
-                                        <li>{{$item}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        @if($reqs)
-                            <div class="vacancy-item__content_item">
-                                <h4>Требования</h4>
-
-                                <ul>
-                                    @foreach($reqs as $item)
-                                        <li>{{$item}}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                    @if($reqs)
+                        <div class="vacancy-item__content_item">
+                            <h4>Требования</h4>{{$reqs}}</div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -1,14 +1,35 @@
 <?php
 
 return [
+
+  //Titles vacancies
+  'aside_title_vacancies' => 'Вакансии',
+  'new_vacanci_card_title' => 'Новая вакансия',
+  'edit_vacanci_card_title' => 'Изменить вакансию',
+  'vacanci_card_title' => 'Вакансия',
+  'vacanci_card_info' => 'Информация о вакансии',
+
+  //Titles companies
   'aside_title_about_companies' => 'Предприятия группы',
   'new_company_card_title' => 'Новая компания',
   'company_card_title' => 'Компания',
   'edit_company_card_title' => 'Изменить компанию',
 
-  'edit_life_stroygrad_card_card_title' => 'Изменить запись ЖК',
-  'life_stroygrad_card_title' => 'Запись ЖК',
-  'life_stroygrad_card_info' => 'Информация о записи ЖК',
+  //Titles life_stroygrad_cards
+  'aside_title_life_stroygrad_cards' => 'Карточки Жизнь в стройграде',
+  'edit_life_stroygrad_card_card_title' => 'Изменить запись Жизнь в стройграде',
+  'life_stroygrad_card_title' => 'Запись Жизнь в стройграде',
+  'life_stroygrad_card_info' => 'Информация о записи Жизнь в стройграде',
+  'life_stroygrad_card_card_title' => 'Запись Жизнь в стройграде',
+  'life_stroygrad_card_card_info' => 'Информация о записи Жизнь в стройграде',
+
+  //Titles managements
+  'aside_title_managements' => 'Руковдство',
+  'new_management_card_title' => 'Новая запись руководителя',
+  'edit_management_card_title' => 'Изменить запись руководителя',
+  'management_card_title' => 'Запись руководителя',
+  'management_card_info' => 'Информация о записи руководителя',
+
   //Titles categories
   'new_category_card_title' => 'Новая категория',
   'edit_category_card_title' => 'Изменить категорию',
@@ -195,7 +216,12 @@ return [
   'field_text_large' => 'Текст большой',
   'field_number_of_records' => 'Количество записей',
   'field_date'  => 'Дата',
-
+  'field_position'  => 'Должность',
+  'field_exp'  => 'Требуемый опыт',
+  'field_salary'  => 'Зарплата',
+  'field_duties'  => 'Обязанности',
+  'field_terms'  => 'Условия',
+  'field_reqs'  => 'Требования',
   //Btns
   'btn_actions' => 'Действия',
   'select_display_block_false' => 'Блок отключен!',

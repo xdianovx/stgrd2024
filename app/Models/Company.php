@@ -21,9 +21,9 @@ class Company extends Model
         'block_id',
     ];
     public static $company_routes = [
-      'admin.companies.company_show',
-      'admin.companies.company_edit',
-      'admin.companies.company_create',
+      'admin.blocks.company_show',
+      'admin.blocks.company_edit',
+      'admin.blocks.company_create',
   ];
   public function block()
   {

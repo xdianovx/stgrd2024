@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Company;
+namespace App\Http\Requests\Management;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,11 +24,14 @@ class UpdateRequest extends FormRequest
         return [
             'title.required' => 'Поле Название должно быть заполнено',
             'title.max' => 'Поле Название должно содержать не более :max символов',
-            'year.numeric' => 'Поле Год основания должно быть числом',
-            'sphere_activity.max' => 'Поле Сфера деятельности должно содержать не более :max символов',
-            'site_url.max' => 'Поле Сайт должно содержать не более :max символов',
-            'address.max' => 'Поле Адрес должно содержать не более :max символов',
+            'position.required' => 'Поле Должность должно быть заполнено',
+            'position.max' => 'Поле Должность должно содержать не более :max символов',
+            'image.max' => 'Размер изображения не должен превышать 200 Мбайт',
+            'image.image' => 'Изображение должно быть файлом изображения',
+            'image.mimes' => 'Формат изображения не поддерживается',
+            'phone.required' => 'Поле Телефон должно быть заполнено',
             'phone.max' => 'Поле Телефон должно содержать не более :max символов',
+            'email.required' => 'Поле Email должно быть заполнено',
             'email.max' => 'Поле Email должно содержать не более :max символов',
         ];
     }
@@ -37,13 +40,10 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:70'],
-            'description'  => ['nullable'],
-            'sphere_activity' => ['nullable', 'max:70'],
-            'site_url' => ['nullable', 'max:70'],
-            'year' => ['nullable', 'numeric'],
-            'address' => ['nullable', 'max:70'],
-            'phone' => ['nullable', 'max:70'],
-            'email' => ['nullable', 'max:70'],
+            'position'  => ['required', 'max:140'],
+            'image' => ['nullable', 'image', 'max:200000', 'mimes:jpeg,png,jpg,gif,svg'],
+            'phone' => ['required', 'max:70'],
+            'email' => ['required', 'max:70'],
         ];
     }
 }

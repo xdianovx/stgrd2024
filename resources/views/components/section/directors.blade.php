@@ -1,61 +1,10 @@
-@php
-    $data = [
-        [
-            'title' => 'Гукалов Андрей Александрович',
-            'position' => 'Генеральный директор АН "Стройград"',
-            'image' => asset('/img/team-1.jpg'),
-            'phone' => '+7 (861) 999-99-99',
-            'email' => '@gk-stroygrad.ru',
-        ],
-        [
-            'title' => 'Колосова Ольга Ивановна',
-            'position' => 'Генеральный директор ООО "Стройград"',
-            'image' => asset('/img/team-2.jpg'),
-            'phone' => '+7 (861) 999-99-99',
-            'email' => '@gk-stroygrad.ru',
-        ],
-        [
-            'title' => 'Гукалов Андрей Александрович',
-            'position' => 'Генеральный директор АН "Стройград"',
-            'image' => asset('/img/team-1.jpg'),
-            'phone' => '+7 (861) 999-99-99',
-            'email' => '@gk-stroygrad.ru',
-        ],
-        [
-            'title' => 'Колосова Ольга Ивановна',
-            'position' => 'Генеральный директор ООО "Стройград"',
-            'image' => asset('/img/team-2.jpg'),
-            'phone' => '+7 (861) 999-99-99',
-            'email' => '@gk-stroygrad.ru',
-        ],
-        [
-            'title' => 'Гукалов Андрей Александрович',
-            'position' => 'Генеральный директор АН "Стройград"',
-            'image' => asset('/img/team-1.jpg'),
-            'phone' => '+7 (861) 999-99-99',
-            'email' => '@gk-stroygrad.ru',
-        ],
-        [
-            'title' => 'Колосова Ольга Ивановна',
-            'position' => 'Генеральный директор ООО "Стройград"',
-            'image' => asset('/img/team-2.jpg'),
-            'phone' => '+7 (861) 999-99-99',
-            'email' => '@gk-stroygrad.ru',
-        ],
-    ];
-
-@endphp
 
 <section class="directors">
     <div class="container">
         <div class="directors__wrap">
             <div class="directors__left">
-                <x-ui.suptitle>Руководство</x-ui.suptitle>
-                <p class="directors__left_text">
-                    Благодаря большому опыту и мастерству руководящего состава все компании
-                    работают как слаженная команда профессионалов, ведомая единой целью — удовлетворение интересов
-                    любимого потребителя.
-                </p>
+                <x-ui.suptitle>{{ $item->title_left }}</x-ui.suptitle>
+                <p class="directors__left_text">{!!$item->description!!}</p>
 
                 <x-ui.square_btn href="/team">Вся команда</x-ui.square_btn>
 

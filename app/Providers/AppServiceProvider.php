@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\Document;
 use App\Models\Facilitie;
 use App\Models\LifeStroygrad;
+use App\Models\Management;
 use App\Models\MapPoint;
 use App\Models\News;
 use App\Models\Number;
@@ -18,6 +19,7 @@ use App\Models\Project;
 use App\Models\ProjectBlock;
 use App\Models\Promotion;
 use App\Models\Status;
+use App\Models\Vacancy;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -52,7 +54,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('document_routes', Document::$document_routes);
         View::share('company_routes', Company::$company_routes);
         View::share('life_stroygrad_cards_routes', LifeStroygrad::$life_stroygrad_cards_routes);
-
+        View::share('managements_routes', Management::$managements_routes);
+        View::share('vacancies_routes', Vacancy::$vacancies_routes);
         // View::share('blogs_routes', Blog::$blogs_routes);
         // View::share('categories_blog_routes', CategoryBlog::$categories_blog_routes);
         // View::share('news_routes', News::$news_routes);

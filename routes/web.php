@@ -8,7 +8,9 @@ use App\Http\Controllers\Admin\ConstructionStageController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\EditorImageUploadController;
 use App\Http\Controllers\Admin\FacilitieController;
+use App\Http\Controllers\Admin\LifeStroygradController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\ManagementController;
 use App\Http\Controllers\Admin\MapPointController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\NumberController;
@@ -19,8 +21,11 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\StatusController;
+use App\Http\Controllers\Admin\VacancyController;
 use App\Http\Controllers\Front\WelcomePageController;
 use App\Http\Controllers\Front\AboutPageController;
+use App\Http\Controllers\Front\TeamPageController;
+use App\Http\Controllers\Front\VacancyPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,13 +69,9 @@ Route::get('/stock/{slug}', function () {
 })->name('stock.view');
 
 
-Route::get('/team', function () {
-  return view('team');
-})->name('team');
+Route::get('/team', [TeamPageController::class, 'index'])->name('team');
 
-Route::get('/vacancy', function () {
-  return view('vacancy');
-})->name('vacancy');
+Route::get('/vacancy',  [VacancyPageController::class, 'index'])->name('vacancy');
 
 Route::get('/contacts', function () {
   return view('contacts');
@@ -129,6 +130,37 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/{block}/companies/{company}/edit', [CompanyController::class, 'edit'])->name('company_edit');
     Route::patch('/{block}/companies/{company}', [CompanyController::class, 'update'])->name('company_update');
     Route::delete('/{block}/companies/{company}', [CompanyController::class, 'destroy'])->name('company_destroy');
+
+    //life_story_grads
+    Route::get('/{block}/life_stroygrad_cards/create', [LifeStroygradController::class, 'create'])->name('life_stroygrad_card_create');
+    Route::post('/{block}/life_stroygrad_cards/store', [LifeStroygradController::class, 'store'])->name('life_stroygrad_card_store');
+    Route::get('/{block}/life_stroygrad_cards/{life_stroygrad_card}', [LifeStroygradController::class, 'show'])->name('life_stroygrad_card_show');
+    Route::get('/{block}/life_stroygrad_cards/{life_stroygrad_card}/edit', [LifeStroygradController::class, 'edit'])->name('life_stroygrad_card_edit');
+    Route::patch('/{block}/life_stroygrad_cards/{life_stroygrad_card}', [LifeStroygradController::class, 'update'])->name('life_stroygrad_card_update');
+    Route::delete('/{block}/life_stroygrad_cards/{life_stroygrad_card}', [LifeStroygradController::class, 'destroy'])->name('life_stroygrad_card_destroy');
+  });
+
+  // Management routes
+  Route::name('managements.')->prefix('managements')->group(function () {
+      Route::get('/', [ManagementController::class, 'index'])->name('index');
+      Route::get('/search',  [ManagementController::class, 'search'])->name('search');
+      Route::get('/create', [ManagementController::class, 'create'])->name('create');
+      Route::post('/store', [ManagementController::class, 'store'])->name('store');
+      Route::get('/{management}', [ManagementController::class, 'show'])->name('show');
+      Route::get('/{management}/edit', [ManagementController::class, 'edit'])->name('edit');
+      Route::patch('/{management}', [ManagementController::class, 'update'])->name('update');
+      Route::delete('/{management}', [ManagementController::class, 'destroy'])->name('destroy');
+  });
+
+  Route::name('vacancies.')->prefix('vacancies')->group(function () {
+      Route::get('/', [VacancyController::class, 'index'])->name('index');
+      Route::get('/search', [VacancyController::class, 'search'])->name('search');
+      Route::get('/create', [VacancyController::class, 'create'])->name('create');
+      Route::post('/store', [VacancyController::class, 'store'])->name('store');
+      Route::get('/{vacanci_slug}', [VacancyController::class, 'show'])->name('show');
+      Route::get('/{vacanci_slug}/edit', [VacancyController::class, 'edit'])->name('edit');
+      Route::patch('/{vacanci_slug}', [VacancyController::class, 'update'])->name('update');
+      Route::delete('/{vacanci_slug}', [VacancyController::class, 'destroy'])->name('destroy');
   });
 
   Route::name('cities.')->prefix('cities')->group(function () {

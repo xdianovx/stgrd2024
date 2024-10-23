@@ -22,7 +22,7 @@
         @if ($block_missions->active == TRUE)
         <x-section.mission :nobtn="true" :item="$block_missions" />
         @endif
-        <x-section.directors />
+        <x-section.directors :item="$block_managements" :data="$team"/>
 
         <div class="line">
             <div class="hr"></div>

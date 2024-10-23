@@ -22,22 +22,6 @@
             <div id="two-column-menu">
             </div>
             <ul class="navbar-nav" id="navbar-nav">
-                <li class="menu-title"><span data-key="t-menu">Меню</span></li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="las la-tachometer-alt"></i> <span data-key="t-dashboards">Панель мониторинга</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics">
-                                    Analytics </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $pages_routes)) active @endif"
                         href="{{ route('admin.pages.index') }}" aria-expanded="false" aria-controls="sidebarLayouts">
@@ -49,14 +33,28 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $blocks_routes) ||
                       in_array(Route::current()->getName(), $advantages_routes) ||
-                      in_array(Route::current()->getName(), $nums_routes)) active @endif"
+                      in_array(Route::current()->getName(), $nums_routes) ||
+                      in_array(Route::current()->getName(), $company_routes)) active @endif"
                         href="{{ route('admin.blocks.index') }}" aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="mdi mdi-border-all"></i> <span
                             data-key="t-layouts">{{ __('admin.aside_title_blocks') }}</span>
                     </a>
-                </li>{{Route::current()->getName()}}
+                </li>
 
-
+                <li class="nav-item">
+                  <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $managements_routes)) active @endif"
+                      href="{{ route('admin.managements.index') }}" aria-expanded="false"
+                      aria-controls="sidebarLayouts">
+                      <i class="mdi mdi-human-queue"></i> <span data-key="t-layouts">{{__('admin.aside_title_managements')}}</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $vacancies_routes)) active @endif"
+                      href="{{ route('admin.vacancies.index') }}" aria-expanded="false"
+                      aria-controls="sidebarLayouts">
+                      <i class="mdi mdi-chair-rolling"></i> <span data-key="t-layouts">{{__('admin.aside_title_vacancies')}}</span>
+                  </a>
+                </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $news_routes)) active @endif"
                         href="{{ route('admin.news.index') }}" aria-expanded="false"

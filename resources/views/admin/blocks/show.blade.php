@@ -313,7 +313,7 @@
                                                                 class="rounded avatar-sm">
                                                         </div>
                                                     @else
-                                                    <p>Отсутствует</p>
+                                                        <p>Отсутствует</p>
                                                     @endif
                                                 </td>
                                                 <td>
@@ -399,7 +399,7 @@
                         </div>
                     </div>
                 </div>
-                @elseif(in_array($item->id, [7]))
+            @elseif(in_array($item->id, [7]))
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-4">
@@ -461,7 +461,7 @@
                                                                 class="rounded avatar-sm">
                                                         </div>
                                                     @else
-                                                    <p>Отсутствует</p>
+                                                        <p>Отсутствует</p>
                                                     @endif
                                                 </td>
                                                 <td>
@@ -548,7 +548,7 @@
                     </div>
                 </div>
             @elseif(in_array($item->id, [5]))
-            <div class="card">
+                <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-4">
                             <div class="flex-grow-1">
@@ -600,7 +600,8 @@
                                     <thead class="table-light">
                                         <tr>
                                             <th scope="col">{{ __('admin.field_title') }}</th>
-                                            <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}</th>
+                                            <th scope="col" style="width: 150px;">{{ __('admin.field_updated') }}
+                                            </th>
                                             <th scope="col" style="width: 150px;">{{ __('admin.field_action') }}</th>
                                         </tr>
                                     </thead>
@@ -690,7 +691,6 @@
                         </div>
                     </div>
                 </div>
-
             @endif
 
         </div>

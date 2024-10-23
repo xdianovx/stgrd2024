@@ -16,9 +16,9 @@ class LifeStroygrad extends Model
         'block_id',
     ];
     public static $life_stroygrad_cards_routes = [
-      'admin.life_stroygrad_cards.life_stroygrad_card_show',
-      'admin.life_stroygrad_cards.life_stroygrad_card_edit',
-      'admin.life_stroygrad_cards.life_stroygrad_card_create',
+      'admin.blocks.life_stroygrad_card_show',
+      'admin.blocks.life_stroygrad_card_edit',
+      'admin.blocks.life_stroygrad_card_create',
   ];
     public function block()
     {

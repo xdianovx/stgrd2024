@@ -8,6 +8,7 @@ use App\Http\Requests\City\UpdateRequest;
 use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CityController extends Controller
 {
@@ -33,6 +34,7 @@ class CityController extends Controller
   public function store(StoreRequest $request)
   {
       $data = $request->validated();
+      $data['slug'] = Str::slug($data['title']);
       City::firstOrCreate($data);
       return redirect()->route('admin.cities.index')->with('status', 'item-created');
   }
@@ -46,6 +48,7 @@ class CityController extends Controller
   {
       $city = City::whereSlug($city_slug)->firstOrFail();
       $data = $request->validated();
+      $data['slug'] = Str::slug($data['title']);
       $city->update($data);
       return redirect()->route('admin.cities.index')->with('status', 'item-updated');
   }
@@ -67,6 +70,6 @@ class CityController extends Controller
           ->orWhere('slug', 'ilike', '%' . request('search') . '%')
           ->paginate(10);
       endif;
-      return view('admin.city.index', compact('cities','user'));
+      return view('admin.cities.index', compact('cities','user'));
   }
 }

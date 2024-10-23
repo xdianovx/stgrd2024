@@ -15,7 +15,9 @@
         @if ($block_advantages->active == TRUE)
         <x-section.features :item="$block_advantages" />
         @endif
-        <x-section.life />
+        @if ($block_life_stroygrads->active == TRUE)
+        <x-section.life :item="$block_life_stroygrads"/>
+        @endif
         <x-section.connect />
     </main>
 @endsection
