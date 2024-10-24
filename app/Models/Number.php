@@ -11,7 +11,6 @@ class Number extends Model
 
     protected $fillable = ['title','num','num_text'];
     public static $nums_routes = [
-        'admin.blocks.number_search',
         'admin.blocks.number_show',
         'admin.blocks.number_edit',
         'admin.blocks.number_create',

@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\ProjectBlockController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\VacancyController;
 use App\Http\Controllers\Front\WelcomePageController;
@@ -72,6 +73,7 @@ Route::get('/stock/{slug}', function () {
 Route::get('/team', [TeamPageController::class, 'index'])->name('team');
 
 Route::get('/vacancy',  [VacancyPageController::class, 'index'])->name('vacancy');
+Route::get('/vacancy/{citySlug}', [VacancyPageController::class, 'filterByCity'])->name('vacancy.filterByCity');
 
 Route::get('/contacts', function () {
   return view('contacts');
@@ -138,6 +140,14 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/{block}/life_stroygrad_cards/{life_stroygrad_card}/edit', [LifeStroygradController::class, 'edit'])->name('life_stroygrad_card_edit');
     Route::patch('/{block}/life_stroygrad_cards/{life_stroygrad_card}', [LifeStroygradController::class, 'update'])->name('life_stroygrad_card_update');
     Route::delete('/{block}/life_stroygrad_cards/{life_stroygrad_card}', [LifeStroygradController::class, 'destroy'])->name('life_stroygrad_card_destroy');
+
+    // Rewiews
+    Route::get('/{block}/reviews/create', [ReviewController::class, 'create'])->name('review_create');
+    Route::post('/{block}/reviews/store', [ReviewController::class, 'store'])->name('review_store');
+    Route::get('/{block}/reviews/{review}', [ReviewController::class, 'show'])->name('review_show');
+    Route::get('/{block}/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('review_edit');
+    Route::patch('/{block}/reviews/{review}', [ReviewController::class, 'update'])->name('review_update');
+    Route::delete('/{block}/reviews/{review}', [ReviewController::class, 'destroy'])->name('review_destroy');
   });
 
   // Management routes

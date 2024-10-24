@@ -29,4 +29,9 @@ class City extends Model
     {
       return $this->hasMany(Vacancy::class);
     }
+
+    public function contacts()
+    {
+      return $this->hasMany(Contact::class);
+    }
 }

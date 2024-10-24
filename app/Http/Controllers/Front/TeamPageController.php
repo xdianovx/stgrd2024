@@ -12,8 +12,8 @@ class TeamPageController extends Controller
 {
     public function index()
     {
-        $page = Page::whereSlug('rukovodstvo')->firstOrFail();
-        $block_vacancies = Block::whereSlug('rabota-dlia-vasstranica-rukovodstvo')->firstOrFail();
+        $page = Page::whereId(6)->firstOrFail();
+        $block_vacancies = Block::whereId(9)->firstOrFail();
         $vacancies = Vacancy::all();
         $team = Management::all();
         return view('team', compact(

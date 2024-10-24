@@ -12,6 +12,7 @@ use App\Models\LifeStroygrad;
 use App\Models\Management;
 use App\Models\Number;
 use App\Models\Page;
+use App\Models\Review;
 use App\Models\User;
 use App\Models\Vacancy;
 use Illuminate\Database\Seeder;
@@ -100,11 +101,54 @@ class DatabaseSeeder extends Seeder
         'slug' => 'rabota-dlia-vasstranica-rukovodstvo',
         'active' => true,
         'text_large' => 'Мы всегда в поиске талантов!',
-      ]
+      ],
+      [
+        'title' => 'Отзывы сотрудников(Страница "Вакансии")',
+        'title_left' => 'Отзывы сотрудников',
+        'slug' => 'otzyvy-sotrudnikovstranica-vakansiia',
+        'active' => true,
+      ],
     ];
 
     foreach ($blocks as $key => $value) {
       Block::create($value);
+    }
+
+    Review::truncate();
+
+    $reviews = [
+      [
+        'title' => 'Ксения <br/> Самарская',
+        'position' => 'Бухгалтер',
+        'photo' => 'default',
+        'video' => 'default',
+        'block_id' => Block::whereId(10)->first()->id,
+      ],
+      [
+          'title' => 'Артём <br/> Хорошко',
+          'position' => 'Менеджер по работе с клиентами',
+          'photo' => 'default',
+          'video' => 'default',
+          'block_id' => Block::whereId(10)->first()->id,
+      ],
+      [
+          'title' => 'Кирилл <br/> Гурбанов',
+          'position' => 'Машинист',
+          'photo' => 'default',
+          'video' => 'default',
+          'block_id' => Block::whereId(10)->first()->id,
+      ],
+      [
+          'title' => 'Алексей <br/> Запашный',
+          'position' => 'Инженер',
+          'photo' => 'default',
+          'video' => 'default',
+          'block_id' => Block::whereId(10)->first()->id,
+      ],
+    ];
+
+    foreach ($reviews as $key => $value) {
+      Review::create($value);
     }
 
     Number::truncate();
@@ -392,25 +436,25 @@ class DatabaseSeeder extends Seeder
       [
         'title' => 'Карточка 1',
         'description' => 'Какой-то дополнительный текст, если возникнет такая необходимость. Описание фотографии',
-        'image' => 'img/life-cards/2.jpg',
+        'image' => 'default',
         'block_id' => Block::whereId(7)->first()->id,
       ],
       [
         'title' => 'Карточка 2',
         'description' => 'Какой-то дополнительный текст, если возникнет такая необходимость. Описание фотографии',
-        'image' => 'img/life-cards/3.jpg',
+        'image' => 'default',
         'block_id' => Block::whereId(7)->first()->id,
       ],
       [
         'title' => 'Карточка 3',
         'description' => 'Какой-то дополнительный текст, если возникнет такая необходимость. Описание фотографии',
-        'image' => 'img/life-cards/4.jpg',
+        'image' => 'default',
         'block_id' => Block::whereId(7)->first()->id,
       ],
       [
         'title' => 'Карточка 4',
         'description' => 'Какой-то дополнительный текст, если возникнет такая необходимость. Описание фотографии',
-        'image' => 'img/life-cards/5.jpg',
+        'image' => 'default',
         'block_id' => Block::whereId(7)->first()->id,
       ],
     ];
@@ -476,42 +520,42 @@ class DatabaseSeeder extends Seeder
       [
         'title' => 'Гукалов Андрей Александрович',
         'position' => 'Генеральный директор АН "Стройград"',
-        'image' => '/img/team-2.jpg',
+        'image' => 'default',
         'phone' => '+7 (861) 999-99-99',
         'email' => '@gk-stroygrad.ru',
     ],
     [
         'title' => 'Колосова Ольга Ивановна',
         'position' => 'Генеральный директор ООО "Стройград"',
-        'image' => '/img/team-2.jpg',
+        'image' => 'default',
         'phone' => '+7 (861) 999-99-99',
         'email' => '@gk-stroygrad.ru',
     ],
     [
         'title' => 'Гукалов Андрей Александрович',
         'position' => 'Генеральный директор АН "Стройград"',
-        'image' => '/img/team-2.jpg',
+        'image' => 'default',
         'phone' => '+7 (861) 999-99-99',
         'email' => '@gk-stroygrad.ru',
     ],
     [
         'title' => 'Колосова Ольга Ивановна',
         'position' => 'Генеральный директор ООО "Стройград"',
-        'image' => '/img/team-2.jpg',
+        'image' => 'default',
         'phone' => '+7 (861) 999-99-99',
         'email' => '@gk-stroygrad.ru',
     ],
     [
         'title' => 'Гукалов Андрей Александрович',
         'position' => 'Генеральный директор АН "Стройград"',
-        'image' => '/img/team-2.jpg',
+        'image' => 'default',
         'phone' => '+7 (861) 999-99-99',
         'email' => '@gk-stroygrad.ru',
     ],
     [
         'title' => 'Колосова Ольга Ивановна',
         'position' => 'Генеральный директор ООО "Стройград"',
-        'image' => '/img/team-2.jpg',
+        'image' => 'default',
         'phone' => '+7 (861) 999-99-99',
         'email' => '@gk-stroygrad.ru',
     ],

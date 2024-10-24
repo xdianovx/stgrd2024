@@ -11,12 +11,12 @@ class AboutPageController extends Controller
 {
     public function index()
     {
-        $page = Page::whereSlug('o-kompanii')->firstOrFail();
-        $block_missions = Block::whereSlug('missiiastranica-o-kompanii')->firstOrFail();
-        $block_advantages = Block::whereSlug('preimushhestva-kompaniistranica-o-kompanii')->firstOrFail();
-        $block_maps = Block::whereSlug('karta-obieektovstranica-o-kompanii')->firstOrFail();
-        $block_companies = Block::whereSlug('predpriiatiia-gruppystranica-o-kompanii')->firstOrFail();
-        $block_managements = Block::whereSlug('rukovodstvostranica-o-kompanii')->firstOrFail();
+        $page = Page::whereId('o-kompanii')->firstOrFail();
+        $block_missions = Block::whereId(3)->firstOrFail();
+        $block_advantages = Block::whereId(4)->firstOrFail();
+        $block_maps = Block::whereId(6)->firstOrFail();
+        $block_companies = Block::whereId(5)->firstOrFail();
+        $block_managements = Block::whereId(8)->firstOrFail();
         $team = Management::take(5)->get();
         return view('about', compact(
             'page',

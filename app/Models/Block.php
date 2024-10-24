@@ -38,4 +38,8 @@ class Block extends Model
     {
       return $this->hasMany(LifeStroygrad::class);
     }
+    public function reviews()
+    {
+      return $this->hasMany(Review::class);
+    }
 }

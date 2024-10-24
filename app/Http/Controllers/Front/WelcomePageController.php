@@ -14,10 +14,10 @@ class WelcomePageController extends Controller
 {
   public function index()
   {
-    $page = Page::whereSlug('glavnaia')->firstOrFail();
-    $block_missions = Block::whereSlug('missiiastranica-glavnaia')->firstOrFail();
-    $block_advantages = Block::whereSlug('preimushhestva-kompaniistranica-glavnaia')->firstOrFail();
-    $block_life_stroygrads = Block::whereSlug('zizn-v-stroigradstranica-glavnaia')->firstOrFail();
+    $page = Page::whereId(1)->firstOrFail();
+    $block_missions = Block::whereId(1)->firstOrFail();
+    $block_advantages = Block::whereId(2)->firstOrFail();
+    $block_life_stroygrads = Block::whereId(7)->firstOrFail();
 
     return view('welcome', compact(
       'block_missions',

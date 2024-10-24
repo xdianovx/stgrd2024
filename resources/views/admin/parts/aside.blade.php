@@ -34,7 +34,8 @@
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $blocks_routes) ||
                       in_array(Route::current()->getName(), $advantages_routes) ||
                       in_array(Route::current()->getName(), $nums_routes) ||
-                      in_array(Route::current()->getName(), $company_routes)) active @endif"
+                      in_array(Route::current()->getName(), $company_routes) ||
+                      in_array(Route::current()->getName(), $reviews_routes)) active @endif"
                         href="{{ route('admin.blocks.index') }}" aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="mdi mdi-border-all"></i> <span
                             data-key="t-layouts">{{ __('admin.aside_title_blocks') }}</span>
