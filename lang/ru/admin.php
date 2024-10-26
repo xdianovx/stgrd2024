@@ -2,6 +2,15 @@
 
 return [
 
+  //Titles contacts
+  'aside_title_contacts' => 'Контакты',
+  'new_contact_card_title' => 'Новый контакт',
+  'edit_contact_card_title' => 'Изменить контакт',
+  'contact_card_title' => 'Контакт',
+  'contact_card_info' => 'Информация о контакте',
+  'review_card_title' => 'Отзывы',
+  'review_card_info' => 'Информация о записи отзыва',
+  'managements_card_info' => 'Информация о записи руководства',
   //Titles vacancies
   'aside_title_vacancies' => 'Вакансии',
   'new_vacanci_card_title' => 'Новая вакансия',
@@ -222,6 +231,15 @@ return [
   'field_duties'  => 'Обязанности',
   'field_terms'  => 'Условия',
   'field_reqs'  => 'Требования',
+  'field_office_type' => 'Тип офиса',
+  'field_longitude' => 'Долгота',
+  'field_latitude' => 'Широта',
+  'field_slider' => 'Бегущаяя строка',
+  'field_slider_off' => 'Бегущаяя строка(Откл)',
+  'field_slider_on' => 'Бегущаяя строка(Вкл)',
+  'on' => 'Вкл',
+  'off' => 'Откл',
+  'field_slider_question' => 'Добавить в бегущую строку',
   //Btns
   'btn_actions' => 'Действия',
   'select_display_block_false' => 'Блок отключен!',

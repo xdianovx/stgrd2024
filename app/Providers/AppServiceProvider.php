@@ -6,6 +6,7 @@ use App\Models\Advantage;
 use App\Models\Block;
 use App\Models\City;
 use App\Models\Company;
+use App\Models\Contact;
 use App\Models\Contacts;
 use App\Models\Document;
 use App\Models\Facilitie;

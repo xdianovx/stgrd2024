@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Promotion extends Model
 {
   use HasFactory;
-  protected $fillable = ['title','slug','image','description','content'];
+  protected $fillable = ['title','slug','image','description','content','cart_content','slider'];
   public static $promotions_routes = [
       'admin.promotions.index',
       'admin.promotions.search',
@@ -19,10 +19,5 @@ class Promotion extends Model
   public function getRouteKeyName()
   {
       return 'slug';
-  }
-  public function projects()
-  {
-      return $this->belongsToMany(Project::class);
-
   }
 }

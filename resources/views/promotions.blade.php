@@ -3,13 +3,13 @@
 
 @section('content')
     <main class="news-page" data-barba="container" data-barba-namespace="news">
-        {{ Breadcrumbs::render('news') }}
+        {{ Breadcrumbs::render('promotions') }}
 
         <section class="news-page-hero">
             <div class="container">
                 <div class="news-page-title__wrap">
-                    <h1 class="news-page-title">Новости</h1>
-                    <x-ui.link href="/promotions">Акции</x-ui.link>
+                    <h1 class="news-page-title">Акции</h1>
+                    <x-ui.link href="/news">Новости</x-ui.link>
                 </div>
             </div>
         </section>
@@ -24,24 +24,23 @@
                         <x-ui.dropdown placeholder="Год" :list="$status" />
                     </div> --}}
 
-                    <div class="news-catalog__filter_count">Найдено: {{$news->count()}}</div>
+                    <div class="news-catalog__filter_count">Найдено: {{$promotions->count()}}</div>
                 </div>
             </div>
 
             <div class="container">
                 <div class="news-cards">
-                    @foreach ($news as $item)
+                    @foreach ($promotions as $item)
                         @if ($loop->index < 6)
                             <x-news_card :slug="$item['slug']" :title="$item['title']" :description="$item['cart_content']" :created_at="$item['created_at']" />
                         @endif
                     @endforeach
                 </div>
             </div>
-
-            @if ($sliderNews->isNotEmpty())
+            @if ($sliderPromotions->isNotEmpty())
             <ul class="news-page__marquee ticker" data-speed="200" data-direction="left">
                 <li>
-                        @foreach ($sliderNews as $item)
+                        @foreach ($sliderPromotions as $item)
                                 <p>{{ $item['title'] }}</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="76" height="68" viewBox="0 0 76 68"
                                 fill="none">
@@ -68,10 +67,9 @@
                   </li>
               </ul>
               @endif
-
             <div class="container">
                 <div class="news-cards --second">
-                    @foreach ($news as $item)
+                    @foreach ($promotions as $item)
                         @if ($loop->index > 6)
                             <x-news_card :slug="$item['slug']" :title="$item['title']" :description="$item['description']" :created_at="$item['created_at']" />
                         @endif

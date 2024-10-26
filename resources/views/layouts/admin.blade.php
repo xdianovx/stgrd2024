@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Top Casino Admin</title>
+    <title>СТРОЙГРАД</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -37,27 +37,19 @@
                   <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0">Timeline</h4>
-
                             <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
-                                    <li class="breadcrumb-item active">Timeline</li>
-                                </ol>
                             </div>
-
                         </div>
                     </div>
                 </div>
                     <div class="row">
                         <div class="col-12">
-                            {{-- <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">{{preg_replace('#admin/|_|-#', ' ', Request::path())}}</h4>
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                 <div class="page-title-right">
                                   {{ Breadcrumbs::render() }}
                                 </div>
 
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
 

@@ -74,7 +74,9 @@ class VacancyController extends Controller
           $vacancies = Vacancy::orderBy('id', 'DESC')->paginate(10);
       else :
           $vacancies = Vacancy::where('title', 'ilike', '%' . request('search') . '%')
-          ->orWhere('slug', 'ilike', '%' . request('search') . '%')
+          ->orWhereHas('city', function($query) {
+              $query->where('title', 'ilike', '%' . request('search') . '%');
+          })
           ->paginate(10);
       endif;
       return view('admin.vacancies.index', compact('vacancies','user'));

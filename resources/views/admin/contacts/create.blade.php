@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.new_vacanci_card_title') }}</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">{{ __('admin.new_contact_card_title') }}</h4>
                     <div class="flex-shrink-0">
                       <div class="dropdown">
                           <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
@@ -16,7 +16,7 @@
 
                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1" style="">
                               <li>
-                                  <a type="button" class="dropdown-item" href="{{ route('admin.vacancies.index') }}">
+                                  <a type="button" class="dropdown-item" href="{{ route('admin.contacts.index') }}">
                                       <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                       {{ __('admin.btn_back') }}</a>
                               </li>
@@ -41,7 +41,7 @@
 
                 <div class="card-body">
                     <div class="live-preview">
-                        <form action="{{ route('admin.vacancies.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.contacts.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row gy-4">
 
@@ -56,18 +56,59 @@
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
-                                        <label for="expirienceInput" class="form-label">{{ __('admin.field_exp') }}
-                                            *</label>
-                                        <input type="text" value="{{ old('expirience') }}" class="form-control"
-                                            id="expirienceInput" name="expirience"
+                                        <label for="addressInput" class="form-label">{{ __('admin.field_address') }} *</label>
+                                        <input type="text" value="{{ old('address') }}" class="form-control"
+                                            id="addressInput" name="address"
                                             placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
-                                        <label for="salaryInput" class="form-label">{{ __('admin.field_salary') }} *</label>
-                                        <input type="text" value="{{ old('salary') }}" class="form-control"
-                                            id="salaryInput" name="salary"
+                                        <label for="phoneInput" class="form-label">{{ __('admin.field_phone') }} *</label>
+                                        <input type="text" value="{{ old('phone.0') }}" class="form-control"
+                                            id="phoneInput" name="phone[]" placeholder="{{ __('admin.placeholder_text') }}">
+                                        <div id="phones">
+                                            @if (old('phone'))
+                                                @foreach (old('phone') as $key => $phone)
+                                                    @if ($key > 0)
+                                                        <div class="mt-2">
+                                                            <input type="text" value="{{ $phone }}"
+                                                                class="form-control" name="phone[]"
+                                                                placeholder="{{ __('admin.placeholder_text') }}">
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                        <button type="button" class="btn btn-outline-primary mt-2" id="add_phone">
+                                            <i class="mdi mdi-plus"></i>
+                                        </button>
+                                        <script>
+                                            document.getElementById('add_phone').addEventListener('click', function() {
+                                                const phones = document.getElementById('phones');
+                                                const newPhone = document.createElement('div');
+                                                newPhone.classList.add('mt-2');
+                                                newPhone.innerHTML = `<input type="text" class="form-control" name="phone[]" placeholder="{{ __('admin.placeholder_text') }}">`;
+                                                phones.appendChild(newPhone);
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <label for="longitudeInput" class="form-label">{{ __('admin.field_longitude') }}
+                                            *</label>
+                                        <input type="text" value="{{ old('longitude') }}" class="form-control"
+                                            id="longitudeInput" name="longitude"
+                                            placeholder="{{ __('admin.placeholder_text') }}">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-md-6">
+                                    <div>
+                                        <label for="latitudeInput" class="form-label">{{ __('admin.field_latitude') }}
+                                            *</label>
+                                        <input type="text" value="{{ old('latitude') }}" class="form-control"
+                                            id="latitudeInput" name="latitude"
                                             placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
@@ -90,25 +131,7 @@
                                     </div>
                                 @endif
                             </div>
-
-                              <div class="mb-3">
-                                  <label class="form-label" for="basic-default-message">{{__('admin.field_duties')}}</label>
-                                  <textarea id="editor" class="form-control" name="duties" placeholder="{{__('admin.placeholder_text')}}"
-                                      style="height: 234px;">{{ old('duties') }}</textarea>
-                              </div>
-
-                              <div class="mb-3">
-                                <label class="form-label" for="basic-default-message">{{__('admin.field_terms')}}</label>
-                                <textarea id="editor" class="form-control" name="terms" placeholder="{{__('admin.placeholder_text')}}"
-                                    style="height: 234px;">{{ old('terms') }}</textarea>
-                              </div>
-
-                              <div class="mb-3">
-                                <label class="form-label" for="basic-default-message">{{__('admin.field_reqs')}}</label>
-                                <textarea id="editor" class="form-control" name="reqs" placeholder="{{__('admin.placeholder_text')}}"
-                                    style="height: 234px;">{{ old('reqs') }}</textarea>
-                              </div>
-                            </div>
+                          </div>
                             <button type="submit"
                                 class="btn btn-success waves-effect waves-light mt-5">{{ __('admin.btn_save') }}</button>
 
@@ -119,7 +142,5 @@
             </div>
         </div>
     </div>
-
-@include('admin.upload_script')
 
 @endsection

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlockController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\ConstructionStageController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\EditorImageUploadController;
 use App\Http\Controllers\Admin\FacilitieController;
@@ -25,8 +26,12 @@ use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\VacancyController;
 use App\Http\Controllers\Front\WelcomePageController;
 use App\Http\Controllers\Front\AboutPageController;
+use App\Http\Controllers\Front\ContactPageController;
+use App\Http\Controllers\Front\NewsPageController;
+use App\Http\Controllers\Front\PromotionPageController;
 use App\Http\Controllers\Front\TeamPageController;
 use App\Http\Controllers\Front\VacancyPageController;
+use App\Models\Promotion;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,21 +58,13 @@ Route::get('/projects/{slug}', function () {
 })->name('projects.view');
 
 
-Route::get('/news', function () {
-  return view('news');
-})->name('news');
+Route::get('/news',  [NewsPageController::class, 'index'])->name('news');
+Route::get('/news/{news_slug}', [NewsPageController::class, 'show'])->name('news.show');
+Route::post('/news/load-more', [NewsPageController::class, 'loadMore'])->name('news.loadMore');
 
-Route::get('/news/{id}', function () {
-  return view('singlenews');
-})->name('news.view');
-
-Route::get('/stock', function () {
-  return view('stock');
-})->name('stock');
-
-Route::get('/stock/{slug}', function () {
-  return view('singlestock');
-})->name('stock.view');
+Route::get('/promotions',  [PromotionPageController::class, 'index'])->name('promotions');
+Route::get('/promotions/{promotion_slug}', [PromotionPageController::class, 'show'])->name('promotion.show');
+Route::post('/promotions/load-more', [PromotionPageController::class, 'loadMore'])->name('promotions.loadMore');
 
 
 Route::get('/team', [TeamPageController::class, 'index'])->name('team');
@@ -75,9 +72,7 @@ Route::get('/team', [TeamPageController::class, 'index'])->name('team');
 Route::get('/vacancy',  [VacancyPageController::class, 'index'])->name('vacancy');
 Route::get('/vacancy/{citySlug}', [VacancyPageController::class, 'filterByCity'])->name('vacancy.filterByCity');
 
-Route::get('/contacts', function () {
-  return view('contacts');
-})->name('contacts');
+Route::get('/contacts',  [ContactPageController::class, 'index'])->name('contacts');
 
 
 
@@ -171,6 +166,17 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
       Route::get('/{vacanci_slug}/edit', [VacancyController::class, 'edit'])->name('edit');
       Route::patch('/{vacanci_slug}', [VacancyController::class, 'update'])->name('update');
       Route::delete('/{vacanci_slug}', [VacancyController::class, 'destroy'])->name('destroy');
+  });
+
+  Route::name('contacts.')->prefix('contacts')->group(function () {
+      Route::get('/', [ContactController::class, 'index'])->name('index');
+      Route::get('/search', [ContactController::class, 'search'])->name('search');
+      Route::get('/create', [ContactController::class, 'create'])->name('create');
+      Route::post('/store', [ContactController::class, 'store'])->name('store');
+      Route::get('/{contact}', [ContactController::class, 'show'])->name('show');
+      Route::get('/{contact}/edit', [ContactController::class, 'edit'])->name('edit');
+      Route::patch('/{contact}', [ContactController::class, 'update'])->name('update');
+      Route::delete('/{contact}', [ContactController::class, 'destroy'])->name('destroy');
   });
 
   Route::name('cities.')->prefix('cities')->group(function () {

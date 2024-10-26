@@ -19,16 +19,28 @@ class UpdateRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Поле Название должно быть заполнено',
+            'title.max' => 'Поле Название должно содержать не более :max символов',
+            'image.max' => 'Размер изображения не должен превышать 200 Мбайт',
+            'image.image' => 'Изображение должно быть файлом изображения',
+            'image.mimes' => 'Формат изображения не поддерживается',
+            'description.required' => 'Поле Описание должно быть заполнено',
+            'content.required' => 'Поле Содержание должно быть заполнено',
+            'cart_content.required' => 'Поле Содержание должно быть заполнено'
+        ];
+    }
     public function rules(): array
     {
         return [
-          'title' => ['required', 'max:70'],
-          'image' => 'nullable|image|max:10000',
-          'slug' => ['required', 'max:70'],
-          'description'  => ['nullable'],
-          'content' => ['nullable'],
-          'projects' => 'nullable|array',
-          'projects.*' => 'nullable|string|exists:projects,title',
+            'title' => ['required', 'max:240'],
+            'slider' => ['nullable'],
+            'image' => ['nullable', 'image', 'max:200000', 'mimes:jpeg,png,jpg,gif,svg'],
+            'description'  => ['nullable'],
+            'content' => ['required'],
+            'cart_content' => ['required']
         ];
     }
 }

@@ -62,6 +62,7 @@
                                         <th scope="col" style="width: 80px;">{{__('admin.field_image')}}</th>
                                         <th scope="col">{{__('admin.field_title')}}</th>
                                         <th scope="col">{{__('admin.field_slug')}}</th>
+                                        <th scope="col" style="width: 150px;">{{__('admin.field_slider')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_updated')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_action')}}</th>
                                     </tr>
@@ -81,6 +82,7 @@
                                             </td>
                                             <td><a href="{{ route('admin.promotions.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
+                                            <td>{{ $item->slider == 1 ? __('admin.on') : __('admin.off') }}</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
 

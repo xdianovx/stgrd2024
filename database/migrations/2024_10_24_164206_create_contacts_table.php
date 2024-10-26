@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('office_type');
             $table->string('address');
-            $table->string('phone');
+            $table->text('phone');
             $table->string('longitude');
             $table->string('latitude');
             $table->foreignId('city_id');

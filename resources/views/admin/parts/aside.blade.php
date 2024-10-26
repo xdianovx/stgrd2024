@@ -49,11 +49,20 @@
                       <i class="mdi mdi-human-queue"></i> <span data-key="t-layouts">{{__('admin.aside_title_managements')}}</span>
                   </a>
                 </li>
+
                 <li class="nav-item">
                   <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $vacancies_routes)) active @endif"
                       href="{{ route('admin.vacancies.index') }}" aria-expanded="false"
                       aria-controls="sidebarLayouts">
                       <i class="mdi mdi-chair-rolling"></i> <span data-key="t-layouts">{{__('admin.aside_title_vacancies')}}</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $contact_routes)) active @endif"
+                      href="{{ route('admin.contacts.index') }}" aria-expanded="false"
+                      aria-controls="sidebarLayouts">
+                      <i class="mdi mdi-contacts"></i> <span data-key="t-layouts">{{__('admin.aside_title_contacts')}}</span>
                   </a>
                 </li>
                 {{-- <li class="nav-item">

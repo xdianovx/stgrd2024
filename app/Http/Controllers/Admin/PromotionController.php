@@ -9,7 +9,7 @@ use App\Models\Project;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PromotionController extends Controller
 {
@@ -36,14 +36,15 @@ class PromotionController extends Controller
   public function store(StoreRequest $request)
   {
       $data = $request->validated();
-      $split_data = $this->cutArraysFromRequest($data);
-      $data = $split_data['data'];
+      if (!array_key_exists('slider', $data)) {
+          $data['slider'] = '0';
+      }
+      $data['slug'] = Str::slug($data['title'] . '-' . now()->format('d-m-Y'));
       if ($request->hasFile('image')) :
           $data['image'] = $this->loadFile($request, $data,'image');
       endif;
 
       $promotion = Promotion::firstOrCreate($data);
-      $this->writeDataToTable($promotion, $split_data['projectsIds']);
 
       return redirect()->route('admin.promotions.index')->with('status', 'item-created');
   }
@@ -59,15 +60,14 @@ class PromotionController extends Controller
   {
     $promotion = Promotion::whereSlug($promotion_slug)->firstOrFail();
     $data = $request->validated();
-
-    $split_data = $this->cutArraysFromRequest($data);
-    $data = $split_data['data'];
+    if (!array_key_exists('slider', $data)) {
+      $data['slider'] = '0';
+  }
+    $data['slug'] = Str::slug($data['title'] . '-' . now()->format('d-m-Y'));
     if ($request->hasFile('image')) :
         $data['image'] = $this->loadFile($request, $data,'image');
     endif;
     $promotion->update($data);
-
-    $this->writeDataToTable($promotion, $split_data['projectsIds']);
 
     return redirect()->route('admin.promotions.index')->with('status', 'item-updated');
   }
@@ -94,19 +94,6 @@ class PromotionController extends Controller
       return view('admin.promotions.index', compact('promotions', 'user'));
   }
 
-  protected function cutArraysFromRequest($data)
-  {
-
-      if (isset($data['projects'])) :
-          $projectsIds = $data['projects'];
-          unset($data['projects']);
-      endif;
-      return [
-          'data' => $data,
-          'projectsIds' => $projectsIds ?? null,
-      ];
-  }
-
   protected function loadFile(Request $request, $data, $key)
   {
     $filenameWithExt = $request->file($key)->getClientOriginalName();
@@ -116,19 +103,5 @@ class PromotionController extends Controller
     $fileNameToStore = $key . "/" . $filename . "_" . time() . "." . $extention;
     $data = $request->file($key)->storeAs('public', $fileNameToStore);
     return $data;
-  }
-  protected function writeDataToTable($item, $projectsIds)
-  {
-      if (isset($projectsIds)) :
-          foreach ($projectsIds as $key => $value) :
-              $projects_id = DB::table('projects')
-                  ->where('title', $value)
-                  ->first()->id;
-              $projectsIds[$key] = $projects_id;
-          endforeach;
-          $item->projects()->sync($projectsIds);
-      else:
-          $item->projects()->sync($projectsIds);
-      endif;
   }
 }

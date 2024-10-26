@@ -1,32 +1,3 @@
-@php
-  $data = [
-      [
-          'type' => 'Филиал',
-          'city' => 'Ростов-на-Дону',
-          'phones' => ['8 (8652) 23 01 33'],
-          'address' => 'г. Ставрополь, ул. Чапаева, 4/1',
-      ],
-      [
-          'type' => 'Филиал',
-          'city' => 'Краснодар',
-          'phones' => ['8 (8652) 23 01 33'],
-          'address' => 'г. Ставрополь, ул. Чапаева, 4/1',
-      ],
-      [
-          'type' => 'Филиал',
-          'city' => 'Новоросийск',
-          'phones' => ['8 (8652) 23 01 33'],
-          'address' => 'г. Ставрополь, ул. Чапаева, 4/1',
-      ],
-      [
-          'type' => 'Филиал',
-          'city' => 'Воронеж',
-          'phones' => ['8 (8652) 23 01 33'],
-          'address' => 'г. Ставрополь, ул. Чапаева, 4/1',
-      ],
-  ];
-@endphp
-
 @extends('layouts.main')
 
 @section('content')
@@ -38,7 +9,7 @@
         <div class="contacts__hero_wrap">
           <p>Главный офис</p>
           <div class="contacts__title_wrap">
-            <h1 class="contacts__title">Ставрополь</h1>
+            <h1 class="contacts__title">{{ $contact_main_management_department->city->title }}</h1>
             <x-ui.circle-btn class="--pin">
               <svg width="19" height="26" viewBox="0 0 19 26" fill="#767676">
                 <path
@@ -64,20 +35,21 @@
       <div class="hero__info">
         <div class="container">
           <div class="hero__info_wrap">
-            <h3 class="hero__info_title">Отдел продаж</h3>
+            <h3 class="hero__info_title">{{ $contact_main_management_department->title }}</h3>
 
             <div class="hero__info_item">
               <p class="hero__info_item_label">Адрес:</p>
               <div class="hero__info_item_wrap">
-                <p>г. Ставрополь, ул. Чапаева, 4/1</p>
+                <p>{{$contact_main_management_department->address}}</p>
               </div>
             </div>
 
             <div class="hero__info_item">
               <p class="hero__info_item_label">Телефон:</p>
               <div class="hero__info_item_wrap">
-                <a href="tel:8 (8652)-23-90-33">8 (8652)-23-90-33</a>
-                <a href="tel:8 (918) 948-85-92">8 (918) 948-85-92</a>
+                @foreach (json_decode($contact_main_management_department->phone, true) as $phone)
+                  <a href="tel:{{ $phone }}">{{ $phone }}</a>
+                @endforeach
               </div>
             </div>
           </div>
@@ -89,19 +61,21 @@
       <div class="hero__info">
         <div class="container">
           <div class="hero__info_wrap">
-            <h3 class="hero__info_title">Представительство</h3>
+            <h3 class="hero__info_title">{{ $contact_main_representation->title }}</h3>
 
             <div class="hero__info_item">
               <p class="hero__info_item_label">Адрес:</p>
               <div class="hero__info_item_wrap">
-                <p>г. Ставрополь, ул. Чапаева, 4/1</p>
+                <p>{{$contact_main_representation->address}}}</p>
               </div>
             </div>
 
             <div class="hero__info_item">
               <p class="hero__info_item_label">Телефон:</p>
               <div class="hero__info_item_wrap">
-                <a href="tel:8 (8652) 23 01 33">8 (8652) 23 01 33</a>
+                @foreach (json_decode($contact_main_representation->phone, true) as $phone)
+                  <a href="tel:{{ $phone }}">{{ $phone }}</a>
+                @endforeach
               </div>
             </div>
           </div>
@@ -111,9 +85,9 @@
     </section>
 
     <section class="contacts__list">
-      @foreach ($data as $item)
-        <x-contacts_item :type="$item['type']" :city="$item['city']" :phones="$item['phones']"
-                         :address="$item['address']"/>
+      @foreach ($contacts_branch as $item)
+        <x-contacts_item :title="$item->title" :type="$item->office_type" :city="$item->city->title" :phones="$item->phone"
+                         :address="$item->address" :latitude="$item->latitude" :longtitude="$item->longitude"/>
       @endforeach
       <div class="container"></div>
     </section>

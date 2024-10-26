@@ -44,19 +44,19 @@
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
                                     {{$user->name}}
                                 </span>
-                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Admin</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Администратор</span>
                             </span>
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <h6 class="dropdown-header">Welcome!</h6>
-                       
+                        <h6 class="dropdown-header">Добро пожаловать!</h6>
+
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a class="dropdown-item" href="#" onclick="this.parentNode.submit()"><i
                                     class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                    class="align-middle" data-key="t-logout">Logout</span></a>
+                                    class="align-middle" data-key="t-logout">Выйти</span></a>
                         </form>
                     </div>
                 </div>

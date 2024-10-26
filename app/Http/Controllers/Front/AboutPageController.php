@@ -11,7 +11,7 @@ class AboutPageController extends Controller
 {
     public function index()
     {
-        $page = Page::whereId('o-kompanii')->firstOrFail();
+        $page = Page::whereId(2)->firstOrFail();
         $block_missions = Block::whereId(3)->firstOrFail();
         $block_advantages = Block::whereId(4)->firstOrFail();
         $block_maps = Block::whereId(6)->firstOrFail();

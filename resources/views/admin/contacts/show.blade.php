@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-4">
                         <div class="flex-grow-1">
-                            <h3 class="card-header align-items-center d-flex">{{ __('admin.news_card_title') }}:
+                            <h3 class="card-header align-items-center d-flex">{{ __('admin.contact_card_title') }}:
                                 {{ $item->title }}</h3>
                         </div>
                         <div class="flex-shrink-0">
@@ -20,19 +20,21 @@
 
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
+
+
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ route('admin.news.index') }}">
+                                        <a type="button" class="dropdown-item" href="{{ route('admin.contacts.index') }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
 
-                                    <li><a href="{{ route('admin.news.edit', $item->slug) }}"
+                                    <li><a href="{{ route('admin.contacts.edit', $item->id) }}"
                                             class="dropdown-item edit-item-btn"><i
                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_edit') }}</a></li>
                                     <li>
                                         <button type="submit" class="dropdown-item text-danger" data-bs-toggle="modal"
-                                            data-bs-target="#modalScrollable{{ $item->slug }}"><i
+                                            data-bs-target="#modalScrollable{{ $item->id }}"><i
                                                 class="bx bx-trash me-1 text-danger" role="button"></i>
                                             {{ __('admin.btn_delete') }}</button>
                                     </li>
@@ -40,54 +42,12 @@
                             </div>
                         </div>
                     </div>
-
-                    @if ($item->description)
-                        <h5 class="text-muted">{{ __('admin.field_text_large') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->description !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
-
-                    @if ($item->cart_content)
-                        <h5 class="text-muted">{{ __('admin.field_text_card') }}:</h5>
-                        <div class="table-responsive">
-                            <table class="table table-borderless mb-0">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-muted">{!! $item->cart_content !!}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                    @endif
-
-                    @if ($item->content)
-                    <h5 class="text-muted">{{ __('admin.field_text') }}:</h5>
-                    <div class="table-responsive">
-                        <table class="table table-borderless mb-0">
-                            <tbody>
-                                <tr>
-                                    <td class="text-muted">{!! $item->content !!}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                @else
-                @endif
                 </div>
                 <!--end card-body-->
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-header align-items-center d-flex">{{ __('admin.news_card_info') }}</h5>
+                    <h5 class="card-header align-items-center d-flex">{{ __('admin.category_card_info') }}</h5>
                     <div class="table-responsive">
                         <table class="table table-borderless mb-0">
                             <tbody>
@@ -100,13 +60,32 @@
                                     <td class="text-muted">{{ $item->title }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_slider') }}:</th>
-                                    <td class="text-muted">{{ $item->slider == 1 ? __('admin.field_slider_on') : __('admin.field_slider_off') }}</td>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_office_type') }}:</th>
+                                    <td class="text-muted">{{ $item->office_type == 'main' ? 'Главный офис' : 'Филиал' }}</td>
                                 </tr>
-
                                 <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
-                                    <td class="text-muted">{{ $item->slug }}</td>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_address') }}:</th>
+                                    <td class="text-muted">{{ $item->address }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_phone') }}:</th>
+                                    <td class="text-muted">
+                                        @foreach (json_decode($item->phone, true) as $phone)
+                                            <p>{{ $phone }}</p>
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_longitude') }}:</th>
+                                    <td class="text-muted">{{ $item->longitude }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_latitude') }}:</th>
+                                    <td class="text-muted">{{ $item->latitude }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_city') }}:</th>
+                                    <td class="text-muted">{{ $item->city->title }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_created') }}:</th>
@@ -117,7 +96,7 @@
                                     <td class="text-muted">{{ $item->updated_at }}</td>
                                 </tr>
 
-                                <div class="modal fade" id="modalScrollable{{ $item->slug }}" tabindex="-1"
+                                <div class="modal fade" id="modalScrollable{{ $item->id }}" tabindex="-1"
                                     style="display: none;" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
@@ -138,7 +117,7 @@
                                                     data-bs-dismiss="modal">
                                                     {{ __('admin.btn_close') }}
                                                 </button>
-                                                <form action="{{ route('admin.news.destroy', $item->slug) }}"
+                                                <form action="{{ route('admin.contacts.destroy', $item->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -157,20 +136,5 @@
                 </div><!-- end card body -->
             </div>
         </div>
-        @if (!empty($item->image))
-            <div class="col-xxl-6">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
-                        <div class="live-preview">
-                            <div>
-                                <img src="{{ Storage::url($item->image) }}" class="img-fluid" alt="Responsive image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @else
-        @endif
     </div>
 @endsection

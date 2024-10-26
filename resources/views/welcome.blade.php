@@ -10,7 +10,9 @@
         <x-section.mission :item="$block_missions" />
         @endif
         <x-section.projects />
-        <x-section.offers_slider />
+        @if ($promotions->count() > 0)
+        <x-section.offers_slider :promotions="$promotions" />
+        @endif
         <x-section.marquee />
         @if ($block_advantages->active == TRUE)
         <x-section.features :item="$block_advantages" />

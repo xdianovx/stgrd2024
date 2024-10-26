@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('title_left');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->boolean('active');
             $table->text('text_large')->nullable();
             $table->text('description')->nullable();

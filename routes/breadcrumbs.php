@@ -1,5 +1,16 @@
 <?php
 
+use App\Models\Advantage;
+use App\Models\Block;
+use App\Models\Company;
+use App\Models\Contact;
+use App\Models\LifeStroygrad;
+use App\Models\Management;
+use App\Models\News;
+use App\Models\Number;
+use App\Models\Page;
+use App\Models\Promotion;
+use App\Models\Vacancy;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
@@ -28,19 +39,21 @@ Breadcrumbs::for('news', function (BreadcrumbTrail $trail) {
     $trail->push('Новости', route('news'));
 });
 
-Breadcrumbs::for('newssingle', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('news.show', function (BreadcrumbTrail $trail, $news_slug) {
     $trail->parent('news');
-    $trail->push('Название новости', route('news.view', 'asd'));
+    $news = News::whereSlug($news_slug)->firstOrFail();
+    $trail->push($news->title, route('news.show', $news_slug));
 });
 
-Breadcrumbs::for('stock', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('promotions', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Акции', route('stock'));
+    $trail->push('Акции', route('promotions'));
 });
 
-Breadcrumbs::for('stocksingle', function (BreadcrumbTrail $trail) {
-    $trail->parent('stock');
-    $trail->push('Название акции', route('news.view', 'asd'));
+Breadcrumbs::for('promotions.show', function (BreadcrumbTrail $trail, $promotion_slug) {
+    $trail->parent('promotions');
+    $promotion = Promotion::whereSlug($promotion_slug)->firstOrFail();
+    $trail->push($promotion->title, route('promotions.show', $promotion_slug));
 });
 
 
@@ -60,14 +73,223 @@ Breadcrumbs::for('team', function (BreadcrumbTrail $trail) {
     $trail->push('Руководство', route('team'));
 });
 
-// Home > Blog
-//Breadcrumbs::for('blog', function (BreadcrumbTrail $trail) {
-//    $trail->parent('home');
-//    $trail->push('Blog', route('blog'));
-//});
-//
-//// Home > Blog > [Category]
-//Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
-//    $trail->parent('blog');
-//    $trail->push($category->title, route('category', $category));
-//});
+Breadcrumbs::for('admin.index', function (BreadcrumbTrail $trail) {
+    $trail->push('Административная панель', route('admin.index'));
+});
+Breadcrumbs::for('admin.pages.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Страницы', route('admin.pages.index'));
+});
+
+Breadcrumbs::for('admin.pages.show', function (BreadcrumbTrail $trail, $page_slug) {
+    $trail->parent('admin.pages.index');
+    $page = Page::whereSlug($page_slug)->firstOrFail();
+    $trail->push($page->title, route('admin.pages.show', $page_slug));
+});
+
+Breadcrumbs::for('admin.pages.edit', function (BreadcrumbTrail $trail, $page_slug) {
+    $trail->parent('admin.pages.show', $page_slug);
+    $trail->push('Редактирование', route('admin.pages.edit', $page_slug));
+});
+
+Breadcrumbs::for('admin.blocks.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Блоки', route('admin.blocks.index'));
+});
+
+Breadcrumbs::for('admin.blocks.show', function (BreadcrumbTrail $trail, $block_slug) {
+    $trail->parent('admin.blocks.index');
+    $block = Block::whereSlug($block_slug)->firstOrFail();
+    $trail->push($block->title, route('admin.blocks.show', $block_slug));
+});
+
+Breadcrumbs::for('admin.blocks.edit', function (BreadcrumbTrail $trail, $block_slug) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $trail->push('Редактировать блок', route('admin.blocks.edit', $block_slug));
+});
+
+Breadcrumbs::for('admin.blocks.number_create', function (BreadcrumbTrail $trail, $block_slug) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $trail->push('Создать число', route('admin.blocks.number_create', $block_slug));
+});
+
+Breadcrumbs::for('admin.blocks.number_show', function (BreadcrumbTrail $trail, $block_slug, $number) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $num = Number::whereId($number)->firstOrFail();
+    $trail->push($num->title, route('admin.blocks.number_show', [$block_slug, $number]));
+});
+
+Breadcrumbs::for('admin.blocks.number_edit', function (BreadcrumbTrail $trail, $block_slug, $number) {
+    $trail->parent('admin.blocks.number_show', $block_slug, $number);
+    $trail->push('Редактировать число', route('admin.blocks.number_edit', [$block_slug, $number]));
+});
+
+Breadcrumbs::for('admin.blocks.advantage_create', function (BreadcrumbTrail $trail, $block_slug) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $trail->push('Создать преимущество', route('admin.blocks.advantage_create', $block_slug));
+});
+
+Breadcrumbs::for('admin.blocks.advantage_show', function (BreadcrumbTrail $trail, $block_slug, $advantage) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $advantage = Advantage::whereId($advantage)->firstOrFail();
+    $trail->push($advantage->title, route('admin.blocks.advantage_show', [$block_slug, $advantage]));
+});
+
+Breadcrumbs::for('admin.blocks.advantage_edit', function (BreadcrumbTrail $trail, $block_slug, $advantage) {
+    $trail->parent('admin.blocks.advantage_show', $block_slug, $advantage);
+    $trail->push('Редактировать преимущество', route('admin.blocks.advantage_edit', [$block_slug, $advantage]));
+});
+
+Breadcrumbs::for('admin.blocks.company_create', function (BreadcrumbTrail $trail, $block_slug) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $trail->push('Создать компанию', route('admin.blocks.company_create', $block_slug));
+});
+
+Breadcrumbs::for('admin.blocks.company_show', function (BreadcrumbTrail $trail, $block_slug, $company) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $company = Company::whereId($company)->firstOrFail();
+    $trail->push($company->title, route('admin.blocks.company_show', [$block_slug, $company]));
+});
+
+Breadcrumbs::for('admin.blocks.company_edit', function (BreadcrumbTrail $trail, $block_slug, $company) {
+    $trail->parent('admin.blocks.company_show', $block_slug, $company);
+    $trail->push('Редактировать компанию', route('admin.blocks.company_edit', [$block_slug, $company]));
+});
+
+Breadcrumbs::for('admin.blocks.life_stroygrad_card_create', function (BreadcrumbTrail $trail, $block_slug) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $trail->push('Создать карту Life Stroygrad', route('admin.blocks.life_stroygrad_card_create', $block_slug));
+});
+
+Breadcrumbs::for('admin.blocks.life_stroygrad_card_show', function (BreadcrumbTrail $trail, $block_slug, $life_stroygrad_card) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $life_stroygrad_card = LifeStroygrad::whereId($life_stroygrad_card)->firstOrFail();
+    $trail->push($life_stroygrad_card->title, route('admin.blocks.life_stroygrad_card_show', [$block_slug, $life_stroygrad_card]));
+});
+
+Breadcrumbs::for('admin.blocks.life_stroygrad_card_edit', function (BreadcrumbTrail $trail, $block_slug, $life_stroygrad_card) {
+    $trail->parent('admin.blocks.life_stroygrad_card_show', $block_slug, $life_stroygrad_card);
+    $trail->push('Редактировать карту Life Stroygrad', route('admin.blocks.life_stroygrad_card_edit', [$block_slug, $life_stroygrad_card]));
+});
+
+Breadcrumbs::for('admin.blocks.review_create', function (BreadcrumbTrail $trail, $block_slug) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $trail->push('Создать отзыв', route('admin.blocks.review_create', $block_slug));
+});
+
+Breadcrumbs::for('admin.blocks.review_show', function (BreadcrumbTrail $trail, $block_slug, $review) {
+    $trail->parent('admin.blocks.show', $block_slug);
+    $review = News::whereId($review)->firstOrFail();
+    $trail->push($review->title, route('admin.blocks.review_show', [$block_slug, $review]));
+});
+
+Breadcrumbs::for('admin.blocks.review_edit', function (BreadcrumbTrail $trail, $block_slug, $review) {
+    $trail->parent('admin.blocks.review_show', $block_slug, $review);
+    $trail->push('Редактировать отзыв', route('admin.blocks.review_edit', [$block_slug, $review]));
+});
+
+
+Breadcrumbs::for('admin.managements.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Руководство', route('admin.managements.index'));
+});
+
+Breadcrumbs::for('admin.managements.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.managements.index');
+    $trail->push('Создать новую запись', route('admin.managements.create'));
+});
+
+Breadcrumbs::for('admin.managements.show', function (BreadcrumbTrail $trail, $management) {
+    $trail->parent('admin.managements.index');
+    $management = Management::whereId($management)->firstOrFail();
+    $trail->push($management->title, route('admin.managements.show', $management));
+});
+
+Breadcrumbs::for('admin.managements.edit', function (BreadcrumbTrail $trail, $management) {
+    $trail->parent('admin.managements.show', $management);
+    $trail->push('Редактировать запись', route('admin.managements.edit', $management));
+});
+
+Breadcrumbs::for('admin.vacancies.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Вакансии', route('admin.vacancies.index'));
+});
+
+Breadcrumbs::for('admin.vacancies.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.vacancies.index');
+    $trail->push('Создать вакансию', route('admin.vacancies.create'));
+});
+
+Breadcrumbs::for('admin.vacancies.show', function (BreadcrumbTrail $trail, $vacanci_slug) {
+    $trail->parent('admin.vacancies.index');
+    $vacanci = Vacancy::whereSlug($vacanci_slug)->firstOrFail();
+    $trail->push($vacanci->title, route('admin.vacancies.show', $vacanci_slug));
+});
+
+Breadcrumbs::for('admin.vacancies.edit', function (BreadcrumbTrail $trail, $vacanci_slug) {
+    $trail->parent('admin.vacancies.show', $vacanci_slug);
+    $trail->push('Редактировать вакансию', route('admin.vacancies.edit', $vacanci_slug));
+});
+
+Breadcrumbs::for('admin.contacts.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Контакты', route('admin.contacts.index'));
+});
+
+Breadcrumbs::for('admin.contacts.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.contacts.index');
+    $trail->push('Создать контакт', route('admin.contacts.create'));
+});
+
+Breadcrumbs::for('admin.contacts.show', function (BreadcrumbTrail $trail, $contact) {
+    $trail->parent('admin.contacts.index');
+    $contact = Contact::whereId($contact)->firstOrFail();
+    $trail->push($contact->title, route('admin.contacts.show', $contact));
+});
+
+Breadcrumbs::for('admin.contacts.edit', function (BreadcrumbTrail $trail, $contact) {
+    $trail->parent('admin.contacts.show', $contact);
+    $trail->push('Редактировать контакт', route('admin.contacts.edit', $contact));
+});
+
+Breadcrumbs::for('admin.promotions.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Акции', route('admin.promotions.index'));
+});
+
+Breadcrumbs::for('admin.promotions.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.promotions.index');
+    $trail->push('Создать акцию', route('admin.promotions.create'));
+});
+
+Breadcrumbs::for('admin.promotions.show', function (BreadcrumbTrail $trail, $promotion) {
+    $trail->parent('admin.promotions.index');
+    $promotion = Promotion::whereSlug($promotion)->firstOrFail();
+    $trail->push($promotion->title, route('admin.promotions.show', $promotion));
+});
+
+Breadcrumbs::for('admin.promotions.edit', function (BreadcrumbTrail $trail, $promotion) {
+    $trail->parent('admin.promotions.show', $promotion);
+    $trail->push('Редактировать акцию', route('admin.promotions.edit', $promotion));
+});
+
+Breadcrumbs::for('admin.news.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Новости', route('admin.news.index'));
+});
+
+Breadcrumbs::for('admin.news.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.news.index');
+    $trail->push('Создать новость', route('admin.news.create'));
+});
+
+Breadcrumbs::for('admin.news.show', function (BreadcrumbTrail $trail, $news) {
+    $trail->parent('admin.news.index');
+    $news = News::whereSlug($news)->firstOrFail();
+    $trail->push($news->title, route('admin.news.show', $news));
+});
+
+Breadcrumbs::for('admin.news.edit', function (BreadcrumbTrail $trail, $news) {
+    $trail->parent('admin.news.show', $news);
+    $trail->push('Редактировать новость', route('admin.news.edit', $news));
+});

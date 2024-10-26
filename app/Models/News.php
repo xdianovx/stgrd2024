@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','slug','image','description','content'];
+    protected $fillable = ['title','slug','image','description','content','cart_content','slider'];
     public static $news_routes = [
         'admin.news.index',
         'admin.news.search',
@@ -21,8 +21,4 @@ class News extends Model
         return 'slug';
     }
 
-    public function projects()
-    {
-      return $this->belongsToMany(Project::class, 'project_news', 'news_id', 'project_id');
-    }
 }

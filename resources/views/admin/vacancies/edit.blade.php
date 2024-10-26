@@ -72,15 +72,22 @@
                                 </div>
 
                                 <div class="col-xxl-6 col-md-6">
-                                  <div>
-                                      <label for="cityInput" class="form-label">{{__('admin.field_city')}}*</label>
-                                      <select class="form-select" id="cityInput" name="city_id">
+                                  <label for="valueInput" class="form-label">{{__('admin.field_city')}} *</label>
+                                  @if (!count($cities) == 0)
+                                      <select type="text" data-choices class="form-control" name="city_id"
+                                          id="valueInput">
                                           @foreach ($cities as $city)
-                                              <option value="{{ $city->id }}" {{ $item->city_id == $city->id ? 'selected' : '' }}>{{ $city->title }}</option>
+                                              <option value="{{ $city->title }}"
+                                                {{ $item->city_id == $city->id ? 'selected' : '' }}>
+                                                  {{ $city->title }}
+                                              </option>
                                           @endforeach
                                       </select>
-                                  </div>
-
+                                  @else
+                                      <div class="text-danger">
+                                          {{__('admin.notification_no_entries_cities')}}
+                                      </div>
+                                  @endif
                               </div>
 
                                 <div class="col-xxl-12 col-md-12">

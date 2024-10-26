@@ -52,10 +52,6 @@ class Project extends Model
   {
     return $this->hasMany(ProjectBlock::class);
   }
-  public function news()
-  {
-      return $this->belongsToMany(News::class, 'project_news', 'project_id', 'news_id');
-  }
   public function promotions()
   {
       return $this->belongsToMany(Promotion::class);

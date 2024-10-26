@@ -55,13 +55,13 @@
                     @else
                     @endif
 
-                    @if ($item->content)
+                    @if ($item->cart_content)
                         <h5 class="text-muted">{{ __('admin.field_text_card') }}:</h5>
                         <div class="table-responsive">
                             <table class="table table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td class="text-muted">{!! $item->content !!}</td>
+                                        <td class="text-muted">{!! $item->cart_content !!}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -69,12 +69,25 @@
                     @else
                     @endif
 
+                    @if ($item->content)
+                    <h5 class="text-muted">{{ __('admin.field_text') }}:</h5>
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted">{!! $item->content !!}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                @else
+                @endif
                 </div>
                 <!--end card-body-->
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-header align-items-center d-flex">{{ __('admin.promotions_card_info') }}</h5>
+                    <h5 class="card-header align-items-center d-flex">{{ __('admin.promotion_card_info') }}</h5>
                     <div class="table-responsive">
                         <table class="table table-borderless mb-0">
                             <tbody>
@@ -86,6 +99,11 @@
                                     <th class="ps-0" scope="row">{{ __('admin.field_title') }}:</th>
                                     <td class="text-muted">{{ $item->title }}</td>
                                 </tr>
+                                <tr>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_slider') }}:</th>
+                                    <td class="text-muted">{{ $item->slider == 1 ? __('admin.field_slider_on') : __('admin.field_slider_off') }}</td>
+                                </tr>
+
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
                                     <td class="text-muted">{{ $item->slug }}</td>
@@ -137,17 +155,6 @@
 
                     </div>
                 </div><!-- end card body -->
-                <div class="card-body">
-                  <h5 class="card-title mb-4">{{__('admin.aside_title_projects')}}:</h5>
-                  <div class="d-flex flex-wrap gap-2 fs-16">
-                      @forelse ($item->projects as $project)
-                          <a href="{{ route('admin.projects.show', $project->id) }}"
-                              class="badge bg-primary-subtle text-primary">{{ $project->title }}</a>
-                      @empty
-                          <div class="text-danger">{{__('admin.notification_no_entries')}}</div>
-                      @endforelse
-                  </div>
-              </div>
             </div>
         </div>
         @if (!empty($item->image))

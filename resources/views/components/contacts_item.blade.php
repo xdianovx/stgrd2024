@@ -1,9 +1,9 @@
-@props(['type', 'city', 'phones', 'address', 'latitude', 'longtitude'])
+@props(['title', 'type', 'city', 'phones', 'address', 'latitude', 'longtitude'])
 
-<div class="contacts-item" data-latitude="42.018706" data-longtitude="45.078537">
+<div class="contacts-item" data-latitude="{{ $latitude }}" data-longtitude="{{ $longtitude }}">
     <div class="container">
         <div class="contacts-item__top">
-            <p class="contacts-item__type">{{ $type }}</p>
+            <p class="contacts-item__type">{{ $type === 'branch' ? 'Филиал' : '' }}</p>
 
             <div class="contacts-item__title_wrap">
                 <h3 class="contacts-item__title">{{ $city }}</h3>
@@ -30,7 +30,7 @@
     <div class="contacts-item__info">
         <div class="container">
             <div class="contacts-item__contacts">
-                <h4 class="contacts-item__contacts_title">Представительство <br> и отдел продаж</h4>
+                <h4 class="contacts-item__contacts_title">{{ $title }}</h4>
 
                 <div class="contacts-item__contacts_info">
                     <div class="contacts-item__contacts_label">Адрес:</div>
@@ -42,7 +42,9 @@
                 <div class="contacts-item__contacts_info">
                     <div class="contacts-item__contacts_label">Телефон:</div>
                     <div class="contacts-item__contacts_col">
-                        <a href="tel:{{ $phones[0] }}">{{ $phones[0] }}</a>
+                      @foreach (json_decode($phones) as $phone)
+                      <a href="tel:{{ $phone }}">{{ $phone }}</a>
+                      @endforeach
                     </div>
                 </div>
             </div>
