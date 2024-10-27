@@ -9,21 +9,19 @@ class PlanningSolution extends Model
 {
   use HasFactory;
   protected $fillable = [
-    'type',
-    'square',
-    'ipoteka',
+    'number_rooms',
+    'number_square_meters',
     'price',
-    'slug',
-    'plan',
-    'project_block_id'
+    'project_id',
   ];
   public static $planning_solution_routes = [
     'admin.projects.planning_solution_show',
     'admin.projects.planning_solution_edit',
     'admin.projects.planning_solution_create',
   ];
-  public function project_blocks()
+
+  public function project()
   {
-    return $this->belongsTo(Block::class);
+    return $this->belongsTo(Project::class);
   }
 }

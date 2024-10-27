@@ -6,40 +6,40 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PlanningSolution\StoreRequest;
 use App\Http\Requests\PlanningSolution\UpdateRequest;
 use App\Models\PlanningSolution;
+use App\Models\Project;
 use App\Models\ProjectBlock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PlanningSolutionController extends Controller
 {
-  public function show($project_slug, $project_block_slug, $item)
+  public function show($project_slug, $item)
   {
     $item = PlanningSolution::whereId($item)->firstOrFail();
     $user = Auth::user();
-    return view('admin.planning_solutions.show', compact('user','project_slug','project_block_slug', 'item'));
+    return view('admin.planning_solutions.show', compact('user','project_slug', 'item'));
   }
 
-  public function create($project_slug, $project_block_slug)
+  public function create($project_slug)
   {
     $user = Auth::user();
     return view('admin.planning_solutions.create', compact(
       'user',
       'project_slug',
-      'project_block_slug',
     ));
   }
-  public function store(StoreRequest $request, $project_slug, $project_block_slug)
+  public function store(StoreRequest $request, $project_slug)
   {
     $data = $request->validated();
     if ($request->hasFile('plan')) :
       $data['plan'] = $this->loadFile($request, $data, 'plan');
     endif;
-    $project_block = ProjectBlock::whereSlug($project_block_slug)->firstOrFail();
-    $project_block->planning_solutions()->create($data);
+    $project = Project::whereSlug($project_slug)->firstOrFail();
+    $project->planningSolutions()->create($data);
 
-    return redirect()->route('admin.projects.project_block_show', [$project_slug, $project_block_slug])->with('status', 'item-created');
+    return redirect()->route('admin.projects.show', [$project_slug])->with('status', 'item-created');
   }
-  public function edit($project_slug, $project_block_slug, $item)
+  public function edit($project_slug, $item)
   {
     $item = PlanningSolution::whereId($item)->firstOrFail();
     $user = Auth::user();
@@ -47,11 +47,10 @@ class PlanningSolutionController extends Controller
     return view('admin.planning_solutions.edit', compact(
       'user',
       'project_slug',
-      'project_block_slug',
       'item'
     ));
   }
-  public function update(UpdateRequest $request, $project_slug, $project_block_slug, $item)
+  public function update(UpdateRequest $request, $project_slug, $item)
   {
     $data = $request->validated();
     if ($request->hasFile('plan')) :
@@ -61,15 +60,15 @@ class PlanningSolutionController extends Controller
     $item->update($data);
 
 
-    return redirect()->route('admin.projects.project_block_show', [$project_slug, $project_block_slug])->with('status', 'item-updated');
+    return redirect()->route('admin.projects.show', [$project_slug])->with('status', 'item-updated');
   }
 
-  public function destroy($project_slug, $project_block_slug, $item)
+  public function destroy($project_slug, $item)
   {
 
     $item = PlanningSolution::whereId($item)->firstOrFail();
     $item->delete();
-    return redirect()->route('admin.projects.project_block_show', [$project_slug, $project_block_slug])->with('status', 'item-deleted');
+    return redirect()->route('admin.projects.show', [$project_slug])->with('status', 'item-deleted');
   }
   protected function loadFile(Request $request, $data, $key)
   {

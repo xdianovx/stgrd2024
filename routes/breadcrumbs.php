@@ -2,6 +2,7 @@
 
 use App\Models\Advantage;
 use App\Models\Block;
+use App\Models\City;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Models\LifeStroygrad;
@@ -9,7 +10,10 @@ use App\Models\Management;
 use App\Models\News;
 use App\Models\Number;
 use App\Models\Page;
+use App\Models\PlanningSolution;
+use App\Models\Project;
 use App\Models\Promotion;
+use App\Models\Status;
 use App\Models\Vacancy;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
@@ -76,6 +80,12 @@ Breadcrumbs::for('team', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('admin.index', function (BreadcrumbTrail $trail) {
     $trail->push('Административная панель', route('admin.index'));
 });
+
+Breadcrumbs::for('admin.main_info.edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Редактировать основную информацию', route('admin.main_info.edit'));
+});
+
 Breadcrumbs::for('admin.pages.index', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.index');
     $trail->push('Страницы', route('admin.pages.index'));
@@ -210,6 +220,11 @@ Breadcrumbs::for('admin.managements.edit', function (BreadcrumbTrail $trail, $ma
     $trail->push('Редактировать запись', route('admin.managements.edit', $management));
 });
 
+Breadcrumbs::for('admin.managements.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.managements.index');
+    $trail->push('Поиск', route('admin.managements.search'));
+});
+
 Breadcrumbs::for('admin.vacancies.index', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.index');
     $trail->push('Вакансии', route('admin.vacancies.index'));
@@ -231,6 +246,10 @@ Breadcrumbs::for('admin.vacancies.edit', function (BreadcrumbTrail $trail, $vaca
     $trail->push('Редактировать вакансию', route('admin.vacancies.edit', $vacanci_slug));
 });
 
+Breadcrumbs::for('admin.vacancies.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.vacancies.index');
+    $trail->push('Поиск', route('admin.vacancies.search'));
+});
 Breadcrumbs::for('admin.contacts.index', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.index');
     $trail->push('Контакты', route('admin.contacts.index'));
@@ -250,6 +269,11 @@ Breadcrumbs::for('admin.contacts.show', function (BreadcrumbTrail $trail, $conta
 Breadcrumbs::for('admin.contacts.edit', function (BreadcrumbTrail $trail, $contact) {
     $trail->parent('admin.contacts.show', $contact);
     $trail->push('Редактировать контакт', route('admin.contacts.edit', $contact));
+});
+
+Breadcrumbs::for('admin.contacts.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.contacts.index');
+    $trail->push('Поиск', route('admin.contacts.search'));
 });
 
 Breadcrumbs::for('admin.promotions.index', function (BreadcrumbTrail $trail) {
@@ -273,6 +297,11 @@ Breadcrumbs::for('admin.promotions.edit', function (BreadcrumbTrail $trail, $pro
     $trail->push('Редактировать акцию', route('admin.promotions.edit', $promotion));
 });
 
+Breadcrumbs::for('admin.promotions.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.promotions.index');
+    $trail->push('Поиск', route('admin.promotions.search'));
+});
+
 Breadcrumbs::for('admin.news.index', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.index');
     $trail->push('Новости', route('admin.news.index'));
@@ -293,3 +322,101 @@ Breadcrumbs::for('admin.news.edit', function (BreadcrumbTrail $trail, $news) {
     $trail->parent('admin.news.show', $news);
     $trail->push('Редактировать новость', route('admin.news.edit', $news));
 });
+
+Breadcrumbs::for('admin.news.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.news.index');
+    $trail->push('Поиск', route('admin.news.search'));
+});
+
+Breadcrumbs::for('admin.cities.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Города', route('admin.cities.index'));
+});
+
+Breadcrumbs::for('admin.cities.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.cities.index');
+    $trail->push('Создать город', route('admin.cities.create'));
+});
+
+Breadcrumbs::for('admin.cities.show', function (BreadcrumbTrail $trail, $city_slug) {
+    $trail->parent('admin.cities.index');
+    $city = City::whereSlug($city_slug)->firstOrFail();
+    $trail->push($city->title, route('admin.cities.show', $city_slug));
+});
+
+Breadcrumbs::for('admin.cities.edit', function (BreadcrumbTrail $trail, $city_slug) {
+    $trail->parent('admin.cities.show', $city_slug);
+    $trail->push('Редактировать город', route('admin.cities.edit', $city_slug));
+});
+Breadcrumbs::for('admin.cities.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.cities.index');
+    $trail->push('Поиск', route('admin.cities.search'));
+});
+Breadcrumbs::for('admin.statuses.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Статусы', route('admin.statuses.index'));
+});
+
+Breadcrumbs::for('admin.statuses.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.statuses.index');
+    $trail->push('Поиск', route('admin.statuses.search'));
+});
+
+Breadcrumbs::for('admin.statuses.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.statuses.index');
+    $trail->push('Создать статус', route('admin.statuses.create'));
+});
+
+Breadcrumbs::for('admin.statuses.show', function (BreadcrumbTrail $trail, $status_slug) {
+    $trail->parent('admin.statuses.index');
+    $status = Status::whereSlug($status_slug)->firstOrFail();
+    $trail->push($status->title, route('admin.statuses.show', $status_slug));
+});
+
+Breadcrumbs::for('admin.statuses.edit', function (BreadcrumbTrail $trail, $status_slug) {
+    $trail->parent('admin.statuses.show', $status_slug);
+    $trail->push('Редактировать статус', route('admin.statuses.edit', $status_slug));
+});
+Breadcrumbs::for('admin.projects.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.index');
+    $trail->push('Проекты', route('admin.projects.index'));
+});
+
+Breadcrumbs::for('admin.projects.search', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.projects.index');
+    $trail->push('Поиск', route('admin.projects.search'));
+});
+
+Breadcrumbs::for('admin.projects.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.projects.index');
+    $trail->push('Создать проект', route('admin.projects.create'));
+});
+
+Breadcrumbs::for('admin.projects.show', function (BreadcrumbTrail $trail, $project_slug) {
+    $trail->parent('admin.projects.index');
+    $project = Project::whereSlug($project_slug)->firstOrFail();
+    $trail->push($project->title, route('admin.projects.show', $project_slug));
+});
+
+Breadcrumbs::for('admin.projects.edit', function (BreadcrumbTrail $trail, $project_slug) {
+    $trail->parent('admin.projects.show', $project_slug);
+    $trail->push('Редактировать проект', route('admin.projects.edit', $project_slug));
+});
+
+Breadcrumbs::for('admin.projects.planning_solution_create', function (BreadcrumbTrail $trail, $project_slug) {
+    $trail->parent('admin.projects.show', $project_slug);
+    $trail->push('Создать планировочное решение', route('admin.projects.planning_solution_create', $project_slug));
+});
+
+Breadcrumbs::for('admin.projects.planning_solution_show', function (BreadcrumbTrail $trail, $project_slug, $planning_solution) {
+    $trail->parent('admin.projects.show', $project_slug);
+    $planning_solution = PlanningSolution::where('id', $planning_solution)->firstOrFail();
+    $trail->push($planning_solution->number_rooms, route('admin.projects.planning_solution_show', [$project_slug, $planning_solution]));
+});
+
+Breadcrumbs::for('admin.projects.planning_solution_edit', function (BreadcrumbTrail $trail, $project_slug, $planning_solution) {
+    $trail->parent('admin.projects.planning_solution_show', $project_slug, $planning_solution);
+    $trail->push('Редактировать планировочное решение', route('admin.projects.planning_solution_edit', [$project_slug, $planning_solution]));
+});
+
+

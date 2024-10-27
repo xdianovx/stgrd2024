@@ -37,18 +37,10 @@
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{__('admin.field_title')}}*</label>
-                                        <input type="text" value="{{ $item->title }}" class="form-control input__slug"
+                                        <input type="text" value="{{ $item->title }}" class="form-control"
                                             id="valueInput" name="title" placeholder="{{__('admin.placeholder_text')}}">
+                                            <input type="hidden" name="old_title" value="{{ $item->title }}">
                                     </div>
-
-                                </div>
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="valueInput" class="form-label">{{__('admin.field_slug')}}*</label>
-                                        <input type="text" value="{{ $item->slug }}" class="form-control output"
-                                            id="valueInput" name="slug" placeholder="{{__('admin.placeholder_text')}}">
-                                    </div>
-
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light mt-5">{{__('admin.btn_save')}}</button>
@@ -59,7 +51,5 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ asset('assets/admin/js/slug_generator.js') }}"></script>
 
 @endsection

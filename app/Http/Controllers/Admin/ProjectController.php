@@ -11,6 +11,7 @@ use App\Models\Project;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -38,53 +39,17 @@ class ProjectController extends Controller
   public function store(StoreRequest $request)
   {
     $data = $request->validated();
+    if (!array_key_exists('home', $data)) {
+      $data['home'] = '0';
+    }
+    $data['slug'] = Str::slug($data['title']);
     $data = $this->changeTitleToId($data);
+    $data['comfort'] = json_encode($data['comfort']);
+    if ($request->hasFile('image')) :
+      $data['image'] = $this->loadFile($request, $data, 'image');
+    endif;
 
-    if ($request->hasFile('poster')) :
-      $data['poster'] = $this->loadFile($request, $data, 'poster');
-    endif;
-    if ($request->hasFile('presentation')) :
-      $data['presentation'] = $this->loadFile($request, $data, 'presentation');
-    endif;
     $project = Project::firstOrCreate($data);
-    $project->createBlocks([
-      [
-        'title_left' => 'Информация',
-        'slug' => 'information',
-        'active' => true,
-        'project_id' => $project->id
-      ],
-      [
-        'title_left' => 'Удобства',
-        'slug' => 'facilities',
-        'active' => true,
-        'project_id' => $project->id
-      ],
-      [
-        'title_left' => 'Инфраструктура',
-        'slug' => 'infrastructure',
-        'active' => true,
-        'project_id' => $project->id
-      ],
-      [
-        'title_left' => 'Визуализации',
-        'slug' => 'visualizations',
-        'active' => true,
-        'project_id' => $project->id
-      ],
-      [
-        'title_left' => 'Ход строительства',
-        'slug' => 'construction_progress',
-        'active' => true,
-        'project_id' => $project->id
-      ],
-      [
-        'title_left' => 'Документация',
-        'slug' => 'documentation',
-        'active' => true,
-        'project_id' => $project->id
-      ],
-    ]);
 
     return redirect()->route('admin.projects.index')->with('status', 'item-created');
   }
@@ -100,13 +65,14 @@ class ProjectController extends Controller
   {
     $project = Project::whereSlug($project_slug)->firstOrFail();
     $data = $request->validated();
+    if (!array_key_exists('home', $data)) {
+      $data['home'] = '0';
+    }
+    $data['slug'] = Str::slug($data['title']);
     $data = $this->changeTitleToId($data);
-
-    if ($request->hasFile('poster')) :
-      $data['poster'] = $this->loadFile($request, $data, 'poster');
-    endif;
-    if ($request->hasFile('presentation')) :
-      $data['presentation'] = $this->loadFile($request, $data, 'presentation');
+    $data['comfort'] = json_encode($data['comfort']);
+    if ($request->hasFile('image')) :
+      $data['image'] = $this->loadFile($request, $data, 'image');
     endif;
     $project->update($data);
     return redirect()->route('admin.projects.index')->with('status', 'item-updated');
@@ -114,23 +80,7 @@ class ProjectController extends Controller
 
   public function destroy($project_slug)
   {
-
     $project = Project::whereSlug($project_slug)->firstOrFail();
-    foreach($project->blocks as $block):
-      if($block->slug == 'information'):
-        $block->planning_solutions()->delete();
-      endif;
-      if($block->slug == 'facilities'):
-        $block->facilities()->delete();
-      endif;
-      if($block->slug == 'infrastructure'):
-        $block->map_points()->delete();
-      endif;
-      if($block->slug == 'visualizations'):
-        $block->project_images()->delete();
-      endif;
-    endforeach;
-    $project->blocks()->delete();
     $project->delete();
     return redirect()->route('admin.projects.index')->with('status', 'item-deleted');
   }

@@ -54,10 +54,9 @@
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
-                                        <label class="form-label" for="customSwitch1">{{__('admin.field_slider')}}</label>
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" name="slider" id="customSwitch1" value="1">
-                                            <label class="form-check-label" for="customSwitch1">{{__('admin.field_slider')}}</label>
+                                            <label class="form-check-label" for="customSwitch1">{{__('admin.field_slider_question')}}</label>
                                         </div>
                                     </div>
                                 </div>

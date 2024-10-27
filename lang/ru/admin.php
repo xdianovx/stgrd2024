@@ -2,7 +2,7 @@
 
 return [
 
-  //Titles contacts
+
   'aside_title_contacts' => 'Контакты',
   'new_contact_card_title' => 'Новый контакт',
   'edit_contact_card_title' => 'Изменить контакт',
@@ -10,7 +10,9 @@ return [
   'contact_card_info' => 'Информация о контакте',
   'review_card_title' => 'Отзывы',
   'review_card_info' => 'Информация о записи отзыва',
+  'new_review_card_title' => 'Новый отзыв',
   'managements_card_info' => 'Информация о записи руководства',
+  'edit_main_info' => 'Изменить основную информацию',
   //Titles vacancies
   'aside_title_vacancies' => 'Вакансии',
   'new_vacanci_card_title' => 'Новая вакансия',
@@ -71,7 +73,7 @@ return [
   'edit_city_card_title' => 'Изменить запись город',
   'city_card_title' => 'Запись город',
   'city_card_info' => 'Информация о записи город',
-  'aside_title_city' => 'Города проектов',
+  'aside_title_city' => 'Города',
 
   //Titles statuses
   'new_status_card_title' => 'Новый статус',
@@ -169,6 +171,18 @@ return [
   'aside_title_advantages' => 'Преимущества',
 
   //Fields
+  'field_home_on' => 'Выбран главным',
+  'field_home_off' => 'Не выбран главным',
+  'field_home' => 'Выбрать главным?',
+  'field_number_square_meters' => 'Количество квадратов метров',
+  'field_comfort' => 'Услуги',
+  'field_city' => 'Город',
+  'field_status' => 'Статус',
+  'field_number_rooms' => 'Количество квартир',
+  'field_year_delivery' => 'Год сдачи проекта',
+  'field_work_time' => 'Время работы',
+  'field_email_address' => 'Адрес электронной почты',
+  'field_phone_number' => 'Телефон',
   'field_file' => 'Файл',
   'field_coordinates_longitude' => 'Координаты поля долгота',
   'field_coordinates_latitude' => 'Координаты поля широта',

@@ -28,35 +28,24 @@
             <div class="card">
                 <div class="card-body">
                     <div class="live-preview">
-                        <form action="{{ route('admin.projects.planning_solution_store', [$project_slug, $project_block_slug]) }}" method="POST"
+                        <form action="{{ route('admin.projects.planning_solution_store', $project_slug) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row gy-4">
-
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="valueInput" class="form-label">{{ __('admin.field_type') }} *</label>
-                                        <input type="text" value="{{ old('type') }}" class="form-control"
-                                            id="valueInput" name="type" placeholder="{{ __('admin.placeholder_text') }}">
+                                        <input type="text" value="{{ old('number_rooms') }}" class="form-control"
+                                            id="valueInput" name="number_rooms" placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
 
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
-                                        <label for="valueInput" class="form-label">{{ __('admin.field_square') }}
+                                        <label for="valueInput" class="form-label">{{ __('admin.field_number_square_meters') }}
                                             *</label>
-                                        <input type="text" value="{{ old('square') }}" class="form-control"
-                                            id="valueInput" name="square" placeholder="{{ __('admin.placeholder_text') }}">
-                                    </div>
-                                </div>
-
-                                <div class="col-xxl-6 col-md-6">
-                                    <div>
-                                        <label for="valueInput" class="form-label">{{ __('admin.field_ipoteka') }}
-                                            *</label>
-                                        <input type="text" value="{{ old('ipoteka') }}" class="form-control"
-                                            id="valueInput" name="ipoteka"
-                                            placeholder="{{ __('admin.placeholder_text') }}">
+                                        <input type="text" value="{{ old('number_square_meters') }}" class="form-control"
+                                            id="valueInput" name="number_square_meters" placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
 
@@ -69,13 +58,13 @@
                                             placeholder="{{ __('admin.placeholder_text') }}">
                                     </div>
                                 </div>
-
+{{--
                                 <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label for="formFile" class="form-label">{{ __('admin.field_plan') }}</label>
                                         <input class="form-control" type="file" id="formFile" name="plan">
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <button type="submit"
                                 class="btn btn-success waves-effect waves-light mt-5">{{ __('admin.btn_save') }}</button>

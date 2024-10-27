@@ -61,6 +61,7 @@
                                         <th scope="col" style="width: 80px;">ID</th>
                                         <th scope="col">{{__('admin.field_title')}}</th>
                                         <th scope="col">{{__('admin.field_slug')}}</th>
+                                        <th scope="col">{{__('admin.field_home_on')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_updated')}}</th>
                                         <th scope="col" style="width: 150px;">{{__('admin.field_action')}}</th>
                                     </tr>
@@ -71,6 +72,7 @@
                                             <td>{{ $item->id }}</td>
                                             <td><a href="{{ route('admin.projects.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
+                                            <td>@if ($item->home == '1') <i class="ri-checkbox-circle-line align-middle text-success"></i> @endif</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
 

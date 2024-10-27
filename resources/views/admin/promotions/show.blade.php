@@ -91,6 +91,11 @@
                     <div class="table-responsive">
                         <table class="table table-borderless mb-0">
                             <tbody>
+                              @if ($item->slider == '1')
+                              <tr>
+                                 <td><i class="ri-checkbox-circle-line align-middle text-success"></i> {{ __('admin.field_slider_on')}}</td>
+                              </tr>
+                              @endif
                                 <tr>
                                     <th class="ps-0" scope="row">Id:</th>
                                     <td class="text-muted">{{ $item->id }}</td>
@@ -99,11 +104,6 @@
                                     <th class="ps-0" scope="row">{{ __('admin.field_title') }}:</th>
                                     <td class="text-muted">{{ $item->title }}</td>
                                 </tr>
-                                <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_slider') }}:</th>
-                                    <td class="text-muted">{{ $item->slider == 1 ? __('admin.field_slider_on') : __('admin.field_slider_off') }}</td>
-                                </tr>
-
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_slug') }}:</th>
                                     <td class="text-muted">{{ $item->slug }}</td>

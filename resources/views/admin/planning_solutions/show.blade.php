@@ -23,12 +23,12 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1"
                                     style="">
                                     <li>
-                                        <a type="button" class="dropdown-item" href="{{ route('admin.projects.project_block_show', [$project_slug, $project_block_slug]) }}">
+                                        <a type="button" class="dropdown-item" href="{{ route('admin.projects.show', $project_slug) }}">
                                             <i class="ri-arrow-left-line align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_back') }}</a>
                                     </li>
 
-                                    <li><a href="{{ route('admin.projects.planning_solution_edit', [$project_slug, $project_block_slug, $item]) }}"
+                                    <li><a href="{{ route('admin.projects.planning_solution_edit', [$project_slug, $item]) }}"
                                             class="dropdown-item edit-item-btn"><i
                                                 class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                             {{ __('admin.btn_edit') }}</a>
@@ -57,16 +57,12 @@
                                     <td class="text-muted">{{ $item->id }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_type') }}:</th>
-                                    <td class="text-muted">{{ $item->type }}</td>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_number_rooms') }}:</th>
+                                    <td class="text-muted">{{ $item->number_rooms }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_square') }}:</th>
-                                    <td class="text-muted">{{ $item->square }}</td>
-                                </tr>
-                                <tr>
-                                    <th class="ps-0" scope="row">{{ __('admin.field_ipoteka') }}:</th>
-                                    <td class="text-muted">{{ $item->ipoteka }}</td>
+                                    <th class="ps-0" scope="row">{{ __('admin.field_number_square_meters') }}:</th>
+                                    <td class="text-muted">{{ $item->number_square_meters }}</td>
                                 </tr>
                                 <tr>
                                     <th class="ps-0" scope="row">{{ __('admin.field_price') }}:</th>
@@ -103,7 +99,7 @@
                                                     {{ __('admin.btn_close') }}
                                                 </button>
                                                 <form
-                                                    action="{{ route('admin.projects.planning_solution_destroy', [$project_slug, $project_block_slug, $item]) }}"
+                                                    action="{{ route('admin.projects.planning_solution_destroy', [$project_slug, $item]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -123,7 +119,7 @@
             </div>
         </div>
     </div>
-    @if (!empty($item->plan))
+    {{-- @if (!empty($item->plan))
         <div class="col-xxl-6">
             <div class="card">
                 <div class="card-body">
@@ -137,5 +133,5 @@
             </div>
         </div>
     @else
-    @endif
+    @endif --}}
 @endsection

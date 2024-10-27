@@ -12,22 +12,15 @@ class Project extends Model
   protected $fillable = [
     'title',
     'slug',
-    'poster',
-    'text',
-    'text_card',
+    'image',
+    'year_delivery',
+    'description',
     'link',
-    'link_title',
-    'presentation',
-
-    'address',
-    'flats',
-    'deadline',
-    'interior',
-    'floors',
-    'corpuses',
-
+    'number_rooms',
+    'status_id',
     'city_id',
-    'status_id'
+    'comfort',
+    'home'
   ];
   public static $projects_routes = [
     'admin.projects.index',
@@ -40,6 +33,7 @@ class Project extends Model
   {
       return 'slug';
   }
+
   public function city()
   {
     return $this->belongsTo(City::class);
@@ -48,19 +42,9 @@ class Project extends Model
   {
     return $this->belongsTo(Status::class);
   }
-  public function project_blocks()
-  {
-    return $this->hasMany(ProjectBlock::class);
-  }
-  public function promotions()
-  {
-      return $this->belongsToMany(Promotion::class);
 
-  }
-  public function createBlocks(array $attributes)
+  public function planningSolutions()
   {
-    foreach ($attributes as $key => $value):
-      $this->project_blocks()->create($value);
-    endforeach;
+    return $this->hasMany(PlanningSolution::class);
   }
 }

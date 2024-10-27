@@ -8,6 +8,7 @@ use App\Http\Requests\Status\UpdateRequest;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class StatusController extends Controller
 {
@@ -33,6 +34,7 @@ class StatusController extends Controller
   public function store(StoreRequest $request)
   {
       $data = $request->validated();
+      $data['slug'] = Str::slug($data['title']);
       Status::firstOrCreate($data);
       return redirect()->route('admin.statuses.index')->with('status', 'item-created');
   }
@@ -46,6 +48,7 @@ class StatusController extends Controller
   {
       $status = Status::whereSlug($status_slug)->firstOrFail();
       $data = $request->validated();
+      $data['slug'] = Str::slug($data['title']);
       $status->update($data);
       return redirect()->route('admin.statuses.index')->with('status', 'item-updated');
   }
@@ -67,6 +70,6 @@ class StatusController extends Controller
           ->orWhere('slug', 'ilike', '%' . request('search') . '%')
           ->paginate(10);
       endif;
-      return view('admin.status.index', compact('statuses','user'));
+      return view('admin.statuses.index', compact('statuses','user'));
   }
 }

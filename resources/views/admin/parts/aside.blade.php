@@ -65,6 +65,14 @@
                       <i class="mdi mdi-contacts"></i> <span data-key="t-layouts">{{__('admin.aside_title_contacts')}}</span>
                   </a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $cities_routes)) active @endif"
+                      href="{{ route('admin.cities.index') }}" aria-expanded="false"
+                      aria-controls="sidebarLayouts">
+                      <i class="mdi mdi-city-variant-outline"></i> <span data-key="t-layouts">{{ __('admin.aside_title_city') }}</span>
+                  </a>
+              </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $news_routes)) active @endif"
                         href="{{ route('admin.news.index') }}" aria-expanded="false"
@@ -75,31 +83,19 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link @if (in_array(Route::current()->getName(), $projects_routes) ||
-                            in_array(Route::current()->getName(), $cities_routes) ||
                             in_array(Route::current()->getName(), $statuses_routes) ||
-                            in_array(Route::current()->getName(), $project_blocks_routes) ||
-                            in_array(Route::current()->getName(), $planning_solution_routes) ||
-                            in_array(Route::current()->getName(), $facilitie_routes) ||
-                            in_array(Route::current()->getName(), $map_point_routes)) active @endif"
+                            in_array(Route::current()->getName(), $planning_solution_routes)) active @endif"
                         href="#sidebarBonusCard" data-bs-toggle="collapse" role="button"
                         aria-expanded="@if (in_array(Route::current()->getName(), $projects_routes) ||
-                                in_array(Route::current()->getName(), $cities_routes) ||
-                                in_array(Route::current()->getName(), $statuses_routes) ||
-                                in_array(Route::current()->getName(), $project_blocks_routes)||
-                                in_array(Route::current()->getName(), $planning_solution_routes) ||
-                            in_array(Route::current()->getName(), $facilitie_routes) ||
-                            in_array(Route::current()->getName(), $map_point_routes)) true @else false @endif"
+                                in_array(Route::current()->getName(), $statuses_routes)||
+                                in_array(Route::current()->getName(), $planning_solution_routes)) true @else false @endif"
                         aria-controls="sidebarBonusCard">
                         <i class="mdi mdi-projector-screen-outline"></i> <span
                             data-key="t-dashboards">{{ __('admin.aside_title_projects') }}</span>
                     </a>
                     <div class="collapse menu-dropdown @if (in_array(Route::current()->getName(), $projects_routes) ||
-                            in_array(Route::current()->getName(), $cities_routes) ||
                             in_array(Route::current()->getName(), $statuses_routes) ||
-                            in_array(Route::current()->getName(), $project_blocks_routes) ||
-                            in_array(Route::current()->getName(), $planning_solution_routes) ||
-                            in_array(Route::current()->getName(), $facilitie_routes) ||
-                            in_array(Route::current()->getName(), $map_point_routes)) show @endif"
+                            in_array(Route::current()->getName(), $planning_solution_routes)) show @endif"
                         id="sidebarBonusCard">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -108,19 +104,10 @@
                                     data-key="t-analytics">
                                     {{ __('admin.aside_title_status') }}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $cities_routes)) active @endif"
-                                    href="{{ route('admin.cities.index') }}" aria-expanded="false"
-                                    aria-controls="sidebarLayouts">
-                                    <span data-key="t-layouts">{{ __('admin.aside_title_city') }}</span>
-                                </a>
-                            </li>
+
                             <li class="nav-item">
                               <a class="nav-link menu-link  @if (in_array(Route::current()->getName(), $projects_routes) ||
-                                in_array(Route::current()->getName(), $project_blocks_routes) ||
-                                in_array(Route::current()->getName(), $planning_solution_routes) ||
-                                in_array(Route::current()->getName(), $facilitie_routes) ||
-                            in_array(Route::current()->getName(), $map_point_routes)) active @endif"
+                                in_array(Route::current()->getName(), $planning_solution_routes)) active @endif"
                                   href="{{ route('admin.projects.index') }}" aria-expanded="false"
                                   aria-controls="sidebarLayouts">
                                   <span data-key="t-layouts">{{ __('admin.aside_title_projects') }}</span>

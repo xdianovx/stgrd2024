@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('planning_solutions', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('square');
-            $table->string('ipoteka');
-            $table->string('price');
-            $table->string('plan')->nullable();
-            $table->foreignId('project_block_id');
+            $table->string('number_rooms');
+            $table->float('number_square_meters');
+            $table->float('price');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

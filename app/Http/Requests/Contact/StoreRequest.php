@@ -32,8 +32,6 @@ class StoreRequest extends FormRequest
              'latitude.required' => 'Поле Долгота должно быть заполнено',
              'longitude.numeric' => 'Поле Широта должно быть числом',
              'latitude.numeric' => 'Поле Долгота должно быть числом',
-             'city_id.required' => 'Поле Город должно быть заполнено',
-             'city_id.exists' => 'Поле Город должно быть существующей',
          ];
      }
 

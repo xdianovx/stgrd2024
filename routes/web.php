@@ -28,6 +28,7 @@ use App\Http\Controllers\Front\WelcomePageController;
 use App\Http\Controllers\Front\AboutPageController;
 use App\Http\Controllers\Front\ContactPageController;
 use App\Http\Controllers\Front\NewsPageController;
+use App\Http\Controllers\Front\ProjectPageController;
 use App\Http\Controllers\Front\PromotionPageController;
 use App\Http\Controllers\Front\TeamPageController;
 use App\Http\Controllers\Front\VacancyPageController;
@@ -49,13 +50,11 @@ Route::get('/', [WelcomePageController::class, 'index'])->name('home');
 
 Route::get('/about', [AboutPageController::class, 'index'])->name('about');
 
-Route::get('/projects', function () {
-  return view('projects');
-})->name('projects');
-
-Route::get('/projects/{slug}', function () {
-  return view('project');
-})->name('projects.view');
+Route::get('/projects', [ProjectPageController::class, 'index'])->name('projects');
+Route::get('/projects/filter', [ProjectPageController::class, 'filter'])->name('projects.filter');
+// Route::get('/projects/{slug}', function () {
+//   return view('project');
+// })->name('projects.view');
 
 
 Route::get('/news',  [NewsPageController::class, 'index'])->name('news');
@@ -63,7 +62,7 @@ Route::get('/news/{news_slug}', [NewsPageController::class, 'show'])->name('news
 Route::post('/news/load-more', [NewsPageController::class, 'loadMore'])->name('news.loadMore');
 
 Route::get('/promotions',  [PromotionPageController::class, 'index'])->name('promotions');
-Route::get('/promotions/{promotion_slug}', [PromotionPageController::class, 'show'])->name('promotion.show');
+Route::get('/promotions/{promotion_slug}', [PromotionPageController::class, 'show'])->name('promotions.show');
 Route::post('/promotions/load-more', [PromotionPageController::class, 'loadMore'])->name('promotions.loadMore');
 
 
@@ -83,6 +82,8 @@ Route::get('/contacts',  [ContactPageController::class, 'index'])->name('contact
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
 
   Route::get('/', [MainController::class, 'index'])->name('index');
+  Route::get('/main-info/edit', [MainController::class, 'edit'])->name('main_info.edit');
+  Route::patch('/main-info/update', [MainController::class, 'update'])->name('main_info.update');
   Route::post('/editor-uploads', EditorImageUploadController::class)->name('image_upload');
 
 
@@ -210,52 +211,13 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/{project_slug}/edit', [ProjectController::class, 'edit'])->name('edit');
     Route::patch('/{project_slug}', [ProjectController::class, 'update'])->name('update');
     Route::delete('/{project_slug}', [ProjectController::class, 'destroy'])->name('destroy');
-    //project_blocks
-    Route::get('/{project_slug}/project_blocks/{project_block_slug}', [ProjectBlockController::class, 'show'])->name('project_block_show');
-    Route::get('/{project_slug}/project_blocks/{project_block_slug}/edit', [ProjectBlockController::class, 'edit'])->name('project_block_edit');
-    Route::patch('/{project_slug}/project_blocks/{project_block_slug}', [ProjectBlockController::class, 'update'])->name('project_block_update');
     //planning_solutions
-    Route::get('/{project_slug}/project_blocks/{project_block}/planning_solutions/create', [PlanningSolutionController::class, 'create'])->name('planning_solution_create');
-    Route::post('/{project_slug}/project_blocks/{project_block}/planning_solutions/store', [PlanningSolutionController::class, 'store'])->name('planning_solution_store');
-    Route::get('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'show'])->name('planning_solution_show');
-    Route::get('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}/edit', [PlanningSolutionController::class, 'edit'])->name('planning_solution_edit');
-    Route::patch('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'update'])->name('planning_solution_update');
-    Route::delete('/{project_slug}/project_blocks/{project_block}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'destroy'])->name('planning_solution_destroy');
-    //facilities
-    Route::get('/{project_slug}/project_blocks/{project_block}/facilities/create', [FacilitieController::class, 'create'])->name('facilitie_create');
-    Route::post('/{project_slug}/project_blocks/{project_block}/facilities/store', [FacilitieController::class, 'store'])->name('facilitie_store');
-    Route::get('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}', [FacilitieController::class, 'show'])->name('facilitie_show');
-    Route::get('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}/edit', [FacilitieController::class, 'edit'])->name('facilitie_edit');
-    Route::patch('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}', [FacilitieController::class, 'update'])->name('facilitie_update');
-    Route::delete('/{project_slug}/project_blocks/{project_block}/facilities/{facilitie}', [FacilitieController::class, 'destroy'])->name('facilitie_destroy');
-    //map_points
-    Route::get('/{project_slug}/project_blocks/{project_block}/map_points/create', [MapPointController::class, 'create'])->name('map_point_create');
-    Route::post('/{project_slug}/project_blocks/{project_block}/map_points/store', [MapPointController::class, 'store'])->name('map_point_store');
-    Route::get('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}', [MapPointController::class, 'show'])->name('map_point_show');
-    Route::get('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}/edit', [MapPointController::class, 'edit'])->name('map_point_edit');
-    Route::patch('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}', [MapPointController::class, 'update'])->name('map_point_update');
-    Route::delete('/{project_slug}/project_blocks/{project_block}/map_points/{map_point}', [MapPointController::class, 'destroy'])->name('map_point_destroy');
-    //project_images
-    Route::get('/{project_slug}/project_blocks/{project_block}/project_images/create', [ProjectImageController::class, 'create'])->name('project_image_create');
-    Route::post('/{project_slug}/project_blocks/{project_block}/project_images/store', [ProjectImageController::class, 'store'])->name('project_image_store');
-    Route::get('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}', [ProjectImageController::class, 'show'])->name('project_image_show');
-    Route::get('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}/edit', [ProjectImageController::class, 'edit'])->name('project_image_edit');
-    Route::patch('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}', [ProjectImageController::class, 'update'])->name('project_image_update');
-    Route::delete('/{project_slug}/project_blocks/{project_block}/project_images/{project_image}', [ProjectImageController::class, 'destroy'])->name('project_image_destroy');
-    //construction_stages
-    Route::get('/{project_slug}/project_blocks/{project_block}/construction_stages/create', [ConstructionStageController::class, 'create'])->name('construction_stage_create');
-    Route::post('/{project_slug}/project_blocks/{project_block}/construction_stages/store', [ConstructionStageController::class, 'store'])->name('construction_stage_store');
-    Route::get('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}', [ConstructionStageController::class, 'show'])->name('construction_stage_show');
-    Route::get('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}/edit', [ConstructionStageController::class, 'edit'])->name('construction_stage_edit');
-    Route::patch('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}', [ConstructionStageController::class, 'update'])->name('construction_stage_update');
-    Route::delete('/{project_slug}/project_blocks/{project_block}/construction_stages/{construction_stage}', [ConstructionStageController::class, 'destroy'])->name('construction_stage_destroy');
-    //documents
-    Route::get('/{project_slug}/project_blocks/{project_block}/documents/create', [DocumentController::class, 'create'])->name('document_create');
-    Route::post('/{project_slug}/project_blocks/{project_block}/documents/store', [DocumentController::class, 'store'])->name('document_store');
-    Route::get('/{project_slug}/project_blocks/{project_block}/documents/{document}', [DocumentController::class, 'show'])->name('document_show');
-    Route::get('/{project_slug}/project_blocks/{project_block}/documents/{document}/edit', [DocumentController::class, 'edit'])->name('document_edit');
-    Route::patch('/{project_slug}/project_blocks/{project_block}/documents/{document}', [DocumentController::class, 'update'])->name('document_update');
-    Route::delete('/{project_slug}/project_blocks/{project_block}/documents/{document}', [DocumentController::class, 'destroy'])->name('document_destroy');
+    Route::get('/{project_slug}/planning_solutions/create', [PlanningSolutionController::class, 'create'])->name('planning_solution_create');
+    Route::post('/{project_slug}/planning_solutions/store', [PlanningSolutionController::class, 'store'])->name('planning_solution_store');
+    Route::get('/{project_slug}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'show'])->name('planning_solution_show');
+    Route::get('/{project_slug}/planning_solutions/{planning_solution}/edit', [PlanningSolutionController::class, 'edit'])->name('planning_solution_edit');
+    Route::patch('/{project_slug}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'update'])->name('planning_solution_update');
+    Route::delete('/{project_slug}/planning_solutions/{planning_solution}', [PlanningSolutionController::class, 'destroy'])->name('planning_solution_destroy');
   });
 
   Route::name('promotions.')->prefix('promotions')->group(function () {

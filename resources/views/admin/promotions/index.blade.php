@@ -82,7 +82,7 @@
                                             </td>
                                             <td><a href="{{ route('admin.promotions.show', $item->slug) }}">{{ $item->title }}</a></td>
                                             <td>{{ $item->slug }}</td>
-                                            <td>{{ $item->slider == 1 ? __('admin.on') : __('admin.off') }}</td>
+                                            <td>@if ($item->slider == '1') <i class="ri-checkbox-circle-line align-middle text-success"></i> @endif</td>
                                             <td>{{ $item->updated_at->diffForHumans() }}</td>
                                             <td>
 

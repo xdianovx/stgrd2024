@@ -19,11 +19,17 @@ class StoreRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Поле Название должно быть заполнено',
+            'title.max' => 'Поле Название должно содержать не более :max символов',
+        ];
+    }
     public function rules(): array
     {
         return [
-            'title' => ['required', 'max:70'],
-            'slug' => ['required', 'max:70'],
+          'title' => ['required', 'max:70', 'unique:statuses']
         ];
     }
 }
