@@ -11,7 +11,7 @@
 
                     @if ($nobtn)
                     @else
-                        <x-ui.square_btn>Подробнее</x-ui.square_btn>
+                        <x-ui.square_btn href="/about">Подробнее</x-ui.square_btn>
                     @endif
                 </div>
                 <div class="left">

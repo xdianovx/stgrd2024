@@ -9,7 +9,9 @@
         @if ($block_missions->active == TRUE)
         <x-section.mission :item="$block_missions" />
         @endif
-        <x-section.projects />
+        @if ($projects_home->isNotEmpty())
+        <x-section.projects :projects="$projects_home" />
+        @endif
         @if ($promotions->count() > 0)
         <x-section.offers_slider :promotions="$promotions" />
         @endif
