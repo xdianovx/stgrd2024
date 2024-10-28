@@ -6,27 +6,29 @@
 
         <section class="singlenews-hero">
             <div class="container">
-                <h2 class="singlenews__title">{{$item['title']}}</h2>
+                <h2 class="singlenews__title">{{ $item['title'] }}</h2>
                 <p class="singlenews__date">{{ \Carbon\Carbon::parse($item['created_at'])->translatedFormat('d F Y') }}</p>
             </div>
 
+            @if ($item['image'])
+                <div class="parallax singlenews-img">
+                    <img class="" src="{{ Storage::url($item['image']) }}" alt="{{ $item['title'] }}">
+                </div>
+            @endif
 
-          <div class="parallax singlenews-img">
-            <img class="" src="{{ $item['image'] }}" alt="{{ $item['title'] }}">
-          </div>
 
             <div class="container">
-                <p class="singlenews__description">{{$item['description']}}</p>
+                <p class="singlenews__description">{{ $item['description'] }}</p>
 
                 <div class="content">
                     {!! $item['content'] !!}
                 </div>
 
-                <x-ui.socials class="singlenews-socials"/>
+                {{-- <x-ui.socials class="singlenews-socials" /> --}}
             </div>
         </section>
 
-        <x-section.promotions-slider :data="$promotions"/>
+        <x-section.promotions-slider :data="$promotions" />
         <section class="spacer"></section>
     </main>
 @endsection

@@ -59,11 +59,16 @@
   font-weight: 400;
   gap: 80rem;
   align-items: center;
+
+  br {
+    display: none;
+  }
   li {
     display: flex;
     align-items: center;
     gap: 80rem;
     margin-right: 80rem;
+
     svg {
       width: 75rem;
       height: 68rem;

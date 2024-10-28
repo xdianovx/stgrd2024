@@ -1,6 +1,6 @@
 @props(['slug', 'title', 'description', 'created_at'])
 
-<a href="/news/{{ $slug }}" class="news-card">
+<a href="{{ $slug }}" class="news-card">
     <h3 class="news-card__title">{!! $title !!}</h3>
     <p class="news-card__text">{!! $description !!}</p>
     <div class="news-card__bottom">
