@@ -18,9 +18,9 @@
     </section>
 
     <div class="features__cards dimm">
-        <div class="image-container">
+        {{-- <div class="image-container">
             <img src="" alt="" />
-        </div>
+        </div> --}}
 
         @foreach ($item->advantages->sortBy('id') as $advantage)
             <x-feature_row :num="$advantage['num']" :title="$advantage['title']" :image="$advantage['image']" :description="$advantage['description']" />

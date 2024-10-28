@@ -19,8 +19,6 @@ export const enterprises = (ad, lenis) => {
     });
   };
 
-  console.log(lenis);
-
   items.forEach((item, idx) => {
     const head = item.querySelector(".enterprise-item__tab");
     const content = item.querySelector(".enterprise-item__content");
@@ -37,10 +35,7 @@ export const enterprises = (ad, lenis) => {
         height: "auto",
         duration: 0.2,
         ease: "power2.inOut",
-        onComplete: (e) => {
-          console.log(e);
-          lenis.scrollTo(item);
-        },
+        onComplete: (e) => {},
       });
     });
   });

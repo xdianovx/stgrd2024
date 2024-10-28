@@ -25,7 +25,7 @@
             <div class="footer-xl">
                 <p class="footer-text-xl">Нужна помощь <br> в подборе?</p>
 
-                <button class="footer-btn-xl">Да!</button>
+                <button class="footer-btn-xl" data-micromodal-trigger="modal-1">Да!</button>
             </div>
 
             <div class="footer__bottom">
@@ -42,3 +42,5 @@
         </div>
     </div>
 </footer>
+
+<x-modal />

@@ -10,7 +10,7 @@ import { burger } from "./modules/burger";
 import { marquee } from "./modules/marquee";
 import { hero_title } from "./modules/animations/hero_title";
 // import {footer} from "./modules/footer";
-
+import MicroModal from "micromodal";
 import { showreel } from "./modules/showreel";
 import { sticky_btn } from "./modules/sticky_btn";
 import { features } from "./modules/features.js";
@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
   const lenis = new Lenis({
     duration: 1.5,
+  });
+
+  MicroModal.init({
+    disableScroll: true,
+    disableFocus: true,
+    onShow: () => lenis.stop(),
+    onClose: () => lenis.start(),
   });
 
   function raf(time) {
