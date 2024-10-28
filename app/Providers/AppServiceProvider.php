@@ -29,39 +29,39 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
+  /**
+   * Register any application services.
+   */
+  public function register(): void
+  {
+    //
+  }
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-        View::share('pages_routes', Page::$pages_routes);
-        View::share('blocks_routes', Block::$blocks_routes);
-        View::share('advantages_routes', Advantage::$advantages_routes);
-        View::share('nums_routes', Number::$nums_routes);
-        View::share('projects_routes', Project::$projects_routes);
-        View::share('cities_routes', City::$cities_routes);
-        View::share('statuses_routes', Status::$statuses_routes);
-        View::share('promotions_routes', Promotion::$promotions_routes);
-        View::share('news_routes', News::$news_routes);
-        View::share('planning_solution_routes', PlanningSolution::$planning_solution_routes);
-        View::share('company_routes', Company::$company_routes);
-        View::share('life_stroygrad_cards_routes', LifeStroygrad::$life_stroygrad_cards_routes);
-        View::share('managements_routes', Management::$managements_routes);
-        View::share('vacancies_routes', Vacancy::$vacancies_routes);
-        View::share('reviews_routes', Review::$reviews_routes);
-        View::share('contact_routes', Contact::$contact_routes);
-        View::share('all_cities', City::all());
-        View::share('main_info', MainInfo::first());
-        // View::share('blogs_routes', Blog::$blogs_routes);
-        // View::share('categories_blog_routes', CategoryBlog::$categories_blog_routes);
-        // View::share('news_routes', News::$news_routes);
-    }
+  /**
+   * Bootstrap any application services.
+   */
+  public function boot(): void
+  {
+    View::share('pages_routes', Page::$pages_routes);
+    View::share('blocks_routes', Block::$blocks_routes);
+    View::share('advantages_routes', Advantage::$advantages_routes);
+    View::share('nums_routes', Number::$nums_routes);
+    View::share('projects_routes', Project::$projects_routes);
+    View::share('cities_routes', City::$cities_routes);
+    View::share('statuses_routes', Status::$statuses_routes);
+    View::share('promotions_routes', Promotion::$promotions_routes);
+    View::share('news_routes', News::$news_routes);
+    View::share('planning_solution_routes', PlanningSolution::$planning_solution_routes);
+    View::share('company_routes', Company::$company_routes);
+    View::share('life_stroygrad_cards_routes', LifeStroygrad::$life_stroygrad_cards_routes);
+    View::share('managements_routes', Management::$managements_routes);
+    View::share('vacancies_routes', Vacancy::$vacancies_routes);
+    View::share('reviews_routes', Review::$reviews_routes);
+    View::share('contact_routes', Contact::$contact_routes);
+    View::share('all_cities', City::all());
+    View::share('main_info', MainInfo::first());
+    // View::share('blogs_routes', Blog::$blogs_routes);
+    // View::share('categories_blog_routes', CategoryBlog::$categories_blog_routes);
+    // View::share('news_routes', News::$news_routes);
+  }
 }
