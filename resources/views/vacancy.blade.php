@@ -17,7 +17,7 @@
                     <h2 class="actual-vacancy__title">Актуальные <br> вакансии на сегодня </h2>
                     <p class="actual-vacancy__count">({{ $vacancies->count() }} свободных вакансий)</p>
                     <div class="actual-vacancy__city">
-
+                        {{--
                         <div class="select ">
                             <div class="select-title">
                                 <p>{{ $cities->first()['title'] }}</p>
@@ -31,12 +31,13 @@
                             <div class="select-list ">
                                 <div class="select-list__wrap">
 
+                                    <div class="select-item" data-city="all">Все города</div>
                                     @foreach ($cities as $city)
                                         <div class="select-item" data-city="{{ $city['slug'] }}">{{ $city['title'] }}</div>
                                     @endforeach
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
@@ -121,7 +122,7 @@
                         @foreach ($reviews as $item)
                             <div class="team-reviews__item">
                                 <div class="team-reviews__item_img">
-                                    <img src="{{ Storage::url($item['photo']) }}" alt="">
+                                    <img src="{{ Storage::url($item['photo']) }}" alt="{{ $item['title'] }}">
                                 </div>
 
                                 <h3>{!! $item['title'] !!}</h3>
@@ -136,12 +137,13 @@
         <x-cooperate-form />
         <section class="spacer"></section>
     </main>
-    <script>
+    {{-- <script>
         const selectCity = document.querySelector('.select');
         const selectItems = document.querySelectorAll('.select-item');
 
         selectCity.addEventListener('click', function(e) {
             if (e.target.classList.contains('select-item')) {
+
                 const citySlug = e.target.getAttribute('data-city');
                 const url = `/vacancy/${citySlug}`;
                 fetch(url)
@@ -151,5 +153,5 @@
                     });
             }
         });
-    </script>
+    </script> --}}
 @endsection
