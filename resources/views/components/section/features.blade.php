@@ -1,4 +1,3 @@
-
 @if ($item->active == true)
     <section class="features">
 

@@ -1,5 +1,4 @@
-
-<div class="feature-row" data-image="{{ Storage::url($image) }}">
+<div class="feature-row">
     <div class="container">
         <div class="feature-row__wrap">
             <div class="feature-row__top">
@@ -11,7 +10,7 @@
             </div>
 
             <div class="feature-row__content">
-                <p>{{!! $description !!}}</p>
+                <p>{!! $description !!}</p>
             </div>
         </div>
     </div>
