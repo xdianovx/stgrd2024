@@ -3,6 +3,7 @@
 @section('content')
     <main class="about" data-barba="container" data-barba-namespace="about">
         {{ Breadcrumbs::render('about') }}
+
         <section class="about-hero">
             <div class="container">
                 <h1 class="about-title">{{ $page->title }}</h1>
