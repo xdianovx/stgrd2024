@@ -19,23 +19,23 @@
         <div class="line">
             <div class="hr"></div>
         </div>
-        @if ($block_missions->active == TRUE)
-        <x-section.mission :nobtn="true" :item="$block_missions" />
+        @if ($block_missions->active == true)
+            <x-section.mission :nobtn="true" :item="$block_missions" />
         @endif
-        @if ($block_managements->active == TRUE)
-        <x-section.directors :item="$block_managements" :data="$team"/>
+        @if ($block_managements->active == true)
+            <x-section.directors :item="$block_managements" :data="$team" />
         @endif
         <div class="line">
             <div class="hr"></div>
         </div>
-        @if ($block_advantages->active == TRUE)
-        <x-section.features :item="$block_advantages" />
+        @if ($block_advantages->active == true)
+            <x-section.features :item="$block_advantages" />
         @endif
-        @if ($block_maps->active == TRUE)
-        <x-section.map :item="$block_maps"/>
+        @if ($block_maps->active == true)
+            <x-section.map :item="$block_maps" />
         @endif
-        @if ($block_companies->active == TRUE)
-        <x-section.enterprises :item="$block_companies"/>
+        @if ($block_companies->active == true)
+            <x-section.enterprises :item="$block_companies" />
         @endif
         <section class="spacer"></section>
     </main>

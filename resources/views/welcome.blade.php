@@ -16,9 +16,9 @@
             <x-section.offers_slider :promotions="$promotions" />
         @endif
         <x-section.marquee />
-        {{-- @if ($block_advantages->active == true)
-        <x-section.features :item="$block_advantages" />
-        @endif --}}
+        @if ($block_advantages->active == true)
+            <x-section.features :item="$block_advantages" />
+        @endif
         @if ($block_life_stroygrads->active == true)
             <x-section.life :item="$block_life_stroygrads" />
         @endif
