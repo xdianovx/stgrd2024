@@ -5,8 +5,6 @@
         {{ Breadcrumbs::render('about') }}
         <section class="about-hero">
             <div class="container">
-
-
                 <h1 class="about-title">{{ $page->title }}</h1>
 
                 <div class="about-info">
