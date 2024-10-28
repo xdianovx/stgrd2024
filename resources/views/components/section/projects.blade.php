@@ -19,7 +19,8 @@
                 </div>
 
                 <div class="big-card__info_link">
-                    <x-ui.link href='/projects/asd'>от {{ $projects->first()->planningSolutions->min('price') }} млн.
+                    <x-ui.link href='{{ $projects->first()->link }}' target="_blank">от
+                        {{ $projects->first()->planningSolutions->min('price') }} млн.
                         руб.</x-ui.link>
                 </div>
             </div>
