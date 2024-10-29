@@ -39,6 +39,12 @@ class ProjectController extends Controller
   public function store(StoreRequest $request)
   {
     $data = $request->validated();
+    if (array_key_exists('home', $data) && $data['home'] == '1') {
+      $homeProject = Project::where('home', '1')->first();
+      if ($homeProject) {
+        $homeProject->update(['home' => '0']);
+      }
+    }
     if (!array_key_exists('home', $data)) {
       $data['home'] = '0';
     }
@@ -65,6 +71,12 @@ class ProjectController extends Controller
   {
     $project = Project::whereSlug($project_slug)->firstOrFail();
     $data = $request->validated();
+    if (array_key_exists('home', $data) && $data['home'] == '1') {
+      $homeProject = Project::where('home', '1')->first();
+      if ($homeProject) {
+        $homeProject->update(['home' => '0']);
+      }
+    }
     if (!array_key_exists('home', $data)) {
       $data['home'] = '0';
     }

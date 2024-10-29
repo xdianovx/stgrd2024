@@ -69,7 +69,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-xxl-6 col-md-6">
+                                {{-- <div class="col-xxl-6 col-md-6">
                                     <div>
                                         <label class="form-label" for="customSwitch1">{{ __('admin.field_slider_question') }}</label>
                                         <div class="form-check form-switch">
@@ -78,7 +78,7 @@
                                             <label class="form-check-label" for="customSwitch1">{{ __('admin.field_slider') }}</label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-xxl-6 col-md-6">
 
                                     <div>

@@ -38,14 +38,14 @@
                 </div>
             @endif
 
-            @if (!empty($item->image))
+            @if (!empty($item->photo))
             <div class="col-xxl-6">
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title-desc text-muted">{{ __('admin.field_current_image') }}</p>
                         <div class="live-preview">
                             <div>
-                                <img src="{{ Storage::url($item->image) }}" class="img-fluid" alt="Responsive image">
+                                <img src="{{ Storage::url($item->photo) }}" class="img-fluid" alt="Responsive image">
                             </div>
                         </div>
                     </div>
