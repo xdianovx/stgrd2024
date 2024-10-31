@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   const selects = document.querySelectorAll(".select");
 
-  if (window.innerWidth <= 1200) {
+  if (window.innerWidth < 1200) {
     gsap.utils.toArray("[data-speed]").forEach((el) => {
       gsap.to(el, {
         y: function () {
