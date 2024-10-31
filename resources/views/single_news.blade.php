@@ -11,9 +11,9 @@
             </div>
 
 
-          <div class="parallax singlenews-img">
-            <img class="" src="{{ Storage::url($item['image']) }}" alt="{{ $item['title'] }}">
-          </div>
+            <div class="parallax singlenews-img">
+                <img class="" src="{{ Storage::url($item['image']) }}" alt="{{ $item['title'] }}">
+            </div>
 
 
             <div class="container">
@@ -23,7 +23,7 @@
                     {!! $item['content'] !!}
                 </div>
 
-                <x-ui.socials class="singlenews-socials" />
+                {{-- <x-ui.socials class="singlenews-socials" /> --}}
             </div>
         </section>
 
