@@ -6,7 +6,7 @@
 
         <div class="life__wrap-cards">
             @foreach ($item->life_stroygrad_cards->sortBy('id') as $life_stroygrad_card)
-                <div class="life-card" data-scroll data-speed='2'>
+                <div class="life-card" data-scroll data-speed='1.2'>
                     <div class="life-card__image">
                         <img src="{{ Storage::url($life_stroygrad_card->image) }}" alt="">
                     </div>

@@ -18,7 +18,9 @@ export const features = (gsap, lenis) => {
 
     head.addEventListener("click", (e) => {
       const content = item.querySelector(".feature-row__content");
-
+      gsap.set(content, {
+        height: 0,
+      });
       gsap.to(content, {
         height: "auto",
         onComplete: () => {
