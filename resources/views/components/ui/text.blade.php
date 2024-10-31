@@ -2,11 +2,11 @@
 
 @switch($size)
     @case('md')
-        <p {{ $attributes->class(['text md']) }}>{!! $slot !!}</p>
+        <div {{ $attributes->class(['text md']) }}>{!! $slot !!}</div>
     @break
 
     @case('sm')
-        <p {{ $attributes->class(['text sm']) }}>{!! $slot !!}</p>
+        <div {{ $attributes->class(['text sm']) }}>{!! $slot !!}</div>
     @break
 
     @default

@@ -1,16 +1,21 @@
-
 export const squareBtns = (ScrollTrigger) => {
-  const squareBtns = document.querySelectorAll(".square_btn");
+  const missionBtns = document.querySelectorAll(".pin-btn-mission");
 
-  if (squareBtns) {
-    squareBtns.forEach((element) => {
-      ScrollTrigger.create({
-        trigger: element,
-        start: "top 50%",
-        pin: true,
-        scrub: 2,
-        ease: "power3",
-      });
+  missionBtns.forEach((item) => {
+    ScrollTrigger.create({
+      trigger: item,
+      start: "top 54%",
+      pin: true,
+      scrub: 2,
+      ease: "power3",
     });
-  }
-}
+  });
+
+  ScrollTrigger.create({
+    trigger: document.querySelector(".pin-btn-team"),
+    start: "top 26%",
+    pin: true,
+    scrub: 2,
+    ease: "power3",
+  });
+};

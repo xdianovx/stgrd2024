@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   vacancy(gsap);
   lines();
   parallax(gsap);
-  squareBtns(ScrollTrigger);
+  squareBtns(ScrollTrigger, document.querySelector(".directors__left"));
   footer();
   filters(gsap);
   maps(gsap);

@@ -11,7 +11,7 @@
 
             <div class="big-card__info">
                 <h3 class="big-card__title">{!! $projects->first()->title !!}</h3>
-                <p class="big-card__description">{{ $projects->first()->description }}</p>
+                <div class="big-card__description">{!! $projects->first()->description !!}</div>
 
                 <div class="big-card__info_col">
                     <p>{{ $projects->first()->city->title }}</p>
