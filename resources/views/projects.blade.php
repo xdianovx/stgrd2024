@@ -14,7 +14,8 @@
                 <div class="projects-page-catalog__filter">
                     <div class="projects-page-catalog__filter_wrap">
                         <div class="select">
-                            <div class="select-title">
+
+                            <div class="select-title select-city">
                                 <p>{!! $cities->first()['title'] !!}</p>
                                 <svg class="select-arrow" width="19" height="10" viewBox="0 0 19 10" fill="none"
                                     stroke="#1F1F1F" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +33,8 @@
                             </div>
                         </div>
                         <div class="select">
-                            <div class="select-title">
+
+                            <div class="select-title select-status">
                                 <p>{{ $statuses->first()['title'] }}</p>
                                 <svg class="select-arrow" width="19" height="10" viewBox="0 0 19 10" fill="none"
                                     stroke="#1F1F1F" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +52,8 @@
                             </div>
                         </div>
                         <div class="select">
-                            <div class="select-title">
+
+                            <div class="select-title select-price">
                                 <p>от {{ $projects_planning_solutions[0] }} млн. руб.</p>
                                 <svg class="select-arrow" width="19" height="10" viewBox="0 0 19 10" fill="none"
                                     stroke="#1F1F1F" xmlns="http://www.w3.org/2000/svg">
@@ -176,6 +179,10 @@
         const selectStatuses = document.querySelector('.select[data-status]');
         const selectPrices = document.querySelector('.select[data-price]');
 
+        const cities = @json($cities);
+        const statuses = @json($statuses);
+        const projectsPlanningSolutions = @json($projects_planning_solutions);
+
         function getSelectedData(attribute) {
             const selectedItem = document.querySelector('.select-item-' + attribute + '.selected');
             return selectedItem ? selectedItem.getAttribute('data-' + attribute) : null;
@@ -187,22 +194,37 @@
                     e.target.classList.contains('select-item-status') ||
                     e.target.classList.contains('select-item-price')) {
 
-                    document.querySelectorAll('.select-item').forEach(item => item.classList.remove(
-                        'selected'));
+                    document.querySelectorAll('.select-item').forEach(item => item.classList.remove('selected'));
                     e.target.classList.add('selected');
 
                     const citySlug = getSelectedData('city');
                     const statusSlug = getSelectedData('status');
                     const minPrice = getSelectedData('price');
 
-                    const url =
-                        `/projects/filter?city=${citySlug}&status=${statusSlug}&min_price=${minPrice}`;
+                    const url = `/projects/filter?city=${citySlug}&status=${statusSlug}&min_price=${minPrice}`;
 
                     fetch(url)
                         .then(response => response.text())
                         .then(data => {
                             document.querySelector('.projects-page-list').innerHTML = data;
+                            window.scrollTo({
+                                top: document.querySelector('.projects-page-list').offsetTop,
+                                behavior: 'smooth',
+                            });
                         });
+
+                    if (citySlug) {
+                        const city = cities.find(city => city.slug === citySlug);
+                        if (city) document.querySelector('.select-city p').innerHTML = city.title;
+                    }
+                    if (statusSlug) {
+                        const status = statuses.find(status => status.slug === statusSlug);
+                        if (status) document.querySelector('.select-status p').innerHTML = status.title;
+                    }
+                    if (minPrice) {
+                        const price = projectsPlanningSolutions.find(price => price === minPrice);
+                        if (price) document.querySelector('.select-price p').innerHTML = `от ${price} млн. руб.`;
+                    }
                 }
             });
         });

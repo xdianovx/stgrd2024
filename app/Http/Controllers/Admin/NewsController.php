@@ -37,9 +37,9 @@ class NewsController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        if (!array_key_exists('slider', $data)) {
+        //if (!array_key_exists('slider', $data)) {
             $data['slider'] = '0';
-        }
+        //}
         $data['slug'] = Str::slug($data['title'] . '-' . now()->format('d-m-Y'));
         if ($request->hasFile('image')) :
             $data['image'] = $this->loadFile($request, $data,'image');
@@ -61,9 +61,9 @@ class NewsController extends Controller
     {
       $news = News::whereSlug($news_slug)->firstOrFail();
       $data = $request->validated();
-      if (!array_key_exists('slider', $data)) {
+      // if (!array_key_exists('slider', $data)) {
         $data['slider'] = '0';
-    }
+    // }
       $data['slug'] = Str::slug($data['title'] . '-' . now()->format('d-m-Y'));
       if ($request->hasFile('image')) :
           $data['image'] = $this->loadFile($request, $data,'image');

@@ -91,11 +91,11 @@
                     <div class="table-responsive">
                         <table class="table table-borderless mb-0">
                             <tbody>
-                              @if ($item->slider == '1')
+                              {{-- @if ($item->slider == '1')
                               <tr>
                                  <td><i class="ri-checkbox-circle-line align-middle text-success"></i> {{ __('admin.field_slider_on')}}</td>
                               </tr>
-                              @endif
+                              @endif --}}
                                 <tr>
                                     <th class="ps-0" scope="row">Id:</th>
                                     <td class="text-muted">{{ $item->id }}</td>

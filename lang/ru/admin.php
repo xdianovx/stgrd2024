@@ -173,6 +173,7 @@ return [
   'aside_title_advantages' => 'Преимущества',
 
   //Fields
+  'field_photo' => 'Фото',
   'field_home_on' => 'Выбран главным',
   'field_home_off' => 'Не выбран главным',
   'field_home' => 'Выбрать главным?',

@@ -57,7 +57,7 @@
                                         <p class="vacancy-item__expirience">{{ $vacancy->expirience }}</p>
                                         <p class="vacancy-item__salary">{{ $vacancy->salary }}</p>
                                         <div class="vacancy-item__link">
-                                            <x-ui.link href="/vacancy/{{ $vacancy->slug }}">Откликнуться</x-ui.link>
+                                            <a class="link" data-micromodal-trigger="modal-1">Откликнуться</a>
                                         </div>
                                         <div>
                                             <x-ui.plus class="ml-auto" />
