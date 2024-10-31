@@ -38,13 +38,23 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 100rem 40rem;
-}
 
-.people-card {
-  &:nth-child(odd) {
-    margin-top: 462rem;
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 120rem;
+
+    &:nth-of-type(2) {
+      margin-top: 430rem;
+    }
   }
 }
+
+// .people-card {
+//   &:nth-child(odd) {
+//     margin-top: 462rem;
+//   }
+// }
 
 .people-card__image.parallax {
   aspect-ratio: 3/4;
@@ -76,6 +86,16 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 64px 20px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+
+      &:nth-of-type(2) {
+        margin-top: 230px;
+      }
+    }
   }
 
   .people-card {
@@ -112,6 +132,16 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 64px 20px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 120px;
+
+      &:nth-of-type(2) {
+        margin-top: 0;
+      }
+    }
   }
 
   .people-card {

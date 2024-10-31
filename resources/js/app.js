@@ -88,6 +88,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   const selects = document.querySelectorAll(".select");
 
+  gsap.utils.toArray("[data-speed]").forEach((el) => {
+    gsap.to(el, {
+      y: function () {
+        return (
+          (1 - parseFloat(el.getAttribute("data-speed"))) *
+          (ScrollTrigger.maxScroll(window) -
+            (this.scrollTrigger ? this.scrollTrigger.start : 0))
+        );
+      },
+      ease: "none",
+      scrollTrigger: {
+        trigger: el,
+        start: "top center",
+        end: "max",
+        invalidateOnRefresh: true,
+        scrub: true,
+      },
+    });
+  });
+
   if (selects) {
     selects.forEach((select) => {
       const head = select.querySelector(".select-title");
