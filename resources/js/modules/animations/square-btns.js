@@ -4,7 +4,7 @@ export const squareBtns = (ScrollTrigger) => {
   missionBtns.forEach((item) => {
     ScrollTrigger.create({
       trigger: item,
-      start: "top 54%",
+      start: "top 72%",
       pin: true,
       scrub: 2,
       ease: "power3",
