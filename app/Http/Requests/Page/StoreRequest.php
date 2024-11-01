@@ -26,8 +26,8 @@ class StoreRequest extends FormRequest
             'description'  => ['nullable'],
             'text_right'  => ['nullable'],
             'text_left'  => ['nullable'],
-            'video_preview' => 'required|file|max:200000|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg',
-            'video_in_player' => 'required|file|max:200000|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg',
+            'video_preview' => 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,video/webm| max:200000',
+            'video_in_player' => 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,video/webm| max:200000',
         ];
     }
 

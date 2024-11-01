@@ -42,7 +42,7 @@ class StoreRequest extends FormRequest
             'title' => ['required', 'max:70'],
             'position'  => ['required', 'max:140'],
             'photo' => ['required', 'image', 'max:200000', 'mimes:jpeg,png,jpg,gif,svg'],
-            'video' => 'required|file|max:200000|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg',
+            'video' => 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,video/webm| max:200000',
         ];
     }
 }

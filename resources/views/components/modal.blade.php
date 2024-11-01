@@ -20,15 +20,16 @@
 
 
             <main class="modal__content" id="modal-1-content">
-                <form action="" class="modal__form">
+                <form action="{{ route('request_consultation_section') }}" method="post" class="modal__form">
+                    @csrf
                     <div class="form-input">
-                        <input required="required" name="email" type="text" id="email">
-                        <label for="email">Имя</label>
+                        <input required="required" name="name" type="text" id="name">
+                        <label for="name">Имя</label>
                     </div>
 
                     <div class="form-input">
-                        <input required="required" name="email" type="tel" id="email">
-                        <label for="email">Телефон</label>
+                        <input required="required" name="phone" type="tel" id="phone">
+                        <label for="phone">Телефон</label>
                     </div>
                     <button class="modal__btn" type="submit">Отправить</button>
                 </form>
@@ -37,3 +38,5 @@
         </div>
     </div>
 </div>
+
+

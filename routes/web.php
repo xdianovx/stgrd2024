@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\VacancyController;
+use App\Http\Controllers\Front\RequestsController;
 use App\Http\Controllers\Front\WelcomePageController;
 use App\Http\Controllers\Front\AboutPageController;
 use App\Http\Controllers\Front\ContactPageController;
@@ -73,8 +74,10 @@ Route::get('/vacancy/{citySlug}', [VacancyPageController::class, 'filterByCity']
 
 Route::get('/contacts',  [ContactPageController::class, 'index'])->name('contacts');
 
-
-
+Route::post('/request_vacancy_section', [RequestsController::class, 'request_vacancy_section'])->name('request_vacancy_section');
+Route::post('/request_consultation_vacancy_section', [RequestsController::class, 'request_consultation_vacancy_section'])->name('request_consultation_vacancy_section');
+Route::post('/request_cooperation_section', [RequestsController::class, 'request_cooperation_section'])->name('request_cooperation_section');
+Route::post('/request_consultation_section', [RequestsController::class, 'request_consultation_section'])->name('request_consultation_section');
 
 
 

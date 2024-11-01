@@ -107,7 +107,8 @@
 
             <p class="cooperate__subtitle">Мы за прочные и взаимовыгодные отношения</p>
 
-            <form action="" class="cooperate-form">
+            <form action="{{ route('request_cooperation_section') }}" method="post" class="cooperate-form">
+              @csrf
               <x-ui.input required label="Компания" id="company" name="company" type="text"/>
               <x-ui.input required label="Контактное лицо" id="user" name="user" type="text"/>
               <x-ui.input required label="Телефон" id="phone" name="phone" type="text"/>

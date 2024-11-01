@@ -26,11 +26,9 @@ class UpdateRequest extends FormRequest
             'title.max' => 'Поле Название должно содержать не более :max символов',
             'position.required' => 'Поле Позиция должно быть заполнено',
             'position.max' => 'Поле Позиция должно содержать не более :max символов',
-            'photo.required' => 'Поле Изображение должно быть заполнено',
             'photo.image' => 'Поле Фото должно быть изображением',
             'photo.max' => 'Поле Фото должно быть не более 200 Мбайт',
             'photo.mimes' => 'Поле Фото должно быть одного из следующих типов: :values',
-            'video.required' => 'Поле Видео должно быть заполнено',
             'video.file' => 'Поле Видео должно быть файлом',
             'video.max' => 'Поле Видео должно быть не более 200 Мбайт',
             'video.mimes' => 'Поле Видео должно быть одного из следующих типов: :values',
@@ -41,8 +39,8 @@ class UpdateRequest extends FormRequest
         return [
             'title' => ['required', 'max:70'],
             'position'  => ['required', 'max:140'],
-            'photo' => ['required', 'image', 'max:200000', 'mimes:jpeg,png,jpg,gif,svg'],
-            'video' => 'required|file|max:200000|mimes:jpeg,png,jpg,gif,svg,mp4,mov,ogg',
+            'photo' => ['nullable', 'image', 'max:200000', 'mimes:jpeg,png,jpg,gif,svg'],
+            'video' => 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,video/webm| max:200000',
         ];
     }
 }

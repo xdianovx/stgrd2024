@@ -81,19 +81,13 @@ class ReviewController extends Controller
   }
   protected function loadFile(Request $request, $data, $key)
   {
-
-    // Имя и расширение файла
-    $filenameWithExt = $request->file($key)->getClientOriginalName();
-    // Только оригинальное имя файла
-    $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-    $filename = str_replace(' ', '_', $filename);
-    // Расширение
-    $extention = $request->file($key)->getClientOriginalExtension();
-    // Путь для сохранения
-    $fileNameToStore = "$key/" . $filename . "_" . time() . "." . $extention;
-    // Сохраняем файл
-    $data = $request->file($key)->storeAs('public', $fileNameToStore);
-    return $data;
+      $filenameWithExt = $request->file($key)->getClientOriginalName();
+      $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+      $filename = str_replace(' ', '_', $filename);
+      $extention = $request->file($key)->getClientOriginalExtension();
+      $fileNameToStore = $key . "/" . $filename . "_" . time() . "." . $extention;
+      $data = $request->file($key)->storeAs('public', $fileNameToStore);
+      return $data;
   }
 
 }
