@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>СТРОЙГРАД</title>
+    <title>СТРОЙГРАД Административная панель</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
     <link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.ico') }}">
