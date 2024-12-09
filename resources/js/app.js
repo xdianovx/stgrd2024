@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
   const lenis = new Lenis({
     duration: 1.5,
+    autoResize: true,
   });
 
   MicroModal.init({

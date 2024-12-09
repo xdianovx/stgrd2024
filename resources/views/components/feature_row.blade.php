@@ -1,6 +1,7 @@
 <div class="feature-row">
     <div class="container">
         <div class="feature-row__wrap">
+
             <div class="feature-row__top">
                 <div class="feature-row__num">{{ $num }}</div>
                 <div class="feature-row__right">

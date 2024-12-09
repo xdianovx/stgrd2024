@@ -1,35 +1,43 @@
-export const features = (gsap, lenis) => {
-  const items = document.querySelectorAll(".feature-row");
+export const features = (gsap, lenis, ScrollTrigger) => {
+  const items = gsap.utils.toArray(".feature-row");
   if (!items) return;
 
-  // const closeOthers = (id) => {
-  //   items.forEach((item, idx) => {
-  //     if (id !== idx) {
-  //       const content = item.querySelector(".feature-row__content");
-  //       gsap.to(content, {
-  //         height: 0,
-  //       });
-  //     }
-  //   });
-  // };
+  let groups = gsap.utils.toArray(".feature-row");
+  let menus = gsap.utils.toArray(".feature-row__top");
+  let menuToggles = groups.map(createAnimation);
 
-  items.forEach((item, idx) => {
-    const head = item.querySelector(".feature-row__top");
-
-    head.addEventListener("click", (e) => {
-      const content = item.querySelector(".feature-row__content");
-      gsap.set(content, {
-        height: 0,
-      });
-      gsap.to(content, {
-        height: "auto",
-        onComplete: () => {
-          console.log(1);
-          // lenis
-        },
-      });
-
-      // closeOthers(idx);
-    });
+  menus.forEach((menu) => {
+    menu.addEventListener("click", () => toggleMenu(menu));
   });
+
+  function toggleMenu(clickedMenu) {
+    menuToggles.forEach((toggleFn) => {
+      ScrollTrigger.refresh();
+
+      toggleFn(clickedMenu);
+    });
+  }
+
+  function createAnimation(element) {
+    let menu = element.querySelector(".feature-row__top");
+    let box = element.querySelector(".feature-row__content");
+
+    gsap.set(box, { height: "auto" });
+
+    let animation = gsap
+      .from(box, {
+        height: 0,
+        duration: 0.2,
+        ease: "power1.inOut",
+      })
+      .reverse();
+
+    return function (clickedMenu) {
+      if (clickedMenu === menu) {
+        animation.reversed(!animation.reversed());
+      } else {
+        animation.reverse();
+      }
+    };
+  }
 };
