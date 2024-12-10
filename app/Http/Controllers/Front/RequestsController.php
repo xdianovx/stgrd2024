@@ -26,20 +26,27 @@ class RequestsController extends Controller
       dispatch(new RequestVacancyMailSendJob($details));
       return response()->json(['success' => true]);
     } catch (\Exception $e) {
-      return response()->json(['success' => false]);
+      return response()->json(['success' => false, 'error' => $e->getMessage()]);
     }
   }
   public function request_consultation_vacancy_section(Request $request)
   {
-
+    $details = [
+      'name' => $request->all()['name'],
+      'email' => $request->all()['email'],
+    ];
+    try {
+      dispatch(new RequestConsultationVacancyMailSendJob($details));
       return response()->json(['success' => true]);
-
+    } catch (\Exception $e) {
+      return response()->json(['success' => false, 'error' => $e->getMessage()]);
+    }
   }
   public function request_cooperation_section(Request $request)
   {
     $details = [
       'company' => $request->all()['company'],
-      'name' => $request->all()['name'],
+      'user' => $request->all()['user'],
       'phone' => $request->all()['phone'],
       'email' => $request->all()['email'],
     ];
@@ -47,7 +54,7 @@ class RequestsController extends Controller
       dispatch(new RequestCooperationMailSendJob($details));
       return response()->json(['success' => true]);
     } catch (\Exception $e) {
-      return response()->json(['success' => false]);
+      return response()->json(['success' => false, 'error' => $e->getMessage()]);
     }
   }
   public function request_consultation_section(Request $request)
@@ -60,10 +67,11 @@ class RequestsController extends Controller
       dispatch(new RequestConsultationMailSendJob($details));
       return response()->json(['success' => true]);
     } catch (\Exception $e) {
-      return response()->json(['success' => false]);
+      return response()->json(['success' => false, 'error' => $e->getMessage()]);
     }
 
   }
+
   public function request_mailing_section(Request $request)
   {
     $details = [
@@ -74,7 +82,7 @@ class RequestsController extends Controller
       dispatch(new RequestMailingMailSendJob($details));
       return response()->json(['success' => true]);
     } catch (\Exception $e) {
-      return response()->json(['success' => false]);
+      return response()->json(['success' => false, 'error' => $e->getMessage()]);
     }
 
   }
