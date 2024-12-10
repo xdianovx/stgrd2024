@@ -59,12 +59,12 @@ Route::get('/projects/filter', [ProjectPageController::class, 'filter'])->name('
 
 
 Route::get('/news',  [NewsPageController::class, 'index'])->name('news');
+Route::get('/news/load-more', [NewsPageController::class, 'loadMore'])->name('news.loadMore');
 Route::get('/news/{news_slug}', [NewsPageController::class, 'show'])->name('news.show');
-Route::post('/news/load-more', [NewsPageController::class, 'loadMore'])->name('news.loadMore');
 
 Route::get('/promotions',  [PromotionPageController::class, 'index'])->name('promotions');
+Route::get('/promotions/load-more', [PromotionPageController::class, 'loadMore'])->name('promotions.loadMore');
 Route::get('/promotions/{promotion_slug}', [PromotionPageController::class, 'show'])->name('promotions.show');
-Route::post('/promotions/load-more', [PromotionPageController::class, 'loadMore'])->name('promotions.loadMore');
 
 
 Route::get('/team', [TeamPageController::class, 'index'])->name('team');

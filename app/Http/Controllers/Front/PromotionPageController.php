@@ -12,24 +12,25 @@ class PromotionPageController extends Controller
     public function index()
     {
         $page = Page::whereId(5)->firstOrFail();
-        $promotions = Promotion::orderBy('id', 'DESC')->paginate(10);
+        $promotions = Promotion::orderBy('id', 'DESC')->paginate(12);
         $sliderPromotions = Promotion::where('slider', '1')->orderBy('id', 'DESC')->limit(3)->get();
+        $pageCount = $promotions->lastPage();
+        $currentPage = $promotions->currentPage();
         return view('promotions', compact(
             'page',
             'promotions',
-            'sliderPromotions'
+            'sliderPromotions',
+            'pageCount',
+            'currentPage'
         ));
     }
-
-
     public function loadMore(Request $request)
     {
-        $page = Page::whereId(4)->firstOrFail();
-        $promotions = Promotion::orderBy('id', 'DESC')->offset($request->input('offset'))->limit(10)->get();
-        return view('partials.promotions-list', compact(
-            'page',
-            'promotions'
-        ))->render();
+      $promotions = Promotion::latest()->paginate(6, ['*'], 'page', $request->page);
+      $pageCount = $promotions->lastPage();
+      $currentPage = $promotions->currentPage();
+
+      return view('partials.promotions-list', compact('promotions', 'pageCount', 'currentPage'));
     }
 
     public function show($promotion_slug)

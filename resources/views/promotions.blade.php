@@ -71,20 +71,45 @@
                 </ul>
             @endif
             <div class="container">
-                <div class="news-cards --second">
+                <div class="news-cards --second" id="promotionsCatalog">
                     @foreach ($promotions as $item)
                         @if ($loop->index > 6)
-                            <x-news_card :slug="$item['slug']" :title="$item['title']" :description="$item['description']" :created_at="$item['created_at']" />
+                            <x-news_card :slug="'/promotions/' . $item['slug']" :title="$item['title']" :description="$item['description']" :created_at="$item['created_at']" />
                         @endif
                     @endforeach
                 </div>
 
                 <div class="news-cards__loadmore">
-                    <x-ui.showmore-btn class="showmore">Ещё новости</x-ui.showmore-btn>
+                  @if ($pageCount > 1)
+                    <x-ui.showmore-btn class="showmore" id="show-more-promotions">Ещё акции</x-ui.showmore-btn>
+                  @endif
                 </div>
             </div>
         </section>
+        @if ($pageCount > 1)
+        <script>
+            let pageCount = Number("{{ $pageCount }}");
+            let currentPage = Number("{{ $currentPage }}");
 
+            document.getElementById('show-more-promotions').addEventListener('click', function(event) {
+                event.preventDefault();
+                currentPage = currentPage + 1;
+                const url = "{{ route('promotions.loadMore') }}?page=" + currentPage;
+
+                if (currentPage == pageCount) {
+                    document.getElementById('show-more-promotions').style.display = 'none';
+                } else {
+                    document.getElementById('show-more-promotions').style.display = 'block';
+                }
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('promotionsCatalog').innerHTML += data;
+
+                    });
+            });
+        </script>
+    @endif
         <x-subscribe />
 
         <section class="spacer"></section>
