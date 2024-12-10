@@ -9,9 +9,10 @@
                     Подпишитесь на рассылку, что-бы получать на почту актуальные новости и акции от компании!
                 </h2>
 
-                <form action="" class="subscribe-form">
-                    <x-ui.input label='Имя' id="name" type="text" required />
-                    <x-ui.input label='Email' id="email" type="text" required />
+                <form action="{{ route('request_mailing_section') }}" method="post" class="subscribe-form">
+                    @csrf
+                    <x-ui.input label='Имя' id="name" type="text" name="name" required />
+                    <x-ui.input label='Email' id="email" type="text" name="email" required />
 
                     <div class="subscribe-form__bottom">
                         <p>Оставляя заявку, вы даете согласие на обработку персональных данных.</p>
