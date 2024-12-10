@@ -31,16 +31,9 @@ class RequestsController extends Controller
   }
   public function request_consultation_vacancy_section(Request $request)
   {
-    $details = [
-      'name' => $request->all()['name'],
-      'email' => $request->all()['email'],
-    ];
-    try {
-      dispatch(new RequestConsultationVacancyMailSendJob($details));
+
       return response()->json(['success' => true]);
-    } catch (\Exception $e) {
-      return response()->json(['success' => false]);
-    }
+
   }
   public function request_cooperation_section(Request $request)
   {

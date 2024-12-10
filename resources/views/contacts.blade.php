@@ -107,10 +107,10 @@
 
             <p class="cooperate__subtitle">Мы за прочные и взаимовыгодные отношения</p>
 
-            <form action="{{ route('request_cooperation_section') }}" method="post" class="cooperate-form">
+            <form id="cooperation-form" action="{{ route('request_cooperation_section') }}" method="post" class="cooperate-form">
               @csrf
               <x-ui.input required label="Компания" id="company" name="company" type="text"/>
-              <x-ui.input required label="Контактное лицо" id="user" name="user" type="text"/>
+              <x-ui.input required label="Контактное лицо" id="user" name="name" type="text"/>
               <x-ui.input required label="Телефон" id="phone" name="phone" type="text"/>
               <x-ui.input required label="Email" id="email" name="email" type="text"/>
 
@@ -129,8 +129,30 @@
         </div>
       </div>
     </section>
-
+    <script>
+      document.querySelector('#cooperation-form').addEventListener('submit', function (e) {
+          e.preventDefault();
+          fetch(this.action, {
+              method: this.method,
+              headers: {
+                  'X-CSRF-Token': document.querySelector('[name="_token"]').value
+              },
+              body: new FormData(this)
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  MicroModal.show('modal-success');
+              } else {
+                  MicroModal.show('modal-error');
+              }
+          })
+          .catch(error => console.error(error));
+      });
+    </script>
 
     <section class="spacer"></section>
+
   </main>
+
 @endsection

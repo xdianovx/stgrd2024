@@ -9,7 +9,7 @@
                     Подпишитесь на рассылку, что-бы получать на почту актуальные новости и акции от компании!
                 </h2>
 
-                <form action="{{ route('request_mailing_section') }}" method="post" class="subscribe-form">
+                <form id="mailing-form" action="{{ route('request_mailing_section') }}" method="post" class="subscribe-form">
                     @csrf
                     <x-ui.input label='Имя' id="name" type="text" name="name" required />
                     <x-ui.input label='Email' id="email" type="text" name="email" required />
@@ -28,3 +28,24 @@
         </div>
     </div>
 </section>
+<script>
+  document.querySelector('#mailing-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      fetch(this.action, {
+          method: this.method,
+          headers: {
+              'X-CSRF-Token': document.querySelector('[name="_token"]').value
+          },
+          body: new FormData(this)
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              MicroModal.show('modal-success');
+          } else {
+              MicroModal.show('modal-error');
+          }
+      })
+      .catch(error => console.error(error));
+  });
+</script>

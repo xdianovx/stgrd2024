@@ -169,7 +169,7 @@
 
                                     <div class="team-reviews__item_video">
                                         <video>
-                                            <source src="{{ asset('video/2.mp4') }}" type="video/mp4">
+                                            <source src="{{ URL::to('/') . Storage::url($item['video']) }}" type="video/mp4">
                                         </video>
                                     </div>
                                 </div>

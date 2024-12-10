@@ -36,6 +36,7 @@ class ReviewController extends Controller
       $data['photo'] = $this->loadFile($request, $data, 'photo');
     endif;
     if ($request->hasFile('video')) :
+      dd($request->file('video'));
       $data['video'] = $this->loadFile($request, $data, 'video');
     endif;
     $block = Block::whereSlug($block_slug)->firstOrFail();
