@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
   public function run(): void
   {
     User::create([
-      'name' => 'Admin',
-      'email' => 'admin@admin.com',
-      'password' => 'password',
+      'name' => 'Администратор',
+      'email' => 'danilfomin8898@gmail.com',
+      'password' => 'STROYgrad8898',
     ]);
 
     Block::truncate();
