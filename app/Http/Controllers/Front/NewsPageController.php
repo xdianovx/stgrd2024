@@ -14,7 +14,7 @@ class NewsPageController extends Controller
     public function index()
     {
         $page = Page::whereId(4)->firstOrFail();
-        $news = News::orderBy('id', 'DESC')->paginate(12);
+        $news = News::orderBy('id', 'DESC')->paginate(6);
         $sliderNews = News::where('slider', '1')->orderBy('id', 'DESC')->limit(3)->get();
         $pageCount = $news->lastPage();
         $currentPage = $news->currentPage();

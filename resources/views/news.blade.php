@@ -28,22 +28,9 @@
             </div>
 
             <div class="container">
-                <div class="news-cards">
+                <div class="news-cards" id="newsCatalog">
                     @foreach ($news as $item)
-                        @if ($loop->index < 6)
-                            <x-news_card :slug="'/news/' . $item['slug']" :title="$item['title']" :description="$item['cart_content']" :created_at="$item['created_at']" />
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-
-
-            <div class="container">
-                <div class="news-cards --second" id="newsCatalog">
-                    @foreach ($news as $item)
-                        @if ($loop->index > 6)
                             <x-news_card :slug="'/news/' . $item['slug']" :title="$item['title']" :description="$item['description']" :created_at="$item['created_at']" />
-                        @endif
                     @endforeach
                 </div>
                 @if ($pageCount > 1)
