@@ -43,11 +43,9 @@
 </head>
 <body>
     <div class="card">
-      <h1>Запрос на сотрудничество</h1>
-      <p>Название компании: {{ $details['company'] }}</p>
-      <p>Имя: {{ $details['name'] }}</p>
-      <p>Телефон: {{ $details['phone'] }}</p>
-      <p>Email: {{ $details['email'] }}</p>
+        <h1>Новый запрос на рассылку</h1>
+        <p>Имя: {{ $details['name'] }}</p>
+        <p>Email: {{ $details['email'] }}</p>
     </div>
 </body>
 </html>

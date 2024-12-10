@@ -78,8 +78,7 @@ Route::post('/request_vacancy_section', [RequestsController::class, 'request_vac
 Route::post('/request_consultation_vacancy_section', [RequestsController::class, 'request_consultation_vacancy_section'])->name('request_consultation_vacancy_section');
 Route::post('/request_cooperation_section', [RequestsController::class, 'request_cooperation_section'])->name('request_cooperation_section');
 Route::post('/request_consultation_section', [RequestsController::class, 'request_consultation_section'])->name('request_consultation_section');
-
-
+Route::post('/request_mailing_section', [RequestsController::class, 'request_mailing_section'])->name('request_mailing_section');
 
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
@@ -244,6 +243,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::patch('/{news_slug}', [NewsController::class, 'update'])->name('update');
     Route::delete('/{news_slug}', [NewsController::class, 'destroy'])->name('destroy');
   });
+
 });
 Route::get('/register', function () {
   return redirect('/login');

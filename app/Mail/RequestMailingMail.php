@@ -3,13 +3,11 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RequestCooperationMail extends Mailable
+class RequestMailingMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -37,11 +35,9 @@ class RequestCooperationMail extends Mailable
      */
     public function build(): self
     {
-        return $this->view('emails.request_cooperation_email')
+        return $this->view('emails.request_mailing_email')
             ->with([
-                'company' => $this->details['company'],
                 'name' => $this->details['name'],
-                'phone' => $this->details['phone'],
                 'email' => $this->details['email']
             ]);
     }
